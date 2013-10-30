@@ -42,15 +42,13 @@ function generate_name ($name, $grill) {
         $catshit = hash_file('crc32b', $files["tmp_name"][$i]);
         $newname = generate_name($files["name"][$i], $catshit);
         //Generate delid
-		$delid = sha1_file($files["tmp_name"][$i]);
+	$delid = sha1($files["tmp_name"][$i]);
         //Try to upload and other shit
         if ($newname && $files["error"][$i] == 0 && move_uploaded_file($files["tmp_name"][$i], $static_root.$newname)) {
-		//Get hash from file
-		$hash = sha1_file($static_root.$newname);
 		//Insert info into DB
 		$con = new PDO('mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=XXX', 'XXX', 'XXX');
 		$do = $con->prepare("INSERT INTO files (hash, orginalname, filename, size, date, expire, delid) VALUES (:hash, :orginname, :filename, :size, :date, :expire, :delid)");
-		$do->bindParam(':hash', $hash);
+		$do->bindParam(':hash', $filehash);
 		$do->bindParam(':orginname', $files["name"][$i]);
 		$do->bindParam(':filename', $newname);
 		$do->bindParam(':size', $files["size"][$i]);
