@@ -32,7 +32,6 @@ function generate_name ($name, $grill) {
 		$do->bindParam(':hash', $filehash);
 		$do->execute();
 		$result = $do->fetch();
-		$con = null;
         if($result[0]==$filehash){
         	    $out["files"][] = array(
                         "name" => $files["name"][$i],
@@ -46,7 +45,6 @@ function generate_name ($name, $grill) {
         //Try to upload and other shit
         if ($newname && $files["error"][$i] == 0 && move_uploaded_file($files["tmp_name"][$i], $static_root.$newname)) {
 		//Insert info into DB
-		$con = new PDO('mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=XXX', 'XXX', 'XXX');
 		$do = $con->prepare("INSERT INTO files (hash, orginalname, filename, size, date, expire, delid) VALUES (:hash, :orginname, :filename, :size, :date, :expire, :delid)");
 		$do->bindParam(':hash', $filehash);
 		$do->bindParam(':orginname', $files["name"][$i]);
@@ -56,7 +54,6 @@ function generate_name ($name, $grill) {
 		$do->bindParam(':expire', $expire);
 		$do->bindParam(':delid', $delid);
 		$do->execute();
-		$con = null;
                 $out["files"][] = array(
                         "name" => $files["name"][$i],
                         "url" => $newname
@@ -70,6 +67,7 @@ function generate_name ($name, $grill) {
         	}
 		}
 	}	
+                $con = null;
 		exit(json_encode($out, JSON_PRETTY_PRINT));
 }
 

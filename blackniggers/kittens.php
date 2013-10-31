@@ -25,7 +25,6 @@ if(isset($_FILES['imagedata']['name']))
 		$do->bindParam(':hash', $filehash);
 		$do->execute();
 		$result = $do->fetch();
-		$con = null;
         if($result[0]==$filehash){
         	echo 'http://a.pomf.se/' . $result[1];
         }else{
@@ -33,7 +32,6 @@ if(isset($_FILES['imagedata']['name']))
         $newName = generate_name($_FILES['imagedata']['name'], $catshit);
         $delid = sha1($_FILES['imagedata']['tmp_name']);
 		//Insert info into DB
-		$con = new PDO('mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=XXX', 'XXX', 'XXX');
 		$do = $con->prepare("INSERT INTO files (hash, orginalname, filename, size, date, expire, delid) VALUES (:hash, :orginname, :filename, :size, :date, :expire, :delid)");
 		$do->bindParam(':hash', $filehash);
 		$do->bindParam(':orginname', $_FILES['imagedata']['name']);
@@ -43,10 +41,10 @@ if(isset($_FILES['imagedata']['name']))
 		$do->bindParam(':expire', $expire);
 		$do->bindParam(':delid', $delid);
 		$do->execute();
-		$con = null;
 $hurr = '/mnt/disk1/pomf/files/' . $newName;
 move_uploaded_file($_FILES['imagedata']['tmp_name'], $hurr);
 echo 'http://a.pomf.se/' . $newName;
 }
+$con = null;
 }
 ?>
