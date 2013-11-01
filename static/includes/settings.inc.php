@@ -3,7 +3,7 @@
  * PDO Connection data
  */
 // PDO socket
-define('POMF_DB_CONN', 'mysql:host=localhost;dbname=pomf');
+define('POMF_DB_CONN', 'mysql:host=127.0.0.1;dbname=pomf');
 // PDO user
 define('POMF_DB_USER', 'pomf');
 // PDO password
