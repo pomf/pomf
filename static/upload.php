@@ -56,7 +56,12 @@ function upload_file ($file) {
 	// the previous data.
 	if ($result['hash'] === $file->get_sha1()) {
 		unlink($file->tempfile);
-		return $result;
+		return array(
+			'hash' => $result['hash'],
+			'name' => $file->name,
+			'url' => $result['filename'],
+			'size' => $result['size']
+		);
 	} else {
 		// Generate a name for the file
 		$newname = generate_name($file);
