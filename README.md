@@ -12,7 +12,7 @@ The assets are minified and combined using [Grunt](http://gruntjs.com/).
 Assuming you already have Node and NPM working, compilation is easy:
 ```
 $ npm install -g grunt-cli
-$ git clone -b nuck-dev https://github.com/nokonoko/Pomf.git
+$ git clone https://github.com/nokonoko/Pomf.git
 $ cd Pomf
 $ npm install
 $ grunt
