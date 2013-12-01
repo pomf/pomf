@@ -111,7 +111,7 @@ function refiles ($files) {
 		$file->tempfile = $files['tmp_name'][$i];
 		$file->error = $files['error'][$i];
 		$file->size = $files['size'][$i];
-		$out[] = &$file;
+		$out[] = $file;
 	}
 	return $out;
 }
