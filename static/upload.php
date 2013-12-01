@@ -173,7 +173,9 @@ function respond ($code, $files = null) {
 		$files = $code;
 	}
 
-	switch ($_GET['output']) {
+	$format = array_key_exists('output', $_GET) ? $_GET['output'] : 'json';
+
+	switch ($format) {
 		case 'gyazo':
 			respond_gyazo($code, $files);
 			break;
@@ -181,8 +183,8 @@ function respond ($code, $files = null) {
 			respond_csv($code, $files);
 			break;
 		case 'json':
-		default:
 			respond_json($code, $files);
+			break;
 	}
 }
 
