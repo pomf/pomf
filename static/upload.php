@@ -116,32 +116,73 @@ function refiles ($files) {
 	return $out;
 }
 
+/**
+ * Give a response that gyazo understands
+ */
+function respond_gyazo ($code, $files) {
+	if ($files instanceof Exception) {
+		echo "ERROR: " . $files->getMessage();
+	} else {
+		echo 'http://a.pomf.se/' . $files[0]['url'];
+	}
+}
+
+/**
+ * Responds to a request in CSV form.
+ */
+function respond_csv ($code, $files) {
+	if ($files instanceof Exception) {
+		echo "error\n";
+		echo $files->getMessage() . "\n";
+	} else {
+		echo "name,url,hash,size\n";
+		foreach ($files as $file) {
+			echo "${file['name']},${file['url']},${file['hash']},${file['size']}\n";
+		}
+	}
+}
 
 /**
  * Responds to a request in JSON form.
  */
-function respond ($code, $res = null) {
-	if (is_int($code)) { // If the code is an integer, we assume it's a response code
-		http_response_code($code);
-	} else { // Otherwise we just assume you left off the code and use the default and shift
-		http_response_code(200);
-		$res = $code;
-	}
-
+function respond_json ($code, $files) {
 	// Now we send the response based on the type
-	if ($res instanceof Exception) {
+	if ($files instanceof Exception) {
 		// If it's an Exception, we put the message in the error field
 		echo json_encode(array(
 			'success' => false,
-			'error' => $res->getMessage()
+			'error' => $files->getMessage()
 		));
-	} elseif (is_array($res)) {
-		// If it's an Array, we merge it with 'success' => true.
-		// Note that $res is later in the list, so you can override that.
-		echo json_encode(array_merge(array(
+	} elseif (is_array($files)) {
+		echo json_encode(array(
 			'success' => true,
-			'error' => null
-		), $res));
+			'error' => null,
+			'files' => $files
+		));
+	}
+}
+
+/**
+ * Determines the proper response function based on $_GET['output]
+ */
+function respond ($code, $files = null) {
+	if (is_int($code)) { // If the code is an integer, we assume it's a response code
+		http_response_code($code);
+	} else { // Otherwise we just use the default and shift
+		http_response_code(200);
+		$files = $code;
+	}
+
+	switch ($_GET['output']) {
+		case 'gyazo':
+			respond_gyazo($code, $files);
+			break;
+		case 'csv':
+			respond_csv($code, $files);
+			break;
+		case 'json':
+		default:
+			respond_json($code, $files);
 	}
 }
 
@@ -151,9 +192,7 @@ if (isset($_FILES['files'])) {
 		foreach ($uploads as $upload) {
 			$out[] = upload_file($upload);
 		}
-		respond(array(
-			'files' => $out
-		));
+		respond($out);
 	} catch (Exception $e) {
 		respond(500, $e);
 	}
