@@ -3,11 +3,12 @@ include_once 'classes/UploadedFile.class.php';
 include_once 'includes/settings.inc.php';
 include_once 'includes/database.inc.php';
 
+
 /**
  * Generates a name for the file, retrying until we get an unused one 
  *
  * @param UploadedFile $file
- * @returns string
+ * @return string
  */
 function generate_name ($file) {
 	// We start at N retries, and --N until we give up
@@ -33,11 +34,12 @@ function generate_name ($file) {
 	return $newname;
 }
 
+
 /**
  * Handles the uploading and db entry for a file
  *
  * @param UploadedFile $file
- * @returns array
+ * @return array
  */
 function upload_file ($file) {
 	global $db;
@@ -92,6 +94,7 @@ function upload_file ($file) {
 	}
 }
 
+
 /**
  * Reorganize the $_FILES array into something saner
  *
@@ -112,6 +115,7 @@ function refiles ($files) {
 	}
 	return $out;
 }
+
 
 /**
  * Responds to a request in JSON form.
