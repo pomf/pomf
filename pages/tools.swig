@@ -39,7 +39,7 @@
 <section><h1>Gyazo Client</h1><dl>
 	<dt>Download</dt>
 		<dd>https://github.com/Availu/gyazowin</dd>
-		<dd>http://availu.net/files/uploader-pomf.exe</dd>
+		<dd>http://files.getrektby.us/uploader-pomf.exe</dd>
 	<dt>Contact</dt>
 		<dd>https://twitter.com/AVAILUUUUUUUU</dd>
 </dl></section>
