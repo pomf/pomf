@@ -28,15 +28,8 @@ function generate_name ($file) {
 		$newname .= $hashchunk;                          // + first 3 of crc32b checksum
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		
-		// To add a dot or not after a file which has no extension, ghetto style naturally!
-                $ass = pathinfo($file->name, PATHINFO_FILENAME);
-                $pos = strrpos($ass, '.');
-                if ($pos === false) {
-                // Nothing
-                }else{
-                $newname .= '.' . $ext;
-                }
-
+		// To add a dot or not after a file which has no extension
+		if ($ext != '') $newname .= '.' . $ext;
 
 	} while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
 
