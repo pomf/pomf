@@ -14,7 +14,7 @@ function generate_name ($file) {
 	// We start at N retries, and --N until we give up
 	$tries = POMF_FILES_RETRIES;
 	// We rip out the extension using pathinfo
-	// TODO: figure out a solution for .tar.gz and similar files?
+	// TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed!
 	$ext = pathinfo($file->name, PATHINFO_EXTENSION);
 	// Take the first 3 chars of the CRC32 checksum
 	$hashchunk = substr($file->get_crc32(), 0, 3);
@@ -27,7 +27,13 @@ function generate_name ($file) {
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		$newname .= $hashchunk;                          // + first 3 of crc32b checksum
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= '.' . $ext;                          // + '.' + extension
+                $ass = pathinfo($file->name, PATHINFO_FILENAME);
+                $pos = strpos($ass, '.');
+                if ($pos == false) {
+                // Nothing
+                }else{
+                $newname .= '.' . $ext;
+                }
 
 	} while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
 
