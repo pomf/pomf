@@ -3,6 +3,7 @@
  * PDO Connection data
  */
 // PDO socket
+#Or using socket would be even faster then 127.0.0.1 :3
 define('POMF_DB_CONN', 'mysql:host=127.0.0.1;dbname=pomf');
 // PDO user
 define('POMF_DB_USER', 'pomf');
