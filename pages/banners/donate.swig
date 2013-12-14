@@ -5,7 +5,7 @@
 			<span class="icon icon-paypal"></span>
 			PayPal
 		</a>
-		<a class="donate-btn donate-bitcoin" href="bitcoin:1Hb5Xnn5vEJaH1atkJvzqFJq2DK3MAENWD?label=pomf.se&amp;message=Hosting%20Bills" target="_BLANK">
+		<a class="donate-btn donate-bitcoin" href="bitcoin:1CrbCGSTFM5ccmjFoU4jRSQod44Ttu8nHY?label=pomf.se&amp;message=Hosting%20Bills" target="_BLANK">
 			<span class="icon icon-bitcoin"></span>
 			Bitcoin
 		</a>
