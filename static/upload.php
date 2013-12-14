@@ -16,17 +16,17 @@ function generate_name ($file) {
 	// We rip out the extension using pathinfo
 	// TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed, read below!
 	$ext = pathinfo($file->name, PATHINFO_EXTENSION);
-	// Take the first 3 chars of the CRC32 checksum
-	$hashchunk = substr($file->get_crc32(), 0, 3);
 	do {
 		// If we run out of tries, throw an exception.  Should be caught and JSONified.
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
 		// TODO: come up with a better name generating algorithm
 		$newname  = '';                                  // Filename Generator:
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= $hashchunk;                          // + first 3 of crc32b checksum
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
 		
 		// To add a dot or not after a file which has no extension
 		if ($ext != '') $newname .= '.' . $ext;
