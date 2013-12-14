@@ -129,12 +129,48 @@ a:focus {
 	border-color: #BCE8F1;
 	color: #3A87AD;
 }
-a.btc {
-	font-weight: bold;
-	color: #B94A48;
+
+/**
+ * DONATION BUTTONS
+ */
+span.donate-btns {
+	display: block;
+	text-align: center;
+	margin: 11px 0 3px;
 }
-a.btc:hover {
-	color: #891A18;
+a.donate-btn {
+	height: 26px;
+	display: inline-block;
+	margin: 2px 5px;
+	background: hsl(0, 0%, 95%);
+	line-height: 16px;
+	padding: 3px 8px 3px 24px;
+	border-radius: 3px;
+	color: hsl(0, 0%, 25%);
+	border: 1px solid hsl(0, 0%, 85%);
+	transition: all .2s;
+}
+a.donate-btn:hover {
+	color: #000;
+	border: 1px solid hsl(0, 0%, 70%);
+	background-color: hsl(0, 0%, 80%);
+}
+.icon {
+	display: block;
+	height: 16px;
+	width: 16px;
+	float: left;
+	margin-left: -20px;
+	margin-top: 1px;
+}
+.icon-paypal {
+	background-image: url('img/paypal.png');
+}
+.icon-bitcoin {
+	background-image: url('img/bitcoin.png');
+}
+.icon-flattr {
+	background-image: url('img/flattr.png');
 }
 
 /**
