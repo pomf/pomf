@@ -17,6 +17,21 @@ if(isset($_GET['do'])){
 			register($_POST['email'], $_POST['pass']);
 		break;
 
+		case "cp":
+			header('Location: ../panel');
+		break;
+
+		case "search":
+			search($_GET['q']);
+		break;
+
+		case "logout":
+			session_unset();
+			session_destroy();
+			session_write_close();
+			header('Location: ../login');
+		break;
+
 	default: echo "We could call this a 404 not found... Or what are you doing here?";
 	}
 }
