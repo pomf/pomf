@@ -1,13 +1,16 @@
 <?php
 //This file is for the Gyazo uploader
-function generate_name ($name, $grill) {
+function generate_name ($name) {
         if (!isset($tries)) $tries = 5;
-        $fuck = substr($grill, 0, 3);
         do {
                 $newname = '';
+                $newname .= 'F';
                 $newname .= chr(mt_rand(ord("a"), ord("z")));
-                $newname .= $fuck;
                 $newname .= chr(mt_rand(ord("a"), ord("z")));
+                $newname .= 'A';
+                $newname .= chr(mt_rand(ord("a"), ord("z")));
+                $newname .= chr(mt_rand(ord("a"), ord("z")));
+                $newname .= 'G';
                 $newname .= '.png';
 
                 if (--$tries == 0) return false;
@@ -28,8 +31,7 @@ if(isset($_FILES['imagedata']['name']))
         if($result[0]==$filehash){
         	echo 'http://a.pomf.se/' . $result[1];
         }else{
-        $catshit = hash_file('crc32b', $_FILES['imagedata']['tmp_name']);
-        $newName = generate_name($_FILES['imagedata']['name'], $catshit);
+        $newName = generate_name($_FILES['imagedata']['name']);
         $delid = sha1($_FILES['imagedata']['tmp_name']);
 		//Insert info into DB
 		$do = $con->prepare("INSERT INTO files (hash, orginalname, filename, size, date, expire, delid) VALUES (:hash, :orginname, :filename, :size, :date, :expire, :delid)");
