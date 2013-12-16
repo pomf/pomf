@@ -27,7 +27,7 @@ function generate_name ($file) {
                 $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
-		
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		// To add a dot or not after a file which has no extension
 		if ($ext != '') $newname .= '.' . $ext;
 
