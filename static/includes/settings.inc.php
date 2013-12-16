@@ -16,5 +16,5 @@ define('POMF_DB_PASS', '***');
 // Root location of files
 define('POMF_FILES_ROOT', '/mnt/disk1/pomf/files/');
 // How many times to retry when exists() before giving up
-define('POMF_FILES_RETRIES', 5);
+define('POMF_FILES_RETRIES', 30);
 ?>
