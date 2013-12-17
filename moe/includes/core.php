@@ -60,7 +60,7 @@ function cfdelete ($file) {
         'tkn' => 'xxx',
         'email' => 'xxx',
         'z' => 'pomf.se',
-        'url' => 'http://a.pomf.se/'.$file,
+        'url' => urlencode('http://a.pomf.se/'.$file),
                 );
 
         foreach($butts as $dick=>$cum) { $butts_string .= $dick.'='.$cum.'&'; }
