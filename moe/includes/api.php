@@ -24,6 +24,10 @@ if(isset($_GET['do'])){
 		case "search":
 			search($_GET['q']);
 		break;
+		
+		case "delete":
+			delete($_GET['f'], $_GET['delid']);
+		break;
 
 		case "logout":
 			session_unset();
