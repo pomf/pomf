@@ -44,7 +44,7 @@ function search ($word) {
 	global $db;
 	$str = "%".$word."%";
 	if($_SESSION['level'] === '1'){
-	$do = $db->prepare("SELECT orginalname, filename FROM files WHERE orginalname LIKE (:1) OR filename LIKE (:2)");
+	print $row['orginalname'].' - '.$row['filename'].'<a href="http://moe.pomf.se/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
 	$do->bindParam(':1', $str);
 	$do->bindParam(':2', $str);
 	$do->execute();
