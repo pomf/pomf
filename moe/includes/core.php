@@ -1,5 +1,7 @@
 <?php
 // This file will handle all functions used by Pomf's Moe Panel
+// and just like the rest of the moe code this is a mess and will be
+// replaced soon
 session_start();
 $db = new PDO('mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=xxx', 'xxx', 'xxx', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
 
