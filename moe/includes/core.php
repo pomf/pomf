@@ -43,7 +43,20 @@ function login ($email, $pass) {
 function search ($word) {
 	global $db;
 	$str = "%".$word."%";
-	$do = $db->prepare("SELECT * FROM files WHERE orginalname LIKE (:1) OR filename LIKE (:2) LIMIT 5");
+	if($_SESSION['level'] === '1'){
+	$do = $db->prepare("SELECT orginalname, filename FROM files WHERE orginalname LIKE (:1) OR filename LIKE (:2)");
+	$do->bindParam(':1', $str);
+	$do->bindParam(':2', $str);
+	$do->execute();
+
+	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
+		print $row['orginalname'].' - '.$row['filename'].'<a href="http://moe.pomf.se/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"<br/>';
+	}
+	
+	//Yes I love not being efficient, deal with it.
+	}else{
+	
+	$do = $db->prepare("SELECT orginalname, filename FROM files WHERE orginalname LIKE (:1) OR filename LIKE (:2) LIMIT 5");
 	$do->bindParam(':1', $str);
 	$do->bindParam(':2', $str);
 	$do->execute();
@@ -51,6 +64,7 @@ function search ($word) {
 	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
 		print $row['orginalname'].' - '.$row['filename'].'<br/>';
 	}
+    }
 }
 
 function cfdelete ($file) {
