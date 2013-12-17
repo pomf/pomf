@@ -52,4 +52,65 @@ function search ($word) {
 		print $row['orginalname'].' - '.$row['filename'].'<br/>';
 	}
 }
+
+function cfdelete ($file) {
+
+        $butts = array(
+        'a' => 'zone_file_purge',
+        'tkn' => 'xxx',
+        'email' => 'xxx',
+        'z' => 'pomf.se',
+        'url' => 'http://a.pomf.se/'.$file,
+                );
+
+        foreach($butts as $dick=>$cum) { $butts_string .= $dick.'='.$cum.'&'; }
+                rtrim($butts_string, '&');
+
+        $hue = curl_init();
+        curl_setopt($hue,CURLOPT_URL, 'https://www.cloudflare.com/api_json.html');
+        curl_setopt($hue,CURLOPT_POST, count($butts));
+        curl_setopt($hue,CURLOPT_POSTFIELDS, $butts_string);
+        curl_setopt($hue,CURLOPT_RETURNTRANSFER, true);
+        curl_exec($hue);
+        curl_close($hue);
+}
+
+
+function delete ($filename, $deleteid) {
+        if(empty($filename)){
+        echo "You did something wrong, baka.";
+        }else{
+        global $db;
+        $do = $db->prepare("SELECT filename, delid, id FROM files WHERE filename = (:filename)");
+        $do->bindParam(':filename', $filename);
+        $do->execute();
+        $result = $do->fetch(PDO::FETCH_ASSOC);
+
+        if($_SESSION['level'] === '1'){
+                $do = $db->prepare("DELETE FROM files WHERE id = (:id)");
+                $do->bindParam(':id', $result['id']);
+                $do->execute();
+                unlink('/mnt/disk1/pomf/files/'.$filename);
+                cfdelete($filename);
+                echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment.<br/>";
+        }else{
+        if(empty($result['delid'])){
+        echo "This file doesn't even exist...";
+        }else{
+        if($result['delid'] === $deleteid){
+                $do = $db->prepare("DELETE FROM files WHERE id = (:id)");
+                $do->bindParam(':id', $result['id']);
+                $do->execute();
+                cfdelete($filename);
+                unlink('/mnt/disk1/pomf/files/'.$filename);
+                cfdelete($filename);
+                echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment.<br/>";
+        }else{
+                echo "Wrong delete ID...";
+     }//hue
+    }//hue
+   }//hue
+  }//hue
+ }//penis
+
 ?>
