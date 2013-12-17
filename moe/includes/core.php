@@ -1,7 +1,7 @@
 <?php
 // This file will handle all functions used by Pomf's Moe Panel
 session_start();
-$db = new PDO('mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=pomf', 'xxx', 'xxx', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
+$db = new PDO('mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=xxx', 'xxx', 'xxx', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
 
 function register ($email, $pass) {
 	global $db;
@@ -44,13 +44,13 @@ function search ($word) {
 	global $db;
 	$str = "%".$word."%";
 	if($_SESSION['level'] === '1'){
-	print $row['orginalname'].' - '.$row['filename'].'<a href="http://moe.pomf.se/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
+	$do = $db->prepare("SELECT orginalname, filename FROM files WHERE orginalname LIKE (:1) OR filename LIKE (:2)");
 	$do->bindParam(':1', $str);
 	$do->bindParam(':2', $str);
 	$do->execute();
 
 	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
-		print $row['orginalname'].' - '.$row['filename'].'<a href="http://moe.pomf.se/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"<br/>';
+		print $row['orginalname'].' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://moe.pomf.se/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
 	}
 	
 	//Yes I love not being efficient, deal with it.
@@ -69,62 +69,60 @@ function search ($word) {
 
 function cfdelete ($file) {
 
-        $butts = array(
-        'a' => 'zone_file_purge',
-        'tkn' => 'xxx',
-        'email' => 'xxx',
-        'z' => 'pomf.se',
-        'url' => urlencode('http://a.pomf.se/'.$file),
-                );
+	$butts = array(
+	'a' => 'zone_file_purge',
+	'tkn' => 'xxx',
+	'email' => 'xxx',
+	'z' => 'pomf.se',
+	'url' => urlencode('http://a.pomf.se/'.$file),
+		);
 
-        foreach($butts as $dick=>$cum) { $butts_string .= $dick.'='.$cum.'&'; }
-                rtrim($butts_string, '&');
+	foreach($butts as $dick=>$cum) { $butts_string .= $dick.'='.$cum.'&'; }
+		rtrim($butts_string, '&');
 
-        $hue = curl_init();
-        curl_setopt($hue,CURLOPT_URL, 'https://www.cloudflare.com/api_json.html');
-        curl_setopt($hue,CURLOPT_POST, count($butts));
-        curl_setopt($hue,CURLOPT_POSTFIELDS, $butts_string);
-        curl_setopt($hue,CURLOPT_RETURNTRANSFER, true);
-        curl_exec($hue);
-        curl_close($hue);
+	$hue = curl_init();
+	curl_setopt($hue,CURLOPT_URL, 'https://www.cloudflare.com/api_json.html');
+	curl_setopt($hue,CURLOPT_POST, count($butts));
+	curl_setopt($hue,CURLOPT_POSTFIELDS, $butts_string);
+	curl_setopt($hue,CURLOPT_RETURNTRANSFER, true);
+	curl_exec($hue);
+	curl_close($hue);
 }
 
-
 function delete ($filename, $deleteid) {
-        if(empty($filename)){
-        echo "You did something wrong, baka.";
-        }else{
-        global $db;
-        $do = $db->prepare("SELECT filename, delid, id FROM files WHERE filename = (:filename)");
-        $do->bindParam(':filename', $filename);
-        $do->execute();
-        $result = $do->fetch(PDO::FETCH_ASSOC);
+	if(empty($filename)){
+	echo "You did something wrong, baka.";
+	}else{
+	global $db;
+	$do = $db->prepare("SELECT filename, delid, id FROM files WHERE filename = (:filename)");
+	$do->bindParam(':filename', $filename);
+	$do->execute();
+	$result = $do->fetch(PDO::FETCH_ASSOC);
 
-        if($_SESSION['level'] === '1'){
-                $do = $db->prepare("DELETE FROM files WHERE id = (:id)");
-                $do->bindParam(':id', $result['id']);
-                $do->execute();
-                unlink('/mnt/disk1/pomf/files/'.$filename);
-                cfdelete($filename);
-                echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment.<br/>";
-        }else{
-        if(empty($result['delid'])){
-        echo "This file doesn't even exist...";
-        }else{
-        if($result['delid'] === $deleteid){
-                $do = $db->prepare("DELETE FROM files WHERE id = (:id)");
-                $do->bindParam(':id', $result['id']);
-                $do->execute();
-                cfdelete($filename);
-                unlink('/mnt/disk1/pomf/files/'.$filename);
-                cfdelete($filename);
-                echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment.<br/>";
-        }else{
-                echo "Wrong delete ID...";
+	if($_SESSION['level'] === '1'){
+		$do = $db->prepare("DELETE FROM files WHERE id = (:id)");
+		$do->bindParam(':id', $result['id']);
+		$do->execute();
+		unlink('/mnt/disk1/pomf/files/'.$filename);
+		cfdelete($filename);
+		echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment.<br/>";
+	}else{
+	if(empty($result['delid'])){
+	echo "This file doesn't even exist...";
+	}else{
+	if($result['delid'] === $deleteid){
+		$do = $db->prepare("DELETE FROM files WHERE id = (:id)");
+		$do->bindParam(':id', $result['id']);
+		$do->execute();
+		cfdelete($filename);
+		unlink('/mnt/disk1/pomf/files/'.$filename);
+		cfdelete($filename);
+		echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment.<br/>";
+	}else{
+		echo "Wrong delete ID...";
      }//hue
     }//hue
    }//hue
   }//hue
  }//penis
-
 ?>
