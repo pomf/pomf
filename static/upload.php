@@ -11,31 +11,30 @@ include_once 'includes/database.inc.php';
  * @return string
  */
 function generate_name ($file) {
-	// We start at N retries, and --N until we give up
-	$tries = POMF_FILES_RETRIES;
-	// We rip out the extension using pathinfo
-	// TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed, read below!
-	$ext = pathinfo($file->name, PATHINFO_EXTENSION);
-	do {
-		// If we run out of tries, throw an exception.  Should be caught and JSONified.
-		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
+        // We start at N retries, and --N until we give up
+        $tries = POMF_FILES_RETRIES;
+        // We rip out the extension using pathinfo
+        // TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed, read below!
+        $ext = pathinfo($file->name, PATHINFO_EXTENSION);
+        do {
+                // If we run out of tries, throw an exception.  Should be caught and JSONified.
+                if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
-		// TODO: come up with a better name generating algorithm
-		$newname  = '';                                  // Filename Generator:
-                $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
+                // TODO: come up with a better name generating algorithm
+                $newname  = '';                                  // Filename Generator:
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("z"), ord("a")));    // + random lowercase letter
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		// To add a dot or not after a file which has no extension
-		if ($ext != '') $newname .= '.' . $ext;
+                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+                // To add a dot or not after a file which has no extension
+                if ($ext != '') $newname .= '.' . $ext;
 
-	} while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
+        } while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
 
-	return $newname;
+        return $newname;
 }
-
 
 /**
  * Handles the uploading and db entry for a file
