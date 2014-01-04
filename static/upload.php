@@ -36,6 +36,7 @@ function generate_name ($file) {
         return $newname;
 }
 
+
 /**
  * Handles the uploading and db entry for a file
  *
