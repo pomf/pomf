@@ -16,6 +16,7 @@
 	<li>I want to deliver the best free service I can without ads or such so donations are very welcome via the donate button on the front page (pomf.se).</li>
 	<li>Viruses will be removed if detected most of the time, this is to not cause further damage in form of i/a/pomf.se ending up on blacklists and whatnot. (read: IT ALREADY FUCKING IS!).</li>
 	<li>For removal of a file or such contact me at neku@pomf.se or pixeldesu@pixeldesu.de.</li>
+	<li>We also have a mail newsletter thingy which you can sign-up at <a href=http://t.co/AyrLb4GWfO" TARGET="_BLANK">here!</a></li>
 </ul>
 <p>
 <b>Follow the rules and tips I have set up above, please. The FAQ may also be changed and updated at any time.<br />
