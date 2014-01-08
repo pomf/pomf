@@ -41,7 +41,7 @@
 	<dt>Download</dt>
 		<dd>https://code.google.com/p/sharex/</dd>
 	<dt>Settings</dt>
-		<dd>http://a.pomf.se/457161945.PNG</dd>
+		<dd>http://a.pomf.se/kcqwuc.png</dd>
 </dl></section>
 <section><h1>Pomf.se Windows Client <span class="old"> - Old API (not working)</span></h1><dl>
 	<dt>Download</dt>
