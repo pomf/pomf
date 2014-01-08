@@ -15,7 +15,7 @@
 	<li>a/i/pomf.se is hosted as for now on 500mbit server and Cloudflare's CDN helps out a lot, I'm on a restrained budget and this costs a lot so please don't be an ass.</li>
 	<li>I want to deliver the best free service I can without ads or such so donations are very welcome via the donate button on the front page (pomf.se).</li>
 	<li>Viruses will be removed if detected most of the time, this is to not cause further damage in form of i/a/pomf.se ending up on blacklists and whatnot. (read: IT ALREADY FUCKING IS!).</li>
-	<li>For removal of a file or such contact me at neku@pomf.se.</li>
+	<li>For removal of a file or such contact me at neku@pomf.se or pixeldesu@pixeldesu.de.</li>
 </ul>
 <p>
 <b>Follow the rules and tips I have set up above, please. The FAQ may also be changed and updated at any time.<br />
