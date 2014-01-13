@@ -24,7 +24,7 @@
 	<dt>Contact</dt>
 		<dd>https://twitter.com/__akiaki</dd>
 </dl></section>
-<section><h1>Gyazo Client</h1><dl>
+<section><h1>Gyazo Client (Puush like client)</h1><dl>
 	<dt>Download</dt>
 		<dd>https://github.com/Availu/gyazowin</dd>
 		<dd>http://files.getrektby.us/uploader-pomf.exe</dd>
