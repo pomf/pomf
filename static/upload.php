@@ -1,18 +1,8 @@
 <?php
-// For accounts?
-session_set_cookie_params(0, '/', '.pomf.se');
-session_start();
-if(isset($_SESSION['id'])){
-	$fileowner = $_SESSION['id'];
-}else{
-	$fileowner = 'NULL';
-}
-
+//error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include_once 'classes/UploadedFile.class.php';
 include_once 'includes/settings.inc.php';
 include_once 'includes/database.inc.php';
-
-
 /**
  * Generates a name for the file, retrying until we get an unused one 
  *
@@ -20,29 +10,29 @@ include_once 'includes/database.inc.php';
  * @return string
  */
 function generate_name ($file) {
-        // We start at N retries, and --N until we give up
-        $tries = POMF_FILES_RETRIES;
-        // We rip out the extension using pathinfo
-        // TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed, read below!
-        $ext = pathinfo($file->name, PATHINFO_EXTENSION);
-        do {
-                // If we run out of tries, throw an exception.  Should be caught and JSONified.
-                if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
+	// We start at N retries, and --N until we give up
+	$tries = POMF_FILES_RETRIES;
+	// We rip out the extension using pathinfo
+	// TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed, read below!
+	$ext = pathinfo($file->name, PATHINFO_EXTENSION);
+	do {
+		// If we run out of tries, throw an exception.  Should be caught and JSONified.
+		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
-                // TODO: come up with a better name generating algorithm
-                $newname  = '';                                  // Filename Generator:
+		// TODO: come up with a better name generating algorithm
+		$newname  = '';                                  // Filename Generator:
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
                 $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                // To add a dot or not after a file which has no extension
-                if ($ext != '') $newname .= '.' . $ext;
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+		// To add a dot or not after a file which has no extension
+		if ($ext != '') $newname .= '.' . $ext;
 
-        } while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
+	} while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
 
-        return $newname;
+	return $newname;
 }
 
 
@@ -82,18 +72,16 @@ function upload_file ($file) {
 		// Attempt to move it to the static directory
 		if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT . $newname)) {
 			// Add it to the database
-			$q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid, fileowner)' .
-			                  'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid, :fileowner');
-			$q->bindValue(':hash', $file->get_sha1());
-			$q->bindValue(':orig', $file->name);
-			$q->bindValue(':name', $newname);
-			$q->bindValue(':size', $file->size);
-			$q->bindValue(':date', date('Y-m-d'));
-			$q->bindValue(':expires', null);
-			$q->bindValue(':delid', sha1($file->tempfile));
-			$q->bindValue(':fileowner', $fileowner;
+                        $q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid)' .
+                                          'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid)');
+                        $q->bindValue(':hash', $file->get_sha1());
+                        $q->bindValue(':orig', $file->name);
+                        $q->bindValue(':name', $newname);
+                        $q->bindValue(':size', $file->size);
+                        $q->bindValue(':date', date('Y-m-d'));
+                        $q->bindValue(':expires', null);
+                        $q->bindValue(':delid', sha1($file->tempfile));
 			$q->execute();
-
 			return array(
 				'hash' => $file->get_sha1(),
 				'name' => $file->name,
