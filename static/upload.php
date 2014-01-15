@@ -1,4 +1,12 @@
 <?php
+// For accounts?
+session_start();
+if(isset($_SESSION['id'])){
+	$fileowner = $_SESSION['id'];
+}else{
+	$fileowner = 'NULL';
+}
+
 include_once 'classes/UploadedFile.class.php';
 include_once 'includes/settings.inc.php';
 include_once 'includes/database.inc.php';
@@ -73,8 +81,8 @@ function upload_file ($file) {
 		// Attempt to move it to the static directory
 		if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT . $newname)) {
 			// Add it to the database
-			$q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid)' .
-			                  'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid)');
+			$q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid, fileowner)' .
+			                  'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid, :fileowner');
 			$q->bindValue(':hash', $file->get_sha1());
 			$q->bindValue(':orig', $file->name);
 			$q->bindValue(':name', $newname);
@@ -82,6 +90,7 @@ function upload_file ($file) {
 			$q->bindValue(':date', date('Y-m-d'));
 			$q->bindValue(':expires', null);
 			$q->bindValue(':delid', sha1($file->tempfile));
+			$q->bindValue(':fileowner', $fileowner;
 			$q->execute();
 
 			return array(
