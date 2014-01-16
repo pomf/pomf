@@ -29,7 +29,7 @@
 		<dd>https://github.com/Availu/gyazowin</dd>
 		<dd>http://files.getrektby.us/uploader-pomf.exe</dd>
 	<dt>Contact</dt>
-		<dd>https://twitter.com/AVAILUUUUUUUU</dd>
+		<dd>https://twitter.com/4vailable</dd>
 </dl></section>
 <section><h1>Python Pomf Uploader</h1><dl>
 	<dt>Download</dt>
