@@ -21,11 +21,11 @@ function generate_name ($file) {
 
 		// TODO: come up with a better name generating algorithm
 		$newname  = '';                                  // Filename Generator:
-                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-                $newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		// To add a dot or not after a file which has no extension
 		if ($ext != '') $newname .= '.' . $ext;
@@ -72,15 +72,15 @@ function upload_file ($file) {
 		// Attempt to move it to the static directory
 		if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT . $newname)) {
 			// Add it to the database
-                        $q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid)' .
-                                          'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid)');
-                        $q->bindValue(':hash', $file->get_sha1());
-                        $q->bindValue(':orig', $file->name);
-                        $q->bindValue(':name', $newname);
-                        $q->bindValue(':size', $file->size);
-                        $q->bindValue(':date', date('Y-m-d'));
-                        $q->bindValue(':expires', null);
-                        $q->bindValue(':delid', sha1($file->tempfile));
+			$q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid)' .
+			                  'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid)');
+			$q->bindValue(':hash', $file->get_sha1());
+			$q->bindValue(':orig', $file->name);
+			$q->bindValue(':name', $newname);
+			$q->bindValue(':size', $file->size);
+			$q->bindValue(':date', date('Y-m-d'));
+			$q->bindValue(':expires', null);
+			$q->bindValue(':delid', sha1($file->tempfile));
 			$q->execute();
 			return array(
 				'hash' => $file->get_sha1(),
