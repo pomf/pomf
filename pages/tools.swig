@@ -43,19 +43,19 @@
 	<dt>Settings</dt>
 		<dd>http://a.pomf.se/kcqwuc.png or http://p.pomf.se/2426</dd>
 </dl></section>
-<section><h1>Pomf.se Windows Client <span class="old"> - Old API (not working)</span></h1><dl>
+<section class="ded"><h1>Pomf.se Windows Client <span class="old">Dead</span></h1><dl>
 	<dt>Download</dt>
 		<dd>http://mavanmanen.nl/index.php?page=projects</dd>
 	<dt>Contact</dt>
 		<dd>https://twitter.com/mavanmanenDev</dd>
 </dl></section>
-<section><h1>ScrotUP <span class="old"> - Old API (not working)</span></h1><dl>
+<section class="ded"><h1>ScrotUP <span class="old">Dead</span></h1><dl>
 	<dt>Download</dt>
 		<dd>https://github.com/mavanmanen/ScrotUP</dd>
 	<dt>Contact</dt>
 		<dd>https://twitter.com/mavanmanenDev</dd>
 </dl></section>
-<section><h1>Perl Pomf Uploaer <span class="old"> - Old API (not working)</span></h1><dl>
+<section class="ded"><h1>Perl Pomf Uploaer <span class="old">Dead</span></h1><dl>
 	<dt>Download</dt>
 		<dd>http://p.pomf.se/624</dd>
 	<dt>Contact</dt>
