@@ -17,4 +17,15 @@ define('POMF_DB_PASS', '***');
 define('POMF_FILES_ROOT', '/mnt/disk1/pomf/files/');
 // How many times to retry when exists() before giving up
 define('POMF_FILES_RETRIES', 30);
+
+/**
+ * Double-dot extensions
+ */
+$doubledots = array_map('strrev', array(
+	'tar.gz',
+	'tar.bz',
+	'tar.bz2',
+	'tar.xz'
+));
+
 ?>

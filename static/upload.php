@@ -10,11 +10,20 @@ include_once 'includes/database.inc.php';
  * @return string
  */
 function generate_name ($file) {
+	global $doubledots;
 	// We start at N retries, and --N until we give up
 	$tries = POMF_FILES_RETRIES;
 	// We rip out the extension using pathinfo
-	// TODO: figure out a solution for .tar.gz and similar files? This has now been ghetto fixed, read below!
 	$ext = pathinfo($file->name, PATHINFO_EXTENSION);
+
+	// And if we realize it's actually a doubledot
+	// we just override $ext
+	$revname = strrev($file->name);
+	foreach ($doubledots as $ddot) {
+		if (stripos($revname, $ddot) === 0) {
+			$ext = strrev($ddot);
+		}
+	}
 	do {
 		// If we run out of tries, throw an exception.  Should be caught and JSONified.
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
