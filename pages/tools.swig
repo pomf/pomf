@@ -27,7 +27,7 @@
 <section><h1>Gyazo Client (Puush like client)</h1><dl>
 	<dt>Download</dt>
 		<dd>https://github.com/Availu/gyazowin</dd>
-		<dd>http://files.getrektby.us/uploader-pomf.exe</dd>
+		<dd>http://getrektby.us/files/uploader-pomf.exe</dd>
 	<dt>Contact</dt>
 		<dd>https://twitter.com/4vailable</dd>
 </dl></section>
