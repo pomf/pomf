@@ -43,6 +43,8 @@ function login ($email, $pass) {
 }
 
 function search ($word) {
+	if(empty($word)) return;
+	
 	global $db;
 	$str = "%".$word."%";
 	if($_SESSION['level'] === '1'){
