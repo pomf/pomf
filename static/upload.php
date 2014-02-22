@@ -1,7 +1,6 @@
 <?php
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include_once 'classes/UploadedFile.class.php';
-include_once 'includes/settings.inc.php';
 include_once 'includes/database.inc.php';
 /**
  * Generates a name for the file, retrying until we get an unused one 
