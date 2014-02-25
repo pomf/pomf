@@ -33,7 +33,7 @@
 </dl></section>
 <section><h1>Python Pomf Uploader</h1><dl>
 	<dt>Download</dt>
-		<dd>https://github.com/wahpomf/cocks420weeabofuck/blob/master/pomf.py</dd>
+		<dd>https://github.com/wahpomf/POMF</dd>
 	<dt>Contact</dt>
 		<dd>https://twitter.com/FuzzyPomf</dd>
 </dl></section>
