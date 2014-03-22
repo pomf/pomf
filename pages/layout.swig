@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-	{% block body %}What the fuck are you doing here, nigger?{% endblock %}
+	{% block body %}What the fuck are you doing here, baka?{% endblock %}
 </div>
 </body>
 </html>
