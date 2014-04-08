@@ -6,6 +6,12 @@
 <h1>Pomf Tools</h1>
 {% include "nav.swig" %}
 </div>
+<section><h1>Pomfit</h1><dl>
+	<dt>Download</dt>
+		<dd>https://github.com/Senketsu/pomfit</dd>
+	<dt>Contact</dt>
+		<dd>N/A</dd>
+</dl></section>
 <section><h1>Bash Pomf Uploader</h1><dl>
 	<dt>Download</dt>
 		<dd>https://gist.github.com/KittyKatt/5818701</dd>
