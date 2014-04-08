@@ -7,6 +7,8 @@
 {% include "nav.swig" %}
 </div>
 <ul>
+	<li>Pomf does NOT support Internet Explorer and older versions of Firefox, Chrome, Opera and Safari.</li>
+	<li>Uploading tools for Pomf can be found at <a href="tools.html">Tools</a>.</li>
 	<li>Max file size is 50MiB, hopefully I won't have to change this to a even lower number. (read: don't be an ass).</li>
 	<li>No Child porn, anything else goes until I get a lawsuit I guess. (unless its a virus, because that goes into the being an ass category).</li>
 	<li>All filetypes are allowed, ALL! (gif,exe,jpg,rar,ass,srt,etc,etc).</li>
