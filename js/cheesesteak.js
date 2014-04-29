@@ -94,10 +94,13 @@
 	})*/
 
 	// b gets merged as defaults for a
-	var defaults = function (a, b) {
-		var out = {}
-		for (var key in b) {
-			out[key] = (a[key] === void 0) ? b[key] : a[key]
+	var merge = function merge (base, overlay) {
+		var out = base
+		for (var key in overlay) {
+			if (typeof overlay[key] === 'object')
+				out[key] = merge(base[key], overlay[key]);
+			else
+				out[key] = overlay[key]
 		}
 		return out
 	}
@@ -108,10 +111,11 @@
 
 		opts = opts || {}
 		
-		this.opts = defaults(opts, {
+		this.opts = merge({
 			'field': 'files[]',
-		   'method': 'POST'
-		})
+			'method': 'POST'
+			'data': {}
+		}, opts)
 	}
 	FileListUploader.prototype = Object.create(EventEmitter.prototype)
 	FileListUploader.prototype.upload = function (cb) {
