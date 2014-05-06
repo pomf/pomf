@@ -113,7 +113,7 @@
 		
 		this.opts = merge({
 			'field': 'files[]',
-			'method': 'POST'
+			'method': 'POST',
 			'data': {}
 		}, opts)
 	}
