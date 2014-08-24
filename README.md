@@ -2,7 +2,7 @@
 Only tested with Nginx + PHP5.5 + MySQL, but should work with newer PHP or any
 other PDO-compatible database.
 
-Also keep in mind that the code is very outdated compared to what Pomf.se really uses right now, I will push the new code soon.
+Most of the code is ghetty and easily improved, will clean it up sometime.
 
 # Install
 For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
