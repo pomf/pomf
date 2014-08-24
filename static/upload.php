@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include_once 'classes/UploadedFile.class.php';
 //include_once 'includes/database.inc.php'; Included in database.inc.php
@@ -37,7 +39,7 @@ function generate_name ($file) {
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		// To add a dot or not after a file which has no extension
-		if ($ext != '') $newname .= '.' . $ext;
+		if ($ext != '') $newname .= '.' . strip_tags($ext);
 
 	} while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
 
@@ -58,8 +60,10 @@ function upload_file ($file) {
 	if ($file->error) throw new Exception($file->error);
 
 	// Check if we have a file with that hash in the db
-	$q = $db->prepare("SELECT hash, filename, size FROM files WHERE hash = (:hash)");
+	if(empty($_SESSION['id'])){
+	$q = $db->prepare("SELECT hash, filename, size FROM files WHERE hash = (:hash) AND user = (:user)");
 	$q->bindValue('hash', $file->get_sha1());
+	$q->bindValue('user', '0');
 	$q->execute();
 	$result = $q->fetch();
 
@@ -74,6 +78,7 @@ function upload_file ($file) {
 			'url' => $result['filename'],
 			'size' => $result['size']
 		);
+
 	} else {
 		// Generate a name for the file
 		$newname = generate_name($file);
@@ -84,7 +89,7 @@ function upload_file ($file) {
 			$q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid)' .
 			                  'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid)');
 			$q->bindValue(':hash', $file->get_sha1());
-			$q->bindValue(':orig', $file->name);
+			$q->bindValue(':orig', strip_tags($file->name));
 			$q->bindValue(':name', $newname);
 			$q->bindValue(':size', $file->size);
 			$q->bindValue(':date', date('Y-m-d'));
@@ -101,7 +106,74 @@ function upload_file ($file) {
 			throw new Exception('Failed to move file to destination');
 		}
 	}
+}else{//if session exists
+        $q = $db->prepare("SELECT hash, filename, size FROM files WHERE hash = (:hash) AND user = (:user)");
+        $q->bindValue('hash', $file->get_sha1());
+	$q->bindValue('user', $_SESSION['id']);
+        $q->execute();
+        $result = $q->fetch();
+
+        // If we found a file with the same checksums, then we can assume it's a dupe
+        // so we don't bother with it, and just unlink (delete) the tmpfile and return
+        // the previous data.
+        if ($result['hash'] === $file->get_sha1()) {
+                unlink($file->tempfile);
+                return array(
+                        'hash' => $result['hash'],
+                        'name' => $file->name,
+                        'url' => $result['filename'],
+                        'size' => $result['size']
+                );
+
+        } else {
+                // Generate a name for the file
+                $newname = generate_name($file);
+
+                // Attempt to move it to the static directory
+                if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT . $newname)) {
+                        // Add it to the database
+                        $q = $db->prepare('INSERT INTO files (hash, orginalname, filename, size, date, expire, delid, user)' .
+                                          'VALUES (:hash, :orig, :name, :size, :date, :expires, :delid, :user)');
+                        $q->bindValue(':hash', $file->get_sha1());
+                        $q->bindValue(':orig', strip_tags($file->name));
+                        $q->bindValue(':name', $newname);
+                        $q->bindValue(':size', $file->size);
+                        $q->bindValue(':date', date('Y-m-d'));
+                        $q->bindValue(':expires', null);
+                        $q->bindValue(':delid', sha1($file->tempfile));
+                      	$q->bindValue(':user', $_SESSION['id']);
+			$q->execute();
+                        return array(
+                                'hash' => $file->get_sha1(),
+                                'name' => $file->name,
+                                'url' => $newname,
+                                'size' => $file->size
+                        );
+                } else {
+                        throw new Exception('Failed to move file to destination');
+                }
+        }
 }
+}
+
+
+
+//function expirecalc ($in){
+//  switch($in){
+//   case '5': $when=5; break;
+//   case '15': $when=15; break;
+//   case '30': $when=30; break;
+//   case '0': $when=NULL; break;
+//   default: $when=5;
+//   }
+//   if ($when == NULL){
+//     return NULL;
+//}else{
+//     return date('Y-m-d', time() + ($when * 60 * 60 * 24)); }
+//}
+
+
+
 
 
 /**
@@ -120,6 +192,7 @@ function refiles ($files) {
 		$file->tempfile = $files['tmp_name'][$i];
 		$file->error = $files['error'][$i];
 		$file->size = $files['size'][$i];
+		$file->expire = $files['expire'][$i];
 		$out[] = $file;
 	}
 	return $out;
