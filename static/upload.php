@@ -30,7 +30,7 @@ function generate_name ($file) {
 		// If we run out of tries, throw an exception.  Should be caught and JSONified.
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
-		// TODO: come up with a better name generating algorithm
+		// TODO: come up with a better name generating algorithm, stop repeating myself.
 		$newname  = '';                                  // Filename Generator:
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
@@ -155,26 +155,6 @@ function upload_file ($file) {
         }
 }
 }
-
-
-
-//function expirecalc ($in){
-//  switch($in){
-//   case '5': $when=5; break;
-//   case '15': $when=15; break;
-//   case '30': $when=30; break;
-//   case '0': $when=NULL; break;
-//   default: $when=5;
-//   }
-//   if ($when == NULL){
-//     return NULL;
-//}else{
-//     return date('Y-m-d', time() + ($when * 60 * 60 * 24)); }
-//}
-
-
-
-
 
 /**
  * Reorganize the $_FILES array into something saner
