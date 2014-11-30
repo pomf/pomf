@@ -25,7 +25,8 @@ $doubledots = array_map('strrev', array(
 	'tar.gz',
 	'tar.bz',
 	'tar.bz2',
-	'tar.xz'
+	'tar.xz',
+	'user.js'
 ));
 
 ?>
