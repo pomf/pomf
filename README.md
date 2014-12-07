@@ -2,7 +2,7 @@
 Only tested with Nginx + PHP5.5 + MySQL, but should work with newer PHP or any
 other PDO-compatible database.
 
-Most of the code is ghetto and easily improved, will clean it up sometime.
+Most of the code is ghetto and easily improved, will clean it up sometime. Modify it as you like.
 
 # Install
 For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
