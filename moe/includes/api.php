@@ -1,4 +1,5 @@
 <?php
+//error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // This file will act as a APIish thing
 // Include core file
 require_once('core.php');
@@ -14,7 +15,15 @@ if(isset($_GET['do'])){
 		break;
 
 		case "register":
-			register($_POST['email'], $_POST['pass']);
+			register($_POST['email'], $_POST['pass'], $_POST['code']);
+		break;
+
+		case "invite-generate":
+			generate($_GET['email'], $_GET['level']);
+		break;
+
+		case "mod":
+			mod($_GET['action'], $_GET['date'], $_GET['count'], $_GET['why'], $_GET['file'], $_GET['keyword'], $_GET['fileid'], $_GET['hash'], $_GET['orginalname']);
 		break;
 
 		case "cp":
@@ -26,7 +35,7 @@ if(isset($_GET['do'])){
 		break;
 		
 		case "delete":
-			delete($_GET['f'], $_GET['delid']);
+			delete($_GET['f'],$_GET['delid']);
 		break;
 
 		case "logout":
