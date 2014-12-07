@@ -1,7 +1,0 @@
-CREATE TABLE accounts (
-     id INT NOT NULL AUTO_INCREMENT,
-     email VARCHAR(255) NOT NULL,
-     pass VARCHAR(255) NOT NULL,
-     level INT NOT NULL,
-     PRIMARY KEY (id)
-) ENGINE=InnoDB;
