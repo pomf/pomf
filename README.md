@@ -9,6 +9,7 @@ For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
 Node, or NPM.  So we'll just assume you already have them all running well.
 
 [Nginx Config](http://transparency.pomf.se/configs/nginx)
+
 [PHP Config](http://transparency.pomf.se/configs/php/)
 
 ## Compiling
