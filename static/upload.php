@@ -31,7 +31,8 @@ function generate_name ($file) {
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
 		// TODO: come up with a better name generating algorithm, stop repeating myself.
-		// In case of autism change this to your likings and put it in a loop before putting on a production server
+		// In case of autism change this to your likings and put it in a loop before
+		// putting it on a production server
 		$newname  = '';                                  // Filename Generator:
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
 		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
