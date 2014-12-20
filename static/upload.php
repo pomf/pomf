@@ -31,6 +31,7 @@ function generate_name ($file) {
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
 		//Random filename generator
+		$newname='';
 		$startNumber = ord("a");
 		$endNumber = ord("z");
 		for ($i = 0; $i < 6; $i++) {
