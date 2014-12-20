@@ -30,16 +30,15 @@ function generate_name ($file) {
 		// If we run out of tries, throw an exception.  Should be caught and JSONified.
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
-		// TODO: come up with a better name generating algorithm, stop repeating myself.
-		// In case of autism change this to your likings and put it in a loop before
-		// putting it on a production server
 		$newname  = '';                                  // Filename Generator:
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
-		$newname .= chr(mt_rand(ord("a"), ord("z")));    // + random lowercase letter
+
+		// Reddit critizces, I fix. You're welcome. (http://www.reddit.com/r/shittyprogramming/comments/2ppsqk/url_generator/)
+		$startNumber = ord("a");
+		$endNumber = ord("z");
+		for ($i = 0; $i < 6; $i++) {
+			$newname .= chr(mt_rand($startNumber, $endNumber));
+		}
+
 		// To add a dot or not after a file which has no extension
 		if ($ext != '') $newname .= '.' . strip_tags($ext);
 
