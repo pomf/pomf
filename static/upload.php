@@ -212,9 +212,7 @@ function respond ($code, $files = null) {
 		http_response_code(200);
 		$files = $code;
 	}
-
 	$format = array_key_exists('output', $_GET) ? $_GET['output'] : 'json';
-
 	switch ($format) {
 		case 'gyazo':
 			respond_gyazo($code, $files);
