@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-//error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include_once 'classes/UploadedFile.class.php';
 //include_once 'includes/database.inc.php'; Included in database.inc.php
 include_once 'includes/database.inc.php';
@@ -17,7 +15,6 @@ function generate_name ($file) {
 	$tries = POMF_FILES_RETRIES;
 	// We rip out the extension using pathinfo
 	$ext = pathinfo($file->name, PATHINFO_EXTENSION);
-
 	// And if we realize it's actually a doubledot
 	// we just override $ext
 	$revname = strrev($file->name);
@@ -29,7 +26,6 @@ function generate_name ($file) {
 	do {
 		// If we run out of tries, throw an exception.  Should be caught and JSONified.
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
-
 		//Random filename generator
 		$newname='';
 		$startNumber = ord("a");
@@ -37,16 +33,11 @@ function generate_name ($file) {
 		for ($i = 0; $i < 6; $i++) {
 			$newname .= chr(mt_rand($startNumber, $endNumber));
 		}
-
 		// To add a dot or not after a file which has no extension
 		if ($ext != '') $newname .= '.' . strip_tags($ext);
-
 	} while (file_exists(POMF_FILES_ROOT . $newname)); // TODO: check the database instead?
-
 	return $newname;
 }
-
-
 /**
  * Handles the uploading and db entry for a file
  *
@@ -55,10 +46,8 @@ function generate_name ($file) {
  */
 function upload_file ($file) {
 	global $db;
-
 	// If the file has an error attached, we just throw it as an exception.
 	if ($file->error) throw new Exception($file->error);
-
 	// Check if we have a file with that hash in the db
 	if(empty($_SESSION['id'])){
 	$q = $db->prepare("SELECT hash, filename, size FROM files WHERE hash = (:hash) AND user = (:user)");
@@ -66,7 +55,6 @@ function upload_file ($file) {
 	$q->bindValue('user', '0');
 	$q->execute();
 	$result = $q->fetch();
-
 	// If we found a file with the same checksums, then we can assume it's a dupe
 	// so we don't bother with it, and just unlink (delete) the tmpfile and return
 	// the previous data.
@@ -78,11 +66,9 @@ function upload_file ($file) {
 			'url' => $result['filename'],
 			'size' => $result['size']
 		);
-
 	} else {
 		// Generate a name for the file
 		$newname = generate_name($file);
-
 		// Attempt to move it to the static directory
 		if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT . $newname)) {
 			// Add it to the database
@@ -112,7 +98,6 @@ function upload_file ($file) {
 	$q->bindValue('user', $_SESSION['id']);
         $q->execute();
         $result = $q->fetch();
-
         // If we found a file with the same checksums, then we can assume it's a dupe
         // so we don't bother with it, and just unlink (delete) the tmpfile and return
         // the previous data.
@@ -124,11 +109,9 @@ function upload_file ($file) {
                         'url' => $result['filename'],
                         'size' => $result['size']
                 );
-
         } else {
                 // Generate a name for the file
                 $newname = generate_name($file);
-
                 // Attempt to move it to the static directory
                 if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT . $newname)) {
                         // Add it to the database
@@ -155,7 +138,6 @@ function upload_file ($file) {
         }
 }
 }
-
 /**
  * Reorganize the $_FILES array into something saner
  *
@@ -177,7 +159,6 @@ function refiles ($files) {
 	}
 	return $out;
 }
-
 /**
  * Give a response that gyazo understands
  */
@@ -188,7 +169,6 @@ function respond_gyazo ($code, $files) {
 		echo 'http://a.pomf.se/' . $files[0]['url'];
 	}
 }
-
 /**
  * Responds to a request in CSV form.
  */
@@ -203,7 +183,6 @@ function respond_csv ($code, $files) {
 		}
 	}
 }
-
 /**
  * Responds to a request in JSON form.
  */
@@ -223,7 +202,6 @@ function respond_json ($code, $files) {
 		));
 	}
 }
-
 /**
  * Determines the proper response function based on $_GET['output]
  */
@@ -249,7 +227,6 @@ function respond ($code, $files = null) {
 			break;
 	}
 }
-
 if (isset($_FILES['files'])) {
 	try {
 		$uploads = refiles($_FILES['files']);
