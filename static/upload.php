@@ -30,9 +30,7 @@ function generate_name ($file) {
 		// If we run out of tries, throw an exception.  Should be caught and JSONified.
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name');
 
-		$newname  = '';                                  // Filename Generator:
-
-		// Reddit critizces, I fix. You're welcome. (http://www.reddit.com/r/shittyprogramming/comments/2ppsqk/url_generator/)
+		//Random filename generator
 		$startNumber = ord("a");
 		$endNumber = ord("z");
 		for ($i = 0; $i < 6; $i++) {
