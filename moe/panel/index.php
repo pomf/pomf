@@ -39,6 +39,9 @@
 									if(!isset($_SESSION['id'])){
 										header('Location: ../login/');
 										}
+									if($_SESSION['id'] == '1'){
+                                                                                header('Location: ../mod/');
+                                                                                }
 									echo 'Hi '.$_SESSION['email'];?></h1>
 									<span class="byline">Are you being cayoot today?</span>
 								</header>
