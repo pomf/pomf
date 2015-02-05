@@ -1,6 +1,6 @@
 # Pomf.se
-Only tested with Nginx + PHP5.5 + MySQL, but should work with newer PHP or any
-other PDO-compatible database.
+Original development environment is Nginx + PHP5.5 + MySQL, but is confirmed to work with Apache 2.4
+and newer PHP versions. Should work with any other PDO-compatible databases.
 
 Most of the code is ghetto and easily improved, will clean it up sometime. Modify it as you like.
 
@@ -24,6 +24,13 @@ $ npm install
 $ grunt
 ```
 After this, the pomf site is now compressed and set up inside `dist/`.
+
+### Apache
+If you are runnging Apache and want to compress your output when serving files, add to your `.htaccess` file:
+```
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/x-javascript application/json
+```
+Remember to enable `deflate_module` and `filter_module` modules in your Apache configuration file.
 
 ## Configuring
 The majority of settings are in `static/includes/settings.inc.php`.  Read the 
