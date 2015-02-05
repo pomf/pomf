@@ -22,6 +22,22 @@ module.exports = function (grunt) {
 				production: false,
 			}
 		},
+		htmlmin: {
+			dist: {
+				options: {
+					removeComments: true,
+					collapseWhitespace: true,
+					conservativeCollapse: true,
+					removeEmptyAttributes: true
+				},
+				files: [{
+					expand: true,
+					cwd: 'dist/',
+					src: '**/*.html',
+					dest: 'dist/'
+				}]
+			}
+		},
 		uglify: {
 			options: {
 				banner: '/*! <%= pkg.name %> (<%= pkg.repository.url %>) @ <%= grunt.template.today("yyyy-mm-dd") %> */\n\n'
@@ -85,5 +101,5 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('default', ['mkdir', 'swig', 'cssmin', 'uglify', 'imagemin', 'copy']);
+	grunt.registerTask('default', ['mkdir', 'swig', 'htmlmin', 'cssmin', 'uglify', 'imagemin', 'copy']);
 };
