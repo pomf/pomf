@@ -26,7 +26,7 @@ $ grunt
 After this, the pomf site is now compressed and set up inside `dist/`.
 
 ### Apache
-If you are runnging Apache and want to compress your output when serving files, add to your `.htaccess` file:
+If you are running Apache and want to compress your output when serving files, add to your `.htaccess` file:
 ```
 AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/x-javascript application/json
 ```
