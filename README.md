@@ -2,8 +2,6 @@
 Original development environment is Nginx + PHP5.5 + MySQL, but is confirmed to work with Apache 2.4
 and newer PHP versions. Should work with any other PDO-compatible database.
 
-Most of the code is ghetto and easily improved, will clean it up sometime. Modify it as you like.
-
 # Install
 For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
 Node, or NPM.  So we'll just assume you already have them all running well.
