@@ -39,5 +39,10 @@ that PHP and Nginx provide ample protection in this department.  There is,
 however, client-side configuration for max size, the `data-max-size` attribute
 on the file input in `pages/upload_form.swig`.
 
+## Todo
+
+* Clean up Moe code, a lot..
+* API keys?
+
 # Contact
 I can be contacted via neku@pomf.se or twitter at [@nekunekus](https://twitter.com/nekunekus).
