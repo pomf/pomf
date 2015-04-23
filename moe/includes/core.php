@@ -179,10 +179,15 @@ function delete ($filename, $deleteid, $mod) {
  		switch($action){
 
  			case "fetch":
- 				$do = $db->prepare("SELECT * FROM files WHERE orginalname LIKE (:keyword) AND date LIKE (:date) OR filename LIKE (:keyword) AND date LIKE (:date) ORDER BY id DESC LIMIT 0,:amount");
- 				$do->bindValue(':date', "%".$date."%");
- 				$do->bindValue(':amount', (int) $count, PDO::PARAM_INT);
- 				$do->bindValue(':keyword', "%".$keyword."%");
+ 			if($_SESSION['level'] > '0'){
+                        $do = $db->prepare("SELECT * FROM files WHERE orginalname LIKE (:keyword) AND date LIKE (:date) OR filename LIKE (:keyword) AND date LIKE (:date) ORDER BY id DESC LIMIT 0,:amount");
+                        }else{
+                        $do = $db->prepare("SELECT * FROM files WHERE orginalname LIKE (:keyword) AND date LIKE (:date) AND user = (:userid) OR filename LIKE (:keyword) AND date LIKE (:date) AND user = (:userid) ORDER BY id$
+                        $do->bindValue(':userid', $_SESSION['id']);}
+
+ 			$do->bindValue(':date', "%".$date."%");
+ 			$do->bindValue(':amount', (int) $count, PDO::PARAM_INT);
+ 			$do->bindValue(':keyword', "%".$keyword."%");
 
  				$do->execute();
  				$i = 0;
@@ -260,7 +265,9 @@ function delete ($filename, $deleteid, $mod) {
 			break;
 
 			case "remove":
-			if($_SESSION['id'] === '1'){
+			if($_SESSION['id'] < '0'){
+                        delete($file, $fileid);}
+			if($_SESSION['id'] > '0'){
 			$do = $db->prepare("DELETE FROM files WHERE id = (:id)");
 			$do->bindParam(':id', $fileid);
 			$do->execute();
@@ -271,13 +278,8 @@ function delete ($filename, $deleteid, $mod) {
 			$do->bindValue(':fileid', $fileid);
 			$do->execute();
 			echo 'Deleted';
-			}else{
-				echo 'You are not allowed to be here, yet.';
-			}
 			break;
  		}
- 	}else{
- 		header("Location: http://cayootie.pomf.se/user");
  	}
  }
 ?>
