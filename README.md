@@ -39,6 +39,8 @@ that PHP and Nginx provide ample protection in this department.  There is,
 however, client-side configuration for max size, the `data-max-size` attribute
 on the file input in `pages/upload_form.swig`.
 
+Make sure to disable PHP from being executed on the file download domain/directory (e.g a.site.com), otherwise a attacker can upload a malicious .php file and execute it on your server.
+
 ## Todo
 
 * Clean up Moe code, a lot..
