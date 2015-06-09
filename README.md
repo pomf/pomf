@@ -6,9 +6,9 @@ and newer PHP versions. Should work with any other PDO-compatible database.
 For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
 Node, or NPM.  So we'll just assume you already have them all running well.
 
-[Nginx Config](http://transparency.pomf.se/configs/nginx)
+[Nginx Config](https://pomf.se/transparency/configs/nginx)
 
-[PHP Config](http://transparency.pomf.se/configs/php/)
+[PHP Config](https://pomf.se/transparency/configs/php/)
 
 ## Compiling
 The assets are minified and combined using [Grunt](http://gruntjs.com/).
