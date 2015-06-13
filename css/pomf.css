@@ -127,7 +127,7 @@ a:focus {
 .alert-info {
 	background-color: #D9EDF7;
 	border-color: #BCE8F1;
-	color: #3A87AD;
+	color: #33799B;
 }
 
 /**
@@ -178,7 +178,7 @@ a.donate-btn:hover {
  */
 nav > ul,
 nav a {
-	color: #3A87AD;
+	color: #33799B;
 	list-style: none;
 	margin: 0;
 	padding: 0;
