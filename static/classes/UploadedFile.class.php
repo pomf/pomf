@@ -23,17 +23,5 @@ class UploadedFile {
 
 		return $this->sha1;
 	}
-
-	/**
-	 * Generates the CRC32 or returns the cached CRC32 hash for the file.
-	 *
-	 * @return string
-	 */
-	public function get_crc32 () {
-		if (!$this->crc32)
-			$this->crc32 = hash_file('crc32b', $this->tempfile);
-
-		return $this->crc32;
-	}
 }
 ?>
