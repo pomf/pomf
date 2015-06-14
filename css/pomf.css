@@ -45,7 +45,7 @@ input[type=image], img {
 }
 /* links */
 a {
-	color: #08C;
+	color: #0078B4;
 	text-decoration: none;
 	transition: color 0.25s;
 }
@@ -122,7 +122,7 @@ a:focus {
 .alert-error {
 	background-color: #F2DEDE;
 	border-color: #EED3D7;
-	color: #B94A48;
+	color: #AA4342;
 }
 .alert-info {
 	background-color: #D9EDF7;
