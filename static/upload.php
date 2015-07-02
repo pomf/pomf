@@ -125,7 +125,7 @@ function upload_file ($file) {
 			return array(
 				'hash' => $file->get_sha1(),
 				'name' => $file->name,
-				'url'  => $newname,
+				'url'  => POMF_URL . $newname,
 				'size' => $file->size
 			);
 		} else {
