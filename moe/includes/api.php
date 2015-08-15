@@ -23,7 +23,7 @@ if(isset($_GET['do'])){
 		break;
 
 		case "mod":
-			mod($_GET['action'], $_GET['date'], $_GET['count'], $_GET['why'], $_GET['file'], $_GET['keyword'], $_GET['fileid'], $_GET['hash'], $_GET['orginalname']);
+			mod($_GET['action'], $_GET['date'], $_GET['count'], $_GET['why'], $_GET['file'], $_GET['keyword'], $_GET['fileid'], $_GET['hash'], $_GET['originalname']);
 		break;
 
 		case "cp":
