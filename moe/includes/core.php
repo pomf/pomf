@@ -211,9 +211,9 @@ function delete ($filename, $deleteid, $mod) {
  					$i++;
  					echo '<tr><td>'.$row['id'].'</td>
  						 <td>'.strip_tags($row['originalname']).'</td>
- 						 <td><a href="http://a.pomf.se/'.$row['filename'].'" target="_BANK">'.$row['filename'].'</a> ('.$row['originalname'].')</td>
+ 						 <td><a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].'</a> ('.$row['originalname'].')</td>
  						 <td>'.$row['size'].'</td>
- 						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['id'].'&file='.$row['filename'].'" target="_BANK">Remove</a></td></tr>';
+ 						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['id'].'&file='.$row['filename'].'" target="_BLANK">Remove</a></td></tr>';
 
  				}
  				echo '</table></body></html>';
@@ -254,7 +254,7 @@ function delete ($filename, $deleteid, $mod) {
  						 <td>'.$row['fileid'].'</td>
  						 <td>'.$row['reporter'].'</td>
  						 <td>'.$row['status'].'</td>
- 						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['fileid'].'&file='.$row['file'].'" target="_BANK">Remove file</a></td></tr>';
+ 						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['fileid'].'&file='.$row['file'].'" target="_BLANK">Remove file</a></td></tr>';
 
  				}
  				echo '</table></body></html>';
