@@ -105,25 +105,25 @@ function search ($word) {
 	$str = "%".$word."%";
 	$id = $_SESSION['id'];
 	if($_SESSION['level'] === '1'){
-	$do = $db->prepare("SELECT orginalname, filename FROM files WHERE orginalname LIKE (:1) OR filename LIKE (:2)");
+	$do = $db->prepare("SELECT originalname, filename FROM files WHERE originalname LIKE (:1) OR filename LIKE (:2)");
 	$do->bindParam(':1', $str);
 	$do->bindParam(':2', $str);
 	$do->execute();
 
 	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
-		print strip_tags($row['orginalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://cayootie.pomf.se/user/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
+		print strip_tags($row['originalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://cayootie.pomf.se/user/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
 	}
 	
 	//Yes I love not being efficient, deal with it.
 	}else{
-	$do = $db->prepare("SELECT orginalname, filename FROM files WHERE orginalname LIKE (:1) AND user = (:3) OR filename LIKE (:2) AND user = (:3)");
+	$do = $db->prepare("SELECT originalname, filename FROM files WHERE originalname LIKE (:1) AND user = (:3) OR filename LIKE (:2) AND user = (:3)");
 	$do->bindParam(':1', $str);
 	$do->bindParam(':2', $str);
 	$do->bindParam(':3', $id);
 	$do->execute();
 
 	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
-	print strip_tags($row['orginalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://cayootie.pomf.se/user/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
+	print strip_tags($row['originalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://cayootie.pomf.se/user/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
 	}
     }
 }
@@ -180,9 +180,9 @@ function delete ($filename, $deleteid, $mod) {
 
  			case "fetch":
  			if($_SESSION['level'] > '0'){
-                        $do = $db->prepare("SELECT * FROM files WHERE orginalname LIKE (:keyword) AND date LIKE (:date) OR filename LIKE (:keyword) AND date LIKE (:date) ORDER BY id DESC LIMIT 0,:amount");
+                        $do = $db->prepare("SELECT * FROM files WHERE originalname LIKE (:keyword) AND date LIKE (:date) OR filename LIKE (:keyword) AND date LIKE (:date) ORDER BY id DESC LIMIT 0,:amount");
                         }else{
-                        $do = $db->prepare("SELECT * FROM files WHERE orginalname LIKE (:keyword) AND date LIKE (:date) AND user = (:userid) OR filename LIKE (:keyword) AND date LIKE (:date) AND user = (:userid) ORDER BY id$
+                        $do = $db->prepare("SELECT * FROM files WHERE originalname LIKE (:keyword) AND date LIKE (:date) AND user = (:userid) OR filename LIKE (:keyword) AND date LIKE (:date) AND user = (:userid) ORDER BY id$
                         $do->bindValue(':userid', $_SESSION['id']);}
 
  			$do->bindValue(':date', "%".$date."%");
@@ -210,8 +210,8 @@ function delete ($filename, $deleteid, $mod) {
  				while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
  					$i++;
  					echo '<tr><td>'.$row['id'].'</td>
- 						 <td>'.strip_tags($row['orginalname']).'</td>
- 						 <td><a href="http://a.pomf.se/'.$row['filename'].'" target="_BANK">'.$row['filename'].'</a> ('.$row['orginalname'].')</td>
+ 						 <td>'.strip_tags($row['originalname']).'</td>
+ 						 <td><a href="http://a.pomf.se/'.$row['filename'].'" target="_BANK">'.$row['filename'].'</a> ('.$row['originalname'].')</td>
  						 <td>'.$row['size'].'</td>
  						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['id'].'&file='.$row['filename'].'" target="_BANK">Remove</a></td></tr>';
 
