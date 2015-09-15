@@ -12,7 +12,7 @@ The assets are minified and combined using [Grunt](http://gruntjs.com/).
 Assuming you already have Node and NPM working, compilation is easy:
 ```
 $ npm install -g grunt-cli
-$ git clone https://github.com/pantsucat/pomf.git
+$ git clone git://github.com/pantsucat/pomf.git
 $ cd Pomf
 $ npm install
 $ grunt
