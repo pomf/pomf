@@ -17,10 +17,11 @@ module.exports = function (grunt) {
 				src: [
 					'index.swig',
 					'faq.swig',
-					'tools.swig'
+					'tools.swig',
+                    'other.swig'
 				],
-				siteUrl: 'http://pomf.se/',
-				production: false,
+				siteUrl: 'https://pantsu.cat/',
+				production: true,
 			}
 		},
 		htmlmin: {
