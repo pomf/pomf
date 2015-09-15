@@ -17,11 +17,9 @@ define('POMF_FILES_LENGTH', 6);
 define('POMF_URL', 'https://i.pantsu.cat/');
 
 $doubledots = array_map('strrev', array(
-	'tar.gz',
-	'tar.bz',
-	'tar.bz2',
-	'tar.xz',
-	'user.js'
+    'tar.gz',
+    'tar.bz',
+    'tar.bz2',
+    'tar.xz',
+    'user.js',
 ));
-
-?>
