@@ -12,7 +12,6 @@
     <li>Max file size is {{max_upload_size}}MiB, hopefully I won't have to change this to a even lower number. (read: don't be an ass).</li>
     <li>No Child porn, anything else goes until I get a lawsuit I guess. (unless its a virus, because that goes into the being an ass category).</li>
     <li>All filetypes are allowed, ALL! (gif,exe,jpg,rar,ass,srt,etc,etc).</li>
-    <li>Any file can be removed or replaced at any time for any reason.</li
     <li>No data is collected or logged by us. This won't change. Cloudflare isn't in use</li>
     <li>Please contact me at contact @ pantsu.cat for any questions.</li>
     <li>If you wish to send me any DMCA requests please contact me at abuse@pantsu.cat.</li>
