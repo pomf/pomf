@@ -23,8 +23,9 @@ function generate_name ($file) {
 	global $doubledots;
 
 	// We start at N retries, and --N until we give up
-	$tries = POMF_FILES_RETRIES;
-	$ext   = pathinfo($file->name, PATHINFO_EXTENSION);
+   $tries  = POMF_FILES_RETRIES;
+   $length = POMF_FILES_LENGTH;
+   $ext    = pathinfo($file->name, PATHINFO_EXTENSION);
 
 	// Check if extension is a double-dot extension and, if true, override $ext
 	$revname = strrev($file->name);
@@ -39,11 +40,10 @@ function generate_name ($file) {
 		// Iterate until we reach the maximum number of retries
 		if ($tries-- == 0) throw new Exception('Gave up trying to find an unused name', 500);
 
-		$chars = 'abcdefghijklmnopqrstuvwxyz';
+       $chars = range('a', 'z');
 		$name  = '';
-		for ($i = 0; $i < 6; $i++) {
-			$name .= $chars[mt_rand(0, 25)];
-			// $chars string length is hardcoded, should use a variable to store it?
+       for ($i = 0; $i < $length; $i++) {
+           $name .= $chars[array_rand($chars)];
 		}
 
 		// Add the extension to the file name

@@ -9,8 +9,10 @@ define('POMF_DB_PASS', '***');
 
 // Root location of files
 define('POMF_FILES_ROOT', '/mnt/pantsu/http/files/');
-// Maximum number of iterations while generating a new name
+// Maximum number of iterations while generating a new filename
 define('POMF_FILES_RETRIES', 15);
+// Number of random characters to use in a new filename
+define('POMF_FILES_LENGTH', 6);
 // URL to prepend to output (include trailing slash)
 define('POMF_URL', 'https://i.pantsu.cat/');
 
