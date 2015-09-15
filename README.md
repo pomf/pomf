@@ -43,4 +43,4 @@ Make sure to disable PHP from being executed on the file download domain/directo
 * API keys?
 
 # Contact
-I can be contacted via neku@pomf.se or twitter at [@nekunekus](https://twitter.com/nekunekus).
+I can be contacted via postmaster@pantsu.cat.
