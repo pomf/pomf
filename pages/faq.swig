@@ -9,7 +9,7 @@
 <ul>
     <li>Pantsu does NOT support Internet Explorer and older versions of Firefox, Chrome, Opera and Safari.</li>
     <li>Uploading tools for Pantsu can be found at Tools. (Currently working to update them all to work with pantsu.cat)</li>
-    <li>Max file size is 120MiB, hopefully I won't have to change this to a even lower number. (read: don't be an ass).</li>
+    <li>Max file size is {{max_upload_size}}MiB, hopefully I won't have to change this to a even lower number. (read: don't be an ass).</li>
     <li>No Child porn, anything else goes until I get a lawsuit I guess. (unless its a virus, because that goes into the being an ass category).</li>
     <li>All filetypes are allowed, ALL! (gif,exe,jpg,rar,ass,srt,etc,etc).</li>
     <li>Any file can be removed or replaced at any time for any reason.</li
