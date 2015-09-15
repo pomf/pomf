@@ -21,7 +21,7 @@ module.exports = function (grunt) {
                     'other.swig'
 				],
 				siteUrl: 'https://pantsu.cat/',
-				production: true,
+				production: false,
 			}
 		},
 		htmlmin: {
