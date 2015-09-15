@@ -1,16 +1,16 @@
 {
-  "name": "pomf",
+  "name": "pantsu",
   "version": "1.0.0",
   "description": "kawaii file host",
-  "homepage": "http://pomf.se/",
+  "homepage": "https://pantsu.cat/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nokonoko/Pomf.git"
+    "url": "https://github.com/pantsucat/pomf.git"
   },
-  "author": "Neku <neku@pomf.se>",
+  "author": "hostmaster@pantsu.cat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nokonoko/Pomf/issues"
+    "url": "https://github.com/pantsucat/pomf/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
