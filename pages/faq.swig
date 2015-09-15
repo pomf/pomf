@@ -18,7 +18,7 @@
     <li>If you wish to send me any DMCA requests please contact me at abuse@pantsu.cat.</li>
     <li>All content uploaded is owned by the user who uploaded it.</li>
     <li>If any changes to these policies happen you will be informed about them.</li>
-    <li>I will keep the site as transparent as possible. This will include any files that I remove will be publically listed and have a copy of the DMCA notice. Please view <a href="//transparency.pantsu.cat">this link</a> for tranparency information.</li>
+    <li>I will keep the site as transparent as possible. This will include any files that I remove will be publically listed and have a copy of the DMCA notice. For more information please visit the <a href="//transparency.pantsu.cat">transparency information</a> page.</li>
 </ul>
 {% include "banners.swig" %}
 {% endblock %}
