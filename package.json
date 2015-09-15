@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/pantsucat/pomf.git"
   },
-  "author": "hostmaster@pantsu.cat",
+  "author": "pantsucat <hostmaster@pantsu.cat>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pantsucat/pomf/issues"
