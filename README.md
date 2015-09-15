@@ -13,7 +13,7 @@ Assuming you already have Node and NPM working, compilation is easy:
 ```
 $ npm install -g grunt-cli
 $ git clone git://github.com/pantsucat/pomf.git
-$ cd Pomf
+$ cd pomf/
 $ npm install
 $ grunt
 ```
