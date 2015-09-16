@@ -1,45 +1,45 @@
-    <html>
-<head>
+<html>
+    <head>
         <link rel="stylesheet" type="text/css" href="../css/ass.css" media="screen" />
-    <meta charset="utf-8">
+        <meta charset="utf-8">
 
-    <title>Moe Register</title>
+        <title>Moe Register</title>
 
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <div id="login-form">
+        <div id="login-form">
 
-        <h3>Register</h3>
+            <h3>Register</h3>
 
-        <fieldset>
+            <fieldset>
 
-            <form action="../includes/api.php?do=register" method="post">
+                <form action="../includes/api.php?do=register" method="post">
 
-                <input type="Email" name="email" required value="Email" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
-                <input type="password" name="pass" required value="pass" onBlur="if(this.value=='')this.value='pass'" onFocus="if(this.value=='pass')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <input type="Email" name="email" required value="Email" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
+                    <input type="password" name="pass" required value="pass" onBlur="if(this.value=='')this.value='pass'" onFocus="if(this.value=='pass')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
 
-                <input type="submit" value="Register">
+                    <input type="submit" value="Register">
 
-                <footer class="clearfix">
-                    <p><span class="info">?</span><a href="../login">Login</a></p>
-                </footer>
+                    <footer class="clearfix">
+                        <p><span class="info">?</span><a href="../login">Login</a></p>
+                    </footer>
 
-            </form>
+                </form>
 
-        </fieldset>
+            </fieldset>
 
-    </div> <!-- end login-form -->
-<div id="fail">
-        <h3>Email in use</h3>
-        <fieldset>
-        <p>This email is already in use, choose another one or login to your existing account.</p>
-    </fieldset>
-    </div>
-</body>
+        </div> <!-- end login-form -->
+        <div id="fail">
+            <h3>Email in use</h3>
+            <fieldset>
+                <p>This email is already in use, choose another one or login to your existing account.</p>
+            </fieldset>
+        </div>
+    </body>
 </html>
