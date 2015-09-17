@@ -6,6 +6,6 @@
 		<a href="//github.com/pantsucat/pomf">Github</a></li><li>
         <a href="other.html">Other</a></li><li>
         <a href="//transparency.pantsu.cat">Transparency</a></li>
-		<a href="ca.pantsu.cat/">Catalan</a></li><li>
+		<a href="//ca.pantsu.cat">Catalan</a></li><li>
 	</ul>
 </nav>
