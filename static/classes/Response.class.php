@@ -12,6 +12,10 @@ class Response
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
+            case 'html': 
+                header('Content-Type: text/html;charset=utf-8');
+                $this->type = 'html';
+                break;
             default:
                 header('Content-Type: application/json; charset=UTF-8');
                 $this->type = 'json';
@@ -30,6 +34,9 @@ class Response
             case 'gyazo':
                 $response = $this->gyazo_error($code, $desc);
                 break;
+            case 'html':
+                $response = $this->html_error($code, $desc);
+                break;
             default:
                 $response = $this->json_error($code, $desc);
                 break;
@@ -44,6 +51,9 @@ class Response
         $response = null;
 
         switch ($this->type) {
+            case 'html':
+                $response = $this->html_success($files);
+                break;
             case 'csv':
                 $response = $this->csv_success($files);
                 break;
@@ -85,6 +95,19 @@ class Response
     private static function gyazo_success($files)
     {
         return POMF_URL.$files[0]['url'];
+    }
+    private static function html_error($code, $description)
+    {
+        return 'ERROR: ('.$code.') '.$description;
+    }
+
+    private static function html_success($files)
+    {
+        foreach ($files as $file) {
+            $result .=  "<a href=\"".$file['url']."\">".$file['url']."</a><br>";
+        }
+
+    return $result;
     }
 
     private static function json_error($code, $description)
