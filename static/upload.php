@@ -97,7 +97,7 @@ function upload_file($file)
         return array(
             'hash' => $file->get_sha1(),
             'name' => $file->name,
-            'url' => POMF_URL.$result['filename'],
+            'url' => $result['filename'],
             'size' => $file->size,
         );
     }
