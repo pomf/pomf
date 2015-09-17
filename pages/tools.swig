@@ -20,7 +20,7 @@
 </dl></section>
 <section><h1>Simple Bash Pomf Uploader</h1><dl>
 	<dt>Download</dt>
-		<dd><a href="https://gist.github.com/pantsucat/da46d56e22063704604a">https://gist.github.com/pantsucat/da46d56e22063704604a</a><</dd>
+		<dd><a href="https://gist.github.com/pantsucat/da46d56e22063704604a">https://gist.github.com/pantsucat/da46d56e22063704604a</a></dd>
 	<dt>Contact</dt>
 		<dd><a href="https://twitter.com/dev_console">https://twitter.com/dev_console</a></dd>
 </dl></section>
