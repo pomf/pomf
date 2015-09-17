@@ -1,3 +1,3 @@
 <p id="no-file-api" class="alert alert-error">
-	<strong>Your browser is shit.</strong> Install the latest<a href="http://firefox.com/">Firefox</a> or <a href="http://chrome.google.com/">Botnet</a> and come back &lt;3
+	<strong> El seu navegador és una merda. </strong> Instal l'última <a href="http://firefox.com/"> Firefox </a> o <a href = "http://chrome.google.com / "> </a> Botnet i tornar &lt;3
 </p>
