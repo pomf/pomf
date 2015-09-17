@@ -104,7 +104,7 @@ class Response
     private static function html_success($files)
     {
         foreach ($files as $file) {
-            $result .=  "<a href=\"".$file['url']."\">".$file['url']."</a><br>";
+            $result .=  "<a href=\"https://i.pantsu.cat/".$file['url']."\">".$file['url']."</a><br>";
         }
 
     return $result;
