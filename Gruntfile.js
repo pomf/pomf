@@ -18,9 +18,9 @@ module.exports = function (grunt) {
 					'index.swig',
 					'faq.swig',
 					'tools.swig',
-                    'other.swig',
-                    'nojs.swig',
-                    'ca.swig'
+					'other.swig',
+					'nojs.swig',
+					'ca.swig'
 				],
 				siteUrl: 'https://pantsu.cat/',
 				production: false,

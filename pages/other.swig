@@ -3,12 +3,11 @@
 {% block title %}FAQ{% endblock %}
 {% block body %}
 <div class="jumbotron">
-<h1>Other Services</h1>
+	<h1>Other Services</h1>
 </div>
 <ul>
-    <li><a href="//git.pantsu.cat">Git</a></li>       
-    <li><a href="firefox/">Firefox /g/uide</a></li>
+	<li><a href="//git.pantsu.cat">Git</a></li>
+	<li><a href="firefox/">Firefox /g/uide</a></li>
 </ul>
 {% include "nav.swig" %}
 {% endblock %}
-
