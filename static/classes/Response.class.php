@@ -12,6 +12,11 @@ class Response
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
+            case 'text':
+                header('Content-Type: text/plain; charset=UTF-8');
+                $this->type = $response_type;
+                break;
+
             case 'html': 
                 header('Content-Type: text/html;charset=utf-8');
                 $this->type = 'html';
@@ -33,6 +38,9 @@ class Response
                 break;
             case 'gyazo':
                 $response = $this->gyazo_error($code, $desc);
+                break;
+            case 'text':
+                $response = $this->text_error($code, $desc);
                 break;
             case 'html':
                 $response = $this->html_error($code, $desc);
@@ -59,6 +67,9 @@ class Response
                 break;
             case 'gyazo':
                 $response = $this->gyazo_success($files);
+                break;
+            case 'text':
+                $response = $this->text_success($files);
                 break;
             default:
                 $response = $this->json_success($files);
@@ -96,6 +107,20 @@ class Response
     {
         return POMF_URL.$files[0]['url'];
     }
+    private static function txt_error($code, $description)
+    {
+        return 'ERROR: ('.$code.') '.$description;
+    }
+
+    private static function text_success($files)
+    {
+        foreach ($files as $file) {
+            $result .=  POMF_URL.$files[0]['url'];
+        }
+
+    return $result;
+    }
+
     private static function html_error($code, $description)
     {
         return 'ERROR: ('.$code.') '.$description;
