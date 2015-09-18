@@ -122,10 +122,9 @@ $(function () {
 						break
 					}
 					eachRow(res.files, function (row, file, files) {
-                        var url = 'https://i.pantsu.cat/' + file.url
 						var link = $('<a>')
 
-						link.attr('href', url)
+                       link.attr('href', file.url)
 							.attr('target', '_BLANK')
 							.text(file.url.replace("http://","").replace("https://",""))
 
