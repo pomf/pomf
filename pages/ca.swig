@@ -3,7 +3,7 @@
 {% block body %}
 <div class="jumbotron">
    <header>
-       <h1>Roba Interior~</h1>
+       <h1>Ropa Interior~</h1>
    </header>
 	<p class="lead">Màxima grandària de pujada {{max_upload_size}}MiB, read the <a href="faq.html">FAQ</a></p>
 	{% include "check_scriptca.swig" %}
