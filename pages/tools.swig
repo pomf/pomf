@@ -46,7 +46,7 @@
 	<dt>Download</dt>
 		<dd><a href="https://code.google.com/p/sharex/">https://code.google.com/p/sharex/</a></dd>
 	<dt>Settings</dt>
-		<dd><a href="https://p.pantsu.cat/view/raw/977674be">https://p.pantsu.cat/view/raw/977674be</a></dd>
+		<dd><a href="https://p.pantsu.cat/view/raw/b79ea507">https://p.pantsu.cat/view/raw/b79ea507</a></dd>
 </dl></section>
 <section><h1>Scotty</h1><dl>
 	<dt>Download</dt>
