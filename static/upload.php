@@ -93,10 +93,11 @@ function upload_file($file)
     $result = $q->fetch();
     if ($result['count'] > 0) {
         unlink($file->tempfile);
+
         return array(
             'hash' => $file->get_sha1(),
             'name' => $file->name,
-            'url' => $result['filename'],
+            'url' => POMF_URL.$result['filename'],
             'size' => $file->size,
         );
     }
@@ -131,10 +132,11 @@ function upload_file($file)
             $q->bindValue(':exp',  null,                    PDO::PARAM_STR);
             $q->bindValue(':del',  sha1($file->tempfile),   PDO::PARAM_STR);
             $q->execute();
+
             return array(
                 'hash' => $file->get_sha1(),
                 'name' => $file->name,
-                'url' => $newname,
+                'url' => POMF_URL.$newname,
                 'size' => $file->size,
             );
         } else {
@@ -194,7 +196,6 @@ function refiles($files)
 }
 
 $type = isset($_GET['output']) ? $_GET['output'] : 'json';
-
 $response = new Response($type);
 
 if (isset($_FILES['files'])) {
@@ -211,5 +212,3 @@ if (isset($_FILES['files'])) {
 } else {
     $response->error(400, 'No input file(s)');
 }
-
-
