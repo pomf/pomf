@@ -115,7 +115,7 @@ class Response
     private static function text_success($files)
     {
         foreach ($files as $file) {
-            $result .=  POMF_URL.$files[0]['url'];
+            $result .= $file['url']."\n";
         }
 
     return $result;
