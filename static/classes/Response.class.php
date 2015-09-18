@@ -17,7 +17,7 @@ class Response
                 $this->type = $response_type;
                 break;
 
-            case 'html': 
+            case 'html':
                 header('Content-Type: text/html;charset=utf-8');
                 $this->type = 'html';
                 break;
@@ -118,7 +118,7 @@ class Response
             $result .= $file['url']."\n";
         }
 
-    return $result;
+        return $result;
     }
 
     private static function html_error($code, $description)
@@ -129,10 +129,10 @@ class Response
     private static function html_success($files)
     {
         foreach ($files as $file) {
-            $result .=  "<a href=\"".$file['url']."\">".$file['url']."</a><br>";
+            $result .=  '<a href="'.$file['url'].'">'.$file['url'].'</a><br>';
         }
 
-    return $result;
+        return $result;
     }
 
     private static function json_error($code, $description)

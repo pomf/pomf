@@ -1,4 +1,5 @@
 <?php
+
 // This file will act as a APIish thing
 require_once 'core.php';
 
