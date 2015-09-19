@@ -83,7 +83,7 @@ $(function () {
 		if (files.size > MAX_SIZE) {
 			uploadFiles.addClass('error')
 
-			$('.file-name', totalRow).text('onii-chan y-your upload is t-too big&hellip;')
+			$('.file-name', totalRow).html('onii-chan y-your upload is t-too big&hellip;');
 			return
 		}
 
