@@ -12,9 +12,17 @@ The assets are minified and combined using [Grunt](http://gruntjs.com/).
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 
-## Apache
-If you are running Apache and want to compress your output when serving files, add to your `.htaccess` file:
-=======
+#### Apache
+If you are running Apache and want to compress your output when serving files,
+add to your `.htaccess` file:
+
+```
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/x-javascript application/json
+```
+
+Remember to enable `deflate_module` and `filter_module` modules in your Apache
+configuration file.
+
 ```
 npm install -g grunt-cli
 git clone git://github.com/pantsucat/pomf.git
@@ -39,24 +47,11 @@ Make sure to disable PHP from being executed on the file download
 domain/directory (e.g a.site.com), otherwise a attacker can upload a malicious
 .php file and execute it on your server.
 
-### Apache
-
-If you are running Apache and want to compress your output when serving files,
-add to your `.htaccess` file:
-
-```
-AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/x-javascript application/json
-```
-
-Remember to enable `deflate_module` and `filter_module` modules in your Apache
-configuration file.
-
 ## Todo
 
 * Clean up Moe code, a lot..
 * API keys?
 
-=======
 ## License
 
 Pomf is free software, and is released under the terms of the MIT (Expat)
