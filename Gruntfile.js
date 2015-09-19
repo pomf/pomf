@@ -45,7 +45,8 @@ module.exports = function (grunt) {
 		uglify: {
 			options: {
 				banner: '/*! <%= pkg.name %> (<%= pkg.repository.url %>) @ <%= grunt.template.today("yyyy-mm-dd") %> */\n// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT\n',
-				footer: '\n// @license-end'
+				footer: '\n// @license-end',
+				screwIE8: true
 			},
 			dist: {
 				files: {
