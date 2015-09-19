@@ -84,7 +84,8 @@ $(function() {
     if (files.size > MAX_SIZE) {
       uploadFiles.addClass('error');
 
-      $('.file-name', totalRow).html('onii-chan y-your upload is t-too big&hellip;');
+      $('.file-name', totalRow).html('onii-chan y-your upload is t-too ' +
+        'big&hellip;');
       return;
     }
 
@@ -94,7 +95,8 @@ $(function() {
       var hits = {};
       files.forEach(function(file) {
         ++hits[file.name] || (hits[file.name] = 0);
-        var row = $($('li[data-filename="' + escape(file.name) + '"]')[hits[file.name] || 0]);
+        var row = $($('li[data-filename="' + escape(file.name) + '"]') +
+          [hits[file.name] || 0]);
         fn.call(row, row, file, files);
       });
     };
@@ -119,7 +121,8 @@ $(function() {
           var res = JSON.parse(res);
           if (!res.success) {
             uploadFiles.addClass('error');
-            $('.file-name', totalRow).text('Something went wrong; try again later.');
+            $('.file-name', totalRow).text('Something went wrong; try again ' +
+              'later.');
             break;
           }
           eachRow(res.files, function(row, file, files) {
@@ -136,8 +139,10 @@ $(function() {
           break;
         case 413:
           uploadFiles.addClass('error completed');
-          // Terrible work-around, but necessary since otherwise the '&hellip;' entity is left decoded
-          totalName.html($('<div/>').html('onii-chan, y-your upload is t-too big&hellip;').text());
+          // Terrible work-around, but necessary since otherwise the '&hellip;'
+          // entity is left decoded.
+          totalName.html($('<div/>').html('onii-chan, y-your upload is t-too ' +
+            'big&hellip;').text());
           break;
         default:
           uploadFiles.addClass('error completed');
