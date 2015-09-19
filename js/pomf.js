@@ -126,8 +126,8 @@ $(function() {
             var link = $('<a>');
 
             link.attr('href', file.url)
-              .attr('target', '_BLANK')
-              .text(file.url.replace("http://", "").replace("https://", ""));
+                .attr('target', '_BLANK')
+                .text(file.url.replace("http://", "").replace("https://", ""));
 
             $('.file-url', row).append(link);
           });
