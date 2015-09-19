@@ -4,7 +4,7 @@ $(function() {
       uploadBtn = $('#upload-btn'),
       uploadFiles = $('#upload-filelist');
 
-  var btnContent = "";
+  var btnContent = '';
 
   if (!$.hasFileAPI()) {
     $('#no-file-api').show();
@@ -39,10 +39,10 @@ $(function() {
   var MAX_SIZE = (function(node) {
     var max = node.attr('data-max-size') || '120MiB';
     var num = parseInt(/([0-9,]+).*/.exec(max)[1].replace(',', ''));
-    var unit = /(?:([KMGTPEZY])(i)?B|([BKMGTPEZY]))/.exec(max) || ["B", "", ""];
+    var unit = /(?:([KMGTPEZY])(i)?B|([BKMGTPEZY]))/.exec(max) || ['B', '', ''];
 
     var oneUnit = Math.pow(
-      (unit[2] === "i" ? 1024 : 1000),
+      (unit[2] === 'i' ? 1024 : 1000),
       'BKMGTPEZY'.indexOf(unit[1])
     );
 
@@ -88,7 +88,7 @@ $(function() {
       return;
     }
 
-    var up = files.upload("upload.php");
+    var up = files.upload('upload.php');
 
     var eachRow = function(files, fn) {
       var hits = {};
@@ -127,7 +127,7 @@ $(function() {
 
             link.attr('href', file.url)
                 .attr('target', '_BLANK')
-                .text(file.url.replace("http://", "").replace("https://", ""));
+                .text(file.url.replace('http://', '').replace('https://', ''));
 
             $('.file-url', row).append(link);
           });
