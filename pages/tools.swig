@@ -10,7 +10,7 @@
 	<h1>Pomfit</h1>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://github.com/pantsucat/pomfit">https://github.com/pantsucat/pomfit</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsucat/pantsuit">https://git.pantsu.cat/pantsucat/pantsuit</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/Senketsu_Dev">https://twitter.com/Senketsu_Dev</a></dd>
 	</dl>
@@ -19,18 +19,9 @@
 	<h1>Bash Pomf Uploader</h1>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://gist.github.com/pantsucat/b46320a4103afda4e0ff">https://gist.github.com/pantsucat/b46320a4103afda4e0ff</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsucat/pantsuscripts/raw/master/pomf">https://git.pantsu.cat/pantsucat/pantsuscripts/raw/master/pomf</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/AnonymousLink">https://twitter.com/AnonymousLink</a></dd>
-	</dl>
-</section>
-<section>
-	<h1>Simple Bash Pomf Uploader</h1>
-	<dl>
-		<dt>Download</dt>
-		<dd><a href="https://gist.github.com/pantsucat/da46d56e22063704604a">https://gist.github.com/pantsucat/da46d56e22063704604a</a></dd>
-		<dt>Contact</dt>
-		<dd><a href="https://twitter.com/dev_console">https://twitter.com/dev_console</a></dd>
 	</dl>
 </section>
 <section>
@@ -46,7 +37,7 @@
 	<h1>1339secure</h1>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://github.com/pantsucat/1339secure">https://github.com/pantsucat/1339secure</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsucat/pantsusecure">https://git.pantsu.cat/pantsucat/pantsusecure</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="mailto:adriankoshcha@teknik.io">adriankoshcha@teknik.io</a></dd>
 	</dl>
@@ -55,7 +46,7 @@
 	<h1>Python Pomf Uploader</h1>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://github.com/pantsucat/POMF">https://github.com/pantsucat/POMF</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsucat/pantsupy">https://git.pantsu.cat/pantsucat/pantsupy</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/FuzzyPomf">https://twitter.com/FuzzyPomf</a></dd>
 	</dl>
@@ -66,14 +57,14 @@
 		<dt>Download</dt>
 		<dd><a href="https://code.google.com/p/sharex/">https://code.google.com/p/sharex/</a></dd>
 		<dt>Settings</dt>
-		<dd><a href="https://p.pantsu.cat/view/raw/b79ea507">https://p.pantsu.cat/view/raw/b79ea507</a></dd>
+		<dd><a href="https://p.pantsu.cat/view/raw/a8f6e714">https://p.pantsu.cat/view/raw/a8f6e714</a></dd>
 	</dl>
 </section>
 <section>
 	<h1>Scotty</h1>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://github.com/pantsucat/Scotty">https://github.com/pantsucat/Scotty</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsucat/Scotty">https://git.pantsu.cat/pantsucat/Scotty</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/mavanmanenDev">https://twitter.com/mavanmanenDev</a></dd>
 	</dl>
