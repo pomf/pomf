@@ -20,7 +20,7 @@ following shell code:
 
 ```
 npm install -g grunt-cli
-git clone https://git.pantsu.cat/pantsucat/pomf.git
+git clone https://git.pantsu.cat/pantsu/pomf.git
 cd pomf/
 npm install
 grunt
