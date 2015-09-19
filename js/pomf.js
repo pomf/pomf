@@ -51,10 +51,10 @@ $(function() {
 
   var createRow = function(filename, size, extra) {
     var rowItem = $('<li class=file>'),
-      rowName = $('<span class=file-name>'),
-      rowProg = $('<div class="file-progress progress-outer">'),
-      rowSize = $('<span class=file-size>'),
-      rowUrl = $('<span class=file-url>')
+        rowName = $('<span class=file-name>'),
+        rowProg = $('<div class="file-progress progress-outer">'),
+        rowSize = $('<span class=file-size>'),
+        rowUrl = $('<span class=file-url>')
 
     rowItem.addClass(extra || '')
 
