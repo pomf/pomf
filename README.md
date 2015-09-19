@@ -56,7 +56,6 @@ configuration file.
 
 ## Todo
 
-* Clean up Moe code, a lot..
 * API keys?
 
 ## License
