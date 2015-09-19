@@ -12,7 +12,7 @@ The assets are minified and combined using [Grunt](http://gruntjs.com/).
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 
-#### Apache
+## Apache
 If you are running Apache and want to compress your output when serving files, add to your `.htaccess` file:
 =======
 ```
@@ -56,8 +56,6 @@ configuration file.
 * Clean up Moe code, a lot..
 * API keys?
 
-## Contact
-I can be contacted via hostmaster@pantsu.cat.
 =======
 ## License
 
@@ -67,3 +65,4 @@ license. See LICENSE.
 ## Contact
 
 The maintainer can be contacted via hostmaster@pantsu.cat.
+
