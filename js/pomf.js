@@ -1,3 +1,4 @@
+/* jshint browser:true, jquery:true */
 $(function () {
   var uploadInput = $('#upload-input')
     , uploadBtn = $('#upload-btn')
