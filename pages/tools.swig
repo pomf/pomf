@@ -69,11 +69,12 @@
 		<dd><a href="https://twitter.com/mavanmanenDev">https://twitter.com/mavanmanenDev</a></dd>
 	</dl>
 </section>
-<section class="ded">
+<section>
 	<h1>Gyazo Client (Puush like client)</h1>
 	<dl>
 		<dt>Download</dt>
 		<dd><a href="https://github.com/pantsucat/gyazowin">https://github.com/pantsucat/gyazowin</a></dd>
+		<dd><a href="https://i.pantsu.cat/hnpgjr.exe">https://i.pantsu.cat/hnpgjr.exe</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/4vailable">https://twitter.com/4vailable</a></dd>
 	</dl>
