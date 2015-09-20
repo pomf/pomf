@@ -1,3 +1,4 @@
+/* jshint browser:true, jquery:true */
 ;(function () {
 	/* Lightweight EventEmitter implementation */
 	EventEmitter = function () {}
