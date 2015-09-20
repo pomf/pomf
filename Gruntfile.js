@@ -101,6 +101,7 @@ module.exports = function (grunt) {
 		jshint: {
 			options: {
 				curly: true,
+				undef: true
 			},
 			all: [
 				'Gruntfile.js',
@@ -109,7 +110,6 @@ module.exports = function (grunt) {
 				'js/cheesesteak.js'
 			]
 		}
-
 	});
 
 	grunt.loadNpmTasks('grunt-swig');
