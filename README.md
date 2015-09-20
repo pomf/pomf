@@ -65,4 +65,4 @@ license. See LICENSE.
 
 ## Contact
 
-The maintainer can be contacted via hostmaster@pantsu.cat.
+The maintainer can be contacted via <hostmaster@pantsu.cat>.
