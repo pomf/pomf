@@ -104,7 +104,6 @@ module.exports = function (grunt) {
         undef: true
       },
       all: [
-        'Gruntfile.js',
         'js/pomf.js',
         'js/cabinet.js',
         'js/cheesesteak.js'
