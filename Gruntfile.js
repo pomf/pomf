@@ -99,7 +99,15 @@ module.exports = function (grunt) {
 			}
 		},
 		jshint: {
-			all: ['Gruntfile.js', 'pomf.js']
+			options: {
+				curly: true,
+			},
+			all: [
+				'Gruntfile.js',
+				'js/pomf.js',
+				'js/cabinet.js',
+				'js/cheesesteak.js'
+			]
 		}
 
 	});
