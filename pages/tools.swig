@@ -30,7 +30,7 @@
 		<dt>Download</dt>
 		<dd><a href="https://github.com/lich/limf">https://github.com/lich/limf</a></dd>
 		<dt>Contact</dt>
-		<dd><a href="http://lich.github.io/">http://lich.github.io//</a></dd>
+		<dd><a href="http://lich.github.io/">http://lich.github.io/</a></dd>
 	</dl>
 </section>
 <section>
