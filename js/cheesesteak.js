@@ -81,25 +81,6 @@
     window.URL.revokeObjectURL(url);
   };
 
-  // We manipulate this instead of files, because the fucking geniuses at
-  // Mozilla interpreted the spec to mean that HTMLInputElement.prototype.files
-  // is read-only.  It isn't, read for yourself:
-  // http://www.w3.org/html/wg/drafts/html/master/forms.html#dom-input-files
-  //HTMLInputElement.prototype.filelist = Object.create(FileList);
-  /*
-  Object.defineProperty(HTMLInputElement.prototype, "filelist", {
-    get: function getFileList () {
-      return this.filelist = this._filelist || this.files
-    },
-    set: function (files) {
-      r
-    }
-  })*/
-
-  /*  HTMLInputElement.prototype.addEventListener("change", function (e) {
-      this.filelist = e.target.files
-    })*/
-
   // b gets merged as defaults for a
   var merge = function merge(base, overlay) {
     var out = base;
