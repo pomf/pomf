@@ -8,19 +8,13 @@
     this._events[evt].push(fn);
   };
   EventEmitter.prototype.off = function(evt, fn) {
-    if (!this.hasOwnProperty('_events')) {
-      return;
-    }
-    if (evt in this._events === false) {
+    if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
     this._events[evt].splice(this._events[evt].indexOf(fn), 1);
   };
   EventEmitter.prototype.emit = function(evt) {
-    if (!this.hasOwnProperty('_events')) {
-      return;
-    }
-    if (evt in this._events === false) {
+    if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
 
