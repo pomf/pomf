@@ -16,10 +16,9 @@ class Response
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
-
             case 'html':
-                header('Content-Type: text/html;charset=utf-8');
-                $this->type = 'html';
+                header('Content-Type: text/html; charset=UTF-8');
+                $this->type = $response_type;
                 break;
             default:
                 header('Content-Type: application/json; charset=UTF-8');
@@ -107,6 +106,7 @@ class Response
     {
         return POMF_URL.$files[0]['url'];
     }
+
     private static function txt_error($code, $description)
     {
         return 'ERROR: ('.$code.') '.$description;
