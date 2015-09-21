@@ -1,36 +1,43 @@
-;(function($){
-	$.hasFileAPI = function hasFileAPI () {
-		return (window.FormData !== undefined)
-	}
-	$.fn.cabinet = function (input) {
-		input = $(input)
+/* jshint browser:true, jquery:true */
+(function($) {
+  $.hasFileAPI = function hasFileAPI() {
+    return (window.FormData !== undefined);
+  };
 
-		var _this = this
-		var passthrough = function (outer, inner, prevent, fn) {
-			_this.on(outer, function (e) {
-				if (inner === 'click')
-					input[0].click()
-				else
-					input.trigger(inner)
-				if (prevent) e.preventDefault()
-				if (fn) fn(e)
-			}, false)
-		}
+  $.fn.cabinet = function(input) {
+    input = $(input);
 
-		input[0].filelist = Object.create(FileList)
+    var _this = this;
+    var passthrough = function(outer, inner, prevent, fn) {
+      _this.on(outer, function(e) {
+        if (inner === 'click') {
+          input[0].click();
+        } else {
+          input.trigger(inner);
+        }
+        if (prevent) {
+          e.preventDefault();
+        }
+        if (fn) {
+          fn(e);
+        }
+      }, false);
+    };
 
-		input.on('change', function (e) {
-			this.filelist = e.target.files
-			_this.change()
-		})
+    input[0].filelist = Object.create(FileList);
 
-		passthrough('dragenter', 'dragenter', true)
-		passthrough('dragover', 'dragover', true)
-		passthrough('dragleave', 'dragleave', true)
-		passthrough('click', 'click', false)
-		passthrough('drop', 'dragleave', true, function (e) {
-			input[0].filelist = e.dataTransfer.files
-			_this.change()
-		})
-	}
-})($)
+    input.on('change', function(e) {
+      this.filelist = e.target.files;
+      _this.change();
+    });
+
+    passthrough('dragenter', 'dragenter', true);
+    passthrough('dragover', 'dragover', true);
+    passthrough('dragleave', 'dragleave', true);
+    passthrough('click', 'click', false);
+    passthrough('drop', 'dragleave', true, function(e) {
+      input[0].filelist = e.dataTransfer.files;
+      _this.change();
+    });
+  };
+})($);
