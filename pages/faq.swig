@@ -14,7 +14,7 @@
 	<li>All filetypes are allowed, ALL! (gif,exe,jpg,rar,ass,srt,etc,etc).</li>
 	<li>No data is collected or logged by us. This won't change. Cloudflare isn't in use</li>
 	<li>Please contact me at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> for any questions.</li>
-	<li>If you wish to send me any DMCA requests please contact me at <a href="mailto:abuse@pantsu.cat>abuse@pantsu.cat</a></li>
+	<li>If you wish to send me any DMCA requests please contact me at <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a></li>
 	<li>If any changes to these policies happen you will be informed about them.</li>
 	<li>I will keep the site as transparent as possible. This will include any files that I remove will be publically listed and have a copy of the DMCA notice. For more information please visit the <a href="//transparency.pantsu.cat">transparency information</a> page.</li>
 </ul>
