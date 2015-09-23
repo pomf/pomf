@@ -4,23 +4,20 @@ module.exports = function (grunt) {
     swig: {
       dist: {
         init: {
-          root: "pages/",
-          allowErrors: false,
-          autoescape: true
+          allowErrors: false
         },
         banners: grunt.file.readJSON('pages/banners.json'),
         max_upload_size: 120,
-        dest: "dist/",
-        cwd: "pages/",
+        dest: 'dist',
         generateSitemap: false,
         generateRobotstxt: false,
         src: [
-          'index.swig',
-          'faq.swig',
-          'tools.swig',
-          'other.swig',
-          'nojs.swig',
-          'ca.swig'
+          'pages/index.swig',
+          'pages/faq.swig',
+          'pages/tools.swig',
+          'pages/other.swig',
+          'pages/nojs.swig',
+          'pages/ca.swig'
         ],
         siteUrl: 'https://pantsu.cat/',
         production: false,
@@ -31,13 +28,12 @@ module.exports = function (grunt) {
         options: {
           removeComments: true,
           collapseWhitespace: true,
-          conservativeCollapse: true,
           removeEmptyAttributes: true
         },
         files: [{
           expand: true,
           cwd: 'dist/',
-          src: '**/*.html',
+          src: '*.html',
           dest: 'dist/'
         }]
       }
