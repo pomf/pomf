@@ -5,12 +5,12 @@
   "homepage": "https://pantsu.cat/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pantsucat/pomf.git"
+    "url": "https://git.pantsu.cat/pantsu/pomf.git"
   },
   "author": "pantsucat <hostmaster@pantsu.cat>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pantsucat/pomf/issues"
+    "url": "https://git.pantsu.cat/pantsu/pomf/issues"
   },
   "devDependencies": {
     "grunt": "^0.4.1",
