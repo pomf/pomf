@@ -7,7 +7,11 @@
     "type": "git",
     "url": "https://git.pantsu.cat/pantsu/pomf.git"
   },
-  "author": "pantsucat <hostmaster@pantsu.cat>",
+  "author": "Eliot Whalan <ewhal@pantsu.cat>",
+  "contributors": [
+    {"name": "Eric Johansson", "emai": "neku@pomf.se"},
+    {"name": "Peter Lejeck", "emai": "peter.lejeck@gmail.com"},
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://git.pantsu.cat/pantsu/pomf/issues"
