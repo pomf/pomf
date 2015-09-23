@@ -39,7 +39,7 @@
 		<dt>Download</dt>
 		<dd><a href="https://code.google.com/p/sharex/">https://code.google.com/p/sharex/</a></dd>
 		<dt>Settings</dt>
-		<dd><a href="https://p.pantsu.cat/view/raw/21cfb1f3">https://p.pantsu.cat/view/raw/21cfb1f3</a></dd>
+		<dd><a href="https://p.pantsu.cat/view/raw/fcaeab90">https://p.pantsu.cat/view/raw/fcaeab90</a></dd>
 	</dl>
 </section>
 <section>
