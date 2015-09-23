@@ -54,10 +54,6 @@ AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascri
 Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
 
-## Todo
-
-* API keys?
-
 ## License
 
 Pomf is free software, and is released under the terms of the MIT (Expat)
