@@ -18,13 +18,11 @@ The assets are minified and combined using [Grunt](http://gruntjs.com/).
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 
-```
-npm install -g grunt-cli
-git clone https://git.pantsu.cat/pantsu/pomf.git
-cd pomf/
-npm install
-grunt
-```
+    npm install -g grunt-cli
+    git clone https://git.pantsu.cat/pantsu/pomf.git
+    cd pomf/
+    npm install
+    grunt
 
 After this, the pomf site is now compressed and set up inside `dist/`.
 
@@ -47,9 +45,7 @@ domain/directory (e.g a.site.com), otherwise a attacker can upload a malicious
 If you are running Apache and want to compress your output when serving files,
 add to your `.htaccess` file:
 
-```
-AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/x-javascript application/json
-```
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/x-javascript application/json
 
 Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
