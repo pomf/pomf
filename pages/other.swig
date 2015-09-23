@@ -1,6 +1,6 @@
 {% extends "layout.swig" %}
 
-{% block title %}FAQ{% endblock %}
+{% block title %}Other Services{% endblock %}
 {% block body %}
 <div class="jumbotron">
 	<h1>Other Services</h1>
