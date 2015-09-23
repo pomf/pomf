@@ -10,12 +10,16 @@
   "author": "Eliot Whalan <ewhal@pantsu.cat>",
   "contributors": [
     {
-        "name": "Eric Johansson",
-        "email": "neku@pomf.se"
+      "name": "Eric Johansson",
+      "email": "neku@pomf.se"
     },
     {
-        "name": "Peter Lejeck", 
-        "emai": "peter.lejeck@gmail.com"
+      "name": "Peter Lejeck",
+      "email": "peter.lejeck@gmail.com"
+    },
+    {
+      "name": "cenci0",
+      "email": "alchimist94@gmail.com"
     }
   ],
   "license": "MIT",
