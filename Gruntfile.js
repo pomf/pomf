@@ -7,7 +7,7 @@ module.exports = function (grunt) {
           allowErrors: false
         },
         banners: grunt.file.readJSON('pages/banners.json'),
-        max_upload_size: 120,
+        max_upload_size: 128,
         dest: 'dist',
         generateSitemap: false,
         generateRobotstxt: false,
