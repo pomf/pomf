@@ -52,8 +52,8 @@ configuration file.
 
 ## License
 
-Pomf is free software, and is released under the terms of the MIT (Expat)
-license. See LICENSE.
+Pomf is free software, and is released under the terms of the Expat license. See
+`LICENSE`.
 
 ## Contact
 
