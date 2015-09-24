@@ -1,6 +1,7 @@
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
 Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -25,13 +26,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Ropa Interior.cat &middot; {% block title %}Allotjament d'arxius valent{% endblock %}</title>
+		<title>Pantsu.cat &middot; {% block title %}Allotjament d'Arxius Kawaii{% endblock %}</title>
 		<link rel="icon" href="favicon.ico">
 		<link rel="stylesheet" href="pomf.min.css">
 	</head>
 	<body>
 		<div class="container">
-			{% block body %}What the fuck are you doing here, baka?{% endblock %}
+			{% block body %}Què cony fas ací, baka?{% endblock %}
 		</div>
 	</body>
 </html>

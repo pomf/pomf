@@ -1,5 +1,4 @@
 {#
-Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
 Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
 Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
@@ -21,6 +20,14 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<p id="no-file-api" class="alert alert-error">
-	<strong>El teu navegador és una merda.</strong> Instal·la el <a href="http://firefox.com/">Firefox</a> més recent o <a href="http://chrome.google.com/">Botnet</a> i torna &lt;3
-</p>
+<nav>
+	<ul>
+		<li><a href="//pantsu.cat/">Pantsu</a></li>
+		<li><a href="//p.pantsu.cat/">Text</a></li>
+		<li><a href="toolsca.html">Estris</a></li>
+		<li><a href="//git.pantsu.cat/pantsu/pomf">Git</a></li>
+		<li><a href="otherca.html">Altres</a></li>
+		<li><a href="//transparency.pantsu.cat">Transparència</a></li>
+		<li><a href="index.html">English</a></li>
+	</ul>
+</nav>

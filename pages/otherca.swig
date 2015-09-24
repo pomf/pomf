@@ -21,6 +21,18 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<p id="no-file-api" class="alert alert-error">
-	<strong>El teu navegador és una merda.</strong> Instal·la el <a href="http://firefox.com/">Firefox</a> més recent o <a href="http://chrome.google.com/">Botnet</a> i torna &lt;3
-</p>
+{% extends "layout.swig" %}
+
+{% block title %}Altres Servicis{% endblock %}
+{% block body %}
+<div class="jumbotron">
+	<h1>Altres Servicis</h1>
+</div>
+<ul>
+	<li><a href="//git.pantsu.cat">Git</a></li>
+	<li><a href="firefox/">/g/uia de Firefox</a></li>
+	<li><a href="http://mg7aqol36qpx7oij.onion/">Servici Ocult</a>
+	<li><a href="//no.pantsu.cat">Versió sense JS</a>
+</ul>
+{% include "nav.swig" %}
+{% endblock %}

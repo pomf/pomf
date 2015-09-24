@@ -1,6 +1,7 @@
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
 Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -20,6 +21,6 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<a href="javascript:;" id="upload-btn" class="btn">Seleccionar <span>o deixar anar </span> expedient(s)</a>
+<a href="javascript:;" id="upload-btn" class="btn">Selecciona <span>o arrastra</span> fitxers(s) ací</a>
 <input type="file" id="upload-input" name="files[]" multiple data-max-size="{{max_upload_size}}MiB">
 <ul id="upload-filelist"></ul>

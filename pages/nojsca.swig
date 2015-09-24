@@ -21,6 +21,17 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<p id="no-file-api" class="alert alert-error">
-	<strong>El teu navegador és una merda.</strong> Instal·la el <a href="http://firefox.com/">Firefox</a> més recent o <a href="http://chrome.google.com/">Botnet</a> i torna &lt;3
-</p>
+{% extends "layout.swig" %}
+
+{% block body %}
+<div class="jumbotron">
+	<header>
+		<h1>Pantsu~</h1>
+	</header>
+	<p class="lead">Màxima grandària de pujada: {{max_upload_size}}MiB, llig la <a href="faqca.html">FAQ</a></p>
+	{% include "check_fileapica.swig" %}
+	{% include "upload_form_nojs.swig" %}
+</div>
+{% include "bannersca.swig" %}
+{% include "navca.swig" %}
+{% endblock %}
