@@ -23,7 +23,7 @@
 /* jshint browser:true, jquery:true */
 $(function() {
   var uploadInput = $('#upload-input'),
-      uploadBtn = $('#upload-btn'),
+      uploadBtn   = $('#upload-btn'),
       uploadFiles = $('#upload-filelist');
 
   var btnContent = '';
