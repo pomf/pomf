@@ -33,7 +33,6 @@ class UploadedFile
 
     /* Cached checksums */
     private $sha1;
-    private $crc32;
 
     /**
      * Generates the SHA1 or returns the cached SHA1 hash for the file.
