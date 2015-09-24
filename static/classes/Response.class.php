@@ -146,7 +146,7 @@ class Response
 
     private static function html_error($code, $description)
     {
-        return 'ERROR: ('.$code.') '.$description;
+        return '<p>ERROR: ('.$code.') '.$description.'</p>';
     }
 
     private static function html_success($files)
