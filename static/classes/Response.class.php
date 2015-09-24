@@ -130,7 +130,7 @@ class Response
         return POMF_URL.$files[0]['url'];
     }
 
-    private static function txt_error($code, $description)
+    private static function text_error($code, $description)
     {
         return 'ERROR: ('.$code.') '.$description;
     }
