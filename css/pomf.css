@@ -35,11 +35,11 @@
  * PAGE LAYOUT
  */
 body {
-	background-attachment: fixed, fixed;
+	background-attachment: fixed;
 	background-color: #F7F7F7;
-	background-image: url('grill.php'), url('img/bg.png');
-	background-position: 85% 100%, top left;
-	background-repeat: no-repeat, repeat;
+	background-image: url('img/bg.png');
+	background-position: top left;
+	background-repeat: repeat;
 	color: #333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
