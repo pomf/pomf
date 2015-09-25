@@ -1,5 +1,4 @@
 {#
-Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
 Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
 Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
@@ -21,18 +20,14 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<!DOCTYPE html>
-<html lang="ca">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Pantsu.cat &middot; {% block title %}Allotjament d'Arxius Kawaii{% endblock %}</title>
-		<link rel="icon" href="favicon.ico">
-		<link rel="stylesheet" href="pomf.min.css">
-	</head>
-	<body>
-		<div class="container">
-			{% block body %}Què cony fas ací, baka?{% endblock %}
-		</div>
-	</body>
-</html>
+<nav>
+	<ul>
+		<li><a href="//pantsu.cat/">Pantsu</a></li>
+		<li><a href="//p.pantsu.cat/">Text</a></li>
+		<li><a href="toolsca.html">Estris</a></li>
+		<li><a href="//git.pantsu.cat/pantsu/pomf">Git</a></li>
+		<li><a href="otherca.html">Altres</a></li>
+		<li><a href="//transparency.pantsu.cat">Transparència</a></li>
+		<li lang="en"><a href="index.html">English</a></li>
+	</ul>
+</nav>

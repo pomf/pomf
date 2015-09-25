@@ -1,5 +1,6 @@
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
+Copyright (c) 2014 Eric Johansson <neku@pomf.se>
 Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
 Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
@@ -23,17 +24,23 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 {% extends "layoutca.swig" %}
 
+{% block title %}FAQ{% endblock %}
 {% block body %}
 <div class="jumbotron">
-	<header>
-		<h1>Pantsu~</h1>
-	</header>
-	<p class="lead">Màxima grandària de pujada {{max_upload_size}}MiB, llig la <a href="faqca.html">FAQ</a></p>
-	{% include "check_scriptca.swig" %}
-	{% include "check_fileapica.swig" %}
-	{% include "upload_formca.swig" %}
+	<h1>FAQ</h1>
+	{% include "navca.swig" %}
 </div>
+<ul>
+	<li>Pantsu no soporta Internet Explorer o versions velles de Firefox, Chrome, Opera o Safari.</li>
+	<li>Existeixen estris de pujada per a Pantsu en <a href="/toolsca.html">Estris</a>.</li>
+	<li>El pes màxim per fitxer és de {{max_upload_size}}MiB. Per favor, no abuseu el servici.</li>
+	<li>No es permiteix pornografia infantil o virus.</li>
+	<li>Qualsevol tipus de fitxer està permitit (gif,exe,jpg,rar,ass,srt,etc,etc).</li>
+	<li>No guardem ningun tipus de dades sobre els usuaris, cosa que no canviarà. No utilitzem Cloudflare</li>
+	<li>Contacteu l'administrador amb l'adreça <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> (en anglés).</li>
+	<li>Envieu qualsevol petició DMCA a <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a></li>
+	<li>Si canviem la nostra política, t'informarem.</li>
+	<li>La pàgina intenta ser el més transparent possible. Qualsevol arxiu borrat serà llistat públicament amb la còpia de l'avís DMCA. Per a més informació, visiteu <a href="//transparency.pantsu.cat">informació de transparència</a> page.</li>
+</ul>
 {% include "bannersca.swig" %}
-{% include "navca.swig" %}
-<script src="pomf.min.js"></script>
 {% endblock %}

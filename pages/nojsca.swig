@@ -21,18 +21,17 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<!DOCTYPE html>
-<html lang="ca">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Pantsu.cat &middot; {% block title %}Allotjament d'Arxius Kawaii{% endblock %}</title>
-		<link rel="icon" href="favicon.ico">
-		<link rel="stylesheet" href="pomf.min.css">
-	</head>
-	<body>
-		<div class="container">
-			{% block body %}Què cony fas ací, baka?{% endblock %}
-		</div>
-	</body>
-</html>
+{% extends "layoutca.swig" %}
+
+{% block body %}
+<div class="jumbotron">
+	<header>
+		<h1>Pantsu~</h1>
+	</header>
+	<p class="lead">Màxima grandària de pujada: {{max_upload_size}}MiB, llig la <a href="faqca.html">FAQ</a></p>
+	{% include "check_fileapica.swig" %}
+	{% include "upload_form_nojs.swig" %}
+</div>
+{% include "bannersca.swig" %}
+{% include "navca.swig" %}
+{% endblock %}

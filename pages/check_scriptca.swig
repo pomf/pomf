@@ -1,5 +1,6 @@
 {#
 Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -20,5 +21,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
 <noscript>
-   <p class="alert alert-error"><a href="https://no.pantsu.cat">Javascript versió gratuïta</a></p>
+   <p class="alert alert-error"><a href="https://no.pantsu.cat">Versió sense Javascript</a></p>
 </noscript>

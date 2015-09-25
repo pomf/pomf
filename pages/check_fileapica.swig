@@ -1,6 +1,6 @@
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
-Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -21,5 +21,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
 <p id="no-file-api" class="alert alert-error">
-	<strong>El seu navegador és una merda.</strong> Instal l'última <a href="http://firefox.com/">Firefox</a> o <a href="http://chrome.google.com/">Botnet</a> i tornar &lt;3
+	<strong>El teu navegador és una merda.</strong> Instal·la el <a href="http://firefox.com/">Firefox</a> més recent o <a href="http://chrome.google.com/">Botnet</a> i torna &lt;3
 </p>

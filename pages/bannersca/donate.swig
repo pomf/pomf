@@ -1,6 +1,5 @@
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
-Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
 Copyright (c) 2015 Cupkle <cupkle@openmailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -21,18 +20,20 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<!DOCTYPE html>
-<html lang="ca">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Pantsu.cat &middot; {% block title %}Allotjament d'Arxius Kawaii{% endblock %}</title>
-		<link rel="icon" href="favicon.ico">
-		<link rel="stylesheet" href="pomf.min.css">
-	</head>
-	<body>
-		<div class="container">
-			{% block body %}Què cony fas ací, baka?{% endblock %}
-		</div>
-	</body>
-</html>
+<p class="alert alert-info">
+	<strong>pomf.se es un servici gratuït, però la nostra factura d'allotjament no ho és</strong> &mdash; necessitem al menys 100$ per mes.  Les donacions ajuden a pomf.se a seguir sent gratuït, en línia i ràpid.  Tot (quotes includes) està destinat a pagar l'allotjament.
+	<span class="donate-btns">
+		<a class="donate-btn donate-paypal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BHUVEZY96YZ6N" target="_BLANK">
+			<span class="icon icon-paypal"></span>
+			PayPal
+		</a>
+		<a class="donate-btn donate-bitcoin" href="bitcoin:1CrbCGSTFM5ccmjFoU4jRSQod44Ttu8nHY?label=pomf.se&amp;message=Hosting%20Bills" target="_BLANK">
+			<span class="icon icon-bitcoin"></span>
+			Bitcoin
+		</a>
+		<a class="donate-btn donate-flattr" href="https://flattr.com/submit/auto?user_id=neku&amp;url=http://pomf.se" target="_BLANK">
+			<span class="icon icon-flattr"></span>
+			Flattr
+		</a>
+	</span>
+</p>
