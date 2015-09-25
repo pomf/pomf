@@ -28,6 +28,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<li><a href="//git.pantsu.cat/pantsu/pomf">Git</a></li>
 		<li><a href="otherca.html">Altres</a></li>
 		<li><a href="//transparency.pantsu.cat">Transparència</a></li>
-		<li><a href="index.html">English</a></li>
+		<li lang="en"><a href="index.html">English</a></li>
 	</ul>
 </nav>
