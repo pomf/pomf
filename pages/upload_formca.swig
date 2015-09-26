@@ -21,6 +21,6 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<a href="javascript:;" id="upload-btn" class="btn">Selecciona <span>o arrastra</span> fitxers(s) ací</a>
+<button href="javascript:;" id="upload-btn" class="btn" type="button">Selecciona <span>o arrastra</span> fitxers(s) ací</button>
 <input type="file" id="upload-input" name="files[]" multiple data-max-size="{{max_upload_size}}MiB">
 <ul id="upload-filelist"></ul>
