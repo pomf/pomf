@@ -17,7 +17,11 @@ module.exports = function (grunt) {
           'pages/tools.swig',
           'pages/other.swig',
           'pages/nojs.swig',
-          'pages/indexca.swig'
+          'pages/indexca.swig',
+          'pages/faqca.swig',
+          'pages/toolsca.swig',
+          'pages/otherca.swig',
+          'pages/nojsca.swig'
         ],
         siteUrl: 'https://pantsu.cat/',
         production: false,
