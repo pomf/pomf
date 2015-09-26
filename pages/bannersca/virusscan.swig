@@ -20,6 +20,6 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
-<p class="alert alert-error">
+<p class="alert alert-info">
 	<strong>Fem ànalisis de virus diariament</strong> &mdash; si es detecta un arxiu infectat, serà borrat sense previ avís.
 </p>
