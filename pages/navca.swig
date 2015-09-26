@@ -22,12 +22,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <nav>
 	<ul>
-		<li><a href="//pantsu.cat/">Pantsu</a></li>
+		<li><a href="indexca.html">Pantsu</a></li>
 		<li><a href="//p.pantsu.cat/">Text</a></li>
 		<li><a href="toolsca.html">Estris</a></li>
 		<li><a href="//git.pantsu.cat/pantsu/pomf">Git</a></li>
 		<li><a href="otherca.html">Altres</a></li>
 		<li><a href="//transparency.pantsu.cat">Transparència</a></li>
-		<li lang="en"><a href="index.html">English</a></li>
+		<li lang="en"><a href="/">English</a></li>
 	</ul>
 </nav>

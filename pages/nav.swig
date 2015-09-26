@@ -21,7 +21,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <nav>
 	<ul>
-		<li><a href="//pantsu.cat/">Pantsu</a></li>
+		<li><a href="/">Pantsu</a></li>
 		<li><a href="//p.pantsu.cat/">Paste</a></li>
 		<li><a href="tools.html">Tools</a></li>
 		<li><a href="//git.pantsu.cat/pantsu/pomf">Git</a></li>
