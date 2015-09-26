@@ -45,8 +45,8 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> (<%= pkg.repository.url %>) @ <%= grunt.template.today("yyyy-mm-dd") %> */\n' + 
-            '// @source https://git.pantsu.cat/pantsu/pomf/src/master/js\n' + 
-            '// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat\n',
+          '// @source https://git.pantsu.cat/pantsu/pomf/src/master/js\n' + 
+          '// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat\n',
         footer: '\n// @license-end',
         screwIE8: true
       },
