@@ -21,7 +21,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
 <p class="alert alert-info">
-	<strong>pomf.se es un servici gratuït, però la nostra factura d'allotjament no ho és</strong> &mdash; necessitem al menys 100$ per mes.  Les donacions ajuden a pomf.se a seguir sent gratuït, en línia i ràpid.  Tot (quotes includes) està destinat a pagar l'allotjament.
+	<strong>pomf.se es un servici gratuït, però la nostra factura d'allotjament no ho és</strong> &mdash; necessitem al menys 100$ per mes. Les donacions ajuden a pomf.se a seguir sent gratuït, en línia i ràpid. Tot (quotes includes) està destinat a pagar l'allotjament.
 	<span class="donate-btns">
 		<a class="donate-btn donate-paypal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BHUVEZY96YZ6N" target="_BLANK">
 			<span class="icon icon-paypal"></span>
