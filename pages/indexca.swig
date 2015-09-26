@@ -25,9 +25,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 {% block body %}
 <div class="jumbotron">
-	<header>
-		<h1>Pantsu~</h1>
-	</header>
+	<h1>Pantsu~</h1>
 	<p class="lead">Màxima grandària de pujada {{max_upload_size}}MiB, llig la <a href="faqca.html">FAQ</a></p>
 	{% include "check_scriptca.swig" %}
 	{% include "check_fileapica.swig" %}

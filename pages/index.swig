@@ -24,9 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 {% block body %}
 <div class="jumbotron">
-	<header>
-		<h1>Pantsu~</h1>
-	</header>
+	<h1>Pantsu~</h1>
 	<p class="lead">Max upload size is {{max_upload_size}}MiB, read the <a href="faq.html">FAQ</a></p>
 	{% include "check_script.swig" %}
 	{% include "check_fileapi.swig" %}
