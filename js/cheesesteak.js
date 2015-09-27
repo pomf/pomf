@@ -66,8 +66,8 @@
   /* Utility to convert bytes into human units */
   var humanSize = {
     get: function humanSize() {
-      var units = ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB",
-        "YiB"
+      var units = [
+        "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"
       ];
       var e = Math.floor(Math.log(this.size) / Math.log(1024));
       return (this.size / Math.pow(1024, e)).toFixed(2) + " " + units[e];
