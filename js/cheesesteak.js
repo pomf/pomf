@@ -22,7 +22,7 @@
 
 /* jshint browser:true, jquery:true */
 (function() {
-  /* Lightweight EventEmitter implementation */
+  // Lightweight EventEmitter implementation
   EventEmitter = function() {};
 
   EventEmitter.prototype.on = function(evt, fn) {
@@ -50,7 +50,7 @@
     }
   };
 
-  /* Copy the stuff from Array to FileList */
+  // Copy the stuff from Array to FileList
   FileList.prototype.forEach = Array.prototype.forEach;
   FileList.prototype.every = Array.prototype.every;
   FileList.prototype.some = Array.prototype.some;
@@ -67,7 +67,7 @@
     }
   });
 
-  /* Utility to convert bytes into human units */
+  // Utility to convert bytes into human units
   var humanSize = {
     get: function humanSize() {
       var units = [
@@ -97,7 +97,7 @@
     }
   });
 
-  /* Object URL stuff */
+  // Object URL stuff
   Object.defineProperty(File.prototype, 'url', {
     get: function getURL() {
       return window.URL.createObjectURL(this);
@@ -161,11 +161,15 @@
     xhr.upload.addEventListener('progress', function(e) {
       if (e.lengthComputable) {
         size = e.loaded;
-          // We know the size of the files, the order they're in, and how
-          // much we've uploaded.  Based on this data, we can do some magic
-          // to figure out which file we're on, and how much we've uploaded
-          // of that file.
-          // TODO: This math has trouble on later uploads.  Leak somewhere
+
+        /**
+         * We know the size of the files, the order they're in, and how
+         * much we've uploaded. Based on this data, we can do some magic
+         * to figure out which file we're on, and how much we've uploaded
+         * of that file.
+         */
+
+        // TODO: This math has trouble on later uploads. Leak somewhere.
         for (var i = 0, l = files.length; i < l; i++) {
           files[i].uploadedSize = Math.min(size, files[i].size);
           size -= files[i].uploadedSize;
@@ -196,7 +200,8 @@
     });
 
     xhr.send(data);
-    /* TODO: Add more event passthroughs, maybe abstract it into a helper? */
+
+    // TODO: Add more event passthroughs, maybe abstract it into a helper?
   };
 
   FileList.prototype.upload = function uploadFileList(url, opts) {
