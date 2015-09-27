@@ -59,7 +59,7 @@
   FileList.prototype.reduce = Array.prototype.reduce;
   FileList.prototype.reduceRight = Array.prototype.reduceRight;
 
-  Object.defineProperty(FileList.prototype, "size", {
+  Object.defineProperty(FileList.prototype, 'size', {
     get: function getSize() {
       return this.reduce(function(prev, curr) {
         return prev + curr.size;
@@ -71,25 +71,25 @@
   var humanSize = {
     get: function humanSize() {
       var units = [
-        "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"
+        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'
       ];
       var e = Math.floor(Math.log(this.size) / Math.log(1024));
-      return (this.size / Math.pow(1024, e)).toFixed(2) + " " + units[e];
+      return (this.size / Math.pow(1024, e)).toFixed(2) + ' ' + units[e];
     }
   };
-  Object.defineProperty(FileList.prototype, "humanSize", humanSize);
-  Object.defineProperty(File.prototype, "humanSize", humanSize);
+  Object.defineProperty(FileList.prototype, 'humanSize', humanSize);
+  Object.defineProperty(File.prototype, 'humanSize', humanSize);
 
   var percentUploaded = {
     get: function percentUploaded() {
       return this.uploadedSize / this.size;
     }
   };
-  Object.defineProperty(FileList.prototype, "percentUploaded",
+  Object.defineProperty(FileList.prototype, 'percentUploaded',
     percentUploaded);
-  Object.defineProperty(File.prototype, "percentUploaded", percentUploaded);
+  Object.defineProperty(File.prototype, 'percentUploaded', percentUploaded);
 
-  Object.defineProperty(FileList.prototype, "uploadedSize", {
+  Object.defineProperty(FileList.prototype, 'uploadedSize', {
     get: function getUploadedSize() {
       return this.reduce(function(prev, curr) {
         return prev + (curr.uploadedSize || 0);
@@ -98,7 +98,7 @@
   });
 
   /* Object URL stuff */
-  Object.defineProperty(File.prototype, "url", {
+  Object.defineProperty(File.prototype, 'url', {
     get: function getURL() {
       return window.URL.createObjectURL(this);
     }
