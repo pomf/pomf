@@ -128,9 +128,9 @@
     opts = opts || {};
 
     this.opts = merge({
-      'field': 'files[]',
-      'method': 'POST',
-      'data': {},
+      field: 'files[]',
+      method: 'POST',
+      data: {},
     }, opts);
   };
 
