@@ -32,8 +32,6 @@ if (ini_get('zlib.output_compression') !== 'Off'
     ob_start('ob_gzhandler');
 }
 
-session_start();
-
 include_once 'classes/Response.class.php';
 include_once 'classes/UploadException.class.php';
 include_once 'classes/UploadedFile.class.php';
@@ -135,18 +133,9 @@ function upload_file($file)
         // Need to change permissions for the new file to make it world readable
         if (chmod(POMF_FILES_ROOT.$newname, 0644)) {
             // Add it to the database
-            if (empty($_SESSION['id'])) {
-                // Query if user is NOT logged in
-                $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                                  'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
-                                  ':exp, :del)');
-            } else {
-                // Query if user is logged in (insert user id together with other data)
-                $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                                  'expire, delid, user) VALUES (:hash, :orig, :name, :size, '.
-                                  ':date, :expires, :delid, :user)');
-                $q->bindValue(':user', $_SESSION['id'], PDO::PARAM_INT);
-            }
+            $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
+                              'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
+                              ':exp, :del)');
 
             // Common parameters binding
             $q->bindValue(':hash', $file->get_sha1(),       PDO::PARAM_STR);
