@@ -23,37 +23,37 @@
 
 /* jshint browser:true, jquery:true */
 $(function() {
-  var uploadInput = $('#upload-input');
-  var uploadBtn   = $('#upload-btn');
-  var uploadFiles = $('#upload-filelist');
+  var $uploadInput = $('#upload-input');
+  var $uploadBtn   = $('#upload-btn');
+  var $uploadFiles = $('#upload-filelist');
 
-  var btnContent = '';
+  var $btnContent = '';
 
   if (!$.hasFileAPI()) {
     $('#no-file-api').show();
-    uploadBtn.hide();
+    $uploadBtn.hide();
   }
 
-  uploadBtn.cabinet(uploadInput);
+  $uploadBtn.cabinet($uploadInput);
 
-  uploadBtn.on('dragenter', function(e) {
+  $uploadBtn.on('dragenter', function(e) {
     if (this === e.target) {
       $(this).addClass('drop');
-      btnContent = $(this).html();
+      $btnContent = $(this).html();
       $(this).html('Drop it here~');
     }
   });
 
-  uploadBtn.on('drop', function(e) {
+  $uploadBtn.on('drop', function(e) {
     $(this).trigger('dragleave');
   });
 
-  uploadBtn.on('dragleave', function(e) {
+  $uploadBtn.on('dragleave', function(e) {
     node = e.target;
     do {
       if (node === this) {
         $(this).removeClass('drop');
-        $(this).html(btnContent);
+        $(this).html($btnContent);
         break;
       }
     } while (node === node.parentNode);
@@ -70,48 +70,48 @@ $(function() {
     );
 
     return num * oneUnit;
-  })(uploadInput);
+  })($uploadInput);
 
   var createRow = function(filename, size, extra) {
-    var rowItem = $('<li class=file>');
-    var rowName = $('<span class=file-name>');
-    var rowProg = $('<div class="file-progress progress-outer">');
-    var rowSize = $('<span class=file-size>');
-    var rowUrl  = $('<span class=file-url>');
+    var $rowItem = $('<li class=file>');
+    var $rowName = $('<span class=file-name>');
+    var $rowProg = $('<div class="file-progress progress-outer">');
+    var $rowSize = $('<span class=file-size>');
+    var $rowUrl  = $('<span class=file-url>');
 
-    rowItem.addClass(extra || '');
+    $rowItem.addClass(extra || '');
 
-    $('<div class=progress-inner>').appendTo(rowProg);
+    $('<div class=progress-inner>').appendTo($rowProg);
 
-    rowItem.attr('data-filename', escape(filename));
-    rowName.text(filename);
-    rowSize.text(size);
+    $rowItem.attr('data-filename', escape(filename));
+    $rowName.text(filename);
+    $rowSize.text(size);
 
-    rowItem.append(rowName, rowProg, rowSize, rowUrl);
+    $rowItem.append($rowName, $rowProg, $rowSize, $rowUrl);
 
-    return rowItem;
+    return $rowItem;
   };
 
-  uploadBtn.on('change', function(e) {
-    uploadFiles.empty().removeClass('error completed');
+  $uploadBtn.on('change', function(e) {
+    $uploadFiles.empty().removeClass('error completed');
 
-    var files = uploadInput[0].filelist;
+    var files = $uploadInput[0].filelist;
 
     files.forEach(function(file) {
-      createRow(file.name, file.humanSize).appendTo(uploadFiles);
+      createRow(file.name, file.humanSize).appendTo($uploadFiles);
     });
 
     var totalRow = createRow('', files.humanSize, 'total');
-    totalRow.appendTo(uploadFiles);
+    totalRow.appendTo($uploadFiles);
 
-    var totalName = $('.file-name', totalRow);
+    var $totalName = $('.file-name', totalRow);
 
     var UPLOAD_ERR_MAX_SIZE = 'onii-chan y-your upload is t-too big&hellip;';
     var UPLOAD_ERR_FAILED = 'Something went wrong; try again later.';
 
     if (files.size > MAX_SIZE) {
-      uploadFiles.addClass('error');
-      totalName.html(UPLOAD_ERR_MAX_SIZE);
+      $uploadFiles.addClass('error');
+      $totalName.html(UPLOAD_ERR_MAX_SIZE);
       return;
     }
 
@@ -137,7 +137,7 @@ $(function() {
 
     up.on('uploadcomplete', function(e) {
       $('.progress-inner').width('100%');
-      totalName.html('Grabbing URLs&hellip;');
+      $totalName.html('Grabbing URLs&hellip;');
     });
 
     up.on('load', function(e, response) {
@@ -145,31 +145,31 @@ $(function() {
       case 200:
         var res = JSON.parse(response);
         if (!res.success) {
-          uploadFiles.addClass('error');
-          totalName.text(UPLOAD_ERR_FAILED);
+          $uploadFiles.addClass('error');
+          $totalName.text(UPLOAD_ERR_FAILED);
           break;
         }
 
         eachRow(res.files, function(row, file, files) {
-          var link = $('<a>');
+          var $link = $('<a>');
 
-          link.attr('href', file.url)
-              .attr('target', '_BLANK')
-              .text(file.url.replace('http://', '').replace('https://', ''));
+          $link.attr('href', file.url)
+               .attr('target', '_BLANK')
+               .text(file.url.replace('http://', '').replace('https://', ''));
 
-          $('.file-url', row).append(link);
+          $('.file-url', row).append($link);
         });
 
-        uploadFiles.addClass('completed');
-        totalName.text('Done!');
+        $uploadFiles.addClass('completed');
+        $totalName.text('Done!');
         break;
       case 413:
-        uploadFiles.addClass('error completed');
-        totalName.html(UPLOAD_ERR_MAX_SIZE);
+        $uploadFiles.addClass('error completed');
+        $totalName.html(UPLOAD_ERR_MAX_SIZE);
         break;
       default:
-        uploadFiles.addClass('error completed');
-        totalName.text(UPLOAD_ERR_FAILED);
+        $uploadFiles.addClass('error completed');
+        $totalName.text(UPLOAD_ERR_FAILED);
       }
 
     });
