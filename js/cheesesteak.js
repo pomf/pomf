@@ -162,7 +162,7 @@
       if (e.lengthComputable) {
         size = e.loaded;
           // We know the size of the files, the order they're in, and how
-          // much we've uploaded.  Based on this data, we can do some magic 
+          // much we've uploaded.  Based on this data, we can do some magic
           // to figure out which file we're on, and how much we've uploaded
           // of that file.
           // TODO: This math has trouble on later uploads.  Leak somewhere

@@ -121,7 +121,7 @@ $(function() {
       var hits = {};
       files.forEach(function(file) {
         ++hits[file.name];
-        var row = $($('li[data-filename="' + 
+        var row = $($('li[data-filename="' +
           escape(file.name) + '"]')[hits[file.name] || 0]);
         fn.call(row, row, file, files);
       });
