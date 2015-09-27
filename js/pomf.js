@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
+ * Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -103,11 +104,12 @@ $(function() {
     var totalRow = createRow('', files.humanSize, 'total');
     totalRow.appendTo(uploadFiles);
 
+    var totalName = $('.file-name', totalRow);
+
     if (files.size > MAX_SIZE) {
       uploadFiles.addClass('error');
 
-      $('.file-name', totalRow).html('onii-chan y-your upload is t-too ' +
-        'big&hellip;');
+      totalName.html('onii-chan y-your upload is t-too big&hellip;');
       return;
     }
 
@@ -122,8 +124,6 @@ $(function() {
         fn.call(row, row, file, files);
       });
     };
-
-    var totalName = $('.file-name', totalRow);
 
     up.on('uploadprogress', function(e, files) {
       eachRow(files, function(row, file, files) {
@@ -143,8 +143,7 @@ $(function() {
           var res = JSON.parse(res);
           if (!res.success) {
             uploadFiles.addClass('error');
-            $('.file-name', totalRow).text('Something went wrong; try again ' +
-              'later.');
+            totalName.text('Something went wrong; try again later.');
             break;
           }
           eachRow(res.files, function(row, file, files) {
