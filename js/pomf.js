@@ -134,7 +134,7 @@ $(function() {
 
     up.on('uploadcomplete', function(e) {
       $('.progress-inner').width('100%');
-      totalName.text('Grabbing URLs...');
+      totalName.html('Grabbing URLs&hellip;');
     });
 
     up.on('load', function(e, res) {
