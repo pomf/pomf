@@ -62,9 +62,6 @@ module.exports = function (grunt) {
       }
     },
     cssmin: {
-      options: {
-        banner: '/*! <%= pkg.name %> (<%= pkg.repository.url %>) @ <%= grunt.template.today("yyyy-mm-dd") %> */\n\n'
-      },
       dist: {
         files: {
           'dist/pomf.min.css': [
