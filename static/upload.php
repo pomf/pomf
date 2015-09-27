@@ -66,7 +66,7 @@ function generate_name($file)
 
     do {
         // Iterate until we reach the maximum number of retries
-        if ($tries-- == 0) {
+        if ($tries-- === 0) {
             throw new Exception('Gave up trying to find an unused name', 500);
         }
 
