@@ -139,10 +139,10 @@ $(function() {
       totalName.html('Grabbing URLs&hellip;');
     });
 
-    up.on('load', function(e, res) {
+    up.on('load', function(e, response) {
       switch (e.target.status) {
         case 200:
-          var res = JSON.parse(res);
+          var res = JSON.parse(response);
           if (!res.success) {
             uploadFiles.addClass('error');
             totalName.text(UPLOAD_ERR_FAILED);
