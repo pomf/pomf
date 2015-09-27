@@ -142,34 +142,34 @@ $(function() {
 
     up.on('load', function(e, response) {
       switch (e.target.status) {
-        case 200:
-          var res = JSON.parse(response);
-          if (!res.success) {
-            uploadFiles.addClass('error');
-            totalName.text(UPLOAD_ERR_FAILED);
-            break;
-          }
-
-          eachRow(res.files, function(row, file, files) {
-            var link = $('<a>');
-
-            link.attr('href', file.url)
-                .attr('target', '_BLANK')
-                .text(file.url.replace('http://', '').replace('https://', ''));
-
-            $('.file-url', row).append(link);
-          });
-
-          uploadFiles.addClass('completed');
-          totalName.text('Done!');
-          break;
-        case 413:
-          uploadFiles.addClass('error completed');
-          totalName.html(UPLOAD_ERR_MAX_SIZE);
-          break;
-        default:
-          uploadFiles.addClass('error completed');
+      case 200:
+        var res = JSON.parse(response);
+        if (!res.success) {
+          uploadFiles.addClass('error');
           totalName.text(UPLOAD_ERR_FAILED);
+          break;
+        }
+
+        eachRow(res.files, function(row, file, files) {
+          var link = $('<a>');
+
+          link.attr('href', file.url)
+              .attr('target', '_BLANK')
+              .text(file.url.replace('http://', '').replace('https://', ''));
+
+          $('.file-url', row).append(link);
+        });
+
+        uploadFiles.addClass('completed');
+        totalName.text('Done!');
+        break;
+      case 413:
+        uploadFiles.addClass('error completed');
+        totalName.html(UPLOAD_ERR_MAX_SIZE);
+        break;
+      default:
+        uploadFiles.addClass('error completed');
+        totalName.text(UPLOAD_ERR_FAILED);
       }
 
     });
