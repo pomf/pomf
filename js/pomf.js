@@ -56,7 +56,7 @@ $(function() {
         $(this).html(btnContent);
         break;
       }
-    } while (node = node.parentNode);
+    } while (node === node.parentNode);
   });
 
   var MAX_SIZE = (function(node) {
