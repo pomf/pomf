@@ -131,6 +131,7 @@ $(function() {
       eachRow(files, function(row, file, files) {
         $('.progress-inner', row).width((file.percentUploaded * 100) + '%');
       });
+
       $('.progress-inner', totalRow).width((files.percentUploaded * 100) + '%');
     });
 
@@ -148,6 +149,7 @@ $(function() {
             totalName.text(UPLOAD_ERR_FAILED);
             break;
           }
+
           eachRow(res.files, function(row, file, files) {
             var link = $('<a>');
 
@@ -157,6 +159,7 @@ $(function() {
 
             $('.file-url', row).append(link);
           });
+
           uploadFiles.addClass('completed');
           totalName.text('Done!');
           break;
@@ -168,7 +171,9 @@ $(function() {
           uploadFiles.addClass('error completed');
           totalName.text(UPLOAD_ERR_FAILED);
       }
+
     });
+
     up.upload();
   });
 });

@@ -37,9 +37,11 @@
         } else {
           input.trigger(inner);
         }
+
         if (prevent) {
           e.preventDefault();
         }
+
         if (fn) {
           fn(e);
         }

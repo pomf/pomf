@@ -24,17 +24,21 @@
 (function() {
   /* Lightweight EventEmitter implementation */
   EventEmitter = function() {};
+
   EventEmitter.prototype.on = function(evt, fn) {
     this._events = this._events || {};
     this._events[evt] = this._events[evt] || [];
     this._events[evt].push(fn);
   };
+
   EventEmitter.prototype.off = function(evt, fn) {
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
+
     this._events[evt].splice(this._events[evt].indexOf(fn), 1);
   };
+
   EventEmitter.prototype.emit = function(evt) {
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
@@ -113,6 +117,7 @@
         out[key] = overlay[key];
       }
     }
+
     return out;
   };
 
@@ -128,6 +133,7 @@
       'data': {}
     }, opts);
   };
+
   FileListUploader.prototype = Object.create(EventEmitter.prototype);
   FileListUploader.prototype.upload = function(cb) {
     if (cb) {
@@ -151,6 +157,7 @@
         files[i].uploadedSize = 0;
       }
     });
+
     xhr.upload.addEventListener('progress', function(e) {
       if (e.lengthComputable) {
         size = e.loaded;
@@ -168,17 +175,22 @@
           }
         }
       }
+
       events.emit('uploadprogress', e, files);
     }, false);
+
     xhr.upload.addEventListener('loadstart', function(e) {
       events.emit('uploadstart', e);
     });
+
     xhr.upload.addEventListener('load', function(e) {
       events.emit('uploadcomplete', e);
     });
+
     xhr.addEventListener('progress', function(e) {
       events.emit('progress', e);
     });
+
     xhr.addEventListener('load', function(e) {
       events.emit('load', e, xhr.responseText);
     });
