@@ -23,9 +23,9 @@
 
 /* jshint browser:true, jquery:true */
 $(function() {
-  var uploadInput = $('#upload-input'),
-      uploadBtn   = $('#upload-btn'),
-      uploadFiles = $('#upload-filelist');
+  var uploadInput = $('#upload-input');
+  var uploadBtn   = $('#upload-btn');
+  var uploadFiles = $('#upload-filelist');
 
   var btnContent = '';
 
@@ -73,11 +73,11 @@ $(function() {
   })(uploadInput);
 
   var createRow = function(filename, size, extra) {
-    var rowItem = $('<li class=file>'),
-        rowName = $('<span class=file-name>'),
-        rowProg = $('<div class="file-progress progress-outer">'),
-        rowSize = $('<span class=file-size>'),
-        rowUrl  = $('<span class=file-url>');
+    var rowItem = $('<li class=file>');
+    var rowName = $('<span class=file-name>');
+    var rowProg = $('<div class="file-progress progress-outer">');
+    var rowSize = $('<span class=file-size>');
+    var rowUrl  = $('<span class=file-url>');
 
     rowItem.addClass(extra || '');
 
