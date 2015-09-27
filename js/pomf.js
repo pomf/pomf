@@ -106,10 +106,12 @@ $(function() {
 
     var totalName = $('.file-name', totalRow);
 
+    var UPLOAD_ERR_MAX_SIZE = 'onii-chan y-your upload is t-too big&hellip;';
+    var UPLOAD_ERR_FAILED = 'Something went wrong; try again later.';
+
     if (files.size > MAX_SIZE) {
       uploadFiles.addClass('error');
-
-      totalName.html('onii-chan y-your upload is t-too big&hellip;');
+      totalName.html(UPLOAD_ERR_MAX_SIZE);
       return;
     }
 
@@ -143,7 +145,7 @@ $(function() {
           var res = JSON.parse(res);
           if (!res.success) {
             uploadFiles.addClass('error');
-            totalName.text('Something went wrong; try again later.');
+            totalName.text(UPLOAD_ERR_FAILED);
             break;
           }
           eachRow(res.files, function(row, file, files) {
@@ -160,11 +162,11 @@ $(function() {
           break;
         case 413:
           uploadFiles.addClass('error completed');
-          totalName.html('onii-chan, y-your upload is t-too big&hellip;');
+          totalName.html(UPLOAD_ERR_MAX_SIZE);
           break;
         default:
           uploadFiles.addClass('error completed');
-          totalName.text('Something went wrong; try again later.');
+          totalName.text(UPLOAD_ERR_FAILED);
       }
     });
     up.upload();
