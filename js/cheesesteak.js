@@ -64,18 +64,18 @@
       return this.reduce(function(prev, curr) {
         return prev + curr.size;
       }, 0);
-    },
+    }
   });
 
   // Utility to convert bytes into human units
   var humanSize = {
     get: function humanSize() {
       var units = [
-        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB',
+        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'
       ];
       var e = Math.floor(Math.log(this.size) / Math.log(1024));
       return (this.size / Math.pow(1024, e)).toFixed(2) + ' ' + units[e];
-    },
+    }
   };
   Object.defineProperty(FileList.prototype, 'humanSize', humanSize);
   Object.defineProperty(File.prototype, 'humanSize', humanSize);
@@ -83,7 +83,7 @@
   var percentUploaded = {
     get: function percentUploaded() {
       return this.uploadedSize / this.size;
-    },
+    }
   };
   Object.defineProperty(FileList.prototype, 'percentUploaded',
     percentUploaded);
@@ -94,14 +94,14 @@
       return this.reduce(function(prev, curr) {
         return prev + (curr.uploadedSize || 0);
       }, 0);
-    },
+    }
   });
 
   // Object URL stuff
   Object.defineProperty(File.prototype, 'url', {
     get: function getURL() {
       return window.URL.createObjectURL(this);
-    },
+    }
   });
   File.revokeURL = function revokeURL(url) {
     window.URL.revokeObjectURL(url);
@@ -130,7 +130,7 @@
     this.opts = merge({
       field: 'files[]',
       method: 'POST',
-      data: {},
+      data: {}
     }, opts);
   };
 
