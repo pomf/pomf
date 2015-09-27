@@ -32,8 +32,6 @@ if (ini_get('zlib.output_compression') !== 'Off'
     ob_start('ob_gzhandler');
 }
 
-session_start();
-
 include_once 'classes/Response.class.php';
 include_once 'classes/UploadException.class.php';
 include_once 'classes/UploadedFile.class.php';
