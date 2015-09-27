@@ -171,7 +171,6 @@ $(function() {
         uploadFiles.addClass('error completed');
         totalName.text(UPLOAD_ERR_FAILED);
       }
-
     });
 
     up.upload();
