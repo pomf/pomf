@@ -61,7 +61,7 @@ $(function() {
 
   var MAX_SIZE = (function(node) {
     var max = node.attr('data-max-size') || '120MiB';
-    var num = parseInt(/([0-9,]+).*/.exec(max)[1].replace(',', ''));
+    var num = parseInt(/([0-9,]+).*/.exec(max)[1].replace(',', ''), 10);
     var unit = /(?:([KMGTPEZY])(i)?B|([BKMGTPEZY]))/.exec(max) || ['B', '', ''];
 
     var oneUnit = Math.pow(
