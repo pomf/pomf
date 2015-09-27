@@ -142,7 +142,7 @@
 
     var opts = this.opts;
     var files = this.files;
-    var events = this;
+    var _this = this;
 
     var data = new FormData();
     files.forEach(function(file) {
@@ -180,23 +180,23 @@
         }
       }
 
-      events.emit('uploadprogress', e, files);
+      _this.emit('uploadprogress', e, files);
     }, false);
 
     xhr.upload.addEventListener('loadstart', function(e) {
-      events.emit('uploadstart', e);
+      _this.emit('uploadstart', e);
     });
 
     xhr.upload.addEventListener('load', function(e) {
-      events.emit('uploadcomplete', e);
+      _this.emit('uploadcomplete', e);
     });
 
     xhr.addEventListener('progress', function(e) {
-      events.emit('progress', e);
+      _this.emit('progress', e);
     });
 
     xhr.addEventListener('load', function(e) {
-      events.emit('load', e, xhr.responseText);
+      _this.emit('load', e, xhr.responseText);
     });
 
     xhr.send(data);
