@@ -152,13 +152,15 @@
     var xhr = new XMLHttpRequest();
 
     xhr.open(opts.method, this.url, true);
-    xhr.upload.addEventListener('loadstart', function(e) {
+
+    function initProgressBar(e) {
       for (var i = 0, l = files.length; i < l; i++) {
         files[i].uploadedSize = 0;
       }
-    });
+    }
+    xhr.upload.addEventListener('loadstart', initProgressBar);
 
-    xhr.upload.addEventListener('progress', function(e) {
+    function updateProgressBar(e) {
       if (e.lengthComputable) {
         size = e.loaded;
 
@@ -181,23 +183,31 @@
       }
 
       _this.emit('uploadprogress', e, files);
-    }, false);
+    }
+    xhr.upload.addEventListener('progress', updateProgressBar, false);
 
-    xhr.upload.addEventListener('loadstart', function(e) {
+    function startUpload(e) {
       _this.emit('uploadstart', e);
-    });
+    }
+    xhr.upload.addEventListener('loadstart', startUpload);
 
-    xhr.upload.addEventListener('load', function(e) {
+    // The upload is complete, now tell the user to wait for URLs.
+    function postUpload(e) {
       _this.emit('uploadcomplete', e);
-    });
+    }
+    xhr.upload.addEventListener('load', postUpload);
 
-    xhr.addEventListener('progress', function(e) {
+    // Tell the browser the upload completed and wait for response.
+    function postProgress(e) {
       _this.emit('progress', e);
-    });
+    }
+    xhr.upload.addEventListener('progress', postProgress);
 
-    xhr.addEventListener('load', function(e) {
+    // Send a success/error response. Nothing more to do.
+    function uploadFinished(e) {
       _this.emit('load', e, xhr.responseText);
-    });
+    }
+    xhr.upload.addEventListener('load', uploadFinished);
 
     xhr.send(data);
 
