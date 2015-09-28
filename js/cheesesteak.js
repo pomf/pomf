@@ -23,7 +23,7 @@
 /* jshint browser:true, jquery:true */
 (function() {
   // Lightweight EventEmitter implementation
-  EventEmitter = function() {};
+  var EventEmitter = function() {};
 
   EventEmitter.prototype.on = function(evt, fn) {
     this._events = this._events || {};
