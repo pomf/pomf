@@ -23,9 +23,9 @@
 
 /* jshint browser:true, jquery:true */
 $(function() {
-  var uploadInput = $('#upload-input'),
-      uploadBtn   = $('#upload-btn'),
-      uploadFiles = $('#upload-filelist');
+  var uploadInput = $('#upload-input');
+  var uploadBtn   = $('#upload-btn');
+  var uploadFiles = $('#upload-filelist');
 
   var btnContent = '';
 
@@ -56,12 +56,12 @@ $(function() {
         $(this).html(btnContent);
         break;
       }
-    } while (node = node.parentNode);
+    } while (node === node.parentNode);
   });
 
   var MAX_SIZE = (function(node) {
     var max = node.attr('data-max-size') || '120MiB';
-    var num = parseInt(/([0-9,]+).*/.exec(max)[1].replace(',', ''));
+    var num = parseInt(/([0-9,]+).*/.exec(max)[1].replace(',', ''), 10);
     var unit = /(?:([KMGTPEZY])(i)?B|([BKMGTPEZY]))/.exec(max) || ['B', '', ''];
 
     var oneUnit = Math.pow(
@@ -73,11 +73,11 @@ $(function() {
   })(uploadInput);
 
   var createRow = function(filename, size, extra) {
-    var rowItem = $('<li class=file>'),
-        rowName = $('<span class=file-name>'),
-        rowProg = $('<div class="file-progress progress-outer">'),
-        rowSize = $('<span class=file-size>'),
-        rowUrl  = $('<span class=file-url>');
+    var rowItem = $('<li class=file>');
+    var rowName = $('<span class=file-name>');
+    var rowProg = $('<div class="file-progress progress-outer">');
+    var rowSize = $('<span class=file-size>');
+    var rowUrl  = $('<span class=file-url>');
 
     rowItem.addClass(extra || '');
 
@@ -120,8 +120,8 @@ $(function() {
     var eachRow = function(files, fn) {
       var hits = {};
       files.forEach(function(file) {
-        ++hits[file.name] || (hits[file.name] = 0);
-        var row = $($('li[data-filename="' + 
+        ++hits[file.name];
+        var row = $($('li[data-filename="' +
           escape(file.name) + '"]')[hits[file.name] || 0]);
         fn.call(row, row, file, files);
       });
@@ -131,6 +131,7 @@ $(function() {
       eachRow(files, function(row, file, files) {
         $('.progress-inner', row).width((file.percentUploaded * 100) + '%');
       });
+
       $('.progress-inner', totalRow).width((files.percentUploaded * 100) + '%');
     });
 
@@ -139,36 +140,39 @@ $(function() {
       totalName.html('Grabbing URLs&hellip;');
     });
 
-    up.on('load', function(e, res) {
+    up.on('load', function(e, response) {
       switch (e.target.status) {
-        case 200:
-          var res = JSON.parse(res);
-          if (!res.success) {
-            uploadFiles.addClass('error');
-            totalName.text(UPLOAD_ERR_FAILED);
-            break;
-          }
-          eachRow(res.files, function(row, file, files) {
-            var link = $('<a>');
-
-            link.attr('href', file.url)
-                .attr('target', '_BLANK')
-                .text(file.url.replace('http://', '').replace('https://', ''));
-
-            $('.file-url', row).append(link);
-          });
-          uploadFiles.addClass('completed');
-          totalName.text('Done!');
-          break;
-        case 413:
-          uploadFiles.addClass('error completed');
-          totalName.html(UPLOAD_ERR_MAX_SIZE);
-          break;
-        default:
-          uploadFiles.addClass('error completed');
+      case 200:
+        var res = JSON.parse(response);
+        if (!res.success) {
+          uploadFiles.addClass('error');
           totalName.text(UPLOAD_ERR_FAILED);
+          break;
+        }
+
+        eachRow(res.files, function(row, file, files) {
+          var link = $('<a>');
+
+          link.attr('href', file.url)
+              .attr('target', '_BLANK')
+              .text(file.url.replace('http://', '').replace('https://', ''));
+
+          $('.file-url', row).append(link);
+        });
+
+        uploadFiles.addClass('completed');
+        totalName.text('Done!');
+        break;
+      case 413:
+        uploadFiles.addClass('error completed');
+        totalName.html(UPLOAD_ERR_MAX_SIZE);
+        break;
+      default:
+        uploadFiles.addClass('error completed');
+        totalName.text(UPLOAD_ERR_FAILED);
       }
     });
+
     up.upload();
   });
 });
