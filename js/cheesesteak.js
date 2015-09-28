@@ -160,7 +160,7 @@
 
     xhr.upload.addEventListener('progress', function(e) {
       if (e.lengthComputable) {
-        size = e.loaded;
+        var size = e.loaded;
 
         /**
          * We know the size of the files, the order they're in, and how
