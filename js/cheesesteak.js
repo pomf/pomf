@@ -186,11 +186,6 @@
     }
     xhr.upload.addEventListener('progress', updateProgressBar, false);
 
-    function startUpload(e) {
-      _this.emit('uploadstart', e);
-    }
-    xhr.upload.addEventListener('loadstart', startUpload);
-
     // The upload is complete, now tell the user to wait for URLs.
     function postUpload(e) {
       _this.emit('uploadcomplete', e);
