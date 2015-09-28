@@ -125,13 +125,13 @@
     this.url = url;
     this.files = files;
 
-    opts = opts || {};
+    var request = opts || {};
 
     this.opts = merge({
       field: 'files[]',
       method: 'POST',
       data: {}
-    }, opts);
+    }, request);
   };
 
   FileListUploader.prototype = Object.create(EventEmitter.prototype);

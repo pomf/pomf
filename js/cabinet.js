@@ -26,8 +26,8 @@
     return (window.FormData !== undefined);
   };
 
-  $.fn.cabinet = function(input) {
-    input = $(input);
+  $.fn.cabinet = function(uploadInput) {
+    var input = $(uploadInput);
 
     var _this = this;
     var passthrough = function(outer, inner, prevent, fn) {
