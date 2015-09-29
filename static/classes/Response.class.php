@@ -80,14 +80,14 @@ class Response
         $response = null;
 
         switch ($this->type) {
-            case 'html':
-                $response = $this->html_success($files);
-                break;
             case 'csv':
                 $response = $this->csv_success($files);
                 break;
             case 'text':
                 $response = $this->text_success($files);
+                break;
+            case 'html':
+                $response = $this->html_success($files);
                 break;
             default:
                 $response = $this->json_success($files);
