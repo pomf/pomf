@@ -35,9 +35,8 @@ class Response
                 $this->type = $response_type;
                 break;
             case 'gyazo':
-                header('Content-Type: text/plain; charset=UTF-8');
-                $this->type = $response_type;
-                break;
+                // Deprecated API since version 2.0.0
+                // fallthrough
             case 'text':
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
@@ -60,9 +59,6 @@ class Response
         switch ($this->type) {
             case 'csv':
                 $response = $this->csv_error($desc);
-                break;
-            case 'gyazo':
-                $response = $this->gyazo_error($code, $desc);
                 break;
             case 'text':
                 $response = $this->text_error($code, $desc);
@@ -89,9 +85,6 @@ class Response
                 break;
             case 'csv':
                 $response = $this->csv_success($files);
-                break;
-            case 'gyazo':
-                $response = $this->gyazo_success($files);
                 break;
             case 'text':
                 $response = $this->text_success($files);
@@ -121,16 +114,6 @@ class Response
         }
 
         return $result;
-    }
-
-    private static function gyazo_error($code, $description)
-    {
-        return 'ERROR: ('.$code.') '.$description;
-    }
-
-    private static function gyazo_success($files)
-    {
-        return POMF_URL.$files[0]['url'];
     }
 
     private static function text_error($code, $description)
