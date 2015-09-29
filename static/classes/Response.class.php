@@ -51,7 +51,7 @@ class Response
                 break;
             default:
                 http_response_code(400);
-                echo 'Invalid response type. Valid options are: csv, html, text, json.';
+                echo 'Invalid response type. Valid options are: csv, html, json, text.';
                 break;
         }
     }
