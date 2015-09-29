@@ -37,12 +37,12 @@ class Response
             case 'gyazo':
                 // Deprecated API since version 2.0.0
                 // fallthrough
-            case 'text':
-                header('Content-Type: text/plain; charset=UTF-8');
-                $this->type = $response_type;
-                break;
             case 'html':
                 header('Content-Type: text/html; charset=UTF-8');
+                $this->type = $response_type;
+                break;
+            case 'text':
+                header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
             default:
@@ -60,11 +60,11 @@ class Response
             case 'csv':
                 $response = $this->csv_error($desc);
                 break;
-            case 'text':
-                $response = $this->text_error($code, $desc);
-                break;
             case 'html':
                 $response = $this->html_error($code, $desc);
+                break;
+            case 'text':
+                $response = $this->text_error($code, $desc);
                 break;
             default:
                 $response = $this->json_error($code, $desc);
@@ -83,11 +83,11 @@ class Response
             case 'csv':
                 $response = $this->csv_success($files);
                 break;
-            case 'text':
-                $response = $this->text_success($files);
-                break;
             case 'html':
                 $response = $this->html_success($files);
+                break;
+            case 'text':
+                $response = $this->text_success($files);
                 break;
             default:
                 $response = $this->json_success($files);
@@ -116,20 +116,6 @@ class Response
         return $result;
     }
 
-    private static function text_error($code, $description)
-    {
-        return 'ERROR: ('.$code.') '.$description;
-    }
-
-    private static function text_success($files)
-    {
-        foreach ($files as $file) {
-            $result .= $file['url']."\n";
-        }
-
-        return $result;
-    }
-
     private static function html_error($code, $description)
     {
         return '<p>ERROR: ('.$code.') '.$description.'</p>';
@@ -139,6 +125,20 @@ class Response
     {
         foreach ($files as $file) {
             $result .=  '<a href="'.$file['url'].'">'.$file['url'].'</a><br>';
+        }
+
+        return $result;
+    }
+
+    private static function text_error($code, $description)
+    {
+        return 'ERROR: ('.$code.') '.$description;
+    }
+
+    private static function text_success($files)
+    {
+        foreach ($files as $file) {
+            $result .= $file['url']."\n";
         }
 
         return $result;
