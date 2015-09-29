@@ -41,12 +41,12 @@ class Response
                 header('Content-Type: text/html; charset=UTF-8');
                 $this->type = $response_type;
                 break;
-            case 'text':
-                header('Content-Type: text/plain; charset=UTF-8');
-                $this->type = $response_type;
-                break;
             case 'json':
                 header('Content-Type: application/json; charset=UTF-8');
+                $this->type = $response_type;
+                break;
+            case 'text':
+                header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
             default:
@@ -67,11 +67,11 @@ class Response
             case 'html':
                 $response = $this->html_error($code, $desc);
                 break;
-            case 'text':
-                $response = $this->text_error($code, $desc);
-                break;
             case 'json':
                 $response = $this->json_error($code, $desc);
+                break;
+            case 'text':
+                $response = $this->text_error($code, $desc);
                 break;
         }
 
@@ -90,11 +90,11 @@ class Response
             case 'html':
                 $response = $this->html_success($files);
                 break;
-            case 'text':
-                $response = $this->text_success($files);
-                break;
             case 'json':
                 $response = $this->json_success($files);
+                break;
+            case 'text':
+                $response = $this->text_success($files);
                 break;
         }
 
@@ -134,20 +134,6 @@ class Response
         return $result;
     }
 
-    private static function text_error($code, $description)
-    {
-        return 'ERROR: ('.$code.') '.$description;
-    }
-
-    private static function text_success($files)
-    {
-        foreach ($files as $file) {
-            $result .= $file['url']."\n";
-        }
-
-        return $result;
-    }
-
     private static function json_error($code, $description)
     {
         return json_encode(array(
@@ -163,5 +149,18 @@ class Response
             'success' => true,
             'files' => $files,
         ));
+    }
+    private static function text_error($code, $description)
+    {
+        return 'ERROR: ('.$code.') '.$description;
+    }
+
+    private static function text_success($files)
+    {
+        foreach ($files as $file) {
+            $result .= $file['url']."\n";
+        }
+
+        return $result;
     }
 }
