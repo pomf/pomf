@@ -31,6 +31,9 @@ class Response
     {
         switch ($response_type) {
             case 'csv':
+                header('Content-Type: text/csv; charset=UTF-8');
+                $this->type = $response_type;
+                break;
             case 'gyazo':
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
