@@ -45,9 +45,13 @@ class Response
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
-            default:
+            case 'json':
                 header('Content-Type: application/json; charset=UTF-8');
-                $this->type = 'json';
+                $this->type = $response_type;
+                break;
+            default:
+                http_response_code(400);
+                echo 'Invalid response type. Valid options are: csv, html, text, json.';
                 break;
         }
     }
@@ -66,7 +70,7 @@ class Response
             case 'text':
                 $response = $this->text_error($code, $desc);
                 break;
-            default:
+            case 'json':
                 $response = $this->json_error($code, $desc);
                 break;
         }
@@ -89,7 +93,7 @@ class Response
             case 'text':
                 $response = $this->text_success($files);
                 break;
-            default:
+            case 'json':
                 $response = $this->json_success($files);
                 break;
         }
