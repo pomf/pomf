@@ -104,17 +104,17 @@ class Response
 
     private static function csv_error($description)
     {
-        return "error\n".$description."\n";
+        return "error\r\n".$description."\r\n";
     }
 
     private static function csv_success($files)
     {
-        $result = "name,url,hash,size\n";
+        $result = "name,url,hash,size\r\n";
         foreach ($files as $file) {
             $result .= $file['name'].','.
                        $file['url'].','.
                        $file['hash'].','.
-                       $file['size']."\n";
+                       $file['size']."\r\n";
         }
 
         return $result;
