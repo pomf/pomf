@@ -24,7 +24,7 @@
 /* jshint browser:true, jquery:true */
 $(function() {
   var $uploadInput = $('#upload-input');
-  var $uploadBtn   = $('#upload-btn');
+  var $uploadBtn = $('#upload-btn');
   var $uploadFiles = $('#upload-filelist');
 
   var $btnContent = '';
@@ -77,7 +77,7 @@ $(function() {
     var $rowName = $('<span class=file-name>');
     var $rowProg = $('<div class="file-progress progress-outer">');
     var $rowSize = $('<span class=file-size>');
-    var $rowUrl  = $('<span class=file-url>');
+    var $rowUrl = $('<span class=file-url>');
 
     $rowItem.addClass(extra || '');
 
