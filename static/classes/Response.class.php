@@ -70,6 +70,9 @@ class Response
             case 'json':
                 $response = $this->json_error($code, $desc);
                 break;
+            case 'gyazo':
+                // Deprecated API since version 2.0.0
+                // fallthrough
             case 'text':
                 $response = $this->text_error($code, $desc);
                 break;
@@ -93,6 +96,9 @@ class Response
             case 'json':
                 $response = $this->json_success($files);
                 break;
+            case 'gyazo':
+                // Deprecated API since version 2.0.0
+                // fallthrough
             case 'text':
                 $response = $this->text_success($files);
                 break;
