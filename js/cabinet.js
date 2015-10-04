@@ -27,15 +27,15 @@
   };
 
   $.fn.cabinet = function(uploadInput) {
-    var input = $(uploadInput);
+    var $input = $(uploadInput);
 
     var _this = this;
     var passthrough = function(outer, inner, prevent, fn) {
       _this.on(outer, function(e) {
         if (inner === 'click') {
-          input[0].click();
+          $input[0].click();
         } else {
-          input.trigger(inner);
+          $input.trigger(inner);
         }
 
         if (prevent) {
@@ -48,9 +48,9 @@
       }, false);
     };
 
-    input[0].filelist = Object.create(FileList);
+    $input[0].filelist = Object.create(FileList);
 
-    input.on('change', function(e) {
+    $input.on('change', function(e) {
       this.filelist = e.target.files;
       _this.change();
     });
@@ -60,7 +60,7 @@
     passthrough('dragleave', 'dragleave', true);
     passthrough('click', 'click', false);
     passthrough('drop', 'dragleave', true, function(e) {
-      input[0].filelist = e.dataTransfer.files;
+      $input[0].filelist = e.dataTransfer.files;
       _this.change();
     });
   };
