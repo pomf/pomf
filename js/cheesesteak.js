@@ -23,7 +23,7 @@
 /* jshint browser:true, jquery:true */
 (function() {
   // Lightweight EventEmitter implementation
-  EventEmitter = function() {};
+  var EventEmitter = function() {};
 
   EventEmitter.prototype.on = function(evt, fn) {
     this._events = this._events || {};
@@ -160,7 +160,7 @@
 
     xhr.upload.addEventListener('progress', function(e) {
       if (e.lengthComputable) {
-        size = e.loaded;
+        var size = e.loaded;
 
         /**
          * We know the size of the files, the order they're in, and how

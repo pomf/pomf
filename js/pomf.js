@@ -49,7 +49,7 @@ $(function() {
   });
 
   uploadBtn.on('dragleave', function(e) {
-    node = e.target;
+    var node = e.target;
     do {
       if (node === this) {
         $(this).removeClass('drop');
