@@ -34,9 +34,6 @@ class Response
                 header('Content-Type: text/csv; charset=UTF-8');
                 $this->type = $response_type;
                 break;
-            case 'gyazo':
-                // Deprecated API since version 2.0.0
-                // fallthrough
             case 'html':
                 header('Content-Type: text/html; charset=UTF-8');
                 $this->type = $response_type;
@@ -45,6 +42,9 @@ class Response
                 header('Content-Type: application/json; charset=UTF-8');
                 $this->type = $response_type;
                 break;
+            case 'gyazo':
+                // Deprecated API since version 2.0.0
+                // fallthrough
             case 'text':
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
