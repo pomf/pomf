@@ -50,8 +50,9 @@ class Response
                 $this->type = $response_type;
                 break;
             default:
-                http_response_code(400);
-                echo 'Invalid response type. Valid options are: csv, html, json, text.';
+                header('Content-Type: application/json; charset=UTF-8');
+                $this->type = 'json';
+                $this->error(400, 'Invalid response type. Valid options are: csv, html, json, text.');
                 break;
         }
     }
