@@ -196,13 +196,13 @@
     function postProgress(e) {
       _this.emit('progress', e);
     }
-    xhr.upload.addEventListener('progress', postProgress);
+    xhr.addEventListener('progress', postProgress);
 
     // Send a success/error response. Nothing more to do.
     function uploadFinished(e) {
       _this.emit('load', e, xhr.responseText);
     }
-    xhr.upload.addEventListener('load', uploadFinished);
+    xhr.addEventListener('load', uploadFinished);
 
     xhr.send(data);
 
