@@ -73,7 +73,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<dd><a href="https://github.com/pantsu/gyazowin">https://github.com/pantsu/gyazowin</a></dd>
 		<dd><a href="https://i.pantsu.cat/hnpgjr.exe">https://i.pantsu.cat/hnpgjr.exe</a></dd>
 		<dt>Contacte</dt>
-		<dd><a href="https://twitter.com/4vailable">https://twitter.com/4vailable</a></dd>
+		<dd><a href="https://twitter.com/4vail">https://twitter.com/4vail</a></dd>
 	</dl>
 </section>
 {% endblock %}
