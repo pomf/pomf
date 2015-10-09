@@ -58,6 +58,12 @@ help.
 - IRC: `#pantsucat` on Partyvan (`irc.partyvan.eu`)
 - Email: <hostmaster@pantsu.cat>
 
+## Credits
+
+Pomf was created by Eric Johansson and Peter Lejeck for
+[Pomf.se](https://pomf.se/). The software is currently maintained by the
+community.
+
 ## License
 
 Pomf is free software, and is released under the terms of the Expat license. See
