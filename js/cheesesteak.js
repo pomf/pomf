@@ -40,11 +40,14 @@
   };
 
   EventEmitter.prototype.emit = function(evt) {
+    var len = this._events[evt].length;
+    var i;
+
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
 
-    for (var i = 0, l = this._events[evt].length; i < l; i++) {
+    for (i = 0; i < len; i++) {
       this._events[evt][i].apply(this, Array.prototype.slice.call(arguments,
         1));
     }
@@ -73,8 +76,8 @@
       var units = [
         'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB',
       ];
-      var e = Math.floor(Math.log(this.size) / Math.log(1024));
-      return (this.size / Math.pow(1024, e)).toFixed(2) + ' ' + units[e];
+      var base = Math.floor(Math.log(this.size) / Math.log(1024));
+      return (this.size / Math.pow(1024, base)).toFixed(2) + ' ' + units[base];
     },
   };
   Object.defineProperty(FileList.prototype, 'humanSize', humanSize);
@@ -136,13 +139,15 @@
 
   FileListUploader.prototype = Object.create(EventEmitter.prototype);
   FileListUploader.prototype.upload = function(cb) {
-    if (cb) {
-      this.on('uploadcomplete', cb);
-    }
-
     var opts = this.opts;
     var files = this.files;
     var _this = this;
+    var len = files.length;
+    var i;
+
+    if (cb) {
+      this.on('uploadcomplete', cb);
+    }
 
     var data = new FormData();
     files.forEach(function(file) {
@@ -152,15 +157,15 @@
     var xhr = new XMLHttpRequest();
 
     xhr.open(opts.method, this.url, true);
-    xhr.upload.addEventListener('loadstart', function(e) {
-      for (var i = 0, l = files.length; i < l; i++) {
+    xhr.upload.addEventListener('loadstart', function() {
+      for (i = 0; i < len; i++) {
         files[i].uploadedSize = 0;
       }
     });
 
-    xhr.upload.addEventListener('progress', function(e) {
-      if (e.lengthComputable) {
-        var size = e.loaded;
+    xhr.upload.addEventListener('progress', function(evt) {
+      if (evt.lengthComputable) {
+        var size = evt.loaded;
 
         /**
          * We know the size of the files, the order they're in, and how
@@ -170,7 +175,7 @@
          */
 
         // TODO: This math has trouble on later uploads. Leak somewhere.
-        for (var i = 0, l = files.length; i < l; i++) {
+        for (i = 0; i < len; i++) {
           files[i].uploadedSize = Math.min(size, files[i].size);
           size -= files[i].uploadedSize;
           if (size <= 0) {
@@ -180,23 +185,23 @@
         }
       }
 
-      _this.emit('uploadprogress', e, files);
+      _this.emit('uploadprogress', evt, files);
     }, false);
 
-    xhr.upload.addEventListener('loadstart', function(e) {
-      _this.emit('uploadstart', e);
+    xhr.upload.addEventListener('loadstart', function(evt) {
+      _this.emit('uploadstart', evt);
     });
 
-    xhr.upload.addEventListener('load', function(e) {
-      _this.emit('uploadcomplete', e);
+    xhr.upload.addEventListener('load', function(evt) {
+      _this.emit('uploadcomplete', evt);
     });
 
-    xhr.addEventListener('progress', function(e) {
-      _this.emit('progress', e);
+    xhr.addEventListener('progress', function(evt) {
+      _this.emit('progress', evt);
     });
 
-    xhr.addEventListener('load', function(e) {
-      _this.emit('load', e, xhr.responseText);
+    xhr.addEventListener('load', function(evt) {
+      _this.emit('load', evt, xhr.responseText);
     });
 
     xhr.send(data);
