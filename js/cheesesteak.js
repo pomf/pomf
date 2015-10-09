@@ -25,6 +25,51 @@
   // Lightweight EventEmitter implementation
   var EventEmitter = function() {};
 
+  // Utility to convert bytes into human units
+  var humanSize = {
+    get: function humanSize() {
+      var units = [
+        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB',
+      ];
+      var base = Math.floor(Math.log(this.size) / Math.log(1024));
+      return (this.size / Math.pow(1024, base)).toFixed(2) + ' ' + units[base];
+    },
+  };
+
+  var percentUploaded = {
+    get: function percentUploaded() {
+      return this.uploadedSize / this.size;
+    },
+  };
+
+  // b gets merged as defaults for a
+  var merge = function merge(base, overlay) {
+    var out = base;
+    var key;
+
+    for (key in overlay) {
+      if (typeof overlay[key] === 'object') {
+        out[key] = merge(base[key], overlay[key]);
+      } else {
+        out[key] = overlay[key];
+      }
+    }
+
+    return out;
+  };
+
+  var FileListUploader = function(url, files, opts) {
+    var request = opts || {};
+
+    this.url = url;
+    this.files = files;
+    this.opts = merge({
+      field: 'files[]',
+      method: 'POST',
+      data: {},
+    }, request);
+  };
+
   EventEmitter.prototype.on = function(evt, fn) {
     this._events = this._events || {};
     this._events[evt] = this._events[evt] || [];
@@ -70,24 +115,9 @@
     },
   });
 
-  // Utility to convert bytes into human units
-  var humanSize = {
-    get: function humanSize() {
-      var units = [
-        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB',
-      ];
-      var base = Math.floor(Math.log(this.size) / Math.log(1024));
-      return (this.size / Math.pow(1024, base)).toFixed(2) + ' ' + units[base];
-    },
-  };
   Object.defineProperty(FileList.prototype, 'humanSize', humanSize);
   Object.defineProperty(File.prototype, 'humanSize', humanSize);
 
-  var percentUploaded = {
-    get: function percentUploaded() {
-      return this.uploadedSize / this.size;
-    },
-  };
   Object.defineProperty(FileList.prototype, 'percentUploaded',
     percentUploaded);
   Object.defineProperty(File.prototype, 'percentUploaded', percentUploaded);
@@ -110,51 +140,23 @@
     window.URL.revokeObjectURL(url);
   };
 
-  // b gets merged as defaults for a
-  var merge = function merge(base, overlay) {
-    var out = base;
-    for (var key in overlay) {
-      if (typeof overlay[key] === 'object') {
-        out[key] = merge(base[key], overlay[key]);
-      } else {
-        out[key] = overlay[key];
-      }
-    }
-
-    return out;
-  };
-
-  var FileListUploader = function(url, files, opts) {
-    this.url = url;
-    this.files = files;
-
-    var request = opts || {};
-
-    this.opts = merge({
-      field: 'files[]',
-      method: 'POST',
-      data: {},
-    }, request);
-  };
-
   FileListUploader.prototype = Object.create(EventEmitter.prototype);
   FileListUploader.prototype.upload = function(cb) {
     var opts = this.opts;
     var files = this.files;
     var _this = this;
     var len = files.length;
+    var data = new FormData();
+    var xhr = new XMLHttpRequest();
     var i;
 
     if (cb) {
       this.on('uploadcomplete', cb);
     }
 
-    var data = new FormData();
     files.forEach(function(file) {
       data.append(opts.field, file);
     });
-
-    var xhr = new XMLHttpRequest();
 
     xhr.open(opts.method, this.url, true);
     xhr.upload.addEventListener('loadstart', function() {
@@ -164,8 +166,10 @@
     });
 
     xhr.upload.addEventListener('progress', function(evt) {
+      var size;
+
       if (evt.lengthComputable) {
-        var size = evt.loaded;
+        size = evt.loaded;
 
         /**
          * We know the size of the files, the order they're in, and how
