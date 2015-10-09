@@ -36,20 +36,20 @@ $(function() {
 
   $uploadBtn.cabinet($uploadInput);
 
-  $uploadBtn.on('dragenter', function(e) {
-    if (this === e.target) {
+  $uploadBtn.on('dragenter', function(evt) {
+    if (this === evt.target) {
       $(this).addClass('drop');
       $btnContent = $(this).html();
       $(this).html('Drop it here~');
     }
   });
 
-  $uploadBtn.on('drop', function(e) {
+  $uploadBtn.on('drop', function() {
     $(this).trigger('dragleave');
   });
 
-  $uploadBtn.on('dragleave', function(e) {
-    var node = e.target;
+  $uploadBtn.on('dragleave', function(evt) {
+    var node = evt.target;
     do {
       if (node === this) {
         $(this).removeClass('drop');
@@ -92,7 +92,7 @@ $(function() {
     return $rowItem;
   };
 
-  $uploadBtn.on('change', function(e) {
+  $uploadBtn.on('change', function() {
     $uploadFiles.empty().removeClass('error completed');
 
     var files = $uploadInput[0].filelist;
@@ -127,7 +127,7 @@ $(function() {
       });
     };
 
-    up.on('uploadprogress', function(e, files) {
+    up.on('uploadprogress', function(evt, files) {
       eachRow(files, function(row, file, files) {
         $('.progress-inner', row).width((file.percentUploaded * 100) + '%');
       });
@@ -135,13 +135,13 @@ $(function() {
       $('.progress-inner', totalRow).width((files.percentUploaded * 100) + '%');
     });
 
-    up.on('uploadcomplete', function(e) {
+    up.on('uploadcomplete', function() {
       $('.progress-inner').width('100%');
       $totalName.html('Grabbing URLs&hellip;');
     });
 
-    up.on('load', function(e, response) {
-      switch (e.target.status) {
+    up.on('load', function(evt, response) {
+      switch (evt.target.status) {
       case 200:
         var res = JSON.parse(response);
         if (!res.success) {
@@ -150,7 +150,7 @@ $(function() {
           break;
         }
 
-        eachRow(res.files, function(row, file, files) {
+        eachRow(res.files, function(row, file) {
           var $link = $('<a>');
 
           $link.attr('href', file.url)
