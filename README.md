@@ -58,6 +58,23 @@ help.
 - IRC: `#pantsucat` on Partyvan (`irc.partyvan.eu`)
 - Email: <hostmaster@pantsu.cat>
 
+## Contributing
+
+For source code changes, please submit `git-format-patch(1)` formatted patches
+by email or come talk to us on IRC. See "Getting help". At this time, we do not
+use the issue tracker on `git.pantsu.cat` to track issues/pull requests.
+
+We'd really like if you can take some time to make sure your coding style is
+consistent with the project. Pomf follows [PHP
+PSR-2](http://www.php-fig.org/psr/psr-2/) and [Airbnb JavaScript
+(ES5)](https://github.com/airbnb/javascript/tree/master/es5) (`airbnb/legacy`)
+coding style guides. We use ESLint and PHPCS tools to enforce these standards.
+
+You can also help by sending us feature requests and writing documentation and
+tests.
+
+Thanks!
+
 ## Credits
 
 Pomf was created by Eric Johansson and Peter Lejeck for
