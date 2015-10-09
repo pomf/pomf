@@ -29,36 +29,6 @@ $(function() {
 
   var $btnContent = '';
 
-  if (!$.hasFileAPI()) {
-    $('#no-file-api').show();
-    $uploadBtn.hide();
-  }
-
-  $uploadBtn.cabinet($uploadInput);
-
-  $uploadBtn.on('dragenter', function(evt) {
-    if (this === evt.target) {
-      $(this).addClass('drop');
-      $btnContent = $(this).html();
-      $(this).html('Drop it here~');
-    }
-  });
-
-  $uploadBtn.on('drop', function() {
-    $(this).trigger('dragleave');
-  });
-
-  $uploadBtn.on('dragleave', function(evt) {
-    var node = evt.target;
-    do {
-      if (node === this) {
-        $(this).removeClass('drop');
-        $(this).html($btnContent);
-        break;
-      }
-    } while (node === node.parentNode);
-  });
-
   var MAX_SIZE = (function(node) {
     var max = node.attr('data-max-size') || '120MiB';
     var num = parseInt(/([0-9,]+).*/.exec(max)[1].replace(',', ''), 10);
@@ -92,40 +62,66 @@ $(function() {
     return $rowItem;
   };
 
-  $uploadBtn.on('change', function() {
-    $uploadFiles.empty().removeClass('error completed');
+  if (!$.hasFileAPI()) {
+    $('#no-file-api').show();
+    $uploadBtn.hide();
+  }
 
+  $uploadBtn.cabinet($uploadInput);
+
+  $uploadBtn.on('dragenter', function(evt) {
+    if (this === evt.target) {
+      $(this).addClass('drop');
+      $btnContent = $(this).html();
+      $(this).html('Drop it here~');
+    }
+  });
+
+  $uploadBtn.on('drop', function() {
+    $(this).trigger('dragleave');
+  });
+
+  $uploadBtn.on('dragleave', function(evt) {
+    var node = evt.target;
+    do {
+      if (node === this) {
+        $(this).removeClass('drop');
+        $(this).html($btnContent);
+        break;
+      }
+    } while (node === node.parentNode);
+  });
+
+  $uploadBtn.on('change', function() {
     var files = $uploadInput[0].filelist;
+    var totalRow = createRow('', files.humanSize, 'total');
+    var $totalName = $('.file-name', totalRow);
+    var UPLOAD_ERR_MAX_SIZE = 'onii-chan y-your upload is t-too big&hellip;';
+    var UPLOAD_ERR_FAILED = 'Something went wrong; try again later.';
+    var up = files.upload('upload.php');
+
+    var eachRow = function(files, fn) {
+      var hits = {};
+      files.forEach(function(file) {
+        var row = $($('li[data-filename="' +
+          escape(file.name) + '"]')[hits[file.name] || 0]);
+        ++hits[file.name];
+        fn.call(row, row, file, files);
+      });
+    };
+    $uploadFiles.empty().removeClass('error completed');
 
     files.forEach(function(file) {
       createRow(file.name, file.humanSize).appendTo($uploadFiles);
     });
 
-    var totalRow = createRow('', files.humanSize, 'total');
     totalRow.appendTo($uploadFiles);
-
-    var $totalName = $('.file-name', totalRow);
-
-    var UPLOAD_ERR_MAX_SIZE = 'onii-chan y-your upload is t-too big&hellip;';
-    var UPLOAD_ERR_FAILED = 'Something went wrong; try again later.';
 
     if (files.size > MAX_SIZE) {
       $uploadFiles.addClass('error');
       $totalName.html(UPLOAD_ERR_MAX_SIZE);
       return;
     }
-
-    var up = files.upload('upload.php');
-
-    var eachRow = function(files, fn) {
-      var hits = {};
-      files.forEach(function(file) {
-        ++hits[file.name];
-        var row = $($('li[data-filename="' +
-          escape(file.name) + '"]')[hits[file.name] || 0]);
-        fn.call(row, row, file, files);
-      });
-    };
 
     up.on('uploadprogress', function(evt, files) {
       eachRow(files, function(row, file, files) {
@@ -141,9 +137,10 @@ $(function() {
     });
 
     up.on('load', function(evt, response) {
+      var res = JSON.parse(response);
+
       switch (evt.target.status) {
       case 200:
-        var res = JSON.parse(response);
         if (!res.success) {
           $uploadFiles.addClass('error');
           $totalName.text(UPLOAD_ERR_FAILED);
