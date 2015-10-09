@@ -28,17 +28,20 @@ After this, the pomf site is now compressed and set up inside `dist/`.
 
 ## Configuring
 
-The majority of settings are in `static/includes/settings.inc.php`. Read the
-comments in that file for more information.
+The majority of settings are in `static/includes/settings.inc.php`.
 
-For file size configuration, there is no server-side verification: we assume
-that PHP and Nginx provide ample protection in this department. There is,
-however, client-side configuration for max size, the `data-max-size` attribute
-on the file input in `pages/upload_form.swig`.
+For file size configuration, open `Gruntfile.js` in an editor and modify the
+`max_upload_size` value. The value is expressed in mebibytes (MiB). Run `grunt`
+again to rebuild the pages for the changes to take effect.
 
-Make sure to disable PHP from being executed on the file download
-domain/directory (e.g., `a.pomf.example`), otherwise an attacker can upload a
-malicious `.php` file and execute it on your server.
+If you intend to allow uploading files larger than 2 MB, you may also need to
+increase POST size limits in `php.ini` and webserver configuration. For PHP,
+modify `upload_max_filesize` and `post_max_size` values. The configuration
+option for nginx webserver is `client_max_body_size`.
+
+A best practice is to disable executing `.php` files on the `POMF_URL` domain
+for uploaded files. This assures that a malicious user cannot execute arbitrary
+PHP code on the server.
 
 ### Apache
 
