@@ -62,7 +62,8 @@ help.
 
 For source code changes, please submit `git-format-patch(1)` formatted patches
 by email or come talk to us on IRC. See "Getting help". At this time, we do not
-use the issue tracker on `git.pantsu.cat` to track issues/pull requests.
+use the issue tracker on [git.pantsu.cat](https://git.pantsu.cat/) to track
+issues/pull requests.
 
 We'd really like if you can take some time to make sure your coding style is
 consistent with the project. Pomf follows [PHP
