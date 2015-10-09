@@ -61,7 +61,7 @@ help.
 ## Credits
 
 Pomf was created by Eric Johansson and Peter Lejeck for
-[Pomf.se](https://pomf.se/). The software is currently maintained by the
+[Pomf.se](http://pomf.se/). The software is currently maintained by the
 community.
 
 ## License
