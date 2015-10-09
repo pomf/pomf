@@ -109,6 +109,7 @@ $(function() {
         fn.call(row, row, file, files);
       });
     };
+
     $uploadFiles.empty().removeClass('error completed');
 
     files.forEach(function(file) {
