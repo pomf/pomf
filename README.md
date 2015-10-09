@@ -50,11 +50,15 @@ add to your `.htaccess` file:
 Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
 
+## Getting help
+
+The Pantsu.cat community gathers on IRC. You can also email the maintainer for
+help.
+
+- IRC: `#pantsucat` on Partyvan (`irc.partyvan.eu`)
+- Email: <hostmaster@pantsu.cat>
+
 ## License
 
 Pomf is free software, and is released under the terms of the Expat license. See
 `LICENSE`.
-
-## Contact
-
-The maintainer can be contacted via <hostmaster@pantsu.cat>.
