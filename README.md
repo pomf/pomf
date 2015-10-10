@@ -28,7 +28,7 @@ After this, the pomf site is now compressed and set up inside `dist/`.
 
 ## Configuring
 
-The majority of settings are in `static/includes/settings.inc.php`.
+The majority of the settings are in `static/includes/settings.inc.php`.
 
 For file size configuration, open `Gruntfile.js` in an editor and modify the
 `max_upload_size` value. The value is expressed in mebibytes (MiB). Run `grunt`
@@ -74,7 +74,7 @@ PSR-2](http://www.php-fig.org/psr/psr-2/) and [Airbnb JavaScript
 (ES5)](https://github.com/airbnb/javascript/tree/master/es5) (`airbnb/legacy`)
 coding style guides. We use ESLint and PHPCS tools to enforce these standards.
 
-You can also help by sending us feature requests and writing documentation and
+You can also help by sending us feature requests or writing documentation and
 tests.
 
 Thanks!
