@@ -28,17 +28,20 @@ After this, the pomf site is now compressed and set up inside `dist/`.
 
 ## Configuring
 
-The majority of settings are in `static/includes/settings.inc.php`. Read the
-comments in that file for more information.
+The majority of the settings are in `static/includes/settings.inc.php`.
 
-For file size configuration, there is no server-side verification: we assume
-that PHP and Nginx provide ample protection in this department. There is,
-however, client-side configuration for max size, the `data-max-size` attribute
-on the file input in `pages/upload_form.swig`.
+For file size configuration, open `Gruntfile.js` in an editor and modify the
+`max_upload_size` value. The value is expressed in mebibytes (MiB). Run `grunt`
+again to rebuild the pages for the changes to take effect.
 
-Make sure to disable PHP from being executed on the file download
-domain/directory (e.g., `a.pomf.example`), otherwise an attacker can upload a
-malicious `.php` file and execute it on your server.
+If you intend to allow uploading files larger than 2 MB, you may also need to
+increase POST size limits in `php.ini` and webserver configuration. For PHP,
+modify `upload_max_filesize` and `post_max_size` values. The configuration
+option for nginx webserver is `client_max_body_size`.
+
+A best practice is to disable executing `.php` files on the `POMF_URL` domain
+for uploaded files. This assures that a malicious user cannot execute arbitrary
+PHP code on the server.
 
 ### Apache
 
@@ -50,11 +53,39 @@ add to your `.htaccess` file:
 Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
 
+## Getting help
+
+The Pantsu.cat community gathers on IRC. You can also email the maintainer for
+help.
+
+- IRC: `#pantsucat` on Partyvan (`irc.partyvan.eu`)
+- Email: <hostmaster@pantsu.cat>
+
+## Contributing
+
+For source code changes, please submit `git-format-patch(1)` formatted patches
+by email or come talk to us on IRC to merge your branch. See "Getting help". At
+this time, we do not use the issue tracker on
+[git.pantsu.cat](https://git.pantsu.cat/) to track issues/pull requests.
+
+We'd really like if you can take some time to make sure your coding style is
+consistent with the project. Pomf follows [PHP
+PSR-2](http://www.php-fig.org/psr/psr-2/) and [Airbnb JavaScript
+(ES5)](https://github.com/airbnb/javascript/tree/master/es5) (`airbnb/legacy`)
+coding style guides. We use ESLint and PHPCS tools to enforce these standards.
+
+You can also help by sending us feature requests or writing documentation and
+tests.
+
+Thanks!
+
+## Credits
+
+Pomf was created by Eric Johansson and Peter Lejeck for
+[Pomf.se](http://pomf.se/). The software is currently maintained by the
+community.
+
 ## License
 
 Pomf is free software, and is released under the terms of the Expat license. See
 `LICENSE`.
-
-## Contact
-
-The maintainer can be contacted via <hostmaster@pantsu.cat>.
