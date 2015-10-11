@@ -164,7 +164,7 @@ class Response
             'success' => false,
             'errorcode' => $code,
             'description' => $description,
-        ));
+        ), JSON_PRETTY_PRINT);
     }
 
     private static function json_success($files)
@@ -172,6 +172,6 @@ class Response
         return json_encode(array(
             'success' => true,
             'files' => $files,
-        ));
+        ), JSON_PRETTY_PRINT);
     }
 }
