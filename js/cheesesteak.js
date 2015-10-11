@@ -165,6 +165,7 @@
         files[i].uploadedSize = 0;
       }
     }
+
     xhr.upload.addEventListener('loadstart', initProgressBar);
 
     function updateProgressBar(evt) {
@@ -193,24 +194,28 @@
 
       _this.emit('uploadprogress', evt, files);
     }
+
     xhr.upload.addEventListener('progress', updateProgressBar, false);
 
     // The upload is complete, now tell the user to wait for URLs.
     function postUpload(evt) {
       _this.emit('uploadcomplete', evt);
     }
+
     xhr.upload.addEventListener('load', postUpload);
 
     // Tell the browser the upload completed and wait for response.
     function postProgress(evt) {
       _this.emit('progress', evt);
     }
+
     xhr.addEventListener('progress', postProgress);
 
     // Send a success/error response. Nothing more to do.
     function uploadFinished(evt) {
       _this.emit('load', evt, xhr.responseText);
     }
+
     xhr.addEventListener('load', uploadFinished);
 
     xhr.send(data);
