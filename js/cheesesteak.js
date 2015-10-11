@@ -40,11 +40,14 @@
   };
 
   EventEmitter.prototype.emit = function(evt) {
+    var len = this._events[evt].length;
+    var i;
+
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
 
-    for (var i = 0, l = this._events[evt].length; i < l; i++) {
+    for (i = 0; i < len; i++) {
       this._events[evt][i].apply(this, Array.prototype.slice.call(arguments,
         1));
     }
@@ -73,8 +76,8 @@
       var units = [
         'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB',
       ];
-      var e = Math.floor(Math.log(this.size) / Math.log(1024));
-      return (this.size / Math.pow(1024, e)).toFixed(2) + ' ' + units[e];
+      var base = Math.floor(Math.log(this.size) / Math.log(1024));
+      return (this.size / Math.pow(1024, base)).toFixed(2) + ' ' + units[base];
     },
   };
   Object.defineProperty(FileList.prototype, 'humanSize', humanSize);
@@ -136,13 +139,15 @@
 
   FileListUploader.prototype = Object.create(EventEmitter.prototype);
   FileListUploader.prototype.upload = function(cb) {
-    if (cb) {
-      this.on('uploadcomplete', cb);
-    }
-
     var opts = this.opts;
     var files = this.files;
     var _this = this;
+    var len = files.length;
+    var i;
+
+    if (cb) {
+      this.on('uploadcomplete', cb);
+    }
 
     var data = new FormData();
     files.forEach(function(file) {
@@ -153,16 +158,16 @@
 
     xhr.open(opts.method, this.url, true);
 
-    function initProgressBar(e) {
-      for (var i = 0, l = files.length; i < l; i++) {
+    function initProgressBar(evt) {
+      for (i = 0; i < len; i++) {
         files[i].uploadedSize = 0;
       }
     }
     xhr.upload.addEventListener('loadstart', initProgressBar);
 
-    function updateProgressBar(e) {
-      if (e.lengthComputable) {
-        var size = e.loaded;
+    function updateProgressBar(evt) {
+      if (evt.lengthComputable) {
+        var size = evt.loaded;
 
         /**
          * We know the size of the files, the order they're in, and how
@@ -172,7 +177,7 @@
          */
 
         // TODO: This math has trouble on later uploads. Leak somewhere.
-        for (var i = 0, l = files.length; i < l; i++) {
+        for (i = 0; i < len; i++) {
           files[i].uploadedSize = Math.min(size, files[i].size);
           size -= files[i].uploadedSize;
           if (size <= 0) {
@@ -182,25 +187,25 @@
         }
       }
 
-      _this.emit('uploadprogress', e, files);
+      _this.emit('uploadprogress', evt, files);
     }
     xhr.upload.addEventListener('progress', updateProgressBar, false);
 
     // The upload is complete, now tell the user to wait for URLs.
-    function postUpload(e) {
-      _this.emit('uploadcomplete', e);
+    function postUpload(evt) {
+      _this.emit('uploadcomplete', evt);
     }
     xhr.upload.addEventListener('load', postUpload);
 
     // Tell the browser the upload completed and wait for response.
-    function postProgress(e) {
-      _this.emit('progress', e);
+    function postProgress(evt) {
+      _this.emit('progress', evt);
     }
     xhr.addEventListener('progress', postProgress);
 
     // Send a success/error response. Nothing more to do.
-    function uploadFinished(e) {
-      _this.emit('load', e, xhr.responseText);
+    function uploadFinished(evt) {
+      _this.emit('load', evt, xhr.responseText);
     }
     xhr.addEventListener('load', uploadFinished);
 
