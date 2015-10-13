@@ -55,12 +55,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    mkdir: {
-      options: {
-        mode: 0700,
-        create: ['dist/img']
-      }
-    },
     copy: {
       dist: {
         files: [{
@@ -80,10 +74,9 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-swig');
-  grunt.loadNpmTasks('grunt-mkdir');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['mkdir', 'swig', 'cssmin', 'uglify', 'copy']);
+  grunt.registerTask('default', ['swig', 'cssmin', 'uglify', 'copy']);
 };
