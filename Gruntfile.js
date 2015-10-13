@@ -95,17 +95,6 @@ module.exports = function (grunt) {
           dest: 'dist/'
         }]
       }
-    },
-    jshint: {
-      options: {
-        curly: true,
-        undef: true
-      },
-      all: [
-        'js/pomf.js',
-        'js/cabinet.js',
-        'js/cheesesteak.js'
-      ]
     }
   });
 
@@ -115,9 +104,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', ['mkdir', 'swig', 'htmlmin', 'cssmin', 'uglify', 'imagemin', 'copy']);
-  grunt.registerTask('test', ['jshint']);
 };

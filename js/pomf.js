@@ -21,7 +21,6 @@
  * SOFTWARE.
  */
 
-/* jshint browser:true, jquery:true */
 $(function() {
   var uploadInput = $('#upload-input');
   var uploadBtn   = $('#upload-btn');

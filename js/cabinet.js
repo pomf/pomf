@@ -20,7 +20,6 @@
  * SOFTWARE.
  */
 
-/* jshint browser:true, jquery:true */
 (function($) {
   $.hasFileAPI = function hasFileAPI() {
     return (window.FormData !== undefined);
