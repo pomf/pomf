@@ -14,6 +14,8 @@ Pomf is a simple file uploading and sharing platform.
   - CSV
 - Supports [ShareX](https://getsharex.com/) and other screenshot tools
 
+### Demo
+
 See the real world example at [Pantsu.cat](https://pantsu.cat/).
 
 ## Requirements
