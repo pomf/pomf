@@ -2,6 +2,22 @@
 
 Pomf is a simple file uploading and sharing platform.
 
+## Features
+
+- One click uploading, no registration required
+- A minimal, modern web interface
+- Drag & drop supported
+- Upload API with multiple response choices
+  - JSON
+  - HTML
+  - Text
+  - CSV
+- Supports [ShareX](https://getsharex.com/) and other screenshot tools
+
+See the real world example at [Pantsu.cat](https://pantsu.cat/).
+
+## Requirements
+
 Original development environment is Nginx + PHP5.5 + MySQL, but is confirmed to
 work with Apache 2.4 and newer PHP versions. Should work with any other
 PDO-compatible database.
