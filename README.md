@@ -73,10 +73,9 @@ configuration file.
 
 ## Getting help
 
-The Pantsu.cat community gathers on IRC. You can also email the maintainer for
-help.
+The Pomf community gathers on IRC. You can also email the maintainer for help.
 
-- IRC: `#pantsucat` on Partyvan (`irc.partyvan.eu`)
+- IRC: `#pomfret` on Rizon (`irc.rizon.net`)
 - Email: <hostmaster@pantsu.cat>
 
 ## Contributing
