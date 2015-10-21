@@ -45,5 +45,4 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <p>If you are an Australian law enforcement official and you need our assistance, please contact <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. If you are a law enforcement official from another country, we may voluntarily cooperate if the crime you are investigating would also be illegal in Australia.</p>
 <h2>I have a question...</h2>
 <p>Send us an email at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> and let's talk!</p>
-{% include "banners.swig" %}
 {% endblock %}
