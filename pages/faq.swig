@@ -29,17 +29,21 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<h1><abbr title="Frequently asked questions">FAQ</abbr></h1>
 	{% include "nav.swig" %}
 </div>
-<ul>
-	<li>Pantsu does NOT support Internet Explorer and older versions of Firefox, Chrome, Opera and Safari.</li>
-	<li>Uploading tools for Pantsu can be found at Tools. (Currently working to update them all to work with pantsu.cat)</li>
-	<li>Max file size is {{max_upload_size}}MiB, hopefully I won't have to change this to a even lower number. (read: don't be an ass).</li>
-	<li>No Child porn, anything else goes until I get a lawsuit I guess. (unless its a virus, because that goes into the being an ass category).</li>
-	<li>All filetypes are allowed, ALL! (gif,exe,jpg,rar,ass,srt,etc,etc).</li>
-	<li>No data is collected or logged by us. This won't change. Cloudflare isn't in use</li>
-	<li>Please contact me at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> for any questions.</li>
-	<li>If you wish to send me any DMCA requests please contact me at <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a></li>
-	<li>If any changes to these policies happen you will be informed about them.</li>
-	<li>I will keep the site as transparent as possible. This will include any files that I remove will be publically listed and have a copy of the DMCA notice. For more information please visit the <a href="//transparency.pantsu.cat">transparency information</a> page.</li>
-</ul>
+<h2>What is Pantsu.cat?</h2>
+<p><span role="definition"><dfn>Pantsu.cat</dfn> is a simple to use free file hosting service.</span> It lets you share your photos, documents, music, videos and more with others online.</p>
+<h2>What content is allowed?</h2>
+<p>Pantsu.cat welcomes uploading any content, as long as the content is legal in Australia and you have the legal right to make the content available on our service.</p>
+<p>As an exception to this policy to prevent abuse, we do not allow malware on our service. Any malware that could be used to infect other computers may be removed from our service at our discretion.</p>
+<h2>Do you keep logs of uploaded content?</h2>
+<p>We don't collect or log any data of our users in respect for privacy. We only have files uploaded by our users.</p>
+<h2>Can you remove my copyrighted content?</h2>
+<p>Please submit your copyright takedown notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. We will handle your notice within 24 hours and disable access to your files after receiving a valid notice.</p>
+<h2>Can you remove content that is defaming me or otherwise infringing my non-copyright rights?</h2>
+<p>Pantsu.cat respects takedowns for other content when accompanied with a certified Australian court order. If you are unable to obtain the order, a preliminary injuction or court order is typically also sufficient. Please forward the notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>.</p>
+<h2>Can you remove illegal content?</h2>
+<p>Please contact the appropriate law enforcement agency if you notice illegal content hosted on Pantsu.cat. We have not been trained or qualified to investigate and fight crimes and enforce the law, so it's not appropriate to send accusations of illegal activity to us. <strong>You must contact the appropriate law enforcement office.</strong></p>
+<p>If you are an Australian law enforcement official and you need our assistance, please contact <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. If you are a law enforcement official from another country, we may voluntarily cooperate if the crime you are investigating would also be illegal in Australia.</p>
+<h2>I have a question...</h2>
+<p>Send us an email at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> and let's talk!</p>
 {% include "banners.swig" %}
 {% endblock %}
