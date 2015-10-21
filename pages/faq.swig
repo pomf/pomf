@@ -26,7 +26,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 {% block title %}FAQ{% endblock %}
 {% block body %}
 <div class="jumbotron">
-	<h1>FAQ</h1>
+	<h1><abbr title="Frequently asked questions">FAQ</abbr></h1>
 	{% include "nav.swig" %}
 </div>
 <ul>
