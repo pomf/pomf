@@ -37,7 +37,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<h2>Do you keep logs of uploaded content?</h2>
 	<p>We don't collect or log any data of our users in respect for privacy. We only have files uploaded by our users.</p>
 	<h2>Can you remove my copyrighted content?</h2>
-	<p>Please submit your copyright takedown notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. We will handle your notice within 24 hours and disable access to infringing content after receiving a valid notice.</p>
+	<p>Please submit your copyright takedown notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. We will handle your notice within 24 hours and disable access to infringing content after receiving a notice compliant with the Copyright Act 1968 (Australia).</p>
 	<h2>Can you remove content that is defaming me or otherwise infringing my non-copyright rights?</h2>
 	<p>Pantsu.cat respects takedowns for other content when accompanied with a certified Australian court order. If you are unable to obtain the order, a preliminary injuction or court order is typically also sufficient. Please forward the notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>.</p>
 	<h2>Can you remove illegal content?</h2>
