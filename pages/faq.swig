@@ -25,24 +25,26 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 {% block title %}FAQ{% endblock %}
 {% block body %}
-<div class="jumbotron">
-	<h1><abbr title="Frequently asked questions">FAQ</abbr></h1>
-	{% include "nav.swig" %}
-</div>
-<h2>What is Pantsu.cat?</h2>
-<p><span role="definition"><dfn>Pantsu.cat</dfn> is a simple to use free file hosting service.</span> It lets you share your photos, documents, music, videos and more with others online.</p>
-<h2>What content is allowed?</h2>
-<p>Pantsu.cat welcomes uploading any content, as long as the content is legal in Australia and you have the legal right to make the content available on our service.</p>
-<p>As an exception to this policy to prevent abuse, we do not allow malware on our service. Any malware that could be used to infect other computers may be removed from our service at our discretion.</p>
-<h2>Do you keep logs of uploaded content?</h2>
-<p>We don't collect or log any data of our users in respect for privacy. We only have files uploaded by our users.</p>
-<h2>Can you remove my copyrighted content?</h2>
-<p>Please submit your copyright takedown notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. We will handle your notice within 24 hours and disable access to infringing content after receiving a valid notice.</p>
-<h2>Can you remove content that is defaming me or otherwise infringing my non-copyright rights?</h2>
-<p>Pantsu.cat respects takedowns for other content when accompanied with a certified Australian court order. If you are unable to obtain the order, a preliminary injuction or court order is typically also sufficient. Please forward the notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>.</p>
-<h2>Can you remove illegal content?</h2>
-<p>Please contact the appropriate law enforcement agency if you notice illegal content hosted on Pantsu.cat. We have not been trained or qualified to investigate and fight crimes and enforce the law, so it's not appropriate to send accusations of illegal activity to us. <strong>You must contact the appropriate law enforcement office.</strong></p>
-<p>If you are an Australian law enforcement official and you need our assistance, please contact <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. If you are a law enforcement official from another country, we may voluntarily cooperate if the crime you are investigating would also be illegal in Australia.</p>
-<h2>I have a question...</h2>
-<p>Send us an email at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> and let's talk!</p>
+<article>
+	<div class="jumbotron">
+		<h1><abbr title="Frequently asked questions">FAQ</abbr></h1>
+		{% include "nav.swig" %}
+	</div>
+	<h2>What is Pantsu.cat?</h2>
+	<p><span role="definition"><dfn>Pantsu.cat</dfn> is a simple to use free file hosting service.</span> It lets you share your photos, documents, music, videos and more with others online.</p>
+	<h2>What content is allowed?</h2>
+	<p>Pantsu.cat welcomes uploading any content, as long as the content is legal in Australia and you have the legal right to make the content available on our service.</p>
+	<p>As an exception to this policy to prevent abuse, we do not allow malware on our service. Any malware that could be used to infect other computers may be removed from our service at our discretion.</p>
+	<h2>Do you keep logs of uploaded content?</h2>
+	<p>We don't collect or log any data of our users in respect for privacy. We only have files uploaded by our users.</p>
+	<h2>Can you remove my copyrighted content?</h2>
+	<p>Please submit your copyright takedown notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. We will handle your notice within 24 hours and disable access to infringing content after receiving a valid notice.</p>
+	<h2>Can you remove content that is defaming me or otherwise infringing my non-copyright rights?</h2>
+	<p>Pantsu.cat respects takedowns for other content when accompanied with a certified Australian court order. If you are unable to obtain the order, a preliminary injuction or court order is typically also sufficient. Please forward the notice to <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>.</p>
+	<h2>Can you remove illegal content?</h2>
+	<p>Please contact the appropriate law enforcement agency if you notice illegal content hosted on Pantsu.cat. We have not been trained or qualified to investigate and fight crimes and enforce the law, so it's not appropriate to send accusations of illegal activity to us. <strong>You must contact the appropriate law enforcement office.</strong></p>
+	<p>If you are an Australian law enforcement official and you need our assistance, please contact <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. If you are a law enforcement official from another country, we may voluntarily cooperate if the crime you are investigating would also be illegal in Australia.</p>
+	<h2>I have a question...</h2>
+	<p>Send us an email at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> and let's talk!</p>
+</article>
 {% endblock %}
