@@ -28,7 +28,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <article>
 	<div class="jumbotron">
 		<h1><abbr title="Frequently asked questions">FAQ</abbr></h1>
-		{% include "nav.swig" %}
 	</div>
 	<h2>What is Pantsu.cat?</h2>
 	<p><span role="definition"><dfn>Pantsu.cat</dfn> is a simple to use free file hosting service.</span> It lets you share your photos, documents, music, videos and more with others online.</p>
@@ -47,4 +46,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<h2>I have a question...</h2>
 	<p>Send us an email at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> and let's talk!</p>
 </article>
+{% include "nav.swig" %}
 {% endblock %}
