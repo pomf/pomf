@@ -27,7 +27,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 {% block body %}
 <div class="jumbotron">
 <h1>Pomf Tools</h1>
-{% include "nav.swig" %}
 </div>
 <section>
 	<h2>pomfload</h2>
@@ -75,4 +74,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<dd><a href="https://twitter.com/4vail">https://twitter.com/4vail</a></dd>
 	</dl>
 </section>
+{% include "nav.swig" %}
 {% endblock %}
