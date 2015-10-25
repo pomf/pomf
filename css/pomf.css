@@ -315,17 +315,6 @@ nav > ul > li:last-child:after {
 }
 
 /**
- * POCKY~
- */
-.pocky {
-	margin: 20px auto;
-	text-align: center;
-}
-.pocky img {
-	max-width: 100%;
-}
-
-/**
  * PAGE SPECIFIC STUFF
  */
 span.old {
