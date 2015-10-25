@@ -297,9 +297,6 @@ nav > ul > li:last-child:after {
 	border: 1px solid white;
 	border-radius: 4px;
 	box-shadow: 0 0 0 1px black;
-/*	box-shadow: 0 0 0 1px rgb(188, 228, 170);
-	box-shadow: 0 0 0 1px #468847;
-	box-shadow: 0 0 0 1px #B7D1A0;*/
 	color: transparent;
 	display: inline-block;
 	font-size: 0;
@@ -312,9 +309,6 @@ nav > ul > li:last-child:after {
 }
 .progress-inner {
 	background-color: black;
-/*	background-color: rgb(188, 228, 170);
-	background-color: #468847;
-	background-color: #B7D1A0;*/
 	height: 6px;
 	margin: 0;
 	width: 0;
