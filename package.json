@@ -1,7 +1,7 @@
 {
-  "name": "pantsu",
-  "version": "1.0.0",
-  "description": "kawaii file host",
+  "name": "Pomf",
+  "version": "2.0.0-dev",
+  "description": "Kawaii file host",
   "homepage": "https://pantsu.cat/",
   "repository": {
     "type": "git",
