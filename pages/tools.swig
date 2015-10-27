@@ -56,7 +56,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	</dl>
 </section>
 <section>
-	<h2>Sharex</h2>
+	<h2>ShareX</h2>
 	<dl>
 		<dt>Download</dt>
 		<dd><a href="https://code.google.com/p/sharex/">https://code.google.com/p/sharex/</a></dd>
