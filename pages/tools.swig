@@ -50,7 +50,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<h2>1339secure</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://git.pantsu.cat/pantsucat/pomfsecure">https://git.pantsu.cat/pantsucat/pomfsecure</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsu/1339secure">https://git.pantsu.cat/pantsu/1339secure</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="mailto:adriankoshcha@teknik.io">adriankoshcha@teknik.io</a></dd>
 	</dl>
