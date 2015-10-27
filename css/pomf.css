@@ -224,9 +224,7 @@ nav > ul > li:last-child:after {
  * UPLOAD FORM
  */
 #upload-input {
-	position: absolute;
-	top: 0;
-	left: -5000px;
+	display: none;
 }
 
 /**
