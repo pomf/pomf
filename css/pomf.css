@@ -26,9 +26,7 @@
 *,
 *:before,
 *:after {
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /**
@@ -226,9 +224,7 @@ nav > ul > li:last-child:after {
  * UPLOAD FORM
  */
 #upload-input {
-	position: absolute;
-	top: 0;
-	left: -5000px;
+	display: none;
 }
 
 /**
@@ -297,9 +293,6 @@ nav > ul > li:last-child:after {
 	border: 1px solid white;
 	border-radius: 4px;
 	box-shadow: 0 0 0 1px black;
-/*	box-shadow: 0 0 0 1px rgb(188, 228, 170);
-	box-shadow: 0 0 0 1px #468847;
-	box-shadow: 0 0 0 1px #B7D1A0;*/
 	color: transparent;
 	display: inline-block;
 	font-size: 0;
@@ -312,23 +305,9 @@ nav > ul > li:last-child:after {
 }
 .progress-inner {
 	background-color: black;
-/*	background-color: rgb(188, 228, 170);
-	background-color: #468847;
-	background-color: #B7D1A0;*/
 	height: 6px;
 	margin: 0;
 	width: 0;
-}
-
-/**
- * POCKY~
- */
-.pocky {
-	margin: 20px auto;
-	text-align: center;
-}
-.pocky img {
-	max-width: 100%;
 }
 
 /**
