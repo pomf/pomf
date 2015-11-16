@@ -80,8 +80,8 @@ function generate_name($file)
         }
 
         // Check if a file with the same name does already exist in the database
-        $q = $db->prepare('SELECT COUNT(name) FROM pomf WHERE name = (:name)');
-        $q->bindValue(':name', $name, PDO::PARAM_STR);
+        $q = $db->prepare('SELECT COUNT(filename) FROM pomf WHERE filename = (:filename)');
+        $q->bindValue(':filename', $name, PDO::PARAM_STR);
         $q->execute();
         $result = $q->fetchColumn();
     // If it does, generate a new name
