@@ -88,11 +88,15 @@
     var i;
     var len;
 
+    // Check whether the event we want to emit actually exists
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
 
-    for (i = 0, len = this._events[evt].length; i < len; i++) {
+    len = this._events[evt].length;
+
+    // Call all functions that are bound to the event
+    for (i = 0; i < len; i++) {
       this._events[evt][i].apply(this, Array.prototype.slice.call(arguments,
         1));
     }
