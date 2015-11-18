@@ -100,13 +100,13 @@ $(function() {
     var UPLOAD_ERR_FAILED = 'Something went wrong; try again later.';
     var up = files.upload('upload.php');
 
-    var eachRow = function(files, fn) {
+    var eachRow = function(_files, fn) {
       var hits = {};
-      files.forEach(function(file) {
+      _files.forEach(function(file) {
         var row = $($('li[data-filename="' +
           escape(file.name) + '"]')[hits[file.name] || 0]);
         ++hits[file.name];
-        fn.call(row, row, file, files);
+        fn.call(row, row, file, _files);
       });
     };
 
@@ -124,12 +124,12 @@ $(function() {
       return;
     }
 
-    up.on('uploadprogress', function(evt, files) {
-      eachRow(files, function(row, file) {
+    up.on('uploadprogress', function(evt, _files) {
+      eachRow(_files, function(row, file) {
         $('.progress-inner', row).width((file.percentUploaded * 100) + '%');
       });
 
-      $('.progress-inner', totalRow).width((files.percentUploaded * 100) + '%');
+      $('.progress-inner', totalRow).width((_files.percentUploaded * 100) + '%');
     });
 
     up.on('uploadcomplete', function() {
