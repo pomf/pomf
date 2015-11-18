@@ -125,7 +125,7 @@ $(function() {
     }
 
     up.on('uploadprogress', function(evt, files) {
-      eachRow(files, function(row, file, files) {
+      eachRow(files, function(row, file) {
         $('.progress-inner', row).width((file.percentUploaded * 100) + '%');
       });
 

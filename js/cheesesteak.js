@@ -160,7 +160,7 @@
 
     xhr.open(opts.method, this.url, true);
 
-    function initProgressBar(evt) {
+    function initProgressBar() {
       for (i = 0; i < len; i++) {
         files[i].uploadedSize = 0;
       }
