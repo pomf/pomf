@@ -21,8 +21,8 @@
  */
 
 /* jshint browser:true, jquery:true */
-(function($) {
-  $.hasFileAPI = function hasFileAPI() {
+(function(cabinet) {
+  cabinet.hasFileAPI = function hasFileAPI() {
     return Boolean(window.FormData);
   };
 
