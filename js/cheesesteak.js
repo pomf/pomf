@@ -85,14 +85,14 @@
   };
 
   EventEmitter.prototype.emit = function(evt) {
-    var len = this._events[evt].length;
     var i;
+    var len;
 
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
 
-    for (i = 0; i < len; i++) {
+    for (i = 0, len = this._events[evt].length; i < len; i++) {
       this._events[evt][i].apply(this, Array.prototype.slice.call(arguments,
         1));
     }
