@@ -81,8 +81,8 @@ The Pomf community gathers on IRC. You can also email the maintainer for help.
 ## Contributing
 
 For source code changes, please submit `git-format-patch(1)` formatted patches
-by email or come talk to us on IRC to merge your branch. See "Getting help". At
-this time, we do not use any Git service issue tracking for issues or pull
+via email or come talk to us on IRC to merge your branch. See "Getting help".
+At this time, we do not use any Git service issue tracking for issues or pull
 requests due to ethical and technical objections.
 
 We'd really like if you can take some time to make sure your coding style is
