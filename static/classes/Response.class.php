@@ -31,21 +31,30 @@ class Response
     {
         switch ($response_type) {
             case 'csv':
-            case 'gyazo':
-                header('Content-Type: text/plain; charset=UTF-8');
-                $this->type = $response_type;
-                break;
-            case 'text':
-                header('Content-Type: text/plain; charset=UTF-8');
+                header('Content-Type: text/csv; charset=UTF-8');
                 $this->type = $response_type;
                 break;
             case 'html':
                 header('Content-Type: text/html; charset=UTF-8');
                 $this->type = $response_type;
                 break;
+            case 'json':
+                header('Content-Type: application/json; charset=UTF-8');
+                $this->type = $response_type;
+                break;
+            case 'gyazo':
+                // Deprecated API since version 2.0.0, fallback to similar text API
+                header('Content-Type: text/plain; charset=UTF-8');
+                $this->type = 'text';
+                break;
+            case 'text':
+                header('Content-Type: text/plain; charset=UTF-8');
+                $this->type = $response_type;
+                break;
             default:
                 header('Content-Type: application/json; charset=UTF-8');
                 $this->type = 'json';
+                $this->error(400, 'Invalid response type. Valid options are: csv, html, json, text.');
                 break;
         }
     }
@@ -58,17 +67,14 @@ class Response
             case 'csv':
                 $response = $this->csv_error($desc);
                 break;
-            case 'gyazo':
-                $response = $this->gyazo_error($code, $desc);
-                break;
-            case 'text':
-                $response = $this->text_error($code, $desc);
-                break;
             case 'html':
                 $response = $this->html_error($code, $desc);
                 break;
-            default:
+            case 'json':
                 $response = $this->json_error($code, $desc);
+                break;
+            case 'text':
+                $response = $this->text_error($code, $desc);
                 break;
         }
 
@@ -81,20 +87,17 @@ class Response
         $response = null;
 
         switch ($this->type) {
-            case 'html':
-                $response = $this->html_success($files);
-                break;
             case 'csv':
                 $response = $this->csv_success($files);
                 break;
-            case 'gyazo':
-                $response = $this->gyazo_success($files);
+            case 'html':
+                $response = $this->html_success($files);
+                break;
+            case 'json':
+                $response = $this->json_success($files);
                 break;
             case 'text':
                 $response = $this->text_success($files);
-                break;
-            default:
-                $response = $this->json_success($files);
                 break;
         }
 
@@ -104,41 +107,17 @@ class Response
 
     private static function csv_error($description)
     {
-        return "error\n".$description."\n";
+        return '"error"'."\r\n"."\"$description\""."\r\n";
     }
 
     private static function csv_success($files)
     {
-        $result = "name,url,hash,size\n";
+        $result = '"name","url","hash","size"'."\r\n";
         foreach ($files as $file) {
-            $result .= $file['name'].','.
-                       $file['url'].','.
-                       $file['hash'].','.
-                       $file['size']."\n";
-        }
-
-        return $result;
-    }
-
-    private static function gyazo_error($code, $description)
-    {
-        return 'ERROR: ('.$code.') '.$description;
-    }
-
-    private static function gyazo_success($files)
-    {
-        return POMF_URL.$files[0]['url'];
-    }
-
-    private static function text_error($code, $description)
-    {
-        return 'ERROR: ('.$code.') '.$description;
-    }
-
-    private static function text_success($files)
-    {
-        foreach ($files as $file) {
-            $result .= $file['url']."\n";
+            $result .= '"'.$file['name'].'"'.','.
+                       '"'.$file['url'].'"'.','.
+                       '"'.$file['hash'].'"'.','.
+                       '"'.$file['size'].'"'."\r\n";
         }
 
         return $result;
@@ -173,5 +152,18 @@ class Response
             'success' => true,
             'files' => $files,
         ), JSON_PRETTY_PRINT);
+    }
+    private static function text_error($code, $description)
+    {
+        return 'ERROR: ('.$code.') '.$description;
+    }
+
+    private static function text_success($files)
+    {
+        foreach ($files as $file) {
+            $result .= $file['url']."\n";
+        }
+
+        return $result;
     }
 }
