@@ -20,37 +20,37 @@
  * SOFTWARE.
  */
 
-(function($) {
-  $.hasFileAPI = function hasFileAPI() {
-    return (window.FormData !== undefined);
+(function(cabinet) {
+  cabinet.hasFileAPI = function hasFileAPI() {
+    return Boolean(window.FormData);
   };
 
-  $.fn.cabinet = function(input) {
-    input = $(input);
+  $.fn.cabinet = function(uploadInput) {
+    var $input = $(uploadInput);
 
     var _this = this;
     var passthrough = function(outer, inner, prevent, fn) {
-      _this.on(outer, function(e) {
+      _this.on(outer, function(evt) {
         if (inner === 'click') {
-          input[0].click();
+          $input[0].click();
         } else {
-          input.trigger(inner);
+          $input.trigger(inner);
         }
 
         if (prevent) {
-          e.preventDefault();
+          evt.preventDefault();
         }
 
         if (fn) {
-          fn(e);
+          fn(evt);
         }
       }, false);
     };
 
-    input[0].filelist = Object.create(FileList);
+    $input[0].filelist = Object.create(FileList);
 
-    input.on('change', function(e) {
-      this.filelist = e.target.files;
+    $input.on('change', function(evt) {
+      this.filelist = evt.target.files;
       _this.change();
     });
 
@@ -58,8 +58,8 @@
     passthrough('dragover', 'dragover', true);
     passthrough('dragleave', 'dragleave', true);
     passthrough('click', 'click', false);
-    passthrough('drop', 'dragleave', true, function(e) {
-      input[0].filelist = e.dataTransfer.files;
+    passthrough('drop', 'dragleave', true, function(evt) {
+      $input[0].filelist = evt.dataTransfer.files;
       _this.change();
     });
   };

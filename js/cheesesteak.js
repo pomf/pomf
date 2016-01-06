@@ -22,7 +22,52 @@
 
 (function() {
   // Lightweight EventEmitter implementation
-  EventEmitter = function() {};
+  var EventEmitter = function() {};
+
+  // Utility to convert bytes into human units
+  var humanSize = {
+    get: function humanSize() {
+      var units = [
+        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB',
+      ];
+      var base = Math.floor(Math.log(this.size) / Math.log(1024));
+      return (this.size / Math.pow(1024, base)).toFixed(2) + ' ' + units[base];
+    },
+  };
+
+  var percentUploaded = {
+    get: function percentUploaded() {
+      return this.uploadedSize / this.size;
+    },
+  };
+
+  // b gets merged as defaults for a
+  var merge = function merge(base, overlay) {
+    var out = base;
+    var key;
+
+    for (key in overlay) {
+      if (typeof overlay[key] === 'object') {
+        out[key] = merge(base[key], overlay[key]);
+      } else {
+        out[key] = overlay[key];
+      }
+    }
+
+    return out;
+  };
+
+  var FileListUploader = function(url, files, opts) {
+    var request = opts || {};
+
+    this.url = url;
+    this.files = files;
+    this.opts = merge({
+      field: 'files[]',
+      method: 'POST',
+      data: {},
+    }, request);
+  };
 
   EventEmitter.prototype.on = function(evt, fn) {
     this._events = this._events || {};
@@ -39,11 +84,18 @@
   };
 
   EventEmitter.prototype.emit = function(evt) {
+    var i;
+    var len;
+
+    // Check whether the event we want to emit actually exists
     if (!this.hasOwnProperty('_events') || evt in this._events === false) {
       return;
     }
 
-    for (var i = 0, l = this._events[evt].length; i < l; i++) {
+    len = this._events[evt].length;
+
+    // Call all functions that are bound to the event
+    for (i = 0; i < len; i++) {
       this._events[evt][i].apply(this, Array.prototype.slice.call(arguments,
         1));
     }
@@ -63,27 +115,12 @@
       return this.reduce(function(prev, curr) {
         return prev + curr.size;
       }, 0);
-    }
+    },
   });
 
-  // Utility to convert bytes into human units
-  var humanSize = {
-    get: function humanSize() {
-      var units = [
-        'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'
-      ];
-      var e = Math.floor(Math.log(this.size) / Math.log(1024));
-      return (this.size / Math.pow(1024, e)).toFixed(2) + ' ' + units[e];
-    }
-  };
   Object.defineProperty(FileList.prototype, 'humanSize', humanSize);
   Object.defineProperty(File.prototype, 'humanSize', humanSize);
 
-  var percentUploaded = {
-    get: function percentUploaded() {
-      return this.uploadedSize / this.size;
-    }
-  };
   Object.defineProperty(FileList.prototype, 'percentUploaded',
     percentUploaded);
   Object.defineProperty(File.prototype, 'percentUploaded', percentUploaded);
@@ -93,73 +130,52 @@
       return this.reduce(function(prev, curr) {
         return prev + (curr.uploadedSize || 0);
       }, 0);
-    }
+    },
   });
 
   // Object URL stuff
   Object.defineProperty(File.prototype, 'url', {
     get: function getURL() {
       return window.URL.createObjectURL(this);
-    }
+    },
   });
   File.revokeURL = function revokeURL(url) {
     window.URL.revokeObjectURL(url);
   };
 
-  // b gets merged as defaults for a
-  var merge = function merge(base, overlay) {
-    var out = base;
-    for (var key in overlay) {
-      if (typeof overlay[key] === 'object') {
-        out[key] = merge(base[key], overlay[key]);
-      } else {
-        out[key] = overlay[key];
-      }
-    }
-
-    return out;
-  };
-
-  var FileListUploader = function(url, files, opts) {
-    this.url = url;
-    this.files = files;
-
-    opts = opts || {};
-
-    this.opts = merge({
-      field: 'files[]',
-      method: 'POST',
-      data: {}
-    }, opts);
-  };
-
   FileListUploader.prototype = Object.create(EventEmitter.prototype);
   FileListUploader.prototype.upload = function(cb) {
+    var opts = this.opts;
+    var files = this.files;
+    var _this = this;
+    var len = files.length;
+    var data = new FormData();
+    var xhr = new XMLHttpRequest();
+    var i;
+
     if (cb) {
       this.on('uploadcomplete', cb);
     }
 
-    var opts = this.opts;
-    var files = this.files;
-    var _this = this;
-
-    var data = new FormData();
     files.forEach(function(file) {
       data.append(opts.field, file);
     });
 
-    var xhr = new XMLHttpRequest();
-
     xhr.open(opts.method, this.url, true);
-    xhr.upload.addEventListener('loadstart', function(e) {
-      for (var i = 0, l = files.length; i < l; i++) {
+
+    function initProgressBar() {
+      for (i = 0; i < len; i++) {
         files[i].uploadedSize = 0;
       }
-    });
+    }
 
-    xhr.upload.addEventListener('progress', function(e) {
-      if (e.lengthComputable) {
-        size = e.loaded;
+    xhr.upload.addEventListener('loadstart', initProgressBar);
+
+    function updateProgressBar(evt) {
+      var size;
+
+      if (evt.lengthComputable) {
+        size = evt.loaded;
 
         /**
          * We know the size of the files, the order they're in, and how
@@ -169,7 +185,7 @@
          */
 
         // TODO: This math has trouble on later uploads. Leak somewhere.
-        for (var i = 0, l = files.length; i < l; i++) {
+        for (i = 0; i < len; i++) {
           files[i].uploadedSize = Math.min(size, files[i].size);
           size -= files[i].uploadedSize;
           if (size <= 0) {
@@ -179,24 +195,31 @@
         }
       }
 
-      _this.emit('uploadprogress', e, files);
-    }, false);
+      _this.emit('uploadprogress', evt, files);
+    }
 
-    xhr.upload.addEventListener('loadstart', function(e) {
-      _this.emit('uploadstart', e);
-    });
+    xhr.upload.addEventListener('progress', updateProgressBar, false);
 
-    xhr.upload.addEventListener('load', function(e) {
-      _this.emit('uploadcomplete', e);
-    });
+    // The upload is complete, now tell the user to wait for URLs.
+    function postUpload(evt) {
+      _this.emit('uploadcomplete', evt);
+    }
 
-    xhr.addEventListener('progress', function(e) {
-      _this.emit('progress', e);
-    });
+    xhr.upload.addEventListener('load', postUpload);
 
-    xhr.addEventListener('load', function(e) {
-      _this.emit('load', e, xhr.responseText);
-    });
+    // Tell the browser the upload completed and wait for response.
+    function postProgress(evt) {
+      _this.emit('progress', evt);
+    }
+
+    xhr.addEventListener('progress', postProgress);
+
+    // Send a success/error response. Nothing more to do.
+    function uploadFinished(evt) {
+      _this.emit('load', evt, xhr.responseText);
+    }
+
+    xhr.addEventListener('load', uploadFinished);
 
     xhr.send(data);
 
