@@ -43,8 +43,10 @@ class Response
                 $this->type = $response_type;
                 break;
             case 'gyazo':
-                // Deprecated API since version 2.0.0, use text response instead
-                // fallthrough
+                // Deprecated API since version 2.0.0, fallback to similar text API
+                header('Content-Type: text/plain; charset=UTF-8');
+                $this->type = 'text';
+                break;
             case 'text':
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
@@ -71,9 +73,6 @@ class Response
             case 'json':
                 $response = $this->json_error($code, $desc);
                 break;
-            case 'gyazo':
-                // Deprecated API since version 2.0.0, use text response instead
-                // fallthrough
             case 'text':
                 $response = $this->text_error($code, $desc);
                 break;
@@ -97,9 +96,6 @@ class Response
             case 'json':
                 $response = $this->json_success($files);
                 break;
-            case 'gyazo':
-                // Deprecated API since version 2.0.0, use text response instead
-                // fallthrough
             case 'text':
                 $response = $this->text_success($files);
                 break;
