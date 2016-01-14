@@ -65,7 +65,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	</dl>
 </section>
 <section>
-	<h2>Gyazo Client (Puush like client)</h2>
+	<h2>Gyazowin</h2>
 	<dl>
 		<dt>Download</dt>
 		<dd><a href="https://git.pantsu.cat/pantsu/gyazowin">https://git.pantsu.cat/pantsu/gyazowin</a></dd>
