@@ -33,10 +33,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'dist/pomf.min.js': [
-            'js/zepto.js',
-            'js/cheesesteak.js',
-            'js/cabinet.js',
-            'js/pomf.js'
+            'js/app.js'
           ]
         }
       }

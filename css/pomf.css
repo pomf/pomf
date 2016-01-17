@@ -239,7 +239,7 @@ nav > ul > li:last-child:after {
 .error#upload-filelist {
 	color: #891A18;
 }
-.error#upload-filelist .file-size {
+.error#upload-filelist .progress-percent {
 	color: #B94A48;
 }
 .error#upload-filelist .file-progress {
@@ -261,13 +261,12 @@ nav > ul > li:last-child:after {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
-.file-size,
+.file-progress,
 .file-url {
 	display: inline-block;
 	float: right;
 	font-size: 0.9em;
 	margin-left: 8px;
-	color: #5C5C5C;
 	vertical-align: middle;
 }
 .file-url a {
@@ -276,9 +275,29 @@ nav > ul > li:last-child:after {
 .file-url a:hover {
 	color: #1C1C1C;
 }
+.progress-percent {
+    float: right;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;
+
+   border: none;
+
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2ps;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25) inset;
+}
+
 /* completed rows */
 .completed .file-progress,
-.completed .file-size {
+.completed .progress-percent {
 	display: none;
 }
 .completed .file-url {
@@ -358,13 +377,7 @@ section.ded {
 		margin-bottom: 12px;
 	}
 	.file-progress {
-		float: left;
 		width: 70%;
-	}
-	.file-size {
-		float: left;
-		max-width: 30%;
-		overflow: hidden;
 	}
 	.file-name, .file-url {
 		width: 100%;
