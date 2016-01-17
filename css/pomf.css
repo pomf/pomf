@@ -76,7 +76,6 @@ a:active {
 }
 a:focus {
 	outline: thin dotted #333;
-/*	outline-offset: -2px;*/
 }
 
 /**
