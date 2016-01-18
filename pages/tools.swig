@@ -1,7 +1,7 @@
 {#
 Copyright (c) 2013, 2014 Peter Lejeck <peter.lejeck@gmail.com>
 Copyright (c) 2013, 2014 Eric Johansson <neku@pomf.se>
-Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2015, 2016 the Pantsu.cat developers <hostmaster@pantsu.cat>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -59,16 +59,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<h2>ShareX</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://code.google.com/p/sharex/">https://code.google.com/p/sharex/</a></dd>
+		<dd><a href="https://github.com/ShareX/ShareX/">https://github.com/ShareX/ShareX/</a></dd>
 		<dt>Settings</dt>
-		<dd><a href="https://p.pantsu.cat/view/raw/fcaeab90">https://p.pantsu.cat/view/raw/fcaeab90</a></dd>
+		<dd><a href="https://p.pantsu.cat/view/raw/8c36da7e">https://p.pantsu.cat/view/raw/8c36da7e</a></dd>
 	</dl>
 </section>
 <section>
-	<h2>Gyazo Client (Puush like client)</h2>
+	<h2>Gyazowin</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://github.com/pantsu/gyazowin">https://github.com/pantsu/gyazowin</a></dd>
+		<dd><a href="https://git.pantsu.cat/pantsu/gyazowin">https://git.pantsu.cat/pantsu/gyazowin</a></dd>
 		<dd><a href="https://i.pantsu.cat/hnpgjr.exe">https://i.pantsu.cat/hnpgjr.exe</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/4vail">https://twitter.com/4vail</a></dd>
