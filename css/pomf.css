@@ -310,23 +310,6 @@ nav > ul > li:last-child:after {
 }
 
 /**
- * PAGE SPECIFIC STUFF
- */
-span.old {
-	text-transform: uppercase;
-	font-size: 0.8em;
-	border-radius: 4px;
-	background-color: hsl(1, 50%, 30%);
-	color: white;
-	padding: 2px 8px;
-	margin: 0 4px;
-	font-weight: 200;
-}
-section.ded {
-	opacity: 0.5;
-}
-
-/**
  * MEDIA QUERIES
  */
 @media only screen and (max-device-width: 320px), only screen and (max-width: 400px) {
