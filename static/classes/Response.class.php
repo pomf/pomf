@@ -130,6 +130,8 @@ class Response
 
     private static function html_success($files)
     {
+        $result = '';
+
         foreach ($files as $file) {
             $result .=  '<a href="'.$file['url'].'">'.$file['url'].'</a><br>';
         }
@@ -161,6 +163,8 @@ class Response
 
     private static function text_success($files)
     {
+        $result = '';
+
         foreach ($files as $file) {
             $result .= $file['url']."\n";
         }
