@@ -153,6 +153,7 @@ class Response
             'files' => $files,
         ), JSON_PRETTY_PRINT);
     }
+
     private static function text_error($code, $description)
     {
         return 'ERROR: ('.$code.') '.$description;
