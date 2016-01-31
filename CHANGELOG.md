@@ -5,9 +5,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## `2.0.0` - 2016-01-10
 
-These release notes are a comparison against 1.0.0+8757e9a, the last maintained
-Git commit at upstream (`nokonoko/Pomf`) at the time of development.
-
 ### Added
 
 - "Other services" page for Pantsu.cat. (Eliot Whalan)
@@ -96,3 +93,12 @@ Git commit at upstream (`nokonoko/Pomf`) at the time of development.
 - Minor `README.md` documentation errors. (Juuso Lapinlampi)
 - WCAG 2.0 contrast (section 1.4.3) in `.alert-info`. (Juuso Lapinlampi)
 - Capitalization of "ShareX" heading on tools page. (Juuso Lapinlampi)
+
+## `1.0.0+8757e9a` - 2015-08-15
+
+Last Git repository snapshot in `nokonoko/Pomf` before forking to
+`pantsu/pomf`.
+
+## `1.0.0` - 2013-10-31
+
+Initial unofficial release in `nokonoko/Pomf`.
