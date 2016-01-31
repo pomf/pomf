@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## `2.0.1` - 2016-01-28
+
+### Changed
+
+- Gyazo Client renamed to Gyazowin in tools page to match the actual project
+  name. (Juuso Lapinlampi)
+
+### Fixed
+
+- ShareX URL and settings in tools page. (Juuso Lapinlampi)
+- Gyazowin URL in tools page. (Juuso Lapinlampi)
+- PHPCS lint error about a missing newline after `text_error()`. (Juuso
+  Lapinlampi)
+- PHP warnings about undeclared variables in `html_success()` and
+  `text_success()`. (Juuso Lapinlampi)
+
+### Removed
+
+- Unused, commented `a:focus` `outline-offset` in CSS. (Luminarys)
+- Unused `check_fileapi.swig` inclusion in `nojs.swig`.  (Juuso Lapinlampi)
+- Unused `span.old` and `section.ded` CSS rules leftover from 2.0.0 release.
+  (Eliot Whalan)
+
 ## `2.0.0` - 2016-01-10
 
 ### Added
