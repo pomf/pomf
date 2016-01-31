@@ -19,6 +19,11 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
+{#
+This template is deprecated since version 2.1.0. It may be removed in a future
+release.
+#}
+
 <p class="alert alert-info">
 	<strong>pomf.se is a free service, but our hosting bill isn't</strong> &mdash; we need almost $100 a month for that. Donations help keep pomf.se free, online, and fast. Everything (after fees) goes to the hosting bill.
 	<span class="donate-btns">

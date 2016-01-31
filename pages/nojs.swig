@@ -28,6 +28,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<p class="lead">Max upload size is {{max_upload_size}}MiB, read the <a href="faq.html">FAQ</a></p>
 	{% include "upload_form_nojs.swig" %}
 </div>
-{% include "banners.swig" %}
+{% include "banners.swig" %} {# Deprecated since version 2.1.0. #}
 {% include "nav.swig" %}
 {% endblock %}

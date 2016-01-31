@@ -15,6 +15,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   JavaScript. (Luminarys)
 - Luminarys added to `package.json` contributors. (Juuso Lapinlampi)
 
+### Deprecated
+
+- Swig banners. Use Swig templates or an alternative. (Juuso Lapinlampi)
+
 ## `2.0.1` - 2016-01-28
 
 ### Changed
