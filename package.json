@@ -15,9 +15,6 @@
     "Juuso Lapinlampi <wub@partyvan.eu>"
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://git.pantsu.cat/pantsu/pomf/issues"
-  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-contrib-copy": "^0.8.2",
