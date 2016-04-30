@@ -7,11 +7,13 @@ module.exports = function (grunt) {
           allowErrors: false
         },
         banners: grunt.file.readJSON('pages/banners.json'),
-        max_upload_size: 128,
         dest: 'dist',
-        generateSitemap: false,
         generateRobotstxt: false,
+        generateSitemap: false,
+        max_upload_size: 128,
         pkgVersion: '<%= pkg.version %>',
+        production: false,
+        siteUrl: 'https://pantsu.cat/',
         src: [
           'pages/index.swig',
           'pages/faq.swig',
@@ -19,14 +21,12 @@ module.exports = function (grunt) {
           'pages/other.swig',
           'pages/nojs.swig'
         ],
-        siteUrl: 'https://pantsu.cat/',
-        production: false,
       }
     },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> (<%= pkg.repository.url %>) @ <%= grunt.template.today("yyyy-mm-dd") %> */\n' + 
-          '// @source https://git.pantsu.cat/pantsu/pomf/src/master/js\n' + 
+          '// @source https://git.pantsu.cat/pantsu/pomf/tree/js\n' + 
           '// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat\n',
         footer: '\n// @license-end',
         screwIE8: true
