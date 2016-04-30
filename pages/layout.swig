@@ -1,6 +1,6 @@
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
-Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2015, 2016 the Pantsu.cat developers <hostmaster@pantsu.cat>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -25,6 +25,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content="Pomf 2.1.0">
 		<title>Pantsu.cat &middot; {% block title %}Kawaii File Hosting{% endblock %}</title>
 		<link rel="icon" href="favicon.ico">
 		<link rel="stylesheet" href="pomf.min.css">
