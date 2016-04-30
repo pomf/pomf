@@ -7,10 +7,12 @@ module.exports = function (grunt) {
           allowErrors: false
         },
         banners: grunt.file.readJSON('pages/banners.json'),
-        max_upload_size: 128,
         dest: 'dist',
-        generateSitemap: false,
         generateRobotstxt: false,
+        generateSitemap: false,
+        max_upload_size: 128,
+        production: false,
+        siteUrl: 'https://pantsu.cat/',
         src: [
           'pages/index.swig',
           'pages/faq.swig',
@@ -18,8 +20,6 @@ module.exports = function (grunt) {
           'pages/other.swig',
           'pages/nojs.swig'
         ],
-        siteUrl: 'https://pantsu.cat/',
-        production: false,
       }
     },
     uglify: {
