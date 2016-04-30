@@ -15,6 +15,9 @@
     "Juuso Lapinlampi <wub@partyvan.eu>"
   ],
   "license": "MIT",
+  "bugs": {
+    "email": "bugs@pantsu.cat"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-contrib-copy": "^0.8.2",
