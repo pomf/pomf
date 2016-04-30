@@ -11,6 +11,7 @@ module.exports = function (grunt) {
         dest: 'dist',
         generateSitemap: false,
         generateRobotstxt: false,
+        pkgVersion: '<%= pkg.version %>',
         src: [
           'pages/index.swig',
           'pages/faq.swig',
