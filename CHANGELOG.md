@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - `CHANGELOG.md`. (Juuso Lapinlampi)
+- HTML `<meta name="generator">` with Pomf version. Generated with grunt-swig.
+  (Juuso Lapinlampi)
 
 ### Changed
 
@@ -18,6 +20,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 
 - Swig banners. Use Swig templates or an alternative. (Juuso Lapinlampi)
+
+## `2.0.2` - Unreleased
+
+### Changed
+
+- `npm bugs` URL replaced with an email address. (Juuso Lapinlampi)
+
+### Fixed
+
+- LibreJS @source URL to git.pantsu.cat's new cgit tree. (Juuso Lapinlampi)
+- package.json package name to lowercase as per NPM rules. (Juuso Lapinlampi)
+- Alphabetical order of grunt-swig options in Gruntfile. (Juuso Lapinlampi)
 
 ## `2.0.1` - 2016-01-28
 
