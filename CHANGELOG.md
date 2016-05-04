@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - `CHANGELOG.md`. (Juuso Lapinlampi)
+- HTML `<meta name="generator">` with Pomf version. Generated with grunt-swig.
+  (Juuso Lapinlampi)
 
 ### Changed
 
