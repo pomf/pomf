@@ -22,6 +22,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Swig banners. Use Swig templates or an alternative. (Juuso Lapinlampi)
 - Unused file expiration (`expire`). This feature may be removed in the
   next major version. (Juuso Lapinlampi)
+- `get_sha1()` function. This API may be changed or removed in the next
+  major version, switching to SHA-256 hashes. (Juuso Lapinlampi)
 
 ## `2.0.2` - Unreleased
 

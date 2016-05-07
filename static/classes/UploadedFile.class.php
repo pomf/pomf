@@ -37,6 +37,7 @@ class UploadedFile
     /**
      * Generates the SHA1 or returns the cached SHA1 hash for the file.
      *
+     * @deprecated 2.1.0 To be replaced with SHA-256 hashing.
      * @return string
      */
     public function get_sha1()
