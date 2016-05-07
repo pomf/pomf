@@ -105,11 +105,17 @@ class Response
         echo $response;
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function csv_error($description)
     {
         return '"error"'."\r\n"."\"$description\""."\r\n";
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function csv_success($files)
     {
         $result = '"name","url","hash","size"'."\r\n";
@@ -123,11 +129,17 @@ class Response
         return $result;
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function html_error($code, $description)
     {
         return '<p>ERROR: ('.$code.') '.$description.'</p>';
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function html_success($files)
     {
         $result = '';
@@ -139,6 +151,9 @@ class Response
         return $result;
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function json_error($code, $description)
     {
         return json_encode(array(
@@ -148,6 +163,9 @@ class Response
         ), JSON_PRETTY_PRINT);
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function json_success($files)
     {
         return json_encode(array(
@@ -156,11 +174,17 @@ class Response
         ), JSON_PRETTY_PRINT);
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function text_error($code, $description)
     {
         return 'ERROR: ('.$code.') '.$description;
     }
 
+    /**
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
+     */
     private static function text_success($files)
     {
         $result = '';
