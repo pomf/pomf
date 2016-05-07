@@ -60,7 +60,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 - Unused, commented `a:focus` `outline-offset` in CSS. (Luminarys)
-- Unused `check_fileapi.swig` inclusion in `nojs.swig`.  (Juuso Lapinlampi)
+- Unused `check_fileapi.swig` inclusion in `nojs.swig`. (Juuso Lapinlampi)
 - Unused `span.old` and `section.ded` CSS rules leftover from 2.0.0 release.
   (Eliot Whalan)
 
