@@ -20,6 +20,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 
 - Swig banners. Use Swig templates or an alternative. (Juuso Lapinlampi)
+- Unused file expiration (`expire`). This feature may be removed in next major
+  version. (Juuso Lapinlampi)
 
 ## `2.0.2` - Unreleased
 

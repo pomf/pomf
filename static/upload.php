@@ -133,6 +133,8 @@ function upload_file($file)
         // Need to change permissions for the new file to make it world readable
         if (chmod(POMF_FILES_ROOT.$newname, 0644)) {
             // Add it to the database
+            // 'expire' support is deprecated since version 2.1.0. It may be
+            // removed in a future release.
             $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
                               'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
                               ':exp, :del)');
@@ -143,7 +145,7 @@ function upload_file($file)
             $q->bindValue(':name', $newname,                PDO::PARAM_STR);
             $q->bindValue(':size', $file->size,             PDO::PARAM_INT);
             $q->bindValue(':date', date('Y-m-d'),           PDO::PARAM_STR);
-            $q->bindValue(':exp',  null,                    PDO::PARAM_STR);
+            $q->bindValue(':exp',  null,                    PDO::PARAM_STR); // Deprecated since version 2.1.0
             $q->bindValue(':del',  sha1($file->tempfile),   PDO::PARAM_STR);
             $q->execute();
 
@@ -201,7 +203,7 @@ function refiles($files)
         $f->tempfile = $file['tmp_name'];
         $f->error = $file['error'];
         // 'expire' doesn't exist neither in $_FILES nor in UploadedFile;
-        // commented out for future implementation
+        // it was never implemented and has been deprecated since version 2.1.0.
         //$f->expire   = $file['expire'];
         $result[] = $f;
     }
