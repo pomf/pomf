@@ -75,7 +75,8 @@ configuration file.
 
 The Pomf community gathers on IRC. You can also email the maintainer for help.
 
-- IRC: `#pomfret` on Rizon (`irc.rizon.net`)
+- IRC (users): `#pomfret` on Rizon (`irc.rizon.net`)
+- IRC (developers): `#pomf` on Partyvan (`irc.partyvan.eu`)
 - Email: <hostmaster@pantsu.cat>
 
 ## Contributing
