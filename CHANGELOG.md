@@ -163,4 +163,23 @@ Last Git repository snapshot in `nokonoko/Pomf` before forking to
 
 ## `1.0.0` - 2013-10-31
 
-Initial unofficial release in `nokonoko/Pomf`.
+Initial unofficial release in `nokonoko/Pomf`. Changes are since initial commit.
+
+### Added
+
+- `LICENSE` with Expat license. (Eric Johansson)
+- Email and Twitter contacts to `README.md`. (Eric Johansson)
+- Frequently asked questions (FAQ). (Eric Johansson)
+- Favicon. (Eric Johansson)
+- Kawaii anime girls (`kawaii.php`). (Eric Johansson)
+- Static HTML web interface with JavaScript. (Eric Johansson, Peter Lejeck)
+- Tools page. (Eric Johansson)
+- `upload.php` with `generate_name` and `upload` functions. (Eric Johansson)
+- Gyazo support (`blackniggers/kittens.php`) with `generate_name` function.
+  (Eric Johansson)
+- Partially implemented Grunt buildsystem. (Peter Lejeck)
+
+### Removed
+
+- `.gitattributes`. (Eric Johansson)
+- `.gitignore`. (Eric Johansson)
