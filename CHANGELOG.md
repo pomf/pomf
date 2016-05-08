@@ -159,8 +159,122 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## `1.0.0+8757e9a` - 2015-08-15
 
 Last Git repository snapshot in `nokonoko/Pomf` before forking to
-`pantsu/pomf`.
+`pantsu/pomf`. No formal release.
 
-## `1.0.0` - 2013-10-31
+### Added
 
-Initial unofficial release in `nokonoko/Pomf`.
+- Gyazo and CSV response types. (Peter Lejeck)
+- Flattr to donation banner. (Peter Lejeck)
+- Label and message to Bitcoin URL in donation banner. (Peter Lejeck)
+- CSS for donation buttons. (Peter Lejeck)
+- Moe panel for login/administration. (Eric Johansson)
+- Alternative email contact for file deletion in FAQ. (Eric Johansson)
+- CSS for old and dead tools. (Peter Lejeck)
+- Double dot file extensions support. Configurable in `settings.inc.php`. (Peter
+  Lejeck)
+- Disclaimer about unsupported web browsers in FAQ. (Eric Johansson)
+- Initial file expiration support for moe panel. (Eric Johansson)
+- MySQL schema (`schema.sql`) for installing Pomf. (Eric Johansson, cenci0)
+- MySQL schema (`update.sql`) to help migrate old databases to the new moe panel
+  schema. (cenci0, Austin Gillman)
+- HTTP compression support in `upload.php`. (cenci0)
+- Configuration option `POMF_URL`. (cenci0)
+- `diverse_array` and `refiles` API in `upload.php`. (cenci0)
+- HTML minification using grunt-contrib-htmlmin. (cenci0)
+- Instructions in `README.md` on how to enable compression in Apache webserver.
+  (cenci0)
+- Todo section to `README.md`. (Eric Johansson)
+- Advice to disable PHP execution for uploaded `.php` files. (Eric Johansson)
+- Configurable `{{max_upload_size`}} option in `Gruntfile.js` to replace
+  hardcoded 50MiB value. Defaults to value 50. (Kieran Harkin)
+
+### Changed
+
+- `POMF_DB_CONN` default host to `127.0.0.1`. (Eric Johansson)
+- Paddings on `.alert` boxes simplified. (Peter Lejeck)
+- Donation plea. (Peter Lejeck)
+- Donate buttons are unified and on a single row. (Peter Lejeck)
+- PayPal's encrypted `<form>` replaced with a link in donation banner. (Peter
+  Lejeck)
+- Virus scans banner to match the donate banner scheme.
+- Donate banner is now an `.alert-info` instead of `.alert-error`. (Peter
+  Lejeck)
+- `generate_name` algorithm. Generates random lowercase letters from `a` to `z`
+  instead of a mix of CRC-32B and random lowercase letters. (Eric Johansson)
+- Tools page tool names and API status updated. (Eric Johansson, Peter Lejeck)
+- Gyazo `generate_name` algorithm to `FxxAxxG.png`, where `x` is a random
+  lowercase letter. Removes CRC-32B checksums and `$grill` parameter from the
+  function. (Eric Johansson)
+- Increased length of `generate_name` return string by one character. (Eric
+  Johansson)
+- Default `POMF_FILES_RETRIES` increased from 5 to 15. (Eric Johansson, Peter
+  Lejeck)
+- `nav.swig` links to new places of interest of other Pomf.se projects and
+  social media. (Eric Johansson)
+- Genericize defaults function into merge utility in `cheesesteak.js`. (Peter
+  Lejeck)
+- `README.md` now uses a hyperlink to `@nekunekus` Twitter account. (Eric
+  Johansson)
+- Refactored the core PHP code in Pomf. Introduced classes. (cenci0)
+- `.alert-info`, `.alert-error`, `nav a` and `a` CSS colors to satisfy WCAG 2.0
+  requirements on contrast (section 1.4.3). Patch by Juuso Lapinlampi. (Eric
+  Johansson)
+
+### Fixed
+
+- `git clone` URL in `README.md`. (Eric Johansson)
+- PHPDoc comments in `upload.php`. (Peter Lejeck)
+- A bug in `refiles()`. Deferences `$file`. (Peter Lejeck, catboy)
+- Broken tools download URLs. (Eric Johansson)
+- Uploading files without file extension. (Eric Johansson)
+- Bitcoin wallet URI in donation banner. (Eric Johansson)
+- ShareX settings URL in tools. (Eric Johansson)
+- Gyazo Client author's Twitter URL. (Eric Johansson)
+- Code indentation in `upload.php`. (Peter Lejeck)
+- Reduntant `settings.inc.php` inclusion twice in `upload.php`. (benwaffle)
+- Moe panel incorrectly returning 5 entries instead of none in search while
+  there's no search query. (benwaffle)
+- Cross-site scripting vulnerability in moe panel from arbitrary `originalname`.
+  No CVE requested. Reported by Juuso Lapinlampi. (Eric Johansson)
+- Copy-pasted code rolled into a `for` loop in `generate_name`. (Michael
+  "wafflestealer654")
+- HTML validation for `case 413` in `pomf.js`. (cenci0)
+- `README.md` title from Pomf.se to Pomf. (Eric Johansson)
+- Pass full URL back to the client in response. (Kieran Harkin)
+
+### Removed
+
+- Link to mail newsletter in FAQ. (Eric Johansson)
+- Unused `blackniggers/kittens.php`. Previously used for Gyazo client, now
+  replaced. (Eric Johansson)
+- Unused `get_crc32` function in `UploadedFile.class.php`. Reported by Juuso
+  Lapinlampi. (Eric Johansson)
+
+## `v1.0.0` - 2013-10-31
+
+Initial unofficial release in `nokonoko/Pomf`. Changes are since initial commit.
+
+### Added
+
+- `LICENSE` with Expat license. (Eric Johansson)
+- Email and Twitter contacts to `README.md`. (Eric Johansson)
+- Frequently asked questions (FAQ). (Eric Johansson)
+- Favicon. (Eric Johansson)
+- Kawaii anime girls (`grill.php`). (Eric Johansson)
+- Web interface with JavaScript. (Eric Johansson, Peter Lejeck)
+- Tools page. (Eric Johansson)
+- `upload.php`, `UploadedFile.class.php`, `database.inc.php`, `settings.inc.php`. (Eric Johansson, Peter Lejeck)
+- Gyazo support (`blackniggers/kittens.php`) with `generate_name` function.
+  (Eric Johansson)
+- Grunt buildsystem. (Peter Lejeck)
+- Swig pages. (Peter Lejeck)
+- Swig banners. (Peter Lejeck)
+- `README.md` documentation. (Peter Lejeck)
+
+### Changed
+
+- `.gitignore` will only ignore `dist/` and `node_modules`. (Peter Lejeck)
+
+### Removed
+
+- `.gitattributes`. (Eric Johansson)
