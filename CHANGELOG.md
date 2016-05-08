@@ -161,7 +161,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Last Git repository snapshot in `nokonoko/Pomf` before forking to
 `pantsu/pomf`.
 
-## `1.0.0` - 2013-10-31
+## `v1.0.0` - 2013-10-31
 
 Initial unofficial release in `nokonoko/Pomf`. Changes are since initial commit.
 
@@ -171,15 +171,21 @@ Initial unofficial release in `nokonoko/Pomf`. Changes are since initial commit.
 - Email and Twitter contacts to `README.md`. (Eric Johansson)
 - Frequently asked questions (FAQ). (Eric Johansson)
 - Favicon. (Eric Johansson)
-- Kawaii anime girls (`kawaii.php`). (Eric Johansson)
-- Static HTML web interface with JavaScript. (Eric Johansson, Peter Lejeck)
+- Kawaii anime girls (`grill.php`). (Eric Johansson)
+- Web interface with JavaScript. (Eric Johansson, Peter Lejeck)
 - Tools page. (Eric Johansson)
-- `upload.php` with `generate_name` and `upload` functions. (Eric Johansson)
+- `upload.php`, `UploadedFile.class.php`, `database.inc.php`, `settings.inc.php`. (Eric Johansson, Peter Lejeck)
 - Gyazo support (`blackniggers/kittens.php`) with `generate_name` function.
   (Eric Johansson)
-- Partially implemented Grunt buildsystem. (Peter Lejeck)
+- Grunt buildsystem. (Peter Lejeck)
+- Swig pages. (Peter Lejeck)
+- Swig banners. (Peter Lejeck)
+- `README.md` documentation. (Peter Lejeck)
+
+### Changed
+
+- `.gitignore` will only ignore `dist/` and `node_modules`. (Peter Lejeck)
 
 ### Removed
 
 - `.gitattributes`. (Eric Johansson)
-- `.gitignore`. (Eric Johansson)
