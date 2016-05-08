@@ -263,7 +263,8 @@ Initial unofficial release in `nokonoko/Pomf`. Changes are since initial commit.
 - Kawaii anime girls (`grill.php`). (Eric Johansson)
 - Web interface with JavaScript. (Eric Johansson, Peter Lejeck)
 - Tools page. (Eric Johansson)
-- `upload.php`, `UploadedFile.class.php`, `database.inc.php`, `settings.inc.php`. (Eric Johansson, Peter Lejeck)
+- `upload.php`, `UploadedFile.class.php`, `database.inc.php`,
+  `settings.inc.php`. (Eric Johansson, Peter Lejeck)
 - Gyazo support (`blackniggers/kittens.php`) with `generate_name` function.
   (Eric Johansson)
 - Grunt buildsystem. (Peter Lejeck)
