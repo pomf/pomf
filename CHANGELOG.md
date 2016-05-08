@@ -40,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - LibreJS `@source` URL to git.pantsu.cat's new cgit tree. (Juuso Lapinlampi)
 - `package.json` package name to lowercase as per NPM rules. (Juuso Lapinlampi)
 - Alphabetical order of grunt-swig options in `Gruntfile.js`. (Juuso Lapinlampi)
+- "Getting help" IRC contact for developers in `README.md`. (Juuso Lapinlampi)
 
 ## `2.0.1` - 2016-01-28
 
