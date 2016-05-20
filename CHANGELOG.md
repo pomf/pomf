@@ -29,7 +29,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   functions will be renamed to `camelCase` format (e.g. `csvError`,
   `htmlSuccess`). (Juuso Lapinlampi)
 
-## `2.0.2` - Unreleased
+## `2.0.2` - 2016-05-20
 
 ### Changed
 
