@@ -16,6 +16,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - All client-side JavaScript replaced with more efficient, smaller vanilla
   JavaScript. (Luminarys)
 - Luminarys added to `package.json` contributors. (Juuso Lapinlampi)
+- Missing essential PHP includes and classes are now errors (`require_once`)
+  instead of warnings (`include_once`). (Austin Gillmann)
 
 ### Deprecated
 
@@ -28,6 +30,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   `json_success`, `text_error` and `text_success` functions. The
   functions will be renamed to `camelCase` format (e.g. `csvError`,
   `htmlSuccess`). (Juuso Lapinlampi)
+
+### Fixed
+
+- Code cleanliness of `upload_file()` in `upload.php`. (Juuso Lapinlampi)
 
 ## `2.0.2` - 2016-05-20
 
