@@ -4,7 +4,7 @@
  * Copyright (c) 2013, 2014 Peter Lejeck <peter.lejeck@gmail.com>
  * Copyright (c) 2013, 2014, 2015 Eric Johansson <neku@pomf.se>
  * Copyright (c) 2015 cenci0 <alchimist94@gmail.com>
- * Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+ * Copyright (c) 2015, 2016 the Pantsu.cat developers <hostmaster@pantsu.cat>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
