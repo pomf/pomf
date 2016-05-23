@@ -43,7 +43,7 @@ class UploadedFile
     private $sha1;
 
     /**
-     * Generates the SHA1 or returns the cached SHA1 hash for the file.
+     * Generates the SHA-1 or returns the cached SHA-1 hash for the file.
      *
      * @deprecated 2.1.0 To be replaced with SHA-256 hashing.
      * @return string|false $sha1
