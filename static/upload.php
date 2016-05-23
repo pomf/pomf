@@ -4,7 +4,7 @@
  * Copyright (c) 2013, 2014 Peter Lejeck <peter.lejeck@gmail.com>
  * Copyright (c) 2013, 2014, 2015 Eric Johansson <neku@pomf.se>
  * Copyright (c) 2015 cenci0 <alchimist94@gmail.com>
- * Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+ * Copyright (c) 2015, 2016 the Pantsu.cat developers <hostmaster@pantsu.cat>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -128,39 +128,43 @@ function upload_file($file)
     // Generate a name for the file
     $newname = generate_name($file);
 
+    // Store the file's full file path in memory
+    $uploadDir = POMF_FILES_ROOT;
+    $uploadFile = $uploadDir . $newname;
+
     // Attempt to move it to the static directory
-    if (move_uploaded_file($file->tempfile, POMF_FILES_ROOT.$newname)) {
-        // Need to change permissions for the new file to make it world readable
-        if (chmod(POMF_FILES_ROOT.$newname, 0644)) {
-            // Add it to the database
-            // 'expire' support is deprecated since version 2.1.0. It may be
-            // removed in a future release.
-            $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                              'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
-                              ':exp, :del)');
-
-            // Common parameters binding
-            $q->bindValue(':hash', $file->get_sha1(),       PDO::PARAM_STR);
-            $q->bindValue(':orig', strip_tags($file->name), PDO::PARAM_STR);
-            $q->bindValue(':name', $newname,                PDO::PARAM_STR);
-            $q->bindValue(':size', $file->size,             PDO::PARAM_INT);
-            $q->bindValue(':date', date('Y-m-d'),           PDO::PARAM_STR);
-            $q->bindValue(':exp',  null,                    PDO::PARAM_STR); // Deprecated since version 2.1.0
-            $q->bindValue(':del',  sha1($file->tempfile),   PDO::PARAM_STR);
-            $q->execute();
-
-            return array(
-                'hash' => $file->get_sha1(),
-                'name' => $file->name,
-                'url' => POMF_URL.$newname,
-                'size' => $file->size,
-            );
-        } else {
-            throw new Exception('Failed to change file permissions', 500);
-        }
-    } else {
+    if (!move_uploaded_file($file->tempfile, $uploadFile)) {
         throw new Exception('Failed to move file to destination', 500);
     }
+
+    // Need to change permissions for the new file to make it world readable
+    if (!chmod($uploadFile, 0644)) {
+        throw new Exception('Failed to change file permissions', 500);
+    }
+
+    // Add it to the database
+    // 'expire' support is deprecated since version 2.1.0. It may be
+    // removed in a future release.
+    $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
+                      'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
+                      ':exp, :del)');
+
+    // Common parameters binding
+    $q->bindValue(':hash', $file->get_sha1(),       PDO::PARAM_STR);
+    $q->bindValue(':orig', strip_tags($file->name), PDO::PARAM_STR);
+    $q->bindValue(':name', $newname,                PDO::PARAM_STR);
+    $q->bindValue(':size', $file->size,             PDO::PARAM_INT);
+    $q->bindValue(':date', date('Y-m-d'),           PDO::PARAM_STR);
+    $q->bindValue(':exp',  null,                    PDO::PARAM_STR); // Deprecated since version 2.1.0
+    $q->bindValue(':del',  sha1($file->tempfile),   PDO::PARAM_STR);
+    $q->execute();
+
+    return array(
+        'hash' => $file->get_sha1(),
+        'name' => $file->name,
+        'url' => POMF_URL.$newname,
+        'size' => $file->size,
+    );
 }
 
 /**
