@@ -32,10 +32,10 @@ if (ini_get('zlib.output_compression') !== 'Off'
     ob_start('ob_gzhandler');
 }
 
-include_once 'classes/Response.class.php';
-include_once 'classes/UploadException.class.php';
-include_once 'classes/UploadedFile.class.php';
-include_once 'includes/database.inc.php';
+require_once 'classes/Response.class.php';
+require_once 'classes/UploadException.class.php';
+require_once 'classes/UploadedFile.class.php';
+require_once 'includes/database.inc.php';
 
 /**
  * Generates a random name for the file, retrying until we get an unused one.
