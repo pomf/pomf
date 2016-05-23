@@ -128,13 +128,17 @@ function upload_file($file)
     // Generate a name for the file
     $newname = generate_name($file);
 
+    // Store the file's full file path in memory
+    $uploadDir = POMF_FILES_ROOT;
+    $uploadFile = $uploadDir . $newname;
+
     // Attempt to move it to the static directory
-    if (!move_uploaded_file($file->tempfile, POMF_FILES_ROOT.$newname)) {
+    if (!move_uploaded_file($file->tempfile, $uploadFile)) {
         throw new Exception('Failed to move file to destination', 500);
     }
 
     // Need to change permissions for the new file to make it world readable
-    if (!chmod(POMF_FILES_ROOT.$newname, 0644)) {
+    if (!chmod($uploadFile, 0644)) {
         throw new Exception('Failed to change file permissions', 500);
     }
 
