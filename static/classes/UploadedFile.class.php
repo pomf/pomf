@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Copyright (c) 2013, 2014 Peter Lejeck <peter.lejeck@gmail.com>
+ * Returns information about uploaded files.
+ *
+ * @copyright Copyright (c) 2013, 2014 Peter Lejeck <peter.lejeck@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,14 +33,18 @@ class UploadedFile
     public $tempfile;
     public $error;
 
-    /* Cached checksums */
+    /**
+     * SHA-1 checksum
+     *
+     * @var string 40 digit hexadecimal hash (160 bits)
+     */
     private $sha1;
 
     /**
      * Generates the SHA1 or returns the cached SHA1 hash for the file.
      *
      * @deprecated 2.1.0 To be replaced with SHA-256 hashing.
-     * @return string
+     * @return string|false $sha1
      */
     public function get_sha1()
     {

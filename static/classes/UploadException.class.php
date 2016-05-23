@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Returns a human readable error description for file upload errors.
+ *
+ * @author Dan Brown <danbrown@php.net>
+ * @author Michiel Thalen
+ * @copyright
  * -------------------------------------------------------------------- 
  *                   The PHP License, version 3.01
  * Copyright (c) 1999 - 2014 The PHP Group. All rights reserved.
@@ -70,9 +75,6 @@
  * PHP includes the Zend Engine, freely available at
  * <http://www.zend.com>.
  */
-
-// Exception class extension from: http://php.net/manual/en/features.file-upload.errors.php#89374
-// Handles files error returning a proper error description
 
 class UploadException extends Exception
 {
