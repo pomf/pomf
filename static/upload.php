@@ -69,7 +69,8 @@ function generate_name($file)
     do {
         // Iterate until we reach the maximum number of retries
         if ($tries-- === 0) {
-            throw new Exception('Gave up trying to find an unused name', 500);
+            throw new Exception('Gave up trying to find an unused name',
+                500); // HTTP status code "500 Internal Server Error"
         }
 
         $chars = range('a', 'z');
@@ -138,12 +139,14 @@ function upload_file($file)
 
     // Attempt to move it to the static directory
     if (!move_uploaded_file($file->tempfile, $uploadFile)) {
-        throw new Exception('Failed to move file to destination', 500);
+        throw new Exception('Failed to move file to destination',
+            500); // HTTP status code "500 Internal Server Error"
     }
 
     // Need to change permissions for the new file to make it world readable
     if (!chmod($uploadFile, 0644)) {
-        throw new Exception('Failed to change file permissions', 500);
+        throw new Exception('Failed to change file permissions',
+            500); // HTTP status code "500 Internal Server Error"
     }
 
     // Add it to the database
