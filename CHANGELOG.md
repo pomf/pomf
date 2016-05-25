@@ -23,14 +23,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 
 - Swig banners. Use Swig templates or an alternative. (Juuso Lapinlampi)
-- Unused file expiration (`expire`). This feature may be removed in the
-  next major version. (Juuso Lapinlampi)
+- Unused file expiration (`expire`). This feature may be removed in the next
+  major version. (Juuso Lapinlampi)
 - `get_sha1()` function and `$sha1` variable. This API may be changed or removed
   in the next major version, switching to SHA-256 hashes. (Juuso Lapinlampi)
 - `csv_error`, `csv_success`, `html_error`, `html_success`, `json_error`,
-  `json_success`, `text_error` and `text_success` functions. The
-  functions will be renamed to `camelCase` format (e.g. `csvError`,
-  `htmlSuccess`). (Juuso Lapinlampi)
+  `json_success`, `text_error` and `text_success` functions. The functions will
+  be renamed to `camelCase` format (e.g. `csvError`, `htmlSuccess`). (Juuso
+  Lapinlampi)
 
 ### Fixed
 
@@ -96,12 +96,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Rebrand from Pomf.se to Pantsu.cat. (Eliot Whalan)
 - Viewports no longer have a maximum scale. (Eliot Whalan)
-- All tool configurations on tools page to use Pantsu.cat for uploading.
-  (Eliot Whalan)
+- All tool configurations on tools page to use Pantsu.cat for uploading. (Eliot
+  Whalan)
 - "Autist neckbeard" warning on front page for users without JavaScript. (Eliot
   Whalan)
-- Response Content-Type charset is now all uppercase (UTF-8). (Juuso
-  Lapinlampi)
+- Response Content-Type charset is now all uppercase (UTF-8). (Juuso Lapinlampi)
 - npm dependencies have been updated to latest versions as of release. Fixes
   deprecation warnings. (Eliot Whalan)
 - npm dependencies accept caret (minor release) instead of tilde (patch
@@ -110,8 +109,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - The upload button is now a `<button>` element instead of `<a>` hyperlink.
   Improves semantics and accessibility. (Juuso Lapinlampi)
 - Banners are no longer displayed on the FAQ page. (Juuso Lapinlampi)
-- FAQ has been rewritten from scratch to explain what Pantsu.cat is and what
-  its policies are. Semantically correct and prettier. (Juuso Lapinlampi)
+- FAQ has been rewritten from scratch to explain what Pantsu.cat is and what its
+  policies are. Semantically correct and prettier. (Juuso Lapinlampi)
 
 ### Deprecated
 
@@ -166,8 +165,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## `1.0.0+8757e9a` - 2015-08-15
 
-Last Git repository snapshot in `nokonoko/Pomf` before forking to
-`pantsu/pomf`. No formal release.
+Last Git repository snapshot in `nokonoko/Pomf` before forking to `pantsu/pomf`.
+No formal release.
 
 ### Added
 
