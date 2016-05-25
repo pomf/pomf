@@ -101,7 +101,7 @@ class Response
                 break;
         }
 
-        http_response_code(200);
+        http_response_code(200); // "200 OK". Success.
         echo $response;
     }
 
