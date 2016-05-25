@@ -31,6 +31,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   `json_success`, `text_error` and `text_success` functions. The functions will
   be renamed to `camelCase` format (e.g. `csvError`, `htmlSuccess`). (Juuso
   Lapinlampi)
+- Output buffering (`ob_start`). This feature may be removed in the next
+  major version. (Juuso Lapinlampi)
 
 ### Fixed
 
