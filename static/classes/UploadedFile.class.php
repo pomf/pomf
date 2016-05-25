@@ -38,6 +38,7 @@ class UploadedFile
     /**
      * SHA-1 checksum
      *
+     * @deprecated 2.1.0 To be replaced with SHA-256 hashing.
      * @var string 40 digit hexadecimal hash (160 bits)
      */
     private $sha1;

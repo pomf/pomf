@@ -24,8 +24,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Swig banners. Use Swig templates or an alternative. (Juuso Lapinlampi)
 - Unused file expiration (`expire`). This feature may be removed in the
   next major version. (Juuso Lapinlampi)
-- `get_sha1()` function. This API may be changed or removed in the next
-  major version, switching to SHA-256 hashes. (Juuso Lapinlampi)
+- `get_sha1()` function and `$sha1` variable. This API may be changed or removed
+  in the next major version, switching to SHA-256 hashes. (Juuso Lapinlampi)
 - `csv_error`, `csv_success`, `html_error`, `html_success`, `json_error`,
   `json_success`, `text_error` and `text_success` functions. The
   functions will be renamed to `camelCase` format (e.g. `csvError`,
