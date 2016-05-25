@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
+ * Prepares a PDO connection between Pomf and a database server.
+ *
+ * @copyright Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

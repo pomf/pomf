@@ -1,8 +1,11 @@
 <?php
 
 /**
- * Copyright (c) 2015 cenci0 <alchimist94@gmail.com>
- * Copyright (c) 2015, 2016 the Pantsu.cat developers <hostmaster@pantsu.cat>
+ * Prints file upload API responses depending on desired response type format.
+ *
+ * @copyright Copyright (c) 2015 cenci0 <alchimist94@gmail.com>
+ * @copyright Copyright (c) 2015, 2016 the Pantsu.cat developers
+ * <hostmaster@pantsu.cat>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +26,30 @@
  * SOFTWARE.
  */
 
+/**
+ * The Response class is a do-it-all for getting responses out in different
+ * formats.
+ *
+ * @todo Create sub-classes to split and extend this god object.
+ */
 class Response
 {
+    /**
+     * Indicates response type used for routing.
+     *
+     * Valid strings are 'csv', 'html', 'json' and 'text'.
+     *
+     * @var string $type Response type
+     */
     private $type;
 
+    /**
+     * Indicates requested response type.
+     *
+     * Valid strings are 'csv', 'html', 'json', 'gyazo' and 'text'.
+     *
+     * @param string|null $response_type Response type
+     */
     public function __construct($response_type = null)
     {
         switch ($response_type) {
@@ -59,6 +82,13 @@ class Response
         }
     }
 
+    /**
+     * Routes error messages depending on response type.
+     *
+     * @param int $code HTTP status code number.
+     * @param int $desc Descriptive error message.
+     * @return void
+     */
     public function error($code, $desc)
     {
         $response = null;
@@ -82,6 +112,12 @@ class Response
         echo $response;
     }
 
+    /**
+     * Routes success messages depending on response type.
+     *
+     * @param mixed[] $files
+     * @return void
+     */
     public function send($files)
     {
         $response = null;
@@ -101,12 +137,16 @@ class Response
                 break;
         }
 
-        http_response_code(200);
+        http_response_code(200); // "200 OK". Success.
         echo $response;
     }
 
     /**
+     * Indicates with CSV body the request was invalid.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param int $description Descriptive error message.
+     * @return string Error message in CSV format.
      */
     private static function csv_error($description)
     {
@@ -114,7 +154,11 @@ class Response
     }
 
     /**
+     * Indicates with CSV body the request was successful.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param mixed[] $files
+     * @return string Success message in CSV format.
      */
     private static function csv_success($files)
     {
@@ -130,7 +174,12 @@ class Response
     }
 
     /**
+     * Indicates with HTML body the request was invalid.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param int $code HTTP status code number.
+     * @param int $description Descriptive error message.
+     * @return string Error message in HTML format.
      */
     private static function html_error($code, $description)
     {
@@ -138,7 +187,11 @@ class Response
     }
 
     /**
+     * Indicates with HTML body the request was successful.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param mixed[] $files
+     * @return string Success message in HTML format.
      */
     private static function html_success($files)
     {
@@ -152,7 +205,12 @@ class Response
     }
 
     /**
+     * Indicates with JSON body the request was invalid.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param int $code HTTP status code number.
+     * @param int $description Descriptive error message.
+     * @return string Error message in pretty-printed JSON format.
      */
     private static function json_error($code, $description)
     {
@@ -164,7 +222,11 @@ class Response
     }
 
     /**
+     * Indicates with JSON body the request was successful.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param mixed[] $files
+     * @return string Success message in pretty-printed JSON format.
      */
     private static function json_success($files)
     {
@@ -175,7 +237,12 @@ class Response
     }
 
     /**
+     * Indicates with plain text body the request was invalid.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param int $code HTTP status code number.
+     * @param int $description Descriptive error message.
+     * @return string Error message in plain text format.
      */
     private static function text_error($code, $description)
     {
@@ -183,7 +250,11 @@ class Response
     }
 
     /**
+     * Indicates with plain text body the request was successful.
+     *
      * @deprecated 2.1.0 Will be renamed to camelCase format.
+     * @param mixed[] $files
+     * @return string Success message in plain text format.
      */
     private static function text_success($files)
     {
