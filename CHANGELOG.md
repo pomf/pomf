@@ -38,6 +38,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Code cleanliness of `upload_file()` in `upload.php`. (Juuso Lapinlampi)
 
+## `2.0.3` - Unreleased
+
+### Fixed
+
+- Incorrectly referring to uploaded/published works as "content" in FAQ,
+  according to the GNU Project. (Juuso Lapinlampi)
+
 ## `2.0.2` - 2016-05-20
 
 ### Changed
