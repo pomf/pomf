@@ -21,6 +21,11 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
+{#
+JavaScript-free uploader is deprecated since 2.1.0. It may be removed in a
+future release.
+#}
+
 <noscript>
 	<p class="alert alert-error"><strong>Enable JavaScript</strong> you fucking autistic neckbeard, it's not gonna hurt you. There's also a <a href="nojs.html">JavaScript-free uploader</a> if you need it, <span lang="jp">baka</span>.</p>
 </noscript>
