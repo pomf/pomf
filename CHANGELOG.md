@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Luminarys added to `package.json` contributors. (Juuso Lapinlampi)
 - Missing essential PHP includes and classes are now errors (`require_once`)
   instead of warnings (`include_once`). (Austin Gillmann)
+- Non-abuse contact email to <info@pantsu.cat>. (Juuso Lapinlampi)
 
 ### Deprecated
 
