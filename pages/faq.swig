@@ -42,7 +42,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<p>Please contact the appropriate law enforcement agency if you notice illegal works hosted on Pantsu.cat. We have not been trained or qualified to investigate and fight crimes and enforce the law, so it's not appropriate to send accusations of illegal activity to us. <strong>You must contact the appropriate law enforcement office.</strong> They may then contact us if appropriate.</p>
 	<p>If you are an Australian law enforcement official and you need our assistance, please contact <a href="mailto:abuse@pantsu.cat">abuse@pantsu.cat</a>. If you are a law enforcement official from another country, we may voluntarily cooperate if the crime you are investigating would also be illegal in Australia.</p>
 	<h2>I have a question...</h2>
-	<p>Send us an email at <a href="mailto:contact@pantsu.cat">contact@pantsu.cat</a> and let's talk!</p>
+	<p>Send us an email at <a href="mailto:info@pantsu.cat">info@pantsu.cat</a> and let's talk!</p>
 </article>
 {% include "nav.swig" %}
 {% endblock %}
