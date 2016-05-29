@@ -260,8 +260,6 @@ No formal release.
 - Reduntant `settings.inc.php` inclusion twice in `upload.php`. (benwaffle)
 - Moe panel incorrectly returning 5 entries instead of none in search while
   there's no search query. (benwaffle)
-- Cross-site scripting vulnerability in moe panel from arbitrary `originalname`.
-  No CVE requested. Reported by Juuso Lapinlampi. (Eric Johansson)
 - Copy-pasted code rolled into a `for` loop in `generate_name`. (Michael
   "wafflestealer654")
 - HTML validation for `case 413` in `pomf.js`. (cenci0)
@@ -275,6 +273,11 @@ No formal release.
   replaced. (Eric Johansson)
 - Unused `get_crc32` function in `UploadedFile.class.php`. Reported by Juuso
   Lapinlampi. (Eric Johansson)
+
+### Security
+
+- Cross-site scripting vulnerability in moe panel from arbitrary `originalname`.
+  No CVE requested. Reported by Juuso Lapinlampi. (Eric Johansson)
 
 ## `v1.0.0` - 2013-10-31
 
