@@ -45,6 +45,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Incorrectly referring to uploaded/published works as "content" in FAQ,
   according to the GNU Project. (Juuso Lapinlampi)
+- An unusual case where an error response may return an invalid HTTP
+  status code when `PDO::ATTR_ERRMODE` is set to
+  `PDO::ERRMODE_EXCEPTION`. (Juuso Lapinlampi)
 
 ## `2.0.2` - 2016-05-20
 
