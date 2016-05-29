@@ -22,6 +22,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Missing essential PHP includes and classes are now errors (`require_once`)
   instead of warnings (`include_once`). (Austin Gillmann)
 - Non-abuse contact email to <info@pantsu.cat>. (Juuso Lapinlampi)
+- `upload_file()` will no longer attempt to remove temporary files manually.
+  Temporary files are automatically garbage collected by PHP. (Juuso Lapinlampi)
 
 ### Deprecated
 
