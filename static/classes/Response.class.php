@@ -58,7 +58,6 @@ class Response
                 $this->type = $response_type;
                 break;
             case 'html':
-                // Deprecated since version 2.1.0
                 header('Content-Type: text/html; charset=UTF-8');
                 $this->type = $response_type;
                 break;
@@ -72,7 +71,6 @@ class Response
                 $this->type = 'text';
                 break;
             case 'text':
-                // Deprecated since version 2.1.0
                 header('Content-Type: text/plain; charset=UTF-8');
                 $this->type = $response_type;
                 break;
@@ -100,14 +98,12 @@ class Response
                 $response = $this->csv_error($desc);
                 break;
             case 'html':
-                // Deprecated since version 2.1.0
                 $response = $this->html_error($code, $desc);
                 break;
             case 'json':
                 $response = $this->json_error($code, $desc);
                 break;
             case 'text':
-                // Deprecated since version 2.1.0
                 $response = $this->text_error($code, $desc);
                 break;
         }
@@ -131,14 +127,12 @@ class Response
                 $response = $this->csv_success($files);
                 break;
             case 'html':
-                // Deprecated since version 2.1.0
                 $response = $this->html_success($files);
                 break;
             case 'json':
                 $response = $this->json_success($files);
                 break;
             case 'text':
-                // Deprecated since version 2.1.0
                 $response = $this->text_success($files);
                 break;
         }
@@ -182,8 +176,7 @@ class Response
     /**
      * Indicates with HTML body the request was invalid.
      *
-     * @deprecated 2.1.0 May be removed in a major release or renamed to
-     * camelCase format.
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
      * @param int $code HTTP status code number.
      * @param int $description Descriptive error message.
      * @return string Error message in HTML format.
@@ -196,8 +189,7 @@ class Response
     /**
      * Indicates with HTML body the request was successful.
      *
-     * @deprecated 2.1.0 May be removed in a major release or renamed to
-     * camelCase format.
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
      * @param mixed[] $files
      * @return string Success message in HTML format.
      */
@@ -247,8 +239,7 @@ class Response
     /**
      * Indicates with plain text body the request was invalid.
      *
-     * @deprecated 2.1.0 May be removed in a major release or renamed to
-     * camelCase format.
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
      * @param int $code HTTP status code number.
      * @param int $description Descriptive error message.
      * @return string Error message in plain text format.
@@ -261,8 +252,7 @@ class Response
     /**
      * Indicates with plain text body the request was successful.
      *
-     * @deprecated 2.1.0 May be removed in a major release or renamed to
-     * camelCase format.
+     * @deprecated 2.1.0 Will be renamed to camelCase format.
      * @param mixed[] $files
      * @return string Success message in plain text format.
      */
