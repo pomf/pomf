@@ -48,6 +48,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - An unusual case where an error response may return an invalid HTTP
   status code when `PDO::ATTR_ERRMODE` is set to
   `PDO::ERRMODE_EXCEPTION`. (Juuso Lapinlampi)
+- Missing `lang` attribute on Japanese word "baka" in page layout.
+  (Juuso Lapinlampi)
 
 ## `2.0.2` - 2016-05-20
 
