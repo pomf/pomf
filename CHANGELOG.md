@@ -24,6 +24,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Non-abuse contact email to <info@pantsu.cat>. (Juuso Lapinlampi)
 - `upload_file()` will no longer attempt to remove temporary files manually.
   Temporary files are automatically garbage collected by PHP. (Juuso Lapinlampi)
+- `<noscript>` warning uses the older, almost legendary "autistic neckbeard"
+  rant again. (Juuso Lapinlampi)
 
 ### Deprecated
 
@@ -38,6 +40,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   Lapinlampi)
 - Output buffering (`ob_start`). This feature may be removed in the next
   major version. (Juuso Lapinlampi)
+- JavaScript-free uploader (`nojs.html`). Use the upload API with external
+  tools. (Juuso Lapinlampi)
+- Other services page (`other.swig`). This page may be removed in the
+  next major version. (Juuso Lapinlampi)
+- HTML and text responses. Use other supported response types instead.
+  (Juuso Lapinlampi)
 
 ### Fixed
 
