@@ -46,6 +46,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   next major version. (Juuso Lapinlampi)
 - HTML and text responses. Use other supported response types instead.
   (Juuso Lapinlampi)
+- `diverse_array()`, `generate_name()`, `refiles()` and `upload_file()`
+  functions. These will be namespaced, moved into a class and renamed to
+  camelCase. (Juuso Lapinlampi)
 
 ### Fixed
 
