@@ -40,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - Code cleanliness of `upload_file()` in `upload.php`. (Juuso Lapinlampi)
+- Minor semantical and consistency errors in change log. (Juuso Lapinlampi)
 
 ## `2.0.3` - Unreleased
 
