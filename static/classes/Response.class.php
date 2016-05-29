@@ -78,7 +78,7 @@ class Response
                 break;
         }
 
-        http_response_code($code);
+        http_response_code(500); // "500 Internal Server Error"
         echo $response;
     }
 
@@ -101,7 +101,7 @@ class Response
                 break;
         }
 
-        http_response_code(200);
+        http_response_code(200); // "200 OK". Success.
         echo $response;
     }
 
