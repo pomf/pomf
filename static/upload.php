@@ -45,6 +45,8 @@ require_once 'includes/database.inc.php';
 /**
  * Generates a random name for the file, retrying until we get an unused one.
  *
+ * @deprecated 2.1.0 May be moved into a class, namespaced and converted to
+ * camelCase.
  * @param UploadedFile $file
  *
  * @return string
@@ -99,6 +101,8 @@ function generate_name($file)
 /**
  * Handles the uploading and db entry for a file.
  *
+ * @deprecated 2.1.0 May be moved into a class, namespaced and converted to
+ * camelCase.
  * @param UploadedFile $file
  *
  * @return array
@@ -177,6 +181,8 @@ function upload_file($file)
 /**
  * Reorder files array by file.
  *
+ * @deprecated 2.1.0 May be moved into a class, namespaced and converted to
+ * camelCase.
  * @param  $_FILES
  *
  * @return array
@@ -197,6 +203,8 @@ function diverse_array($files)
 /**
  * Reorganize the $_FILES array into something saner.
  *
+ * @deprecated 2.1.0 May be moved into a class, namespaced and converted to
+ * camelCase.
  * @param  $_FILES
  *
  * @return array
