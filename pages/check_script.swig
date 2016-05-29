@@ -1,5 +1,7 @@
 {#
-Copyright (c) 2015 the Pantsu.cat developers <hostmaster@pantsu.cat>
+Copyright (c) 2013 Eric Johansson <neku@pomf.se>
+Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
+Copyright (c) 2015, 2016 the Pantsu.cat developers <hostmaster@pantsu.cat>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -20,5 +22,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #}
 
 <noscript>
-	<p class="alert alert-error">This site requires JavaScript. Please enable JavaScript in your browser or use the <a href="nojs.html">JavaScript-free uploader</a>.</p>
+	<p class="alert alert-error"><strong>Enable JavaScript</strong> you fucking autistic neckbeard, it's not gonna hurt you. There's also a <a href="nojs.html">JavaScript-free uploader</a> if you need it, <span lang="jp">baka</span>.</p>
 </noscript>
