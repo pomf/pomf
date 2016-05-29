@@ -112,8 +112,9 @@ function upload_file($file)
         throw new UploadException($file->error);
     }
 
-    // Check if a file with the same hash and size (a file which is the same) does already exist in
-    // the database; if it does, delete the file just uploaded and return the proper link and data.
+    // Check if a file with the same hash and size (a file which is the same)
+    // does already exist in the database; if it does, return the proper link
+    // and data. PHP deletes the temporary file just uploaded automatically.
     $q = $db->prepare('SELECT filename, COUNT(*) AS count FROM files WHERE hash = (:hash) '.
                       'AND size = (:size)');
     $q->bindValue(':hash', $file->get_sha1(), PDO::PARAM_STR);
@@ -121,8 +122,6 @@ function upload_file($file)
     $q->execute();
     $result = $q->fetch();
     if ($result['count'] > 0) {
-        unlink($file->tempfile);
-
         return array(
             'hash' => $file->get_sha1(),
             'name' => $file->name,
