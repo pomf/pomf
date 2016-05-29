@@ -76,6 +76,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Gyazo Client renamed to Gyazowin in tools page to match the actual project
   name. (Juuso Lapinlampi)
 
+### Removed
+
+- Unused, commented `a:focus` `outline-offset` in CSS. (Luminarys)
+- Unused `check_fileapi.swig` inclusion in `nojs.swig`. (Juuso Lapinlampi)
+- Unused `span.old` and `section.ded` CSS rules leftover from 2.0.0 release.
+  (Eliot Whalan)
+
 ### Fixed
 
 - ShareX URL and settings in tools page. (Juuso Lapinlampi)
@@ -84,13 +91,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   Lapinlampi)
 - PHP warnings about undeclared variables in `html_success()` and
   `text_success()`. (Juuso Lapinlampi)
-
-### Removed
-
-- Unused, commented `a:focus` `outline-offset` in CSS. (Luminarys)
-- Unused `check_fileapi.swig` inclusion in `nojs.swig`. (Juuso Lapinlampi)
-- Unused `span.old` and `section.ded` CSS rules leftover from 2.0.0 release.
-  (Eliot Whalan)
 
 ## `2.0.0` - 2016-01-10
 
@@ -246,6 +246,14 @@ No formal release.
   requirements on contrast (section 1.4.3). Patch by Juuso Lapinlampi. (Eric
   Johansson)
 
+### Removed
+
+- Link to mail newsletter in FAQ. (Eric Johansson)
+- Unused `blackniggers/kittens.php`. Previously used for Gyazo client, now
+  replaced. (Eric Johansson)
+- Unused `get_crc32` function in `UploadedFile.class.php`. Reported by Juuso
+  Lapinlampi. (Eric Johansson)
+
 ### Fixed
 
 - `git clone` URL in `README.md`. (Eric Johansson)
@@ -265,14 +273,6 @@ No formal release.
 - HTML validation for `case 413` in `pomf.js`. (cenci0)
 - `README.md` title from Pomf.se to Pomf. (Eric Johansson)
 - Pass full URL back to the client in response. (Kieran Harkin)
-
-### Removed
-
-- Link to mail newsletter in FAQ. (Eric Johansson)
-- Unused `blackniggers/kittens.php`. Previously used for Gyazo client, now
-  replaced. (Eric Johansson)
-- Unused `get_crc32` function in `UploadedFile.class.php`. Reported by Juuso
-  Lapinlampi. (Eric Johansson)
 
 ### Security
 
