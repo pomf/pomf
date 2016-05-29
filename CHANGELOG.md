@@ -49,6 +49,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - `diverse_array()`, `generate_name()`, `refiles()` and `upload_file()`
   functions. These will be namespaced, moved into a class and renamed to
   camelCase. (Juuso Lapinlampi)
+- Tools page (`tools.swig`). This page may be removed in the next major version.
+  (Juuso Lapinlampi)
 
 ### Fixed
 
