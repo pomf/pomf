@@ -11,6 +11,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - HTML `<meta name="generator">` with Pomf version. Generated with grunt-swig.
   (Juuso Lapinlampi)
 - PHPDoc DocBlocks. (Juuso Lapinlampi)
+- Improved abbreviation support (`<abbr>`) for screen reader users. (Juuso
+  Lapinlampi)
 
 ### Changed
 
@@ -50,6 +52,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   `PDO::ERRMODE_EXCEPTION`. (Juuso Lapinlampi)
 - Missing `lang` attribute on Japanese word "baka" in page layout.
   (Juuso Lapinlampi)
+- Missing space character typo about file size on the index page. (Juuso
+  Lapinlampi)
 
 ## `2.0.2` - 2016-05-20
 
