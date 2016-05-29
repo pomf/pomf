@@ -32,7 +32,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	</head>
 	<body>
 		<div class="container">
-			{% block body %}What the fuck are you doing here, baka?{% endblock %}
+			{% block body %}What the fuck are you doing here, <span lang="jp">baka</span>?{% endblock %}
 		</div>
 	</body>
 </html>
