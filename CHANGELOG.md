@@ -38,6 +38,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   Lapinlampi)
 - Output buffering (`ob_start`). This feature may be removed in the next
   major version. (Juuso Lapinlampi)
+<<<<<<< HEAD
+=======
+- JavaScript-free uploader (`nojs.html`). Use the upload API with external
+  tools. (Juuso Lapinlampi)
+- Other services page (`other.swig`). This page may be removed in the
+  next major version. (Juuso Lapinlampi)
+- HTML and text responses. Use other supported response types instead.
+  (Juuso Lapinlampi)
+>>>>>>> parent of d22eba6... CHANGELOG: Update 2.1.0 up to 99fe3f0
 
 ### Fixed
 
