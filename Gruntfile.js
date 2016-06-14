@@ -63,6 +63,16 @@ module.exports = function (grunt) {
         }
       }
     },
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'img/',
+          src: '**/*.{png,jpg,gif}',
+          dest: 'dist/img/'
+        }]
+      }
+    },
     copy: {
       dist: {
         files: [{
@@ -85,7 +95,12 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
+<<<<<<< HEAD
   grunt.registerTask('default', ['swig', 'htmlmin', 'cssmin', 'uglify', 'copy']);
+=======
+  grunt.registerTask('default', ['mkdir', 'swig', 'htmlmin', 'cssmin', 'uglify', 'imagemin', 'copy']);
+>>>>>>> parent of 90e6b7b... Remove grunt-contrib-imagemin image minification
 };
