@@ -98,9 +98,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-<<<<<<< HEAD
-  grunt.registerTask('default', ['swig', 'htmlmin', 'cssmin', 'uglify', 'copy']);
-=======
-  grunt.registerTask('default', ['mkdir', 'swig', 'htmlmin', 'cssmin', 'uglify', 'imagemin', 'copy']);
->>>>>>> parent of 90e6b7b... Remove grunt-contrib-imagemin image minification
+  grunt.registerTask('default', ['swig', 'htmlmin', 'cssmin', 'uglify', 'imagemin', 'copy']);
 };
