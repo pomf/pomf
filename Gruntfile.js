@@ -23,6 +23,21 @@ module.exports = function (grunt) {
         ],
       }
     },
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeEmptyAttributes: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'dist/',
+          src: '*.html',
+          dest: 'dist/'
+        }]
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> (<%= pkg.repository.url %>) @ <%= grunt.template.today("yyyy-mm-dd") %> */\n' + 
@@ -68,8 +83,9 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-swig');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['swig', 'cssmin', 'uglify', 'copy']);
+  grunt.registerTask('default', ['swig', 'htmlmin', 'cssmin', 'uglify', 'copy']);
 };
