@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="generator" content="Pomf {{pkgVersion}}">
-		<title>Pantsu.cat &middot; {% block title %}Kawaii File Hosting{% endblock %}</title>
+		<title>Ropa Interior.cat &middot; {% block title %}Allotjament d'arxius valent{% endblock %}</title>
 		<link rel="icon" href="favicon.ico">
 		<link rel="stylesheet" href="pomf.min.css">
 	</head>
 	<body>
 		<div class="container">
-			{% block body %}What the fuck are you doing here, <span lang="jp">baka</span>?{% endblock %}
+			{% block body %}What the fuck are you doing here, baka?{% endblock %}
 		</div>
 	</body>
 </html>

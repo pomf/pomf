@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {#
 Copyright (c) 2013 Peter Lejeck <peter.lejeck@gmail.com>
 
@@ -25,5 +26,8 @@ release.
 #}
 
 <p class="alert alert-info">
+=======
+<p class="alert alert-error">
+>>>>>>> parent of 3b4701b... Add Expat copyright headers to pages (SWIG)
 	<strong>Virus scans are now a daily routine</strong> &mdash; if a file gets detected it will be removed without further notice.
 </p>
