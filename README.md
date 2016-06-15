@@ -37,7 +37,7 @@ Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 
     npm install -g grunt-cli
-    git clone https://git.pantsu.cat/pantsu/pomf.git
+    git clone https://github.com/pomf/pomf
     cd pomf/
     npm install
     grunt
@@ -76,15 +76,9 @@ configuration file.
 The Pomf community gathers on IRC. You can also email the maintainer for help.
 
 - IRC (users): `#pomfret` on Rizon (`irc.rizon.net`)
-- IRC (developers): `#pomf` on Partyvan (`irc.partyvan.eu`)
 - Email: <hostmaster@pantsu.cat>
 
 ## Contributing
-
-For source code changes, please submit `git-format-patch(1)` formatted patches
-via email or come talk to us on IRC to merge your branch. See "Getting help".
-At this time, we do not use any Git service issue tracking for issues or pull
-requests due to ethical and technical objections.
 
 We'd really like if you can take some time to make sure your coding style is
 consistent with the project. Pomf follows [PHP

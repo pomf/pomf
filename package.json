@@ -5,7 +5,7 @@
   "homepage": "https://pantsu.cat/",
   "repository": {
     "type": "git",
-    "url": "https://git.pantsu.cat/pantsu/pomf.git"
+    "url": "https://github.com/pomf/pomf"
   },
   "author": "Eliot Whalan <ewhal@pantsu.cat>",
   "contributors": [
@@ -17,7 +17,8 @@
   ],
   "license": "MIT",
   "bugs": {
-    "email": "bugs@pantsu.cat"
+    "url": "https://github.com/pomf/pomf/issues"
+
   },
   "devDependencies": {
     "grunt": "^1.0.1",
