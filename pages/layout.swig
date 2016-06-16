@@ -7,6 +7,7 @@
 		<title>Pantsu.cat &middot; {% block title %}Kawaii File Hosting{% endblock %}</title>
 		<link rel="icon" href="favicon.ico">
 		<link rel="stylesheet" href="pomf.min.css">
+		<script src="pomf.min.js"></script>
 	</head>
 	<body>
 		<div class="container">

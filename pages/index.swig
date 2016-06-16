@@ -8,5 +8,4 @@
 </div>
 {% include "banners.swig" %} {# Deprecated since version 2.1.0. #}
 {% include "nav.swig" %}
-<script src="pomf.min.js"></script>
 {% endblock %}
