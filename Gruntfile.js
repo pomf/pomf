@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         init: {
           allowErrors: false
         },
-        banners: grunt.file.readJSON('pages/banners.json'),
+        banners: grunt.file.readJSON('templates/banners.json'),
         dest: 'dist',
         generateRobotstxt: false,
         generateSitemap: false,
@@ -15,9 +15,9 @@ module.exports = function (grunt) {
         production: false,
         siteUrl: 'https://pantsu.cat/',
         src: [
-          'pages/index.swig',
-          'pages/faq.swig',
-          'pages/tools.swig'
+          'templates/index.swig',
+          'templates/faq.swig',
+          'templates/tools.swig'
         ],
       }
     },
