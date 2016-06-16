@@ -146,3 +146,4 @@ var uploadInput = document.getElementById('upload-input');
 uploadInput.addEventListener('change', uploadFiles);
 uploadButton.addEventListener('click', selectFiles.bind(this, uploadInput));
 uploadButton.addEventListener('drop', handleDragDrop.bind(this, state, uploadButton), false);
+document.getElementById('upload-form').classList.add('js');

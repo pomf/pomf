@@ -220,12 +220,7 @@ nav > ul > li:last-child:after {
 	margin: 0;
 }
 
-/**
- * UPLOAD FORM
- */
-#upload-input {
-	display: none;
-}
+
 
 /**
  * UPLOAD FILE LIST
@@ -384,4 +379,17 @@ progress[value]::-webkit-progress-bar {
 		border: #FFFFFF;
 		padding: 10px 0;
 	}
+}
+
+#upload-btn {
+	display: none;
+}
+.js #upload-input {
+	display: none;
+}
+.js input[type="submit"]{
+	display: none;
+}
+.js #upload-btn {
+	display: inline-block !important;
 }
