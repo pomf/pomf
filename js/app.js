@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.href = response.files[0].url;
         url.appendChild(link);
       } else {
-        bar.innerHTML = 'Error: ' + response.reason;
+        bar.innerHTML = 'Error: ' + response.description;
       }
     } else if (respStatus === 413) {
       link.textContent = 'File Too big!';
