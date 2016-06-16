@@ -17,9 +17,7 @@ module.exports = function (grunt) {
         src: [
           'pages/index.swig',
           'pages/faq.swig',
-          'pages/tools.swig',
-          'pages/other.swig',
-          'pages/nojs.swig'
+          'pages/tools.swig'
         ],
       }
     },
