@@ -68,16 +68,16 @@ class Response
 
         switch ($this->type) {
             case 'csv':
-                $response = $this->csv_error($desc);
+                $response = $this->csvError($desc);
                 break;
             case 'html':
-                $response = $this->html_error($code, $desc);
+                $response = $this->htmlError($code, $desc);
                 break;
             case 'json':
-                $response = $this->json_error($code, $desc);
+                $response = $this->jsonError($code, $desc);
                 break;
             case 'text':
-                $response = $this->text_error($code, $desc);
+                $response = $this->textError($code, $desc);
                 break;
         }
 
@@ -97,16 +97,16 @@ class Response
 
         switch ($this->type) {
             case 'csv':
-                $response = $this->csv_success($files);
+                $response = $this->csvSuccess($files);
                 break;
             case 'html':
-                $response = $this->html_success($files);
+                $response = $this->htmlSuccess($files);
                 break;
             case 'json':
-                $response = $this->json_success($files);
+                $response = $this->jsonSuccess($files);
                 break;
             case 'text':
-                $response = $this->text_success($files);
+                $response = $this->textSuccess($files);
                 break;
         }
 
@@ -121,7 +121,7 @@ class Response
      * @param int $description Descriptive error message.
      * @return string Error message in CSV format.
      */
-    private static function csv_error($description)
+    private static function csvError($description)
     {
         return '"error"'."\r\n"."\"$description\""."\r\n";
     }
@@ -133,7 +133,7 @@ class Response
      * @param mixed[] $files
      * @return string Success message in CSV format.
      */
-    private static function csv_success($files)
+    private static function csvSuccess($files)
     {
         $result = '"name","url","hash","size"'."\r\n";
         foreach ($files as $file) {
@@ -154,7 +154,7 @@ class Response
      * @param int $description Descriptive error message.
      * @return string Error message in HTML format.
      */
-    private static function html_error($code, $description)
+    private static function htmlError($code, $description)
     {
         return '<p>ERROR: ('.$code.') '.$description.'</p>';
     }
@@ -166,7 +166,7 @@ class Response
      * @param mixed[] $files
      * @return string Success message in HTML format.
      */
-    private static function html_success($files)
+    private static function htmlSuccess($files)
     {
         $result = '';
 
@@ -185,7 +185,7 @@ class Response
      * @param int $description Descriptive error message.
      * @return string Error message in pretty-printed JSON format.
      */
-    private static function json_error($code, $description)
+    private static function jsonError($code, $description)
     {
         return json_encode(array(
             'success' => false,
@@ -201,7 +201,7 @@ class Response
      * @param mixed[] $files
      * @return string Success message in pretty-printed JSON format.
      */
-    private static function json_success($files)
+    private static function jsonSuccess($files)
     {
         return json_encode(array(
             'success' => true,

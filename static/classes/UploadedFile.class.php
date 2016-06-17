@@ -20,10 +20,9 @@ class UploadedFile
     /**
      * Generates the SHA-1 or returns the cached SHA-1 hash for the file.
      *
-     * @deprecated 2.1.0 To be replaced with SHA-256 hashing.
      * @return string|false $sha1
      */
-    public function get_sha1()
+    public function getSha1()
     {
         if (!$this->sha1) {
             $this->sha1 = sha1_file($this->tempfile);
