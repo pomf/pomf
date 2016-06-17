@@ -13,6 +13,7 @@ module.exports = function (grunt) {
         max_upload_size: 128,
         pkgVersion: '<%= pkg.version %>',
         production: false,
+        siteName: 'Pantsu',
         siteUrl: 'https://pantsu.cat/',
         src: [
           'templates/index.swig',
