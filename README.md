@@ -53,7 +53,7 @@ Fortunately, this is incredibly simple.
 
 To create it from the schema, simply run `sqlite3 /path/to/db.sq3 -init /path/to/pomf/sqlite_schema.sql`,
 obviously ensuring the paths are correct.  Using default paths, this would be
-`sqlite3 /var/www/pomf.sq3 -init /var/www/htdocs/sqlite_schema.sql`.
+`sqlite3 /usr/share/nginx/pomf.sq3 -init /usr/share/nginx/html/sqlite_schema.sql`.
 
 _NOTE: The **directory** where the SQLite database is stored, must be writable by the user the web server is running as_
 
@@ -90,7 +90,7 @@ zero downtime.
 
 Make a copy of the file `static/php/includes/settings.inc.php`, and edit it, making the changes outlined below.  Note where you save it.
 ```php
-define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/www/pomf.sq3');`
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/usr/share/nginx/pomf.sq3');`
 define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
 define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
 ```
@@ -101,11 +101,11 @@ The following script will make a dump of the MySQL database, convert it to a for
 # ensure you change these to match your environment
 OLD_DB_USER=pomf
 OLD_DB_PASS=pass
-SETTINGS_INC_FILE='/var/www/htdocs/static/php/includes/settings.inc.php'
+SETTINGS_INC_FILE='/usr/share/nginx/html/static/php/includes/settings.inc.php'
 NEW_SETTINGS_INC_FILE='/path/to/edited/file'
 # it is unlikely the following two need to be changed
 OLD_DB_NAME=pomf
-NEW_DB_PATH='/var/www/pomf.sq3'
+NEW_DB_PATH='/usr/share/nginx/pomf.sq3'
 
 wget -O /tmp/m2s https://github.com/dumblob/mysql2sqlite/raw/master/mysql2sqlite.sh
 mysqldump -u $OLD_DB_USER -p $OLD_DB_PASS $OLD_DB_NAME | sh /tmp/m2s | sqlite3 $NEW_DB_PATH
