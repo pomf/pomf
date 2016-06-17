@@ -1,4 +1,5 @@
 # Pomf
+[![Build Status](https://travis-ci.org/pomf/pomf.svg?branch=master)](https://travis-ci.org/pomf/pomf) [![devDependency Status](https://david-dm.org/pomf/pomf/dev-status.svg)](https://david-dm.org/pomf/pomf#info=devDependencies)
 
 Pomf is a simple file uploading and sharing platform.
 
