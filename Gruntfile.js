@@ -80,12 +80,6 @@ module.exports = function (grunt) {
           dest: 'dist/'
         },
         {
-          expand: true,
-          cwd: 'img/',
-          src: '**',
-          dest: 'dist/img/'
-        }, 
-        {
           src: 'static/img/favicon.ico',
           dest: 'dist/favicon.ico' 
         }],
