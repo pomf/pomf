@@ -21,13 +21,14 @@ See the real world example at [Pantsu.cat](https://pantsu.cat/).
 
 ## Requirements
 
-Original development environment is Nginx + PHP5.5 + MySQL, but is confirmed to
+Original development environment is Nginx + PHP5.5 + SQLite, but is confirmed to
 work with Apache 2.4 and newer PHP versions. Should work with any other
-PDO-compatible database.
+PDO-compatible database.  Is known to work with MySQL, which has been the previous
+default.
 
 ## Install
 
-For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
+For the purposes of this guide, we won't cover setting up Nginx, PHP, or SQLite,
 Node, or NPM. So we'll just assume you already have them all running well.
 
 ### Compiling
