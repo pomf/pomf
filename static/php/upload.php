@@ -110,8 +110,7 @@ function uploadFile($file)
     $newname = generateName($file);
 
     // Store the file's full file path in memory
-    $uploadDir = POMF_FILES_ROOT;
-    $uploadFile = $uploadDir . $newname;
+    $uploadFile = POMF_FILES_ROOT . $newname;
 
     // Attempt to move it to the static directory
     if (!move_uploaded_file($file->tempfile, $uploadFile)) {
