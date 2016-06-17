@@ -25,7 +25,7 @@ require_once 'includes/database.inc.php';
  *
  * @return string
  */
-function generate_name($file)
+function generateName($file)
 {
     global $db;
     global $doubledots;
@@ -79,7 +79,7 @@ function generate_name($file)
  *
  * @return array
  */
-function upload_file($file)
+function uploadFile($file)
 {
     global $db;
 
@@ -93,13 +93,13 @@ function upload_file($file)
     // and data. PHP deletes the temporary file just uploaded automatically.
     $q = $db->prepare('SELECT filename, COUNT(*) AS count FROM files WHERE hash = (:hash) '.
                       'AND size = (:size)');
-    $q->bindValue(':hash', $file->get_sha1(), PDO::PARAM_STR);
+    $q->bindValue(':hash', $file->getSha1(), PDO::PARAM_STR);
     $q->bindValue(':size', $file->size,       PDO::PARAM_INT);
     $q->execute();
     $result = $q->fetch();
     if ($result['count'] > 0) {
         return array(
-            'hash' => $file->get_sha1(),
+            'hash' => $file->getSha1(),
             'name' => $file->name,
             'url' => POMF_URL.$result['filename'],
             'size' => $file->size,
@@ -107,7 +107,7 @@ function upload_file($file)
     }
 
     // Generate a name for the file
-    $newname = generate_name($file);
+    $newname = generateName($file);
 
     // Store the file's full file path in memory
     $uploadDir = POMF_FILES_ROOT;
@@ -133,7 +133,7 @@ function upload_file($file)
                       ':exp, :del)');
 
     // Common parameters binding
-    $q->bindValue(':hash', $file->get_sha1(),       PDO::PARAM_STR);
+    $q->bindValue(':hash', $file->getSha1(),       PDO::PARAM_STR);
     $q->bindValue(':orig', strip_tags($file->name), PDO::PARAM_STR);
     $q->bindValue(':name', $newname,                PDO::PARAM_STR);
     $q->bindValue(':size', $file->size,             PDO::PARAM_INT);
@@ -143,7 +143,7 @@ function upload_file($file)
     $q->execute();
 
     return array(
-        'hash' => $file->get_sha1(),
+        'hash' => $file->getSha1(),
         'name' => $file->name,
         'url' => POMF_URL.$newname,
         'size' => $file->size,
@@ -157,7 +157,7 @@ function upload_file($file)
  *
  * @return array
  */
-function diverse_array($files)
+function diverseArray($files)
 {
     $result = array();
 
@@ -180,7 +180,7 @@ function diverse_array($files)
 function refiles($files)
 {
     $result = array();
-    $files = diverse_array($files);
+    $files = diverseArray($files);
 
     foreach ($files as $file) {
         $f = new UploadedFile();
@@ -206,7 +206,7 @@ if (isset($_FILES['files'])) {
 
     try {
         foreach ($uploads as $upload) {
-            $res[] = upload_file($upload);
+            $res[] = uploadFile($upload);
         }
         $response->send($res);
     } catch (Exception $e) {
