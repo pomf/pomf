@@ -8,7 +8,7 @@ CREATE TABLE `files` (
 ,  `filename` varchar(30) default NULL
 ,  `size` integer  default NULL
 ,  `date` date default NULL
-,  `expire` date default NULL, -- Deprecated since version 2.1.0
+,  `expire` date default NULL
 ,  `delid` char(40) default NULL
 ,  `user` integer  default '0'
 ,  `dir` integer default '0'
