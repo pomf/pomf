@@ -88,21 +88,22 @@ zero downtime.
 
 *You may test this first in a subdirectory (or vhost, or equivelant) if you wish.  If you make a mistake, however, only uploading will temporarily be impacted.  None of these steps are destructive, and are easily reverted.*
 
-Make a copy of the file `static/php/includes/settings.inc.php`, and edit it, making the changes outlined below
+Make a copy of the file `static/php/includes/settings.inc.php`, and edit it, making the changes outlined below.  Note where you save it.
 ```php
 define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/www/pomf.sq3');`
 define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
 define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
 ```
 
-The following script will make a dump of the MySQL database, convert it to a format acceptable for SQLite, then initialise a new SQLite database with the contents of the dump.
+The following script will make a dump of the MySQL database, convert it to a format acceptable for SQLite, then initialise a new SQLite database with the contents of the dump.  It will then backup your existing `settings.inc.php` file, and move the new one into place.
 ```bash
 #!/bin/bash
+# ensure you change these to match your environment
 OLD_DB_USER=pomf
 OLD_DB_PASS=pass
 SETTINGS_INC_FILE='/var/www/htdocs/static/php/includes/settings.inc.php'
 NEW_SETTINGS_INC_FILE='/path/to/edited/file'
-#it is unlikely the following two need to be changed
+# it is unlikely the following two need to be changed
 OLD_DB_NAME=pomf
 NEW_DB_PATH='/var/www/pomf.sq3'
 
