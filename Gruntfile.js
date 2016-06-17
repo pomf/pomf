@@ -13,8 +13,9 @@ module.exports = function (grunt) {
         max_upload_size: 128,
         pkgVersion: '<%= pkg.version %>',
         production: false,
-        /* paypalUrl, bitcoinAddress, and flattrUrl are completely optional,
-        and are only used for the donation banner, if enabled */
+        /* paypalUrl, bitcoinAddress, and flattrUrl are completely optional
+        the corresponding buttons only appear if the matching variable is not blank
+        donation banner only appears at all if enabled in banners.json */
         paypalUrl: '', //full PayPal donation URL
         bitcoinAddress: '', //just the BTC address
         flattrUrl: '', //full Flattr URL
