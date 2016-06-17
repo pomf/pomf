@@ -9,7 +9,7 @@
 	<h2>pomfload</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://git.pantsu.cat/pantsu/pomfload">https://git.pantsu.cat/pantsu/pomfload</a></dd>
+		<dd><a href="https://github.com/ewhal/pomfload">https://github.com/ewhal/pomfload</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/AnonymousLink">https://twitter.com/AnonymousLink</a></dd>
 	</dl>
