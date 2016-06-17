@@ -72,6 +72,51 @@ A best practice is to disable executing `.php` files on the `POMF_URL` domain
 for uploaded files. This assures that a malicious user cannot execute arbitrary
 PHP code on the server.
 
+### Migrating from MySQL to SQLite
+
+Previously, we have used MySQL as the default database platform for pomf.  Generally this
+is undesirable.  
+
+MySQL is relatively complicated to administer, brings in many unneeded dependencies, and consumes
+more resources than SQLite would.  Additonally, poorly configured installations have the potential
+to pose a security risk.
+
+Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, and should require
+zero downtime.
+
+**Note: some directories that were initally in the web root, are now in static/php/.  Ensure you consider this when reading the following**
+
+*You may test this first in a subdirectory (or vhost, or equivelant) if you wish.  If you make a mistake, however, only uploading will temporarily be impacted.  None of these steps are destructive, and are easily reverted.*
+
+Make a copy of the file `static/php/includes/settings.inc.php`, and edit it, making the changes outlined below
+```php
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/www/pomf.sq3');`
+define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
+define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
+```
+
+The following script will make a dump of the MySQL database, convert it to a format acceptable for SQLite, then initialise a new SQLite database with the contents of the dump.
+```bash
+#!/bin/bash
+OLD_DB_USER=pomf
+OLD_DB_PASS=pass
+SETTINGS_INC_FILE='/var/www/htdocs/static/php/includes/settings.inc.php'
+NEW_SETTINGS_INC_FILE='/path/to/edited/file'
+#it is unlikely the following two need to be changed
+OLD_DB_NAME=pomf
+NEW_DB_PATH='/var/www/pomf.sq3'
+
+wget -O /tmp/m2s https://github.com/dumblob/mysql2sqlite/raw/master/mysql2sqlite.sh
+mysqldump -u $OLD_DB_USER -p $OLD_DB_PASS $OLD_DB_NAME | sh /tmp/m2s | sqlite3 $NEW_DB_PATH
+rm /tmp/m2s
+echo == SQLite database has been prepared at $NEW_DB_PATH ==
+cp $SETTINGS_INC_FILE ${SETTINGS_INC_FILE}.bak
+mv $TMP_SETTINGS_INC_FILE $SETTINGS_INC_FILE
+echo == Backed up old settings.inc.file, and moved new one into place ==
+```
+
+Ensure you are able to upload files, and then, all done!  You may now uninstall, or disable. MySQL if you wish.
+
 ### Apache
 
 If you are running Apache and want to compress your output when serving files,
