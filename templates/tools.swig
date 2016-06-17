@@ -46,7 +46,6 @@
 	<dl>
 		<dt>Download</dt>
 		<dd><a href="https://git.pantsu.cat/pantsu/gyazowin">https://git.pantsu.cat/pantsu/gyazowin</a></dd>
-		<dd><a href="https://i.pantsu.cat/hnpgjr.exe">https://i.pantsu.cat/hnpgjr.exe</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/4vail">https://twitter.com/4vail</a></dd>
 	</dl>
