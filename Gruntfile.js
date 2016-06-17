@@ -75,7 +75,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'static/',
+          cwd: 'static/php',
           src: '**',
           dest: 'dist/'
         },
@@ -84,7 +84,11 @@ module.exports = function (grunt) {
           cwd: 'img/',
           src: '**',
           dest: 'dist/img/'
-        }]
+        }, 
+        {
+          src: 'static/img/favicon.ico',
+          dest: 'dist/favicon.ico' 
+        }],
       }
     }
   });
