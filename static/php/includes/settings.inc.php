@@ -43,7 +43,7 @@ define('POMF_DB_CONN', 'mysql:unix_socket=/tmp/mysql.sock;dbname=pomf');
 /* NOTE: the directory, not just the file, your database is stored in must 
    be writable by the web server user
 */
-define('POMF_DB_CONN', 'sqlite:/var/www/pomf.sq3');
+define('POMF_DB_CONN', 'sqlite:/usr/share/nginx/pomf.sq3');
 
 /**
  * PDO database login credentials
