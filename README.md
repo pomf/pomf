@@ -49,10 +49,13 @@ After this, the pomf site is now compressed and set up inside `dist/`.
 ## Configuring
 
 We need to create the SQLite database before it may be used by pomf.
-Fortunately, this is incredibly simple.  To create it from the schema,
-simply run `sqlite3 /path/to/db.sq3 -init /path/to/pomf/sqlite_schema.sql`,
-obviously ensuring the paths are correct.  Using default paths, this
-would be `sqlite3 /var/www/pomf.sq3 -init /var/www/htdocs/sqlite_schema.sql`.
+Fortunately, this is incredibly simple.  
+
+To create it from the schema, simply run `sqlite3 /path/to/db.sq3 -init /path/to/pomf/sqlite_schema.sql`,
+obviously ensuring the paths are correct.  Using default paths, this would be
+`sqlite3 /var/www/pomf.sq3 -init /var/www/htdocs/sqlite_schema.sql`.
+
+_NOTE: The **directory** where the SQLite database is stored, must be writable by the user the web server is running as_
 
 The majority of the settings are in `static/includes/settings.inc.php`.
 
