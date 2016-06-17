@@ -13,6 +13,11 @@ module.exports = function (grunt) {
         max_upload_size: 128,
         pkgVersion: '<%= pkg.version %>',
         production: false,
+        /* paypalUrl, bitcoinAddress, and flattrUrl are completely optional,
+        and are only used for the donation banner, if enabled */
+        paypalUrl: '', //full PayPal donation URL
+        bitcoinAddress: '', //just the BTC address
+        flattrUrl: '', //full Flattr URL
         siteName: 'Pantsu',
         siteUrl: 'https://pantsu.cat/',
         src: [
