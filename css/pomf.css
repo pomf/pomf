@@ -123,9 +123,6 @@ a:focus {
 	background-color: rgb(188, 228, 170);
 	text-decoration: none;
 }
-#no-file-api {
-	display: none;
-}
 
 /**
  * BOXES
@@ -380,7 +377,9 @@ progress[value]::-webkit-progress-bar {
 		padding: 10px 0;
 	}
 }
-
+/*
+ * no js
+ */
 #upload-btn {
 	display: none;
 }
