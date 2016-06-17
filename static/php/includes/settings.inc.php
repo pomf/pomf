@@ -37,10 +37,17 @@
  * PDO_MYSQL DSN.
  * @param string POMF_DB_CONN DSN:host|unix_socket=hostname|path;dbname=database
  */
+ /* example MySQL DSN
 define('POMF_DB_CONN', 'mysql:unix_socket=/tmp/mysql.sock;dbname=pomf');
+*/
+/* NOTE: the directory, not just the file, your database is stored in must 
+   be writable by the web server user
+*/
+define('POMF_DB_CONN', 'sqlite:/var/www/pomf.sq3');
 
 /**
  * PDO database login credentials
+ * NOTE: not necessary for SQLite; these variables are ignored if SQLite is used
  */
 
 /** @param string POMF_DB_NAME Database username */
