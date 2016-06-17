@@ -50,10 +50,10 @@ define('POMF_DB_CONN', 'sqlite:/var/www/pomf.sq3');
  * NOTE: not necessary for SQLite; these variables are ignored if SQLite is used
  */
 
-/** @param string POMF_DB_NAME Database username */
-define('POMF_DB_USER', 'pomf');
-/** @param string POMF_DB_PASS Database password */
-define('POMF_DB_PASS', '***');
+/** @param string|null POMF_DB_NAME Database username */
+define('POMF_DB_USER', null);
+/** @param string|null POMF_DB_PASS Database password */
+define('POMF_DB_PASS', null);
 
 /**
  * File system location where to store uploaded files
