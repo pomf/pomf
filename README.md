@@ -50,8 +50,10 @@ After this, the pomf site is now compressed and set up inside `dist/`.
 The majority of the settings are in `static/includes/settings.inc.php`.
 
 For file size configuration, open `Gruntfile.js` in an editor and modify the
-`max_upload_size` value. The value is expressed in mebibytes (MiB). Run `grunt`
-again to rebuild the pages for the changes to take effect.
+`max_upload_size` value. The value is expressed in mebibytes (MiB). A number
+of other variables, such as the name of the site, and donation links, are 
+found in this file as well.  Run `grunt` again to rebuild the pages 
+for the changes to take effect.
 
 If you intend to allow uploading files larger than 2 MB, you may also need to
 increase POST size limits in `php.ini` and webserver configuration. For PHP,
