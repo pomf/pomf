@@ -47,7 +47,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'dist/pomf.min.js': [
-            'js/app.js'
+            'static/js/app.js'
           ]
         }
       }
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'dist/pomf.min.css': [
-            'css/pomf.css'
+            'static/css/pomf.css'
           ]
         }
       }
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'img/',
+          cwd: 'static/img/',
           src: '**/*.{png,jpg,gif}',
           dest: 'dist/img/'
         }]
