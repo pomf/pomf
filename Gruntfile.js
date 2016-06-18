@@ -2,25 +2,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     swig: {
-      dist: {
-        init: {
-          allowErrors: false
-        },
-        banners: grunt.file.readJSON('templates/banners.json'),
-        dest: 'dist',
-        generateRobotstxt: false,
-        generateSitemap: false,
-        max_upload_size: 128,
-        pkgVersion: '<%= pkg.version %>',
-        production: false,
-        siteName: 'Pantsu',
-        siteUrl: 'https://pantsu.cat/',
-        src: [
-          'templates/index.swig',
-          'templates/faq.swig',
-          'templates/tools.swig'
-        ],
-      }
+      dist: grunt.file.readJSON('dist.json')
     },
     htmlmin: {
       dist: {
