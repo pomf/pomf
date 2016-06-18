@@ -56,8 +56,10 @@ increase POST size limits in `php.ini` and webserver configuration. For PHP,
 modify `upload_max_filesize` and `post_max_size` values. The configuration
 option for nginx webserver is `client_max_body_size`.
 
-Example nginx configs can be found at [nginx.conf](https://u.pantsu.cat/ymixjx.conf)
-[u.pantsu.cat](https://u.pantsu.cat/fqurgp.conf) and [pantsu.cat](https://u.pantsu.cat/pnuyls.conf)
+Example nginx configs can be found:
+[nginx.conf](https://u.pantsu.cat/ymixjx.conf)
+[u.pantsu.cat](https://u.pantsu.cat/fqurgp.conf)
+[pantsu.cat](https://u.pantsu.cat/pnuyls.conf)
 
 ### Apache
 
