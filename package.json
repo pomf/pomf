@@ -23,7 +23,6 @@
   "devDependencies": {
     "clean-css": "^3.4.18",
     "uglify-js": "^2.6.2",
-    "htmlmin": "^1.4.0",
     "swig": "^1.4.2"
   }
 }
