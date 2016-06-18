@@ -1,5 +1,5 @@
 <p class="alert alert-info">
-	<strong>{{siteName}} is free to use, but our hosting costs are far from it</strong> &mdash; donations are what keep {{siteName}} alive, free, and fast.
+	<strong>{{siteName}} is free to use, but our hosting costs are far from it</strong> &mdash; donations are what keep {{siteName}} alive, free, and fast.</strong>
 	<span class="donate-btns">
 		{% if paypalUrl != '' %}
 			<a class="donate-btn donate-paypal" href="{{paypalUrl}}" target="_BLANK">
