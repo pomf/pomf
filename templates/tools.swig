@@ -9,7 +9,7 @@
 	<h2>pomfload</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://git.pantsu.cat/pantsu/pomfload">https://git.pantsu.cat/pantsu/pomfload</a></dd>
+		<dd><a href="https://github.com/ewhal/pomfload">https://github.com/ewhal/pomfload</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/AnonymousLink">https://twitter.com/AnonymousLink</a></dd>
 	</dl>
@@ -27,7 +27,7 @@
 	<h2>1339secure</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://git.pantsu.cat/pantsu/1339secure">https://git.pantsu.cat/pantsu/1339secure</a></dd>
+		<dd><a href="https://github.com/AdrianKoshka/1339secure">https://github.com/AdrianKoshka/1339secure</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="mailto:adriankoshcha@teknik.io">adriankoshcha@teknik.io</a></dd>
 	</dl>
@@ -45,10 +45,27 @@
 	<h2>Gyazowin</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://git.pantsu.cat/pantsu/gyazowin">https://git.pantsu.cat/pantsu/gyazowin</a></dd>
-		<dd><a href="https://i.pantsu.cat/hnpgjr.exe">https://i.pantsu.cat/hnpgjr.exe</a></dd>
+		<dd><a href="https://github.com/avail/gyazowin">https://github.com/avail/gyazowin</a></dd>
 		<dt>Contact</dt>
 		<dd><a href="https://twitter.com/4vail">https://twitter.com/4vail</a></dd>
+	</dl>
+</section>
+<section>
+	<h2>Pomfshare</h2>
+	<dl>
+		<dt>Download</dt>
+		<dd><a href="https://github.com/Nyubis/Pomfshare">https://github.com/Nyubis/Pomfshare</a></dd>
+		<dt>Contact</dt>
+		<dd><a href="https://github.com/Nyubis">https://github.com/Nyubis</a></dd>
+	</dl>
+</section>
+<section>
+	<h2>Pomf Extension</h2>
+	<dl>
+		<dt>Download</dt>
+		<dd><a href="https://github.com/paulerdosofneopets/pomf">https://github.com/paulerdosofneopets/pomf</a></dd>
+		<dt>Contact</dt>
+		<dd><a href="https://github.com/paulerdosofneopets">https://github.com/paulerdosofneopets</a></dd>
 	</dl>
 </section>
 {% include "nav.swig" %}
