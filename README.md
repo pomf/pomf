@@ -56,9 +56,8 @@ increase POST size limits in `php.ini` and webserver configuration. For PHP,
 modify `upload_max_filesize` and `post_max_size` values. The configuration
 option for nginx webserver is `client_max_body_size`.
 
-A best practice is to disable executing `.php` files on the `POMF_URL` domain
-for uploaded files. This assures that a malicious user cannot execute arbitrary
-PHP code on the server.
+Example nginx configs can be found at [nginx.conf](https://u.pantsu.cat/ymixjx.conf)
+[u.pantsu.cat](https://u.pantsu.cat/fqurgp.conf) and [pantsu.cat](https://u.pantsu.cat/pnuyls.conf)
 
 ### Apache
 
