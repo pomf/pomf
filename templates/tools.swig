@@ -60,12 +60,12 @@
 	</dl>
 </section>
 <section>
-	<h2>Pomf Extension</h2>
+	<h2>Pomf Rehost</h2>
 	<dl>
 		<dt>Download</dt>
-		<dd><a href="https://github.com/paulerdosofneopets/pomf">https://github.com/paulerdosofneopets/pomf</a></dd>
+		<dd><a href="https://git.fuwafuwa.moe/lesderid/pomf-rehost">https://git.fuwafuwa.moe/lesderid/pomf-rehost</a></dd>
 		<dt>Contact</dt>
-		<dd><a href="https://github.com/paulerdosofneopets">https://github.com/paulerdosofneopets</a></dd>
+		<dd><a href="mailto:les@fuwafuwa.moe">les@fuwafuwa.moe</a></dd>
 	</dl>
 </section>
 {% include "nav.swig" %}
