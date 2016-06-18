@@ -21,9 +21,9 @@
 
   },
   "devDependencies": {
-    "grunt-contrib-cssmin": "^1.0.1",
-    "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-htmlmin": "^1.4.0",
-    "grunt-swig": "^0.2.1"
+    "clean-css": "^3.4.18",
+    "uglify-js": "^2.6.2",
+    "htmlmin": "^1.4.0",
+    "swig": "^1.4.2"
   }
 }
