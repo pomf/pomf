@@ -37,11 +37,10 @@ The assets are minified and combined using [Grunt](http://gruntjs.com/).
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 
-    npm install -g grunt-cli
     git clone https://github.com/pomf/pomf
     cd pomf/
     npm install
-    grunt
+    make
 
 After this, the pomf site is now compressed and set up inside `dist/`.
 
