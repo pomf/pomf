@@ -1,12 +1,12 @@
-[
+{
 	"banners": [
 		"banners/malware_scans.swig",
 		"banners/donations.swig"
 	],
 	"src": [
-	  "templates/index.swig",
-	  "templates/faq.swig",
-	  "templates/tools.swig"
+		"templates/index.swig",
+		"templates/faq.swig",
+		"templates/tools.swig"
 	],
 	"generateRobotstxt": false,
 	"generateSitemap": false,
@@ -16,5 +16,5 @@
 	"siteUrl": "https://pantsu.cat/",
 	"paypalUrl": "",
 	"bitcoinAddress": "",
-	"flattrUrl": "",
-]
+	"flattrUrl": ""
+}
