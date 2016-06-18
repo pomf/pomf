@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     swig: {
-      dist: grunt.file.readJSON('templates/site_variables.json')
+      dist: grunt.file.readJSON('dist.json')
     },
     htmlmin: {
       dist: {
