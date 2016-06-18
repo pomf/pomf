@@ -59,6 +59,14 @@
 		<dd><a href="https://github.com/Nyubis">https://github.com/Nyubis</a></dd>
 	</dl>
 </section>
-
+<section>
+	<h2>Pomf Extension</h2>
+	<dl>
+		<dt>Download</dt>
+		<dd><a href="https://github.com/paulerdosofneopets/pomf">https://github.com/paulerdosofneopets/pomf</a></dd>
+		<dt>Contact</dt>
+		<dd><a href="https://github.com/paulerdosofneopets">https://github.com/paulerdosofneopets</a></dd>
+	</dl>
+</section>
 {% include "nav.swig" %}
 {% endblock %}
