@@ -19,7 +19,7 @@
 	"production": false,
 	"siteName": "Pantsu",
 	"siteUrl": "https://pantsu.cat/",
-	"paypalUrl": "",
-	"bitcoinAddress": "",
-	"flattrUrl": ""
+	"paypalUrl": "https://paypal.com",
+	"bitcoinAddress": "test",
+	"flattrUrl": "https://fattr.com"
 }
