@@ -1,9 +1,15 @@
-all: mkdirs swig min-css min-js copy
+all: mkdirs swig htmlmin min-css min-js copy
 
 swig:
 	@node node_modules/swig/bin/swig.js render -j dist.json templates/faq.swig > dist/faq.html 
 	@node node_modules/swig/bin/swig.js render -j dist.json templates/index.swig > dist/index.html 
 	@node node_modules/swig/bin/swig.js render -j dist.json templates/tools.swig > dist/tools.html 
+
+htmlmin:
+	@node node_modules/htmlmin//bin/htmlmin dist/index.html -o dist/index.html 
+	@node node_modules/htmlmin//bin/htmlmin dist/faq.html -o dist/faq.html 
+	@node node_modules/htmlmin//bin/htmlmin dist/tools.html -o dist/tools.html 
+	
 
 mkdirs:
 	@mkdir -p ./dist/img
