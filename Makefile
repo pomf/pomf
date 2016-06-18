@@ -24,7 +24,7 @@ min-js:
 	@echo "// @license-end" >> ./dist/pomf.min.js
 
 copy:
-	@cp -r ./static/php/* ./dist/
+	@cp -r ./php/* ./dist/
 	@cp  ./static/img/*.png ./dist/img
 	@cp  ./static/img/favicon.ico ./dist/favicon.ico
 
