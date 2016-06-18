@@ -1,0 +1,25 @@
+{
+	"init": {
+          "allowErrors": false
+        },
+        "dest": "dist",
+        "pkgVersion": "<%= pkg.version %>",
+	"banners": [
+		"banners/malware_scans.swig",
+		"banners/donations.swig"
+	],
+	"src": [
+		"templates/index.swig",
+		"templates/faq.swig",
+		"templates/tools.swig"
+	],
+	"generateRobotstxt": false,
+	"generateSitemap": false,
+	"max_upload_size": 128,
+	"production": false,
+	"siteName": "Pantsu",
+	"siteUrl": "https://pantsu.cat/",
+	"paypalUrl": "",
+	"bitcoinAddress": "",
+	"flattrUrl": ""
+}
