@@ -19,6 +19,8 @@
 	"production": false,
 	"siteName": "Pantsu",
 	"siteUrl": "https://pantsu.cat/",
+	"abuseContact": "abuse@pantsu.cat",
+	"infoContact": "info@pantsu.cat",
 	"paypalUrl": "",
 	"bitcoinAddress": "",
 	"flattrUrl": ""
