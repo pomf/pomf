@@ -32,8 +32,6 @@ Node, or NPM. So we'll just assume you already have them all running well.
 
 ### Compiling
 
-The assets are minified and combined using [Grunt](http://gruntjs.com/).
-
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 
@@ -46,7 +44,10 @@ After this, the pomf site is now compressed and set up inside `dist/`.
 
 ## Configuring
 
-Front-end related settings, such as the name of the site, and maximum allowable file size, are found in `templates/site_variables.json`.  Changes made here will only take effect after rebuilding the site pages.  This may be done by running `grunt` from the root of the site directory.
+Front-end related settings, such as the name of the site, and maximum allowable
+file size, are found in `templates/site_variables.json`.  Changes made here will
+only take effect after rebuilding the site pages.  This may be done by running
+`make` from the root of the site directory.
 
 Back-end related settings, such as database configuration, and path for uploaded files, are found in `static/php/includes/settings.inc.php`.  Changes made here take effect immediately.
 
