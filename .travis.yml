@@ -13,5 +13,5 @@ install:
 - nvm use stable
 - npm install
 script:
-- grunt
+- grunt -v
 
