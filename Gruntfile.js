@@ -6,26 +6,9 @@ module.exports = function (grunt) {
         init: {
           allowErrors: false
         },
-        banners: grunt.file.readJSON('templates/banners.json'),
+        banners: grunt.file.readJSON('templates/site_variables.json'),
         dest: 'dist',
-        generateRobotstxt: false,
-        generateSitemap: false,
-        max_upload_size: 128,
         pkgVersion: '<%= pkg.version %>',
-        production: false,
-        /* paypalUrl, bitcoinAddress, and flattrUrl are completely optional
-        the corresponding buttons only appear if the matching variable is not blank
-        donation banner only appears at all if enabled in banners.json */
-        paypalUrl: '', //full PayPal donation URL
-        bitcoinAddress: '', //just the BTC address
-        flattrUrl: '', //full Flattr URL
-        siteName: 'Pantsu',
-        siteUrl: 'https://pantsu.cat/',
-        src: [
-          'templates/index.swig',
-          'templates/faq.swig',
-          'templates/tools.swig'
-        ],
       }
     },
     htmlmin: {
