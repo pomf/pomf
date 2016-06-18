@@ -1,4 +1,9 @@
 {
+	init: {
+          allowErrors: false
+        },
+        dest: "dist",
+        pkgVersion: "<%= pkg.version %>",
 	"banners": [
 		"banners/malware_scans.swig",
 		"banners/donations.swig"
