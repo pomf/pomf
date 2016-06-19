@@ -80,6 +80,12 @@ function uploadFile($file)
         throw new UploadException($file->error);
     }
 
+    // Check if mime type is blocked
+    if (!in_array(mime_content_type($file), $FILTER_MIME)) {
+        throw new UploadException(UPLOAD_ERR_EXTENSION);
+    }
+
+
     // Check if a file with the same hash and size (a file which is the same)
     // does already exist in the database; if it does, return the proper link
     // and data. PHP deletes the temporary file just uploaded automatically.

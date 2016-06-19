@@ -81,6 +81,13 @@ define('POMF_FILES_LENGTH', 6);
  */
 define('POMF_URL', 'https://i.pantsu.cat/');
 
+
+/* *
+ * Blocked mime types
+ * @param string[] $FILTER_MIME blocked mime types
+ */
+$FILTER_MIME = array("")
+
 /**
  * Double dot file extensions
  *
