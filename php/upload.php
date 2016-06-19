@@ -84,7 +84,7 @@ function uploadFile($file)
     if (!in_array(mime_content_type($file), $FILTER_MIME)) {
         throw new UploadException(UPLOAD_ERR_EXTENSION);
     }
-    if $WHITELIST == true {
+    if WHITELIST == true {
         if (!in_array(mime_content_type($file), $WHITELIST_MIME)) {
             throw new UploadException(UPLOAD_ERR_EXTENSION);
     }
