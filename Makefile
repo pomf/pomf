@@ -1,4 +1,6 @@
-DESTDIR=./dist
+DESTDIR="./dist"
+TMPDIR := $(shell mktemp -d)
+TAR="/bin/tar"
 
 all: swig htmlmin min-css min-js
 
@@ -30,6 +32,14 @@ install: installdirs
 	@cp -vr ./php/* $(DESTDIR)/
 	@cp -v ./static/img/*.png $(DESTDIR)/img/
 	@cp -vT ./static/img/favicon.ico $(DESTDIR)/favicon.ico
+
+dist:
+	DESTDIR=$(TMPDIR)
+	export DESTDIR
+	install
+	@$(TAR) cJf pomf.tar.xz DESTDIR/
+	@rm -rf $(TMPDIR)
+	
 
 clean:
 	
