@@ -42,7 +42,7 @@ function generateName($file)
                 500); // HTTP status code "500 Internal Server Error"
         }
 
-        $chars = range('a', 'z');
+        $chars = ID_CHARSET; 
         $name = '';
         for ($i = 0; $i < $length; ++$i) {
             $name .= $chars[array_rand($chars)];

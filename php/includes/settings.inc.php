@@ -82,6 +82,14 @@ define('POMF_FILES_LENGTH', 6);
 define('POMF_URL', 'https://i.pantsu.cat/');
 
 /**
+ * URI for filename generation 
+ *
+ * @param string characters to be used in generateName()
+ */
+define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
+
+
+/**
  * Blocked mime types
  * @param string[] $FILTER_MIME blocked mime types
  */
