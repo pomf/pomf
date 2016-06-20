@@ -1,13 +1,11 @@
-INSTALL="/bin/install"
-TAR="/bin/tar"
-GREP="/bin/grep"
-NODE="/usr/bin/node"
-NPM="/usr/bin/npm"
+INSTALL="install"
+TAR="tar"
+GREP="grep"
+NODE="node"
+NPM="npm"
 DESTDIR="./dist"
 PKG_VERSION := $( $(GREP) -Po '(?<="version": ")[^"]*' )
 TMPDIR := $(shell mktemp -d)
-prefix="/usr/local"
-localstatedir=$(prefix)/var
 
 all: builddirs npm_dependencies swig htmlmin min-css min-js copy-img copy-php
 
