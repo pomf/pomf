@@ -1,4 +1,4 @@
-all: installdirs swig htmlmin min-css min-js install
+all: clean installdirs swig htmlmin min-css min-js install
 
 swig:
 	@node node_modules/swig/bin/swig.js render -j dist.json templates/faq.swig > dist/faq.html 
@@ -24,9 +24,9 @@ min-js:
 	@echo "// @license-end" >> ./dist/pomf.min.js
 
 install:
-	@cp -r ./php/* ./dist/
-	@cp  ./static/img/*.png ./dist/img
-	@cp  ./static/img/favicon.ico ./dist/favicon.ico
+	@cp -rf ./php/* ./dist/
+	@cp -f ./static/img/*.png ./dist/img
+	@cp  -f ./static/img/favicon.ico ./dist/favicon.ico
 
 clean:
 	@rm -rf ./dist/
