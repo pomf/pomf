@@ -45,7 +45,7 @@ function generateName($file)
         $chars = ID_CHARSET; 
         $name = '';
         for ($i = 0; $i < $length; ++$i) {
-            $name .= $chars[array_rand($chars)];
+            $name .= $chars[mt_rand(0, strlen($chars))]; 
         }
 
         // Add the extension to the file name
