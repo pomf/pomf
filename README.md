@@ -41,13 +41,17 @@ Node, or NPM. So we'll just assume you already have them all running well.
 
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
-
-    git clone https://github.com/pomf/pomf
-    cd pomf/
-    npm install
-    make
-
-After this, the pomf site is now compressed and set up inside `dist/`.
+```bash
+git clone https://github.com/pomf/pomf
+cd pomf/
+make
+make install
+```
+OR
+```bash
+make install DESTDIR=/desired/path/for/site
+```
+After this, the pomf site is now compressed and set up inside `dist/`, or, if specified, `DESTDIR`.
 
 ## Configuring
 
