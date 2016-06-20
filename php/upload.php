@@ -74,7 +74,7 @@ function generateName($file)
 function uploadFile($file)
 {
     global $db;
-    global $WHITELIST_MIME;
+    global $FILTER_MODE;
     global $FILTER_MIME;
 
     // Handle file errors
@@ -84,14 +84,15 @@ function uploadFile($file)
 
     // Check if mime type is blocked
     if (!empty($FILTER_MIME)) {
-        if (in_array($file->mime, $FILTER_MIME)) {
-            throw new UploadException(UPLOAD_ERR_EXTENSION);
-        }
-    }
-    if (!empty($WHITELIST_MIME)) {
-        if (!in_array($file->mime, $WHITELIST_MIME)) {
-            throw new UploadException(UPLOAD_ERR_EXTENSION);
-        }
+	if($FILTER_MODE == true) { //whitelist mode
+       		if (!in_array($file->mime, $FILTER_MIME)) {
+          	throw new UploadException(UPLOAD_ERR_EXTENSION);
+       		}
+	else { //blacklist mode
+       		if (in_array($file->mime, $FILTER_MIME)) {
+          	throw new UploadException(UPLOAD_ERR_EXTENSION);
+       		}
+	}
     }
 
 
