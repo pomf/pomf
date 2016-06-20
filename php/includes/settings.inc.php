@@ -85,20 +85,13 @@ define('POMF_URL', 'https://i.pantsu.cat/');
  * Blocked mime types
  * @param string[] $FILTER_MIME blocked mime types
  */
-$FILTER_MIME = array("")
-
-/**
- * Whitelisted mime types
- * @param bool $WHIELIST to enable whitelist of mime types 
- */
-
-define('WHITELSIST', false);
+$FILTER_MIME = array("");
 
 /**
  * Whitelisted mime types
  * @param string[] $WHITELIST_MIME_MIME allowed mime types
  */
-$WHITELIST_MIME = array("")
+$WHITELIST_MIME = array("");
 
 /**
  * Double dot file extensions

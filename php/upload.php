@@ -74,6 +74,8 @@ function generateName($file)
 function uploadFile($file)
 {
     global $db;
+    global $WHITELIST_MIME;
+    global $FILTER_MIME;
 
     // Handle file errors
     if ($file->error) {
@@ -81,12 +83,15 @@ function uploadFile($file)
     }
 
     // Check if mime type is blocked
-    if (!in_array(mime_content_type($file), $FILTER_MIME)) {
-        throw new UploadException(UPLOAD_ERR_EXTENSION);
-    }
-    if WHITELIST == true {
-        if (!in_array(mime_content_type($file), $WHITELIST_MIME)) {
+    if (!empty($FILTER_MIME)) {
+        if (in_array($file->mime, $FILTER_MIME)) {
             throw new UploadException(UPLOAD_ERR_EXTENSION);
+        }
+    }
+    if (!empty($WHITELIST_MIME)) {
+        if (!in_array($file->mime, $WHITELIST_MIME)) {
+            throw new UploadException(UPLOAD_ERR_EXTENSION);
+        }
     }
 
 
