@@ -28,4 +28,5 @@ install:
 	@cp  ./static/img/*.png ./dist/img
 	@cp  ./static/img/favicon.ico ./dist/favicon.ico
 
-
+clean:
+	@rm -rf ./dist/
