@@ -87,11 +87,11 @@ function uploadFile($file)
     if (!empty($FILTER_MIME)) {
         if ($FILTER_MODE == true) { //whitelist mode
             if (!in_array($file->mime, $FILTER_MIME)) {
-          	    throw new UploadException(UPLOAD_ERR_EXTENSION);
-       		}
+                throw new UploadException(UPLOAD_ERR_EXTENSION);
+            }
         } else { //blacklist mode
             if (in_array($file->mime, $FILTER_MIME)) {
-            throw new UploadException(UPLOAD_ERR_EXTENSION);
+                throw new UploadException(UPLOAD_ERR_EXTENSION);
             }
         }
     }

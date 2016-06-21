@@ -93,7 +93,7 @@ define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
  * Filtered mime types
  * @param string[] $FILTER_MIME allowed/blocked mime types
  */
-$FILTER_MIME = array("");
+$FILTER_MIME = array();
 /**
  * Filter mode: whitelist (true) or blacklist (false)
  * @param bool $FILTER_MODE mime type filter mode
