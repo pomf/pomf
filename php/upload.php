@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /**
  * Handles POST uploads, generates filenames, moves files around and commits
@@ -134,9 +135,18 @@ function uploadFile($file)
     // Add it to the database
     // 'expire' support is deprecated since version 2.1.0. It may be
     // removed in a future release.
-    $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                      'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
-                      ':exp, :del)');
+    if (empty($_SESSION['id'])) {
+        // Query if user is NOT logged in
+        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, ' .
+                    'expire, delid) VALUES (:hash, :orig, :name, :size, :date, ' .
+                        ':exp, :del)');
+    } else {
+        // Query if user is logged in (insert user id together with other data)
+        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, ' .
+                    'expire, delid, user) VALUES (:hash, :orig, :name, :size, :date, ' .
+                        ':exp, :del, :user)');
+        $q->bindValue(':user', $_SESSION['id'], PDO::PARAM_INT);
+    }
 
     // Common parameters binding
     $q->bindValue(':hash', $file->getSha1(),       PDO::PARAM_STR);
@@ -144,7 +154,7 @@ function uploadFile($file)
     $q->bindValue(':name', $newname,                PDO::PARAM_STR);
     $q->bindValue(':size', $file->size,             PDO::PARAM_INT);
     $q->bindValue(':date', date('Y-m-d'),           PDO::PARAM_STR);
-    $q->bindValue(':exp',  null,                    PDO::PARAM_STR); // Deprecated since version 2.1.0
+    $q->bindValue(':exp',  null,                    PDO::PARAM_STR);
     $q->bindValue(':del',  sha1($file->tempfile),   PDO::PARAM_STR);
     $q->execute();
 
