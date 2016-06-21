@@ -90,17 +90,15 @@ define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
 
 
 /**
- * Blocked mime types
- * @param string[] $FILTER_MIME blocked mime types
+ * Filtered mime types
+ * @param string[] $FILTER_MIME allowed/blocked mime types
  */
 $FILTER_MIME = array("");
-
 /**
- * Whitelisted mime types
- * @param string[] $WHITELIST_MIME_MIME allowed mime types
+ * Filter mode: whitelist (true) or blacklist (false)
+ * @param bool $FILTER_MODE mime type filter mode
  */
-$WHITELIST_MIME = array("");
-
+$FILTER_MODE = false;
 /**
  * Double dot file extensions
  *
