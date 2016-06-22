@@ -69,6 +69,29 @@ option for nginx webserver is `client_max_body_size`.
 
 Example nginx configs can be found in confs/.
 
+## Using SQLite as DB engine
+
+We need to create the SQLite database before it may be used by pomf.
+Fortunately, this is incredibly simple.  
+
+First create a directory for the database, e.g. `mkdir /var/db/pomf`.  
+Then, create a new SQLite database from the schema, e.g. `sqlite3 /var/db/pomf/pomf.sq3 -init /home/pomf/sqlite_schema.sql`.
+Then, finally, ensure the permissions are correct, e.g.
+```bash
+chown nginx:nginx /var/db/pomf
+chmod 0750 /var/db/pomf
+chmod 0640 /var/db/pomf/pomf.sq3
+```
+
+Finally, edit `php/includes/settings.inc.php` to indicate this is the database engine you would like to use.  Make the changes outlined below
+```php
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
+define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
+define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
+```
+
+*NOTE: The directory where the SQLite database is stored, must be writable by the web server user*
+
 ### Apache
 
 If you are running Apache and want to compress your output when serving files,
@@ -78,6 +101,38 @@ add to your `.htaccess` file:
 
 Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
+
+### Migrating from MySQL to SQLite
+
+MySQL is relatively complicated to administer, brings in many unneeded dependencies, and consumes
+more resources than SQLite would, and result in worse performance for pomf.  Additonally, poorly configured installations have the potential
+to pose a security risk.
+
+Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, and should require
+zero downtime.
+
+_If doing this on a live server, you way wish to work in a subdirectory (or vhost, or equivelant), so that any complications or mistakes do not affect your main site.  
+If you choose not to do so, know that mistakes in the changes outlined below, will only temporarily impact **uploading**, causing **Server error** to be displayed.  None of these steps are destructive, and are easily reverted._
+
+Run the following commands as root, to dump your database, and make a SQLite database with the contents.  
+```bash
+mkdir /var/db/pomf
+wget -O /tmp/m2s https://github.com/dumblob/mysql2sqlite/raw/master/mysql2sqlite.sh
+mysqldump -u OLD_DB_USER -p OLD_DB_PASS pomf | sh /tmp/m2s | sqlite3 /var/db/pomf/sq3
+rm /tmp/m2s
+chown -R nginx:nginx /var/db/pomf #replace user as appropriate
+chmod 0750 /var/db/pomf && chmod 0640 /var/db/pomf/sq3
+```
+Edit the file `php/includes/settings.inc.php`, in the subdirectory you just made, making the changes outlined below.
+```php
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
+define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
+define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
+```
+
+Then, run `make` to rebuild the website pages, and copy the new `settings.inc.php` file into place. 
+
+All done! You may disable or uninstall MySQL if you wish.
 
 ## Getting help
 
