@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   function addRow(file) {
     var row = document.createElement('li');
@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var progressBar = document.createElement('progress');
     progressBar.className = 'file-progress';
-    progressBar.setAttribute("max", "100");
-    progressBar.setAttribute("value", "0");
+    progressBar.setAttribute('max', '100');
+    progressBar.setAttribute('value', '0');
 
     row.appendChild(name);
     row.appendChild(progressBar);
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (evt.lengthComputable) {
       var progressPercent = Math.floor((evt.loaded / evt.total) * 100);
-      bar.setAttribute("value", progressPercent);
+      bar.setAttribute('value', progressPercent);
       percentIndicator.textContent = progressPercent + '%';
     }
   }
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var row = xhr.row;
     var percentIndicator = xhr.percent;
 
-    percentIndicator.style.visibility = "hidden";
-    bar.style.visibility = "hidden";
+    percentIndicator.style.visibility = 'hidden';
+    bar.style.visibility = 'hidden';
     row.removeChild(bar);
     row.removeChild(percentIndicator);
     var respStatus = xhr.status;
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (respStatus === 200) {
       var response = JSON.parse(xhr.responseText);
       if (response.success) {
-        link.textContent = response.files[0].url.replace(/.*?:\/\//g, "");
+        link.textContent = response.files[0].url.replace(/.*?:\/\//g, '');
         link.href = response.files[0].url;
         url.appendChild(link);
       } else {
@@ -99,11 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/upload.php');
 
-    xhr["row"] = row;
-    xhr["bar"] = bar;
-    xhr["percent"] = percentIndicator;
-    xhr.upload["bar"] = bar;
-    xhr.upload["percent"] = percentIndicator;
+    xhr['row'] = row;
+    xhr['bar'] = bar;
+    xhr['percent'] = percentIndicator;
+    xhr.upload['bar'] = bar;
+    xhr.upload['percent'] = percentIndicator;
 
     xhr.addEventListener('load', handleUploadComplete, false);
     xhr.upload.onprogress = handleUploadProgress;
@@ -121,8 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function handleDrag(state, element, evt) {
     stopDefaultEvent(evt);
     if (state.dragCount == 1) {
-      element.textContent = "Drop it here~";
+      element.textContent = 'Drop it here~';
     }
+
     state.dragCount += 1;
   }
 
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     stopDefaultEvent(evt);
     state.dragCount -= 1;
     if (state.dragCount == 0) {
-      element.textContent = "Select or drop file(s)";
+      element.textContent = 'Select or drop file(s)';
     }
   }
 
