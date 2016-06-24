@@ -39,14 +39,16 @@ function generateName($file)
     do {
         // Iterate until we reach the maximum number of retries
         if ($tries-- === 0) {
-            throw new Exception('Gave up trying to find an unused name',
-                500); // HTTP status code "500 Internal Server Error"
+            throw new Exception(
+                'Gave up trying to find an unused name',
+                500
+            ); // HTTP status code "500 Internal Server Error"
         }
 
-        $chars = ID_CHARSET; 
+        $chars = ID_CHARSET;
         $name = '';
         for ($i = 0; $i < $length; ++$i) {
-            $name .= $chars[mt_rand(0, strlen($chars))]; 
+            $name .= $chars[mt_rand(0, strlen($chars))];
         }
 
         // Add the extension to the file name
@@ -103,7 +105,7 @@ function uploadFile($file)
     $q = $db->prepare('SELECT filename, COUNT(*) AS count FROM files WHERE hash = (:hash) '.
                       'AND size = (:size)');
     $q->bindValue(':hash', $file->getSha1(), PDO::PARAM_STR);
-    $q->bindValue(':size', $file->size,       PDO::PARAM_INT);
+    $q->bindValue(':size', $file->size, PDO::PARAM_INT);
     $q->execute();
     $result = $q->fetch();
     if ($result['count'] > 0) {
@@ -123,14 +125,18 @@ function uploadFile($file)
 
     // Attempt to move it to the static directory
     if (!move_uploaded_file($file->tempfile, $uploadFile)) {
-        throw new Exception('Failed to move file to destination',
-            500); // HTTP status code "500 Internal Server Error"
+        throw new Exception(
+            'Failed to move file to destination',
+            500
+        ); // HTTP status code "500 Internal Server Error"
     }
 
     // Need to change permissions for the new file to make it world readable
     if (!chmod($uploadFile, 0644)) {
-        throw new Exception('Failed to change file permissions',
-            500); // HTTP status code "500 Internal Server Error"
+        throw new Exception(
+            'Failed to change file permissions',
+            500
+        ); // HTTP status code "500 Internal Server Error"
     }
 
     // Add it to the database
@@ -150,13 +156,13 @@ function uploadFile($file)
     }
 
     // Common parameters binding
-    $q->bindValue(':hash', $file->getSha1(),       PDO::PARAM_STR);
+    $q->bindValue(':hash', $file->getSha1(), PDO::PARAM_STR);
     $q->bindValue(':orig', strip_tags($file->name), PDO::PARAM_STR);
-    $q->bindValue(':name', $newname,                PDO::PARAM_STR);
-    $q->bindValue(':size', $file->size,             PDO::PARAM_INT);
-    $q->bindValue(':date', date('Y-m-d'),           PDO::PARAM_STR);
-    $q->bindValue(':exp',  null,                    PDO::PARAM_STR);
-    $q->bindValue(':del',  sha1($file->tempfile),   PDO::PARAM_STR);
+    $q->bindValue(':name', $newname, PDO::PARAM_STR);
+    $q->bindValue(':size', $file->size, PDO::PARAM_INT);
+    $q->bindValue(':date', date('Y-m-d'), PDO::PARAM_STR);
+    $q->bindValue(':exp', null, PDO::PARAM_STR);
+    $q->bindValue(':del', sha1($file->tempfile), PDO::PARAM_STR);
     $q->execute();
 
     return array(
