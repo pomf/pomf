@@ -82,7 +82,7 @@ define('POMF_FILES_LENGTH', 6);
 define('POMF_URL', 'https://i.pantsu.cat/');
 
 /**
- * URI for filename generation 
+ * URI for filename generation
  *
  * @param string characters to be used in generateName()
  */
