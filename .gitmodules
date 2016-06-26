@@ -1,3 +1,6 @@
 [submodule "moe"]
 	path = moe
 	url = https://github.com/pomf/moe
+[submodule "php"]
+	path = php
+	url = https://github.com/pomf/pomf-php
