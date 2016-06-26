@@ -104,12 +104,7 @@ configuration file.
 
 ### Migrating from MySQL to SQLite
 
-MySQL is relatively complicated to administer, brings in many unneeded dependencies, and consumes
-more resources than SQLite would, and result in worse performance for pomf.  Additonally, poorly configured installations have the potential
-to pose a security risk.
-
-Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, and should require
-zero downtime.
+For older versions of Pomf you may want to migrate to SQLite. Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, and should require zero downtime.
 
 _If doing this on a live server, you way wish to work in a subdirectory (or vhost, or equivelant), so that any complications or mistakes do not affect your main site.  
 If you choose not to do so, know that mistakes in the changes outlined below, will only temporarily impact **uploading**, causing **Server error** to be displayed.  None of these steps are destructive, and are easily reverted._
