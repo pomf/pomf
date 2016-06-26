@@ -42,7 +42,7 @@ Node, or NPM. So we'll just assume you already have them all running well.
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
 ```bash
-git clone https://github.com/pomf/pomf
+git clone --recursive https://github.com/pomf/pomf
 cd pomf/
 make
 make install
