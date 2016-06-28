@@ -32,21 +32,21 @@ ifneq (,$(findstring moe,$(MODULES)))
 endif
 	
 min-css:
-	$(NODE) ./node_modules/.bin/cleancss --s0 ./static/css/pomf.css > $(CURDIR)/build/pomf.min.css
+	$(NODE) $(CURDIR)/node_modules/.bin/cleancss --s0 $(CURDIR)/static/css/pomf.css > $(CURDIR)/build/pomf.min.css
 
 min-js:
 	echo "// @source https://github.com/pomf/pomf/tree/master/static/js" > $(CURDIR)/build/pomf.min.js 
 	echo "// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat" >> $(CURDIR)/build/pomf.min.js
-	$(NODE) ./node_modules/.bin/uglifyjs  --screw-ie8 ./static/js/app.js >> $(CURDIR)/build/pomf.min.js 
+	$(NODE) $(CURDIR)/node_modules/.bin/uglifyjs  --screw-ie8 ./static/js/app.js >> $(CURDIR)/build/pomf.min.js 
 	echo "// @license-end" >> $(CURDIR)/build/pomf.min.js
 
 copy-img:
-	cp -v ./static/img/*.png $(CURDIR)/build/img/
-	cp -vT ./static/img/favicon.ico $(CURDIR)/build/favicon.ico
+	cp -v $(CURDIR)/static/img/*.png $(CURDIR)/build/img/
+	cp -vT $(CURDIR)/static/img/favicon.ico $(CURDIR)/build/favicon.ico
 
 copy-php:
 ifneq ($(wildcard $(CURDIR)/php/.),)
-	cp -rv ./php/* $(CURDIR)/build/
+	cp -rv $(CURDIR)/php/* $(CURDIR)/build/
 else
 	$(error The php submodule was not found)
 endif
