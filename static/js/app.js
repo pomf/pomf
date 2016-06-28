@@ -81,6 +81,26 @@ document.addEventListener('DOMContentLoaded', function () {
         link.textContent = response.files[0].url.replace(/.*?:\/\//g, '');
         link.href = response.files[0].url;
         url.appendChild(link);
+	var copy = document.createElement('button');
+	copy.className = 'upload-clipboard-btn';
+	var glyph = document.createElement('span');
+	glyph.className = 'glyphicon glyphicon-copy';
+	copy.appendChild(glyph);
+	url.appendChild(copy);
+	copy.addEventListener("click", function(event) {
+	  /*why create element?  text needs to be on screen to be selected
+	  and thus copied.  only text we have on screen is the link without
+	  the http[s]:// part.  so this creates an element with the full link
+	  for a moment and then deletes. */
+	  var element = document.createElement('a');
+	  element.textContent = response.files[0].url;
+	  link.appendChild(element); 
+	  var range = document.createRange();
+	  range.selectNode(element);
+	  window.getSelection().addRange(range);
+	  document.execCommand("copy");
+	  link.removeChild(element);
+	});
       } else {
         bar.innerHTML = 'Error: ' + response.description;
       }
@@ -172,4 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
   uploadButton.addEventListener('click', selectFiles.bind(this, uploadInput));
   uploadButton.addEventListener('drop', handleDragDrop.bind(this, state, uploadButton), false);
   document.getElementById('upload-form').classList.add('js');
+
+  
 });
