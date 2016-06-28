@@ -39,12 +39,27 @@ Node, or NPM. So we'll just assume you already have them all running well.
 
 ### Compiling
 
-Assuming you already have Node and NPM working, compilation is easy. Use the
-following shell code:
+First you must get a copy of the pomf code.  To do so, clone this git repo.
+If you have no desire for any submodules, which includes the PHP backend, simply run
+```bash
+git clone https://github.com/pomf/pomf
+```
+else, run
 ```bash
 git clone --recursive https://github.com/pomf/pomf
+```
+to automatically fetch all of the submodules as well
+
+Assuming you already have Node and NPM working, compilation is easy. If you would like any additional submodules, or to exclude the default PHP submodule, use the `MODULES="..."` variable.
+
+Run the following commands to do so.
+```bash
 cd pomf/
 make
+# alternatively
+make MODULES="" # compile no submodules; exclude the default php backend module
+make MODULES="php moe" # compile the php and moe submodules
+#
 make install
 ```
 OR
