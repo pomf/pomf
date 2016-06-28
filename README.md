@@ -41,13 +41,17 @@ Node, or NPM. So we'll just assume you already have them all running well.
 
 Assuming you already have Node and NPM working, compilation is easy. Use the
 following shell code:
-
-    git clone https://github.com/pomf/pomf
-    cd pomf/
-    npm install
-    make
-
-After this, the pomf site is now compressed and set up inside `dist/`.
+```bash
+git clone --recursive https://github.com/pomf/pomf
+cd pomf/
+make
+make install
+```
+OR
+```bash
+make install DESTDIR=/desired/path/for/site
+```
+After this, the pomf site is now compressed and set up inside `dist/`, or, if specified, `DESTDIR`.
 
 ## Configuring
 
@@ -65,6 +69,29 @@ option for nginx webserver is `client_max_body_size`.
 
 Example nginx configs can be found in confs/.
 
+## Using SQLite as DB engine
+
+We need to create the SQLite database before it may be used by pomf.
+Fortunately, this is incredibly simple.  
+
+First create a directory for the database, e.g. `mkdir /var/db/pomf`.  
+Then, create a new SQLite database from the schema, e.g. `sqlite3 /var/db/pomf/pomf.sq3 -init /home/pomf/sqlite_schema.sql`.
+Then, finally, ensure the permissions are correct, e.g.
+```bash
+chown nginx:nginx /var/db/pomf
+chmod 0750 /var/db/pomf
+chmod 0640 /var/db/pomf/pomf.sq3
+```
+
+Finally, edit `php/includes/settings.inc.php` to indicate this is the database engine you would like to use.  Make the changes outlined below
+```php
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
+define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
+define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
+```
+
+*NOTE: The directory where the SQLite database is stored, must be writable by the web server user*
+
 ### Apache
 
 If you are running Apache and want to compress your output when serving files,
@@ -74,6 +101,40 @@ add to your `.htaccess` file:
 
 Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
+
+### Migrating from MySQL to SQLite
+ ,
+Compared to SQLite, MySQL is relatively complicated to administer, brings in many unneeded dependencies, and consumes more resources.  Additonally, as a network service, poorly configured installations have the potential
+to pose a security risk.
+
+For these reasons, you may wish to use SQLite rather than MySQL.
+
+Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, if you desire, and requires zero downtime.
+
+The process described below involves running these commands on a live server.  Nothing done here affects your main site, until running the very last command, which is done after verifying there are no issues.  
+
+No changes described here are destructive, and are easily reverted.  They only have the potential to cause uploading to fail gracefully, and will not affect downloading.
+
+Run the following commands as root, to dump your database, and make a SQLite database with the contents.  
+```bash
+mkdir /var/db/pomf
+wget -O /tmp/m2s https://github.com/dumblob/mysql2sqlite/raw/master/mysql2sqlite.sh
+mysqldump -u OLD_DB_USER -p OLD_DB_PASS pomf | sh /tmp/m2s | sqlite3 /var/db/pomf/sq3
+rm /tmp/m2s
+chown -R nginx:nginx /var/db/pomf #replace user as appropriate
+chmod 0750 /var/db/pomf && chmod 0640 /var/db/pomf/sq3
+```
+Edit the file `php/includes/settings.inc.php`, in your **source directory**, making the changes outlined below.  Note, changing the second two lines is optional, as they are simply ignored when using SQLite.
+```php
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
+define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
+define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
+```
+Then, run `make DESTDIR=/path/to/main_site/testing_dir` (note the *testing_dir* component) to rebuild the website, and copy it into place, in a new testing subdirectory.
+
+Now, navigate to this subdirectory in your web browser, e.g. https://try.pantsu.cat/testing_dir, and verify that uploading works fine.  If so, excellent!  You may rerun `make DESTDIR=/path/to/main_site` to update your main site.
+
+All done! You may disable or uninstall MySQL if you wish.
 
 ## Getting help
 
