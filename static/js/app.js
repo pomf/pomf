@@ -83,8 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
         url.appendChild(link);
 	var copy = document.createElement('button');
 	copy.className = 'upload-clipboard-btn';
-	var glyph = document.createElement('span');
-	glyph.className = 'glyphicon glyphicon-copy';
+	var glyph = document.createElement('img');
+	glyph.src = 'img/glyphicons-512-copy.png';
+	glyph.style = 'height:16px';
 	copy.appendChild(glyph);
 	url.appendChild(copy);
 	copy.addEventListener("click", function(event) {
