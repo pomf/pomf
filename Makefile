@@ -1,3 +1,4 @@
+MAKE="make"
 INSTALL="install"
 TAR="tar"
 GREP="grep"
@@ -6,9 +7,11 @@ NPM="npm"
 DESTDIR="./dist"
 PKG_VERSION := $( $(GREP) -Po '(?<="version": ")[^"]*' )
 TMPDIR := $(shell mktemp -d)
+# default modules
+MODULES="php"
 
-all: builddirs npm_dependencies swig htmlmin min-css min-js copy-img copy-php
-
+all: builddirs npm_dependencies swig htmlmin min-css min-js copy-img submodules
+	
 swig:
 	$(NODE) node_modules/swig/bin/swig.js render -j dist.json templates/faq.swig > $(CURDIR)/build/faq.html 
 	$(NODE) node_modules/swig/bin/swig.js render -j dist.json templates/index.swig > $(CURDIR)/build/index.html 
@@ -20,23 +23,40 @@ htmlmin:
 	$(NODE) node_modules/htmlmin/bin/htmlmin $(CURDIR)/build/tools.html -o $(CURDIR)/build/tools.html 
 
 installdirs:
-	mkdir -p $(DESTDIR)/ $(DESTDIR)/img $(DESTDIR)/classes $(DESTDIR)/includes
+	mkdir -p $(DESTDIR)/ $(DESTDIR)/img
+ifneq (,$(findstring php,$(MODULES)))
+	mkdir -p $(DESTDIR)/classes $(DESTDIR)/includes
+endif
+ifneq (,$(findstring moe,$(MODULES)))
+	mkdir -p $(DESTDIR)/moe/{css,fonts,includes,js,login,panel/css/font,panel/css/images,register,templates}
+endif
 	
 min-css:
-	$(NODE) ./node_modules/.bin/cleancss --s0 ./static/css/pomf.css > $(CURDIR)/build/pomf.min.css
+	$(NODE) $(CURDIR)/node_modules/.bin/cleancss --s0 $(CURDIR)/static/css/pomf.css > $(CURDIR)/build/pomf.min.css
 
 min-js:
 	echo "// @source https://github.com/pomf/pomf/tree/master/static/js" > $(CURDIR)/build/pomf.min.js 
 	echo "// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat" >> $(CURDIR)/build/pomf.min.js
-	$(NODE) ./node_modules/.bin/uglifyjs  --screw-ie8 ./static/js/app.js >> $(CURDIR)/build/pomf.min.js 
+	$(NODE) $(CURDIR)/node_modules/.bin/uglifyjs  --screw-ie8 ./static/js/app.js >> $(CURDIR)/build/pomf.min.js 
 	echo "// @license-end" >> $(CURDIR)/build/pomf.min.js
 
 copy-img:
-	cp -v ./static/img/*.png $(CURDIR)/build/img/
-	cp -vT ./static/img/favicon.ico $(CURDIR)/build/favicon.ico
+	cp -v $(CURDIR)/static/img/*.png $(CURDIR)/build/img/
+	cp -vT $(CURDIR)/static/img/favicon.ico $(CURDIR)/build/favicon.ico
 
 copy-php:
-	cp -rv ./php/* $(CURDIR)/build/
+ifneq ($(wildcard $(CURDIR)/php/.),)
+	cp -rv $(CURDIR)/php/* $(CURDIR)/build/
+else
+	$(error The php submodule was not found)
+endif
+
+copy-moe:
+ifneq ($(wildcard $(CURDIR)/moe/.),)
+	cp -rv $(CURDIR)/moe $(CURDIR)/build/moe
+else
+	$(error The moe submodule was not found)
+endif
 
 install: installdirs
 	cp -rv $(CURDIR)/build/* $(DESTDIR)/
@@ -59,4 +79,19 @@ npm_dependencies:
 	$(NPM) install
 
 builddirs:
-	mkdir -p $(CURDIR)/build $(CURDIR)/build/img $(CURDIR)/build/classes $(CURDIR)/build/includes
+	mkdir -p $(CURDIR)/build $(CURDIR)/build/img 
+ifneq (,$(findstring php,$(MODULES)))
+	mkdir -p $(CURDIR)/build/classes $(CURDIR)/build/includes
+endif
+ifneq (,$(findstring moe,$(MODULES)))
+	mkdir -p $(CURDIR)/build/moe/{css,fonts,includes,js,login,panel/css/font,panel/css/images,register,templates}
+endif
+
+submodules:
+	$(info The following modules will be enabled: $(MODULES))
+ifneq (,$(findstring php,$(MODULES)))
+	$(MAKE) copy-php
+endif
+ifneq (,$(findstring moe,$(MODULES)))
+	$(MAKE) copy-moe
+endif
