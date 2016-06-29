@@ -40,15 +40,15 @@ Node, or NPM. So we'll just assume you already have them all running well.
 ### Compiling
 
 First you must get a copy of the pomf code.  To do so, clone this git repo.
-If you have no desire for any submodules, which includes the PHP backend, simply run
-```bash
-git clone https://github.com/pomf/pomf
-```
-else, run
+You will need to recursively clone the repo to get the required PHP submodule,
+and the optional user panel submodule.
 ```bash
 git clone --recursive https://github.com/pomf/pomf
 ```
-to automatically fetch all of the submodules as well
+If you don't want either of the submodules run the following command,
+```bash
+git clone https://github.com/pomf/pomf
+```
 
 Assuming you already have Node and NPM working, compilation is easy. If you would like any additional submodules, or to exclude the default PHP submodule, use the `MODULES="..."` variable.
 
