@@ -7,6 +7,7 @@ Status](https://david-dm.org/pomf/pomf.svg)](https://david-dm.org/pomf/pomf)
 Status](https://david-dm.org/pomf/pomf/dev-status.svg)](https://david-dm.org/pomf/pomf#info=devDependencies)
 [![MIT
 licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/pomf/pomf/master/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/pomf/badge/?version=latest)](http://pomf.readthedocs.io/en/latest/?badge=latest)
 
 Pomf is a simple file uploading and sharing platform.
 
