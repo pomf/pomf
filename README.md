@@ -40,12 +40,27 @@ Node, or NPM. So we'll just assume you already have them all running well.
 
 ### Compiling
 
-Assuming you already have Node and NPM working, compilation is easy. Use the
-following shell code:
+First you must get a copy of the pomf code.  To do so, clone this git repo.
+You will need to recursively clone the repo to get the required PHP submodule,
+and the optional user panel submodule.
 ```bash
 git clone --recursive https://github.com/pomf/pomf
+```
+If you don't want either of the submodules run the following command,
+```bash
+git clone https://github.com/pomf/pomf
+```
+
+Assuming you already have Node and NPM working, compilation is easy. If you would like any additional submodules, or to exclude the default PHP submodule, use the `MODULES="..."` variable.
+
+Run the following commands to do so.
+```bash
 cd pomf/
 make
+# alternatively
+make MODULES="" # compile no submodules; exclude the default php backend module
+make MODULES="php moe" # compile the php and moe submodules
+#
 make install
 ```
 OR
@@ -104,11 +119,17 @@ Remember to enable `deflate_module` and `filter_module` modules in your Apache
 configuration file.
 
 ### Migrating from MySQL to SQLite
+ ,
+Compared to SQLite, MySQL is relatively complicated to administer, brings in many unneeded dependencies, and consumes more resources.  Additonally, as a network service, poorly configured installations have the potential
+to pose a security risk.
 
-For older versions of Pomf you may want to migrate to SQLite. Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, and should require zero downtime.
+For these reasons, you may wish to use SQLite rather than MySQL.
 
-_If doing this on a live server, you way wish to work in a subdirectory (or vhost, or equivelant), so that any complications or mistakes do not affect your main site.  
-If you choose not to do so, know that mistakes in the changes outlined below, will only temporarily impact **uploading**, causing **Server error** to be displayed.  None of these steps are destructive, and are easily reverted._
+Fortunately, it is incredibly simple to migrate your database.  This may be done on a live server, if you desire, and requires zero downtime.
+
+The process described below involves running these commands on a live server.  Nothing done here affects your main site, until running the very last command, which is done after verifying there are no issues.  
+
+No changes described here are destructive, and are easily reverted.  They only have the potential to cause uploading to fail gracefully, and will not affect downloading.
 
 Run the following commands as root, to dump your database, and make a SQLite database with the contents.  
 ```bash
@@ -119,14 +140,15 @@ rm /tmp/m2s
 chown -R nginx:nginx /var/db/pomf #replace user as appropriate
 chmod 0750 /var/db/pomf && chmod 0640 /var/db/pomf/sq3
 ```
-Edit the file `php/includes/settings.inc.php`, in the subdirectory you just made, making the changes outlined below.
+Edit the file `php/includes/settings.inc.php`, in your **source directory**, making the changes outlined below.  Note, changing the second two lines is optional, as they are simply ignored when using SQLite.
 ```php
 define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
 define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
 define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
 ```
+Then, run `make DESTDIR=/path/to/main_site/testing_dir` (note the *testing_dir* component) to rebuild the website, and copy it into place, in a new testing subdirectory.
 
-Then, run `make` to rebuild the website pages, and copy the new `settings.inc.php` file into place. 
+Now, navigate to this subdirectory in your web browser, e.g. https://try.pantsu.cat/testing_dir, and verify that uploading works fine.  If so, excellent!  You may rerun `make DESTDIR=/path/to/main_site` to update your main site.
 
 All done! You may disable or uninstall MySQL if you wish.
 
