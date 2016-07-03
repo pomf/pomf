@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var bar = row.querySelector('.file-progress');
     var percentIndicator = row.querySelector('.progress-percent');
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/upload.php');
+    xhr.open('POST', 'upload.php');
 
     xhr['row'] = row;
     xhr['bar'] = bar;
