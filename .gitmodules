@@ -4,3 +4,6 @@
 [submodule "php"]
 	path = php
 	url = https://github.com/pomf/pomf-php
+[submodule "expiry"]
+	path = expiry
+	url = https://github.com/pomf/pomf-expiry.git
