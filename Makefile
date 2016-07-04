@@ -53,7 +53,7 @@ endif
 
 copy-moe:
 ifneq ($(wildcard $(CURDIR)/moe/.),)
-	cp -rv $(CURDIR)/moe $(CURDIR)/build/moe
+	cp -rv $(CURDIR)/moe $(CURDIR)/build/
 else
 	$(error The moe submodule was not found)
 endif
