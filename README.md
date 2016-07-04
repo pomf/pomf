@@ -25,7 +25,7 @@ Pomf is a simple file uploading and sharing platform.
 
 ### Demo
 
-See the real world example at [Pantsu.cat](https://pantsu.cat/).
+See the real world example at [try.pantsu.cat](https://try.pantsu.cat/).
 
 ## Requirements
 

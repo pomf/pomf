@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
           link.appendChild(element); 
           var range = document.createRange();
           range.selectNode(element);
+          window.getSelection().removeAllRanges();
           window.getSelection().addRange(range);
           document.execCommand("copy");
           link.removeChild(element);
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var bar = row.querySelector('.file-progress');
     var percentIndicator = row.querySelector('.progress-percent');
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/upload.php');
+    xhr.open('POST', 'upload.php');
 
     xhr['row'] = row;
     xhr['bar'] = bar;
