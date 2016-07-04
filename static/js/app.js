@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
           link.appendChild(element); 
           var range = document.createRange();
           range.selectNode(element);
+          window.getSelection().removeAllRanges();
           window.getSelection().addRange(range);
           document.execCommand("copy");
           link.removeChild(element);
