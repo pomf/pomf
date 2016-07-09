@@ -101,7 +101,7 @@ chmod 0640 /var/db/pomf/pomf.sq3
 
 Finally, edit `php/includes/settings.inc.php` to indicate this is the database engine you would like to use.  Make the changes outlined below
 ```php
-define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');
 define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
 define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
 ```
@@ -142,7 +142,7 @@ chmod 0750 /var/db/pomf && chmod 0640 /var/db/pomf/sq3
 ```
 Edit the file `php/includes/settings.inc.php`, in your **source directory**, making the changes outlined below.  Note, changing the second two lines is optional, as they are simply ignored when using SQLite.
 ```php
-define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');`
+define('POMF_DB_CONN', '[stuff]'); ---> define('POMF_DB_CONN', 'sqlite:/var/db/pomf/pomf.sq3');
 define('POMF_DB_USER', '[stuff]'); ---> define('POMF_DB_USER', null);
 define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
 ```
