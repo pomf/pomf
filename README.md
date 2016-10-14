@@ -164,7 +164,7 @@ The Pomf community gathers on IRC. You can also email the maintainer for help.
 We'd really like if you can take some time to make sure your coding style is
 consistent with the project. Pomf follows [PHP
 PSR-2](http://www.php-fig.org/psr/psr-2/) and [Airbnb JavaScript
-(ES5)](https://github.com/airbnb/javascript/tree/master/es5) (`airbnb/legacy`)
+(ES5)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5) (`airbnb/legacy`)
 coding style guides. We use ESLint and PHPCS tools to enforce these standards.
 
 You can also help by sending us feature requests or writing documentation and
