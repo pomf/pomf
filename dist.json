@@ -19,8 +19,8 @@
 	"production": false,
 	"siteName": "Pomf",
 	"siteUrl": "http://example.com",
-	"abuseContact": "pomf-abuse@example.com",
-	"infoContact": "pomf-info@example.com",
+	"abuseContact": "abuse@example.com",
+	"infoContact": "info@example.com",
 	"paypalUrl": "",
 	"bitcoinAddress": "",
 	"flattrUrl": ""
