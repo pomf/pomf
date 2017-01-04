@@ -5,7 +5,7 @@
  *
  * @copyright Copyright (c) 2013, 2014 Peter Lejeck <peter.lejeck@gmail.com>
  * @copyright Copyright (c) 2015 cenci0 <alchimist94@gmail.com>
- * @copyright Copyright (c) 2015, 2016 the Pantsu.cat developers
+ * @copyright Copyright (c) 2015, 2016, 2017 the Pantsu.cat developers <hostmaster@pantsu.cat>
  * <hostmaster@pantsu.cat>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
