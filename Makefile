@@ -45,8 +45,8 @@ copy-img:
 	cp -vT $(CURDIR)/static/img/favicon.ico $(CURDIR)/build/favicon.ico
 
 copy-php:
-ifneq ($(wildcard $(CURDIR)/php/.),)
-	cp -rv $(CURDIR)/php/* $(CURDIR)/build/
+ifneq ($(wildcard $(CURDIR)/static/php/.),)
+	cp -rv $(CURDIR)/static/php/* $(CURDIR)/build/
 else
 	$(error The php submodule was not found)
 endif
