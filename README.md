@@ -72,7 +72,7 @@ After this, the pomf site is now compressed and set up inside `dist/`, or, if sp
 ## Configuring
 
 Front-end related settings, such as the name of the site, and maximum allowable
-file size, are found in `templates/site_variables.json`.  Changes made here will
+file size, are found in `dist.json`.  Changes made here will
 only take effect after rebuilding the site pages.  This may be done by running
 `make` from the root of the site directory.
 
