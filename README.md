@@ -25,7 +25,7 @@ Pomf is a simple file uploading and sharing platform.
 
 ### Demo
 
-See the real world example at [sugoi.vidyagam.es](https://sugoi.vidyagam.es/).
+See the real world example at [yuu.sh](https://yuu.sh/).
 
 ## Requirements
 
