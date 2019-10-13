@@ -25,6 +25,6 @@
     "swig": "^1.4.2"
   },
   "dependencies": {
-    "htmlmin": "0.0.6"
+    "htmlmin": "0.0.7"
   }
 }
