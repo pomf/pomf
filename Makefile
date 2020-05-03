@@ -32,7 +32,7 @@ ifneq (,$(findstring moe,$(MODULES)))
 endif
 	
 min-css:
-	$(NODE) $(CURDIR)/node_modules/.bin/cleancss --s0 $(CURDIR)/static/css/pomf.css > $(CURDIR)/build/pomf.min.css
+	$(NODE) $(CURDIR)/node_modules/.bin/cleancss --O1 specialComments:0 $(CURDIR)/static/css/pomf.css > $(CURDIR)/build/pomf.min.css
 
 min-js:
 	echo "// @source https://github.com/pomf/pomf/tree/master/static/js" > $(CURDIR)/build/pomf.min.js 
