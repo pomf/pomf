@@ -93,12 +93,8 @@ define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
  * Filtered mime types
  * @param string[] $FILTER_MIME allowed/blocked mime types
  */
-$FILTER_MIME = array();
-/**
- * Filter mode: whitelist (true) or blacklist (false)
- * @param bool $FILTER_MODE mime type filter mode
- */
-$FILTER_MODE = false;
+define ("CONFIG_BLOCKED_EXTENSIONS", serialize(array("exe")));
+define ("CONFIG_BLOCKED_MIME", serialize(array("application/x-dosexec")));
 /**
  * Double dot file extensions
  *
