@@ -27,6 +27,7 @@ function generateName($file)
     $tries = POMF_FILES_RETRIES;
     $length = POMF_FILES_LENGTH;
     $ext = pathinfo($file->name, PATHINFO_EXTENSION);
+    $file_mime = mime_content_type($file);
 
     // Check if extension is a double-dot extension and, if true, override $ext
     $revname = strrev($file->name);
@@ -56,6 +57,20 @@ function generateName($file)
             $name .= '.'.$ext;
         }
 
+        //Check if MIME is blacklisted
+        if(in_array($file_mime, unserialize(CONFIG_BLOCKED_MIME))){
+	       throw new UploadException(UPLOAD_ERR_EXTENSION);
+	       exit(0);
+        }
+        //Check if EXT is blacklisted
+        if(in_array($ext, unserialize(CONFIG_BLOCKED_EXTENSIONS))){
+          throw new UploadException(UPLOAD_ERR_EXTENSION);
+          exit(0);
+        }
+        
+        
+        
+        
         // Check if a file with the same name does already exist in the database
         $q = $db->prepare('SELECT COUNT(filename) FROM files WHERE filename = (:name)');
         $q->bindValue(':name', $name, PDO::PARAM_STR);
@@ -83,19 +98,6 @@ function uploadFile($file)
     // Handle file errors
     if ($file->error) {
         throw new UploadException($file->error);
-    }
-
-    // Check if mime type is blocked
-    if (!empty($FILTER_MIME)) {
-        if ($FILTER_MODE == true) { //whitelist mode
-            if (!in_array($file->mime, $FILTER_MIME)) {
-                throw new UploadException(UPLOAD_ERR_EXTENSION);
-            }
-        } else { //blacklist mode
-            if (in_array($file->mime, $FILTER_MIME)) {
-                throw new UploadException(UPLOAD_ERR_EXTENSION);
-            }
-        }
     }
 
 
