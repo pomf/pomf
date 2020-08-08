@@ -27,8 +27,7 @@ function generateName($file)
     $tries = POMF_FILES_RETRIES;
     $length = POMF_FILES_LENGTH;
     $ext = pathinfo($file->name, PATHINFO_EXTENSION);
-    $file_mime = mime_content_type($file);
-
+    
     // Check if extension is a double-dot extension and, if true, override $ext
     $revname = strrev($file->name);
     foreach ($doubledots as $ddot) {
