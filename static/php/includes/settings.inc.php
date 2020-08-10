@@ -88,13 +88,11 @@ define('POMF_URL', 'https://i.pantsu.cat/');
  */
 define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
 
-
 /**
- * Filtered mime types
- * @param string[] $FILTER_MIME allowed/blocked mime types
+ * Filtered mime types and extensions
  */
-define ("CONFIG_BLOCKED_EXTENSIONS", serialize(array("exe")));
-define ("CONFIG_BLOCKED_MIME", serialize(array("application/x-dosexec")));
+define("CONFIG_BLOCKED_EXTENSIONS", serialize(array("exe")));
+define("CONFIG_BLOCKED_MIME", serialize(array("application/x-dosexec")));
 /**
  * Double dot file extensions
  *
