@@ -15,24 +15,6 @@
 	</dl>
 </section>
 <section>
-	<h2>limf</h2>
-	<dl>
-		<dt>Download</dt>
-		<dd><a href="https://github.com/lich/limf">https://github.com/lich/limf</a></dd>
-		<dt>Contact</dt>
-		<dd><a href="http://lich.github.io/">http://lich.github.io/</a></dd>
-	</dl>
-</section>
-<section>
-	<h2>1339secure</h2>
-	<dl>
-		<dt>Download</dt>
-		<dd><a href="https://github.com/AdrianKoshka/1339secure">https://github.com/AdrianKoshka/1339secure</a></dd>
-		<dt>Contact</dt>
-		<dd><a href="mailto:adriankoshcha@teknik.io">adriankoshcha@teknik.io</a></dd>
-	</dl>
-</section>
-<section>
 	<h2>ShareX</h2>
 	<dl>
 		<dt>Download</dt>
