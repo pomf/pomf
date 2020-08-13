@@ -5,6 +5,7 @@ Status](https://travis-ci.org/pomf/pomf.svg?branch=master)](https://travis-ci.or
 Status](https://david-dm.org/pomf/pomf.svg)](https://david-dm.org/pomf/pomf)
 [![devDependency
 Status](https://david-dm.org/pomf/pomf/dev-status.svg)](https://david-dm.org/pomf/pomf#info=devDependencies)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pomf_pomf&metric=alert_status)](https://sonarcloud.io/dashboard?id=pomf_pomf)
 [![MIT
 licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/pomf/pomf/master/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/pomf/badge/?version=latest)](http://pomf.readthedocs.io/en/latest/?badge=latest)
