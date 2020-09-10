@@ -263,6 +263,7 @@ button.upload-clipboard-btn {
   font-size: 0.9em;
   margin-left: 8px;
   vertical-align: middle;
+  background-color: #F7F7F7;
 }
 .file-url a {
   color: #5C5C5C;
