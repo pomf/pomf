@@ -11,6 +11,11 @@ $images = array(
     'img/8.png',
     'img/9.png',
     'img/10.png',
+    'img/11.png',
+    'img/12.png',
+    'img/13.png',
+    'img/14.png',
+    'img/15.png',
 );
 
 // Redirect to a random image from the above array using status code "303 See Other" 
