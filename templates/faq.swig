@@ -18,7 +18,7 @@
 	<h2>Can you remove files that are defaming me or otherwise infringing my non-copyright rights?</h2>
 	<p>{{siteName}} respects takedowns for other files when accompanied with a certified SERVER-LOCATION court order. If you are unable to obtain the order, a preliminary injuction or court order is typically also sufficient. Please forward the notice to <a href="mailto:{{abuseContact}}">{{abuseContact}}</a>.</p>
 	<h2>Can you remove illegal files?</h2>
-	<p>Please contact the appropriate law enforcement agency if you notice illegal files hosted on Pantsu.cat. We have not been trained or qualified to investigate and fight crimes and enforce the law, so it's not appropriate to send accusations of illegal activity to us. <strong>You must contact the appropriate law enforcement office.</strong> They may then contact us if appropriate.</p>
+	<p>Please contact the appropriate law enforcement agency if you notice illegal files hosted on {{siteName}}. We have not been trained or qualified to investigate and fight crimes and enforce the law, so it's not appropriate to send accusations of illegal activity to us. <strong>You must contact the appropriate law enforcement office.</strong> They may then contact us if appropriate.</p>
 	<p>If you are an SERVER-LOCATION law enforcement official and you need our assistance, please contact <a href="mailto:{{abuseContact}}">{{abuseContact}}</a>. If you are a law enforcement official from another country, we may voluntarily cooperate if the crime you are investigating would also be illegal in SERVER-LOCATION.</p>
 	<h2>I have a question...</h2>
 	<p>Send us an email at <a href="mailto:{{infoContact}}">{{infoContact}}</a> and let's talk!</p>
