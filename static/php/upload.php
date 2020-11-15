@@ -26,7 +26,14 @@ function generateName($file)
     // We start at N retries, and --N until we give up
     $tries = POMF_FILES_RETRIES;
     $length = POMF_FILES_LENGTH;
+    
+    //Get EXT
     $ext = pathinfo($file->name, PATHINFO_EXTENSION);
+    
+    //Get MIME
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $type_mime = finfo_file($finfo, $file->tempfile);
+    finfo_close($finfo);
 
     // Check if extension is a double-dot extension and, if true, override $ext
     $revname = strrev($file->name);
@@ -57,7 +64,7 @@ function generateName($file)
         }
 
         //Check if MIME is blacklisted
-        if (in_array($file->mime, unserialize(CONFIG_BLOCKED_MIME))) {
+        if (in_array($type_mime, unserialize(CONFIG_BLOCKED_MIME))) {
             throw new UploadException(UPLOAD_ERR_EXTENSION);
             exit(0);
         }
