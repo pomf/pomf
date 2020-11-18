@@ -35,6 +35,8 @@ PDO-compatible database.
 For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
 Node, or NPM. So we'll just assume you already have them all running well.
 
+NPM/Node is only needed to compile the files, Uguu runs on PHP.
+
 ### Compiling
 
 First you must get a copy of the pomf code.  To do so, clone this git repo.
