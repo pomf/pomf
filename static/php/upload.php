@@ -1,11 +1,11 @@
 <?php
+
 session_start();
 
 /**
  * Handles POST uploads, generates filenames, moves files around and commits
  * uploaded metadata to database.
  */
-
 require_once 'classes/Response.class.php';
 require_once 'classes/UploadException.class.php';
 require_once 'classes/UploadedFile.class.php';
@@ -26,10 +26,10 @@ function generateName($file)
     // We start at N retries, and --N until we give up
     $tries = POMF_FILES_RETRIES;
     $length = POMF_FILES_LENGTH;
-    
+
     //Get EXT
     $ext = pathinfo($file->name, PATHINFO_EXTENSION);
-    
+
     //Get MIME
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
     $type_mime = finfo_file($finfo, $file->tempfile);
@@ -46,6 +46,7 @@ function generateName($file)
     do {
         // Iterate until we reach the maximum number of retries
         if ($tries-- === 0) {
+            http_response_code(500);
             throw new Exception(
                 'Gave up trying to find an unused name',
                 500
@@ -65,17 +66,16 @@ function generateName($file)
 
         //Check if MIME is blacklisted
         if (in_array($type_mime, unserialize(CONFIG_BLOCKED_MIME))) {
+            http_response_code(415);
             throw new UploadException(UPLOAD_ERR_EXTENSION);
             exit(0);
         }
         //Check if EXT is blacklisted
         if (in_array($ext, unserialize(CONFIG_BLOCKED_EXTENSIONS))) {
+            http_response_code(415);
             throw new UploadException(UPLOAD_ERR_EXTENSION);
             exit(0);
         }
-
-
-
 
         // Check if a file with the same name does already exist in the database
         $q = $db->prepare('SELECT COUNT(filename) FROM files WHERE filename = (:name)');
@@ -106,7 +106,6 @@ function uploadFile($file)
         throw new UploadException($file->error);
     }
 
-
     // Check if a file with the same hash and size (a file which is the same)
     // does already exist in the database; if it does, return the proper link
     // and data. PHP deletes the temporary file just uploaded automatically.
@@ -117,22 +116,23 @@ function uploadFile($file)
     $q->execute();
     $result = $q->fetch();
     if ($result['count'] > 0) {
-        return array(
+        return [
             'hash' => $file->getSha1(),
             'name' => $file->name,
             'url' => POMF_URL.rawurlencode($result['filename']),
             'size' => $file->size,
-        );
+        ];
     }
 
     // Generate a name for the file
     $newname = generateName($file);
 
     // Store the file's full file path in memory
-    $uploadFile = POMF_FILES_ROOT . $newname;
+    $uploadFile = POMF_FILES_ROOT.$newname;
 
     // Attempt to move it to the static directory
     if (!move_uploaded_file($file->tempfile, $uploadFile)) {
+        http_response_code(500);
         throw new Exception(
             'Failed to move file to destination',
             500
@@ -141,6 +141,7 @@ function uploadFile($file)
 
     // Need to change permissions for the new file to make it world readable
     if (!chmod($uploadFile, 0644)) {
+        http_response_code(500);
         throw new Exception(
             'Failed to change file permissions',
             500
@@ -150,13 +151,13 @@ function uploadFile($file)
     // Add it to the database
     if (empty($_SESSION['id'])) {
         // Query if user is NOT logged in
-        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, ' .
-                    'expire, delid) VALUES (:hash, :orig, :name, :size, :date, ' .
+        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
+                    'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del)');
     } else {
         // Query if user is logged in (insert user id together with other data)
-        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, ' .
-                    'expire, delid, user) VALUES (:hash, :orig, :name, :size, :date, ' .
+        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
+                    'expire, delid, user) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :user)');
         $q->bindValue(':user', $_SESSION['id'], PDO::PARAM_INT);
     }
@@ -171,24 +172,22 @@ function uploadFile($file)
     $q->bindValue(':del', sha1($file->tempfile), PDO::PARAM_STR);
     $q->execute();
 
-    return array(
+    return [
         'hash' => $file->getSha1(),
         'name' => $file->name,
         'url' => POMF_URL.rawurlencode($newname),
         'size' => $file->size,
-    );
+    ];
 }
 
 /**
  * Reorder files array by file.
  *
- * @param  $_FILES
- *
  * @return array
  */
 function diverseArray($files)
 {
-    $result = array();
+    $result = [];
 
     foreach ($files as $key1 => $value1) {
         foreach ($value1 as $key2 => $value2) {
@@ -202,13 +201,11 @@ function diverseArray($files)
 /**
  * Reorganize the $_FILES array into something saner.
  *
- * @param  $_FILES
- *
  * @return array
  */
 function refiles($files)
 {
-    $result = array();
+    $result = [];
     $files = diverseArray($files);
 
     foreach ($files as $file) {
