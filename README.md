@@ -86,6 +86,10 @@ option for nginx webserver is `client_max_body_size`.
 
 Example nginx configs can be found in confs/.
 
+## File expiration
+
+If you want files to expire please have a look at [Uguu](https://github.com/nokonoko/uguu) instead which is based on Pomf.
+
 ## Using SQLite as DB engine
 
 We need to create the SQLite database before it may be used by pomf.
