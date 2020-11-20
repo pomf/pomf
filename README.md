@@ -125,7 +125,7 @@ server{
     ssl on;
     ssl_certificate /path/to/fullchain.pem;
     ssl_certificate_key /path/toprivkey.pem;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;    
+    ssl_protocols TLSv1.2 TLSv1.3;   
 
     root /path/to/pomf/dist/;
     autoindex		off;
@@ -156,7 +156,7 @@ server{
     ssl on;
     ssl_certificate /path/to/fullchain.pem;
     ssl_certificate_key /path/to/privkey.pem;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols TLSv1.2 TLSv1.3;
     
     root            /path/where/uploaded/files/are/stored/;
     autoindex       off;
