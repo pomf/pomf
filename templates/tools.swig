@@ -5,6 +5,13 @@
 <div class="jumbotron">
 <h1>Pomf Tools</h1>
 </div>
+    <h3>
+      To upload using curl or make a tool you can post using:
+
+      <br/>
+
+      curl -i -F files[]=@yourfile.jpeg {{siteUrl}}/upload.php (JSON Response)
+    </h3>
 <section>
 	<h2>pomfload</h2>
 	<dl>

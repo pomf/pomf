@@ -22,6 +22,7 @@
 	"abuseContact": "abuse@example.com",
 	"infoContact": "info@example.com",
 	"ServerCountryLocation": "Sweden",
+	"SiteMetaInfo": "Pomf is a file hosting service.",
 	"paypalUrl": "",
 	"bitcoinAddress": "",
 	"flattrUrl": ""

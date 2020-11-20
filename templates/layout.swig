@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content="Pomf {{pkgVersion}}">
+		<meta name="Description" content="{{SiteMetaInfo}}">
 		<title>{{siteName}} &middot; {% block title %}Kawaii File Hosting{% endblock %}</title>
 		<link rel="icon" href="favicon.ico">
 		<link rel="stylesheet" href="pomf.min.css">
