@@ -119,7 +119,7 @@ Main domain:
 ```
 server{
     
-    listen	        443 ssl;
+    listen	        443 ssl http2;
     server_name		www.yourdomain.com yourdomain.com;
 
     ssl on;
@@ -150,7 +150,7 @@ server{
 Subdomain serving files (do not enable PHP here):
 ```
 server{
-    listen          443 ssl;
+    listen          443 ssl http2;
     server_name     www.subdomain.serveryourfiles.com subdomain.serveryourfiles.com;
 
     ssl on;
