@@ -2,3 +2,5 @@ node_modules
 dist
 dist.zip
 build
+.DS_Store
+static/.DS_Store
