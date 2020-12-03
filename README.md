@@ -208,6 +208,22 @@ Now, navigate to this subdirectory in your web browser, e.g. http://example.com/
 
 All done! You may disable or uninstall MySQL if you wish.
 
+## API
+To upload using curl or make a tool you can post using: 
+```
+curl -i -F files[]=@yourfile.jpeg https://pomf.se/upload.php (JSON Response)
+```
+```
+curl -i -F files[]=@yourfile.jpeg https://pomf.se/upload.php?output=text (Text Response)
+```
+```
+curl -i -F files[]=@yourfile.jpeg https://pomf.se/upload.php?output=csv (CSV Response)
+```
+```
+curl -i -F files[]=@yourfile.jpeg https://pomf.se/upload.php?output=html (HTML Response)
+```
+
+
 ## Getting help
 
 The Pomf community gathers on IRC. You can also email the maintainer for help.
