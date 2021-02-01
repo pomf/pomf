@@ -20,7 +20,7 @@
     "url": "https://github.com/pomf/pomf/issues"
   },
   "devDependencies": {
-    "clean-css": "^4.2.1",
+    "clean-css": "^5.0.1",
     "clean-css-cli": "^4.3.0",
     "uglify-js": "^2.6.2",
     "swig": "^1.4.2"
