@@ -32,7 +32,7 @@ PDO-compatible database.
 
 ## Install
 
-For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL,
+For the purposes of this guide, we won't cover setting up Nginx, PHP, MySQL or SQLite,
 Node, or NPM. So we'll just assume you already have them all running well.
 
 **NPM/Node is only needed to compile the files, Pomf runs on PHP.**
