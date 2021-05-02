@@ -124,6 +124,9 @@ function uploadFile($file)
         ];
     }
 
+    // Get IP
+    $ip = $_SERVER['REMOTE_ADDR'];
+
     // Generate a name for the file
     $newname = generateName($file);
 
@@ -151,14 +154,26 @@ function uploadFile($file)
     // Add it to the database
     if (empty($_SESSION['id'])) {
         // Query if user is NOT logged in
+        if(LOG_IP == 'yes'){
+        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
+                    'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
+                        ':exp, :del, :ip)');
+        } else {
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
                     'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del)');
+        }
     } else {
         // Query if user is logged in (insert user id together with other data)
+        if(LOG_IP == 'yes'){
+        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
+                    'expire, delid, user) VALUES (:hash, :orig, :name, :size, :date, '.
+                        ':exp, :del, :user, :ip)');
+        } else {
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
                     'expire, delid, user) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :user)');
+        }
         $q->bindValue(':user', $_SESSION['id'], PDO::PARAM_INT);
     }
 
@@ -170,6 +185,7 @@ function uploadFile($file)
     $q->bindValue(':date', date('Y-m-d'), PDO::PARAM_STR);
     $q->bindValue(':exp', null, PDO::PARAM_STR);
     $q->bindValue(':del', sha1($file->tempfile), PDO::PARAM_STR);
+    $q->bindValue(':ip', $ip, PDO::PARAM_STR);
     $q->execute();
 
     return [

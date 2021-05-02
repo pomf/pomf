@@ -12,5 +12,6 @@ CREATE TABLE `files` (
 ,  `delid` char(40) default NULL
 ,  `user` integer  default '0'
 ,  `dir` integer default '0'
+,  `ip` char(15) default NULL
 );
 END TRANSACTION;

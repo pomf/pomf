@@ -17,6 +17,7 @@ CREATE TABLE `files` (
   `delid` char(40) default NULL,
   `user` int(10) unsigned default '0',
   `dir` int(2) default '0',
+  `ip` char(15) default NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 -- `filename` length (30) may be a bit excessive, since the average length would be smaller

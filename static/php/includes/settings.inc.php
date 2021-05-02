@@ -66,6 +66,9 @@ define('POMF_FILES_ROOT', '/mnt/pantsu/http/files/');
  */
 define('POMF_FILES_RETRIES', 15);
 
+/** Log IP of uploads */
+define('LOG_IP', 'no');
+
 /**
  * The length of generated filename (without file extension)
  *
