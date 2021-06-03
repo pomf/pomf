@@ -245,7 +245,7 @@ Thanks!
 
 ## Credits
 
-Pomf was created by Eric Johansson and Peter Lejeck for
+Pomf was created by Eric Johansson and Emma Lejeck for
 [Pomf.se](http://pomf.se/). The software is currently maintained by the
 community.
 
