@@ -159,9 +159,10 @@ function uploadFile($file)
                     'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :ip)');
         } else {
+        $ip = '0';
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                    'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
-                        ':exp, :del)');
+                    'expire, delid, :ip) VALUES (:hash, :orig, :name, :size, :date, '.
+                        ':exp, :del, :ip)');
         }
     } else {
         // Query if user is logged in (insert user id together with other data)
@@ -170,7 +171,7 @@ function uploadFile($file)
                     'expire, delid, user, ip) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :user, :ip)');
         } else {
-        $ip = '0'
+        $ip = '0';
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
                     'expire, delid, user, ip) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :user, :ip)');
