@@ -156,26 +156,19 @@ function uploadFile($file)
         // Query if user is NOT logged in
         if(LOG_IP == 'yes'){
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                    'expire, delid) VALUES (:hash, :orig, :name, :size, :date, '.
+                    'expire, delid, ip) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :ip)');
         } else {
         $ip = '0';
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                    'expire, delid, :ip) VALUES (:hash, :orig, :name, :size, :date, '.
+                    'expire, delid, ip) VALUES (:hash, :orig, :name, :size, :date, '.
                         ':exp, :del, :ip)');
         }
     } else {
         // Query if user is logged in (insert user id together with other data)
-        if(LOG_IP == 'yes'){
         $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                    'expire, delid, user, ip) VALUES (:hash, :orig, :name, :size, :date, '.
-                        ':exp, :del, :user, :ip)');
-        } else {
-        $ip = '0';
-        $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-                    'expire, delid, user, ip) VALUES (:hash, :orig, :name, :size, :date, '.
-                        ':exp, :del, :user, :ip)');
-        }
+                    'expire, delid, user) VALUES (:hash, :orig, :name, :size, :date, '.
+                        ':exp, :del, :user)');
         $q->bindValue(':user', $_SESSION['id'], PDO::PARAM_INT);
     }
 
