@@ -253,3 +253,9 @@ community.
 
 Pomf is free software, and is released under the terms of the Expat license. See
 `LICENSE`.
+
+## To do in release v2.3.0
+* Mod feature and interface (aka fix the Moe module)
+* Blacklist DB (already exists on Uguu.se, but not in this code)
+* Code cleanup
+* ???
