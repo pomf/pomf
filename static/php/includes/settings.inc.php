@@ -94,8 +94,9 @@ define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
 /**
  * Filtered mime types and extensions
  */
-define("CONFIG_BLOCKED_EXTENSIONS", serialize(array("exe")));
-define("CONFIG_BLOCKED_MIME", serialize(array("application/x-dosexec")));
+define('CONFIG_BLOCKED_EXTENSIONS', serialize(['exe', 'scr', 'com', 'vbs', 'bat', 'cmd', 'htm', 'html', 'jar', 'msi', 'apk', 'phtml', 'svg']));
+define('CONFIG_BLOCKED_MIME', serialize(['application/msword', 'text/html', 'application/x-dosexec', 'application/java', 'application/java-archive', 'application/x-executable', 'application/x-mach-binary', 'image/svg+xml']));
+
 /**
  * Double dot file extensions
  *
