@@ -37,7 +37,7 @@
  * PDO_MYSQL DSN.
  * @param string POMF_DB_CONN DSN:host|unix_socket=hostname|path;dbname=database
  */
-define('POMF_DB_CONN', 'mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=pomf');
+define('POMF_DB_CONN', 'sqlite:/path/to/db/pomf.sq3');
 
 /**
  * PDO database login credentials
