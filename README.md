@@ -12,7 +12,7 @@ Pomf is a simple file uploading and sharing platform.
 
 - One click uploading, no registration required
 - A minimal, modern web interface
-- Drag & drop supported
+- Drag & drop & Paste supported
 - Upload API with multiple response choices
   - JSON
   - HTML
