@@ -125,7 +125,9 @@ server{
     ssl on;
     ssl_certificate /path/to/fullchain.pem;
     ssl_certificate_key /path/toprivkey.pem;
-    ssl_protocols TLSv1.2 TLSv1.3;   
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+    ssl_ecdh_curve secp384r1;  
 
     root /path/to/pomf/dist/;
     autoindex		off;
@@ -150,13 +152,15 @@ server{
 Subdomain serving files (do not enable PHP here):
 ```
 server{
-    listen          443 ssl http2;
+    listen          443 ssl;
     server_name     www.subdomain.serveryourfiles.com subdomain.serveryourfiles.com;
 
     ssl on;
     ssl_certificate /path/to/fullchain.pem;
     ssl_certificate_key /path/to/privkey.pem;
     ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+    ssl_ecdh_curve secp384r1;
     
     root            /path/where/uploaded/files/are/stored/;
     autoindex       off;
