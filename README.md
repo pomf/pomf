@@ -43,7 +43,9 @@ If you want files to expire please have a look at [Uguu](https://github.com/noko
 
 ## Getting help
 
-The Pomf community gathers on IRC. You can also email the maintainer for help.
+Hit me up at [@nekunekus](https://twitter.com/nekunekus) or email me at [neku@pomf.se](mailto:neku@pomf.se).
+
+The Pomf community gathers on IRC.
 
 - IRC (users): `#pomfret` on Rizon (`irc.rizon.net`)
 
