@@ -4,6 +4,7 @@ Status](https://travis-ci.org/pomf/pomf.svg?branch=master)](https://travis-ci.or
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pomf_pomf&metric=alert_status)](https://sonarcloud.io/dashboard?id=pomf_pomf)
 [![MIT
 licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/pomf/pomf/master/LICENSE)
+[![Documentation Status](https://docs.uguu.se/img/flat.svg)](https://docs.uguu.se/pomf)
 
 Pomf is a simple file uploading and sharing platform.
 
@@ -22,6 +23,10 @@ Pomf is a simple file uploading and sharing platform.
 ### Demo
 
 See the ((slightly modified)) real world example at [safe.moe](https://safe.moe).
+
+## Docs
+
+**Detailed and updated installation and configuration can be found at [Pomf Documentation](https://docs.uguu.se/pomf).**
 
 ## Requirements
 
@@ -81,8 +86,6 @@ increase POST size limits in `php.ini` and webserver configuration. For PHP,
 modify `upload_max_filesize` and `post_max_size` values. The configuration
 option for nginx webserver is `client_max_body_size`.
 
-Example nginx configs can be found in confs/.
-
 ## File expiration
 
 If you want files to expire please have a look at [Uguu](https://github.com/nokonoko/uguu) instead which is based on Pomf.
@@ -96,7 +99,7 @@ First create a directory for the database, e.g. `mkdir /var/db/pomf`.
 Then, create a new SQLite database from the schema, e.g. `sqlite3 /var/db/pomf/pomf.sq3 -init /home/pomf/sqlite_schema.sql`.
 Then, finally, ensure the permissions are correct, e.g.
 ```bash
-chown nginx:nginx /var/db/pomf
+chown www-data:www-data /var/db/pomf
 chmod 0750 /var/db/pomf
 chmod 0640 /var/db/pomf/pomf.sq3
 ```
@@ -110,72 +113,6 @@ define('POMF_DB_PASS', '[stuff]'); ---> define('POMF_DB_PASS', null);
 
 *NOTE: The directory where the SQLite database is stored, must be writable by the web server user*
 
-## Nginx example config
-
-I won't cover settings everything up, here are some Nginx examples. Use [Letsencrypt](https://letsencrypt.org) to obain a SSL cert.
-
-Main domain:
-```
-server{
-    
-    listen	        443 ssl http2;
-    server_name		www.yourdomain.com yourdomain.com;
-
-    ssl on;
-    ssl_certificate /path/to/fullchain.pem;
-    ssl_certificate_key /path/toprivkey.pem;
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
-    ssl_ecdh_curve secp384r1;  
-
-    root /path/to/pomf/dist/;
-    autoindex		off;
-    access_log      off;
-    index index.html index.php;  
-
-    location ~* \.(ico|css|js|ttf)$ {
-    expires 7d;
-    }
-
-    location ~* \.php$ {
-    fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
-    fastcgi_intercept_errors on;
-    fastcgi_index index.php;
-    fastcgi_split_path_info ^(.+\.php)(.*)$;
-    include fastcgi_params;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-}
-```
-
-Subdomain serving files (do not enable PHP here):
-```
-server{
-    listen          443 ssl;
-    server_name     www.subdomain.serveryourfiles.com subdomain.serveryourfiles.com;
-
-    ssl on;
-    ssl_certificate /path/to/fullchain.pem;
-    ssl_certificate_key /path/to/privkey.pem;
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
-    ssl_ecdh_curve secp384r1;
-    
-    root            /path/where/uploaded/files/are/stored/;
-    autoindex       off;
-    access_log	    off;
-    index           index.html;
-}
-```
-
-To redirect HTTP to HTTPS make a config for each domain like so:
-```
-server {
-    listen 80;
-    server_name www.domain.com domain.com; 
-    return 301 https://domain.com$request_uri;
-}
-```
 
 ### Migrating from MySQL to SQLite
  ,
