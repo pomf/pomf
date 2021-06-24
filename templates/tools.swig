@@ -5,6 +5,7 @@
 <div class="jumbotron">
 <h1>Pomf Tools</h1>
 </div>
+<div class="alert alert-info">
     <h3>
       To upload using curl or make a tool you can post using:
 
@@ -59,5 +60,6 @@
 		<dd><a href="mailto:les@fuwafuwa.moe">les@fuwafuwa.moe</a></dd>
 	</dl>
 </section>
+</div>
 {% include "nav.swig" %}
 {% endblock %}
