@@ -22,7 +22,7 @@ Pomf is a simple file uploading and sharing platform.
 
 ### Demo
 
-See the ((slightly modified)) real world example at [safe.moe](https://safe.moe).
+See the real world example at [demo.pomf.se](https://demo.pomf.se).
 
 
 ## Requirements
