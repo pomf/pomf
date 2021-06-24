@@ -7,6 +7,7 @@
  * @copyright Copyright (c) 2015 cenci0 <alchimist94@gmail.com>
  * @copyright Copyright (c) 2015, 2016, 2017 the Pantsu.cat developers <hostmaster@pantsu.cat>
  * <hostmaster@pantsu.cat>
+ * @copyright Copyright (c) 2019, 2020, 2021 Eric Johansson (nekunekus) <neku@pomf.se>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +45,7 @@ define('POMF_DB_CONN', 'sqlite:/path/to/db/pomf.sq3');
  */
 
 /** @param string POMF_DB_NAME Database username */
-define('POMF_DB_USER', 'pomf');
+define('POMF_DB_USER', '');
 /** @param string POMF_DB_PASS Database password */
 define('POMF_DB_PASS', '');
 
@@ -53,7 +54,7 @@ define('POMF_DB_PASS', '');
  *
  * @param string Path to directory with trailing delimiter
  */
-define('POMF_FILES_ROOT', '/mnt/pantsu/http/files/');
+define('POMF_FILES_ROOT', '/path/to/your/uploaded/files/');
 
 /**
  * Maximum number of iterations while generating a new filename
@@ -75,21 +76,21 @@ define('LOG_IP', 'no');
  * @param int POMF_FILES_LENGTH Number of random alphabetical ASCII characters
  * to use
  */
-define('POMF_FILES_LENGTH', 6);
+define('POMF_FILES_LENGTH', 8);
 
 /**
  * URI to prepend to links for uploaded files
  *
  * @param string POMF_URL URI with trailing delimiter
  */
-define('POMF_URL', 'https://i.pantsu.cat/');
+define('POMF_URL', 'https://your.file.serving.domain/');
 
 /**
  * URI for filename generation
  *
  * @param string characters to be used in generateName()
  */
-define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyz');
+define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 /**
  * Filtered mime types and extensions
