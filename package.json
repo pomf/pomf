@@ -1,8 +1,8 @@
 {
   "name": "pomf",
-  "version": "2.1.0",
-  "description": "Kawaii file host",
-  "homepage": "https://pantsu.cat/",
+  "version": "2.4.1",
+  "description": "Kawaii file hosting",
+  "homepage": "https://demo.pomf.se",
   "repository": {
     "type": "git",
     "url": "https://github.com/pomf/pomf"
