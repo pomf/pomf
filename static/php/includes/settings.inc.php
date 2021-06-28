@@ -68,7 +68,7 @@ define('POMF_FILES_ROOT', '/path/to/your/uploaded/files/');
 define('POMF_FILES_RETRIES', 15);
 
 /** Log IP of uploads */
-define('LOG_IP', 'no');
+define('LOG_IP', false);
 
 /**
  * The length of generated filename (without file extension)
@@ -115,3 +115,5 @@ $doubledots = array_map('strrev', array(
     'tar.xz',
     'user.js',
 ));
+
+define('MOE', 'false');
