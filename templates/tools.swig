@@ -30,7 +30,7 @@
 		<dt>Source</dt>
 		<dd><a href="https://github.com/ShareX/ShareX">https://github.com/ShareX/ShareX</a></dd>
 		<dt>Contact</dt>
-		<dd><a href="https://webchat.freenode.net/?channels=%23ShareX">#ShareX on irc.freenode.net</a></dd>
+		<dd><a href="https://discord.gg/ShareX">Discord</a></dd>
 	</dl>
 </section>
 <section>
