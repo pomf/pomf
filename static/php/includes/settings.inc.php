@@ -67,7 +67,9 @@ define('POMF_FILES_ROOT', '/path/to/your/uploaded/files/');
  */
 define('POMF_FILES_RETRIES', 15);
 
-/** Log IP of uploads */
+/** 
+ * @param boolean Log IP of uploads 
+ * */
 define('LOG_IP', false);
 
 /**
@@ -93,10 +95,16 @@ define('POMF_URL', 'https://your.file.serving.domain/');
 define('ID_CHARSET', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 /**
- * Filtered mime types and extensions
+ * @param string[] Filtered mime types and extensions
  */
 define('CONFIG_BLOCKED_EXTENSIONS', serialize(['exe', 'scr', 'com', 'vbs', 'bat', 'cmd', 'htm', 'html', 'jar', 'msi', 'apk', 'phtml', 'svg']));
 define('CONFIG_BLOCKED_MIME', serialize(['application/msword', 'text/html', 'application/x-dosexec', 'application/java', 'application/java-archive', 'application/x-executable', 'application/x-mach-binary', 'image/svg+xml']));
+
+/**
+ * Whitelist or blacklist mode
+ * @param boolean blacklist (false) | whitelist (true)
+ */
+define('CONFIG_FILTER_MODE', false);
 
 /**
  * Double dot file extensions
