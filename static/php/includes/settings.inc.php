@@ -38,6 +38,7 @@
  * PDO_MYSQL DSN.
  * @param string POMF_DB_CONN DSN:host|unix_socket=hostname|path;dbname=database
  */
+//define('POMF_DB_CONN', 'mysql:unix_socket=/tmp/mysql.sock;dbname=pomf');
 define('POMF_DB_CONN', 'sqlite:/path/to/db/pomf.sq3');
 
 /**
@@ -71,6 +72,12 @@ define('POMF_FILES_RETRIES', 15);
  * @param boolean Log IP of uploads 
  * */
 define('LOG_IP', false);
+
+/** 
+ * @param boolean blacklist DB
+ * ONLY ENABLE THIS IS YOU ARE USING THE LATEST DB SCHEMA!
+ */
+define('BLACKLIST_DB', false);
 
 /**
  * The length of generated filename (without file extension)

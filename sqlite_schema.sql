@@ -7,11 +7,19 @@ CREATE TABLE `files` (
 ,  `originalname` varchar(255) default NULL
 ,  `filename` varchar(30) default NULL
 ,  `size` integer  default NULL
-,  `date` date default NULL
-,  `expire` date default NULL
-,  `delid` char(40) default NULL
-,  `user` integer  default '0'
-,  `dir` integer default '0'
+,  `date` integer default NULL
 ,  `ip` char(15) default NULL
+);
+CREATE TABLE `accounts` (
+  `id` integer  NOT NULL PRIMARY KEY AUTOINCREMENT
+,  `email` varchar(255) default NULL
+,  `pass` varchar(255) default NULL
+,  `level` integer  default NULL
+);
+CREATE TABLE `blacklist` (
+  `id` integer  NOT NULL PRIMARY KEY AUTOINCREMENT
+,  `hash` char(40) default NULL
+,  `originalname` varchar(255) default NULL
+,  `time` integer default NULL
 );
 END TRANSACTION;

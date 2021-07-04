@@ -1,7 +1,4 @@
 <?php
-
-session_start();
-
 /**
  * Handles POST uploads, generates filenames, moves files around and commits
  * uploaded metadata to database.
@@ -64,6 +61,22 @@ function generateName($file)
             $name .= '.'.$ext;
         }
 
+        // Check if the file is blacklisted
+        if(BLACKLIST_DB){
+            $q = $db->prepare('SELECT hash, COUNT(*) AS count FROM blacklist WHERE hash = (:hash)');
+            $q->bindValue(':hash', $file->getSha1(), PDO::PARAM_STR);
+            $q->execute();
+            $result = $q->fetch();
+            if ($result['count'] > 0) {
+                http_response_code(415);
+                throw new Exception(
+                    'File blacklisted!',
+                    415
+                );
+            exit(0);    
+            }
+        }
+
         // Check if file is whitelisted or blacklisted
         switch (CONFIG_FILTER_MODE) {
 
@@ -71,12 +84,20 @@ function generateName($file)
                 //check if MIME is blacklisted
                 if (in_array($type_mime, unserialize(CONFIG_BLOCKED_MIME))) {
                     http_response_code(415);
-                    exit(0);
+                    throw new Exception(
+                        'File type not allowed!',
+                        415
+                    );
+                exit(0);   
                 }
                 //Check if EXT is blacklisted
                 if (in_array($ext, unserialize(CONFIG_BLOCKED_EXTENSIONS))) {
                     http_response_code(415);
-                    exit(0);
+                    throw new Exception(
+                        'File type not allowed!',
+                        415
+                    );
+                exit(0);  
                 }
             break;
 
@@ -84,12 +105,20 @@ function generateName($file)
                 //Check if MIME is whitelisted
                 if (!in_array($type_mime, unserialize(CONFIG_BLOCKED_MIME))) {
                     http_response_code(415);
-                    exit(0);
+                    throw new Exception(
+                        'File type not allowed!',
+                        415
+                    );
+                exit(0);  
                 }
                 //Check if EXT is whitelisted
                 if (!in_array($ext, unserialize(CONFIG_BLOCKED_EXTENSIONS))) {
                     http_response_code(415);
-                    exit(0);
+                    throw new Exception(
+                        'File type not allowed!',
+                        415
+                    );
+                exit(0);  
                 }
             break;
         }
@@ -163,41 +192,20 @@ function uploadFile($file)
         ); // HTTP status code "500 Internal Server Error"
     }
 
-    //Check if user or IP is to be logged
-    switch(TRUE){
-        case(LOG_IP and !empty($_SESSION['id'])):
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $user = $_SESSION['id'];
-        break;
-        
-        case(!LOG_IP and !empty($_SESSION['id'])):
-            $ip = null;
-            $user = $_SESSION['id'];
-        break;
-        
-        case(LOG_IP and empty($_SESSION['id'])):
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $user = null;
-        break;
-        
-        default:
-            $ip = null;
-            $user = null;
-        break;
+    // Log IP
+    if(LOG_IP){
+        $ip = $_SERVER['REMOTE_ADDR'];
+    } else {
+        $ip = null;
     }
 
     // Common parameters binding
-    $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, '.
-    'expire, delid, user, ip) VALUES (:hash, :orig, :name, :size, :date, '.
-        ':exp, :del, :user, :ip)');
+    $q = $db->prepare('INSERT INTO files (hash, originalname, filename, size, date, ip) VALUES (:hash, :orig, :name, :size, :date, :ip)');
     $q->bindValue(':hash', $file->getSha1(), PDO::PARAM_STR);
     $q->bindValue(':orig', strip_tags($file->name), PDO::PARAM_STR);
     $q->bindValue(':name', $newname, PDO::PARAM_STR);
     $q->bindValue(':size', $file->size, PDO::PARAM_INT);
-    $q->bindValue(':date', date('Y-m-d'), PDO::PARAM_STR);
-    $q->bindValue(':exp', null, PDO::PARAM_STR);
-    $q->bindValue(':del', sha1($file->tempfile), PDO::PARAM_STR);
-    $q->bindValue(':user', $user, PDO::PARAM_INT);
+    $q->bindValue(':date', time(), PDO::PARAM_STR);
     $q->bindValue(':ip', $ip, PDO::PARAM_STR);
     $q->execute();
 
