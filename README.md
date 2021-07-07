@@ -37,6 +37,8 @@ Node is used to compile Pomf, after that is runs on PHP.
 
 Installation and configuration can be found at [Pomf Documentation](https://docs.uguu.se/pomf).
 
+If you need a admin panel check out [Moe Panel](https://github.com/pomf/MoePanel).
+
 ## File expiration
 
 If you want files to expire please have a look at [Uguu](https://github.com/nokonoko/uguu) instead which is based on Pomf.
