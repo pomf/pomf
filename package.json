@@ -1,6 +1,6 @@
 {
   "name": "pomf",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Kawaii file hosting",
   "homepage": "https://demo.pomf.se",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "author": "Eliot Whalan <ewhal@pantsu.cat>",
   "contributors": [
-    "Eric Johansson <neku@pomf.se>",
+    "Go Johansson <neku@pomf.se>",
     "Peter Lejeck <peter.lejeck@gmail.com>",
     "cenci0 <alchimist94@gmail.com>",
     "Juuso Lapinlampi <wub@partyvan.eu>",

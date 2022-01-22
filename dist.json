@@ -1,29 +1,68 @@
 {
-	"init": {
-          "allowErrors": false
-        },
-        "dest": "dist",
-        "pkgVersion": "2.6.0",
-	"banners": [
-		"banners/malware_scans.swig",
-		"banners/donations.swig"
-	],
-	"src": [
-		"templates/index.swig",
-		"templates/faq.swig",
-		"templates/tools.swig"
-	],
-	"generateRobotstxt": false,
-	"generateSitemap": false,
-	"max_upload_size": 128,
-	"production": false,
-	"siteName": "Pomf",
-	"siteUrl": "http://example.com",
-	"abuseContact": "abuse@example.com",
-	"infoContact": "info@example.com",
-	"ServerCountryLocation": "Sweden",
-	"SiteMetaInfo": "Pomf is a file hosting service.",
-	"paypalUrl": "",
-	"bitcoinAddress": "",
-	"flattrUrl": ""
+  "init": {
+    "allowErrors": false
+  },
+  "dest": "dist",
+  "pkgVersion": "2.7.0",
+  "banners": [
+    "banners/malware_scans.swig",
+    "banners/donations.swig"
+  ],
+  "src": [
+    "templates/index.swig",
+    "templates/faq.swig",
+    "templates/tools.swig"
+  ],
+  "generateRobotstxt": false,
+  "generateSitemap": false,
+  "max_upload_size": 128,
+  "production": false,
+  "siteName": "Pomf",
+  "siteUrl": "http://example.com",
+  "abuseContact": "abuse@example.com",
+  "infoContact": "info@example.com",
+  "ServerCountryLocation": "Sweden",
+  "SiteMetaInfo": "Pomf is a file hosting service.",
+  "paypalUrl": "",
+  "bitcoinAddress": "",
+  "flattrUrl": "",
+  "DB_MODE": "sqlite",
+  "DB_PATH": "/var/www/db/pomf.sq3",
+  "DB_USER": "NULL",
+  "DB_PASS": "NULL",
+  "LOG_IP": false,
+  "ANTI_DUPE": false,
+  "BLACKLIST_DB": true,
+  "FILTER_MODE": true,
+  "FILES_ROOT": "/var/www/files/",
+  "FILES_RETRIES": 15,
+  "SSL": "true",
+  "URL": "a.pomf.se",
+  "NAME_LENGTH": 8,
+  "ID_CHARSET": "abcdefghijklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ",
+  "BLOCKED_EXTENSIONS": [
+    "exe",
+    "scr",
+    "com",
+    "vbs",
+    "bat",
+    "cmd",
+    "htm",
+    "html",
+    "jar",
+    "msi",
+    "apk",
+    "phtml",
+    "svg"
+  ],
+  "BLOCKED_MIME": [
+    "application/msword",
+    "text/html",
+    "application/x-dosexec",
+    "application/java",
+    "application/java-archive",
+    "application/x-executable",
+    "application/x-mach-binary",
+    "image/svg+xml"
+  ]
 }
