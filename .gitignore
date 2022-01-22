@@ -8,3 +8,4 @@ package-lock.json
 pomf.sq3
 .idea
 *.xml
+.phpdoc
