@@ -72,13 +72,29 @@ class Upload
     public function uploadFile(): array
     {
         (new Settings())->loadConfig();
+        (new Upload())->fileInfo();
 
-        if (Settings::$ANTI_DUPE) {
-            (new Database())->antiDupe();
+        if (Settings::$BLACKLIST_DB) {
+            (new Database())->checkFileBlacklist();
         }
 
-        (new Upload())->generateName();
+        if (Settings::$FILTER_MODE) {
+            self::checkMimeBlacklist();
+            self::checkExtensionBlacklist();
+        }
 
+        if (Settings::$ANTI_DUPE) {
+            $result = (new Database())->antiDupe();
+            if (isset($result)) {
+                self::$NEW_NAME_FULL = $result;
+            } else {
+                (new Upload())->generateName();
+            }
+        }
+
+        if (!Settings::$ANTI_DUPE) {
+            (new Upload())->generateName();
+        }
 
         if (!is_dir(Settings::$FILES_ROOT)) {
             throw new Exception('File storage path not accessible.', 500);
@@ -106,41 +122,6 @@ class Upload
             'url' => $preURL . Settings::$URL . '/' . rawurlencode(self::$NEW_NAME_FULL),
             'size' => self::$FILE_SIZE
         ];
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function generateName(): string
-    {
-        (new Upload())->fileInfo();
-
-        do {
-            if (Settings::$FILES_RETRIES === 0) {
-                throw new Exception('Gave up trying to find an unused name!', 500);
-            }
-
-            self::$NEW_NAME = '';
-            for ($i = 0; $i < Settings::$NAME_LENGTH; ++$i) {
-                self::$NEW_NAME .= Settings::$ID_CHARSET[mt_rand(0, strlen(Settings::$ID_CHARSET))];
-            }
-
-            if (isset(self::$FILE_EXTENSION)) {
-                self::$NEW_NAME_FULL = self::$NEW_NAME;
-                self::$NEW_NAME_FULL .= '.' . self::$FILE_EXTENSION;
-            }
-
-            if (Settings::$BLACKLIST_DB) {
-                (new Database())->checkFileBlacklist();
-            }
-
-            if (Settings::$FILTER_MODE) {
-                self::checkMimeBlacklist();
-                self::checkExtensionBlacklist();
-            }
-        } while ((new Database())->dbCheckNameExists() > 0);
-
-        return self::$NEW_NAME_FULL;
     }
 
     public function fileInfo()
@@ -178,5 +159,29 @@ class Upload
         if (in_array(self::$FILE_EXTENSION, Settings::$BLOCKED_EXTENSIONS)) {
             throw new Exception('Filetype not allowed.', 415);
         }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function generateName(): string
+    {
+        do {
+            if (Settings::$FILES_RETRIES === 0) {
+                throw new Exception('Gave up trying to find an unused name!', 500);
+            }
+
+            self::$NEW_NAME = '';
+            for ($i = 0; $i < Settings::$NAME_LENGTH; ++$i) {
+                self::$NEW_NAME .= Settings::$ID_CHARSET[mt_rand(0, strlen(Settings::$ID_CHARSET))];
+            }
+
+            if (isset(self::$FILE_EXTENSION)) {
+                self::$NEW_NAME_FULL = self::$NEW_NAME;
+                self::$NEW_NAME_FULL .= '.' . self::$FILE_EXTENSION;
+            }
+        } while ((new Database())->dbCheckNameExists() > 0);
+
+        return self::$NEW_NAME_FULL;
     }
 }
