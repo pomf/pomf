@@ -23,7 +23,8 @@ htmlmin:
 	$(NODE) node_modules/htmlmin/bin/htmlmin $(CURDIR)/build/tools.html -o $(CURDIR)/build/tools.html 
 
 installdirs:
-	mkdir -p $(DESTDIR)/ $(DESTDIR)/img
+		mkdir -p $(DESTDIR)/ $(DESTDIR)/img
+    	mkdir -p $(DESTDIR)/ $(DESTDIR)/img/grills
 ifneq (,$(findstring php,$(MODULES)))
 	mkdir -p $(DESTDIR)/classes $(DESTDIR)/includes
 endif
@@ -41,7 +42,8 @@ min-js:
 	echo "// @license-end" >> $(CURDIR)/build/pomf.min.js
 
 copy-img:
-	cp -v $(CURDIR)/static/img/*.png $(CURDIR)/build/img/
+		cp -v $(CURDIR)/static/img/*.png $(CURDIR)/build/img/
+    	cp -R $(CURDIR)/static/img/grills $(CURDIR)/build/img/
 	
 copy-php:
 ifneq ($(wildcard $(CURDIR)/static/php/.),)
