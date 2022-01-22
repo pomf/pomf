@@ -27,9 +27,7 @@ See the real world example at [demo.pomf.se](https://demo.pomf.se).
 
 ## Requirements
 
-Original development environment is Nginx + PHP7.3 + SQLite, but is confirmed to
-work with Apache 2.4 and newer PHP versions. Should work with any other
-PDO-compatible database.
+Tested and working with Nginx + PHP-8.0/8.1 + SQLite/MySQL. 
 
 Node is used to compile Pomf, after that is runs on PHP.
 
