@@ -8,6 +8,8 @@ licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.github
 
 Pomf is a simple file uploading and sharing platform.
 
+-> Until Pomf is updated I recommend using [Uguu](https://github.com/nokonoko/Uguu)!<- 
+
 ## Features
 
 - One click uploading, no registration required
